@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:topic" "urn:pubid:dita4publishers.org:doctypes:dita:topic">
+<topic
+  id="topic-id">
+  <title>Call for Sample Publications (Free Data Conversion)</title>
+  <body>
+    <p>Eliot Kimber says: </p>
+    <p>For Publishing document samples, my general offer is:</p>
+    <p>If you, the Publisher, will provide:</p>
+    <ul>
+      <li>Electronic source and final form of one or more Publishing documents</li>
+      <li>An appropriate non-copyright license, such as a <xref
+          href="http://creativecommons.org/"
+          format="html"
+          scope="external">Creative Commons</xref> non-commercial license, for those documents as
+        served by the DITA For Publishers project through the project's Web site  (so that the DITA
+        For Publishing project can make the source and rendered forms freely available for at least
+        non-commercial use).</li>
+    </ul>
+    <p>I will provide:</p>
+    <ul>
+      <li>Conversion of the content to DITA-based XML using the Publishing For DITA markup as
+        appropriate.</li>
+      <li>The resulting XML back to you, the Publisher, with your original copyright retained, for
+        you to do with as you will.</li>
+      <li>Such renditions as I can produce with the tools at hand (e.g., HTML, EPub, PDF using
+        XSL-FO).</li>
+    </ul>
+    <p>In the unlikely event I get inundated with samples, I retain the right to cry "uncle". </p>
+    <p>Note that this is an offer of <i>free data conversion</i> at the small cost of providing a
+      non-exclusive, non-commercial-use license for the content. The value to the DITA For
+      Publishing project is the chance to develop both a larger body of illustrative examples and
+      practical experience with representing Publishing documents.</p>
+  </body>
+</topic>

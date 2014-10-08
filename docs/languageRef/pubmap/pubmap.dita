@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference id="pubmap">
+    <title>pubmap</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>pubmap</indexterm>
+            <!-- sample from DITA langref
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
+				    </indexterm> -->
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <refbodydiv outputclass="summary">
+          <section id="summary">pubmap is a map type for a single publication. It includes the ability to specify publishing -specific metadata; to represent arbitrary single pages, such as often occur in fiction books before the main content; to include cover components. This module is an example of defining a specific map type that uses the publication map domain elements exclusively. The publication map domain elements can also be used in other map types as needed; there is no requirement to use the pubmap map element just to get publication map  components. This allows you to define completely different organizations of publication-specific topicref types. pubmap is a result of three related domains: one for elements (pubmapDomain), one for references to other maps (pubmapMaprefDomain), and one for metadata (pubmetadataDomain). In doing so, it overcomes some deficiencies of the bookmap map type: chapter topicrefs do not have to be within part topicrefs when a part topicref is used; a verbose set of metadata options are provided; pubmap-specific map references can be used; the content models can be extended as needed.</section>
+      </refbodydiv>
+        <refbodydiv outputclass="d4p">
+          <section id="d4p">pubmap specializes from map. It is a useful starting point for new map types. And it serves both as a general publication map type and as an example of how to integrate and configure the publication map and publication metadata domains.</section>
+      </refbodydiv>    	    
+        <refbodydiv outputclass="contains">
+         <section id="contains"/>
+      </refbodydiv>
+        <refbodydiv outputclass="contains-by">
+         <section id="contains-by"/>
+      </refbodydiv>    
+        <refbodydiv outputclass="inheritance">
+         <section id="inheritance">- map/map pubmap/pubmap</section>
+      </refbodydiv>
+        <refbodydiv outputclass="example1">
+         <section id="example1"/>
+      </refbodydiv>    	
+        <refbodydiv outputclass="attributes">
+         <section id="attributes"/>
+      </refbodydiv>
+        
+    </refbody>
+</reference>

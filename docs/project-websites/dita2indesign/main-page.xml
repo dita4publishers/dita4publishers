@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="conceptId">
+  <title>DITA2InDesign Project</title>
+  <prolog>
+    <critdates>
+      <created date="2008-01-31"/>
+      <revised modified="2008-02-07"/>
+    </critdates>
+  </prolog>
+  <conbody>
+    <p>The DITA2InDesign project is an open-source, community-based project to develop a plug-in for
+      the <xref scope="external" type="html">DITA Open Toolkit</xref> that enables the publishing of
+      DITA-based content using the Adobe InDesign CS3 product.</p>
+    <p>The project was started by, and is currently being managed by, Eliot Kimber of <xref
+        scope="external" format="html" href="http://www.reallysi.com">Really Strategies, Inc.</xref>
+      (ekimber at reallysi dot com, user DrMacro on SourceForge).</p>
+    <p>The project's SourceForge project page is: <xref
+        href="http://sourceforge.net/projects/dita2indesign" format="html" scope="external"
+        >http://sourceforge.net/projects/dita2indesign</xref></p>
+    <p>
+      <note>
+        <p>Because of severe limitations in InDesign CS2's XML scripting support, this project is
+          only intending to provide scripts for InDesign CS3 or later. The difference in ease of
+          scripting between CS2 and CS3 is dramatic. It would be prohibitively difficult to
+          implement the needed functionality in CS2 whereas with CS3 it should be fairly
+          straightforward.</p>
+      </note>
+    </p>
+  </conbody>
+  <concept id="current-status">
+    <title>Current Status</title>
+    <conbody>
+      <p>As of 1 Feb 2008 the project is in the initial startup phase, consisting of a call for
+        participation and some initial design ideas and identification of implementation tasks. The
+        project code library includes a small amount of XSLT code that demonstrates the general
+        processing approach for the XML-to-XML-for-import-to-InDesign component.</p>
+      <p>A this time the project is a "spare time" activity for those involved and therefore there
+        is no implementation schedule more precise than "as soon as we can". </p>
+    </conbody>
+  </concept>
+  <concept id="call-for-participation">
+    <title>Call for Participation</title>
+    <conbody>
+      <p>This is a community-supported project. The project needs the following contributions:<ul>
+          <li>XSLT developers to contribute to the DITA-to-XML-for-import-to-InDesign transforms</li>
+          <li>InDesign JavaScript developers to contribute to the InDesign XML import scripts</li>
+          <li>InDesign layout designers to contribute to the design of InDesign templates to be used
+            for laying out the imported DITA content.</li>
+          <li>Writers to contribute to the project User Guide documentation</li>
+          <li>Testers to test the plugin as it is developed</li>
+        </ul></p>
+      <p>If you would like to participate as a developer, simply contact Eliot (see contact info
+        above) with your SourceForge user ID. </p>
+      <p>If you would like to contribute InDesign templates you can forward them to Eliot. All
+        donated templates will be fully attributed although they must be provided with an
+        appropriate open source license that allows unrestricted derivative use of the templates. In
+        particular, it must be allowable for users of the plug-in to use the templates for documents
+        sold as parts of products or to be included with or used by commercial products that use
+        this plug-in. </p>
+    </conbody>
+  </concept>
+  <concept id="contributors">
+    <title>Contributors</title>
+    <conbody>
+      <p>The following companies and individuals have contributed materials or development time to
+        this project:</p>
+      <ul>
+        <li><xref href="http://www.comtech-serv.com" scope="external" format="html">Comtech
+            Services, Inc.</xref></li>
+        <li><xref href="http://www.reallysi.com" scope="external" format="html">Really Strategies,
+            Inc.</xref></li>
+      </ul>
+    </conbody>
+  </concept>
+</concept>

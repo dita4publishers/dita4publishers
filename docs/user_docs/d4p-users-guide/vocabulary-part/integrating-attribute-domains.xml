@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:task" "urn:pubid:dita4publishers.org:doctypes:dita:task">
+<task
+  id="subsection-id">
+  <title>Integrating Attribute Domains</title>
+  <shortdesc>Attribute domains are defined in a single .ent file that defines a single parameter entity with the entity declaration and a single general text entity that provides the <xmlatt>domains</xmlatt> attribute contribution for the module.</shortdesc>
+  <taskbody>
+    <context>
+      <p>To integrate an attribute domain into a DTD document type shell, follow the steps shown here. If you do not already have your own document type shell for the topic or map type you want to integrate with, copy the closest starting point (e.g., one of the D4P .dtd files) and then modify that. [Add reference to specialization tutorial once it is updated to DITA 1.2.]</p>  
+    </context>
+    <steps
+      id="steps_5c8fd631-3a1f-4025-ac8f-2b93150b867f">
+      <step>
+        <cmd>Insert a declaration for and reference to the attribute domain's .ent file.</cmd>
+        <info>
+          <p>Look for a comment that looks like this:<codeblock>&lt;!-- ============================================================= -->
+&lt;!--                    DOMAIN ATTRIBUTE DECLARATIONS              -->
+&lt;!-- ============================================================= --></codeblock></p>
+          <p>After this comment, add an entry that looks like this (e.g., for the d4p_renditionTarget attribute domain):<codeblock>&lt;!ENTITY % d4p_renditionTargetAtt-d-dec     
+  PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:modules:d4p_renditionTargetAttDomain:entities" 
+         "d4p_renditionTargetAttDomain.ent"                                                
+>
+%d4p_renditionTargetAtt-d-dec;
+</codeblock></p>
+        </info>
+      </step>
+      <step>
+        <cmd>Add the domain's parameter entity the <parment>props-attribute-extensions</parment> parameter entity.</cmd>
+        <info>
+          <p>Find a comment that looks like this:<codeblock>&lt;!-- ============================================================= -->
+&lt;!--                    DOMAIN ATTRIBUTE EXTENSIONS                -->
+&lt;!-- ============================================================= -->
+</codeblock></p>
+          <p>Immediately following that comment should be a line that looks like this:<codeblock>&lt;!ENTITY % props-attribute-extensions "" >
+</codeblock></p>
+          <p>Between the double quotes (or before the ending double quote if there is already a value in the declaration, add a reference to the parameter entity defined in the .ent file included in the previous step. The parameter entity <i>should</i> be named "%<i>attributeName</i>Att-d-attribute" but you will need to look in the .ent file to make sure. The result should look like this:<codeblock>&lt;!ENTITY % props-attribute-extensions "%d4p_renditionTargetAtt-d-attribute;" ></codeblock></p>
+          <p>Note the "%" at the start of the entity name (this is a parameter entity reference open character) and the ";" at the end (this an entity reference close character).</p>
+        </info>
+      </step>
+      <step>
+        <cmd>Add a reference to the domain's <xmlatt>domains</xmlatt> attribute contribution entity to the "included-domains" general entity declaration.</cmd>
+        <info>
+          <p>Look for a comment like this:<codeblock>&lt;!-- ============================================================= -->
+&lt;!--                    DOMAINS ATTRIBUTE OVERRIDE                 -->
+&lt;!-- ============================================================= -->
+</codeblock></p>
+          <p>And then a declaration like this:<codeblock>&lt;!ENTITY included-domains 
+                        ""
+></codeblock></p>
+          <p>Your shell may already have things inside the double quotes.</p>
+          <p>Within the double quotes add a reference to the domains attribute component entity for the domain. This <i>should</i> be named like "&amp;<i>attributeName</i>Att-d-att;" but you will need to look in the .ent file to make sure. The result should look something like this:<codeblock>&lt;!ENTITY included-domains 
+                        "
+                         &amp;d4p_renditionTargetAtt-d-att;
+                        ">
+</codeblock></p>
+          <p>The line breaks within the declaration and within the double quotes don't matter. It is convenient to put each entity reference on its own line so its each to update the declaration as you add or remove domains.</p>
+          <p>Note the "&amp;" at the start of the entity name (this is a general entity reference open character) and the ";" at the end.</p>
+        </info>
+      </step>
+    </steps>
+    <result>
+      <p>Your shell should be ready to use. How you test it depends of course on your working environment. Deployment and testing in specific tools is beyond the scope of this document.</p>
+    </result>    
+  </taskbody>
+</task>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference id="d4p_formattingDomain">
+    <title>d4p_formattingDomain</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>d4p_formattingDomain</indexterm>
+            <!-- sample from DITA langref
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
+				    </indexterm> -->
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <refbodydiv outputclass="summary">
+         <section id="summary"> The d4p_formattingDomain defines specializations for requesting specific formatting effects, such as a drop cap, bold and italic text, the tab character, inline equations, and so on.</section>
+      </refbodydiv>
+        <refbodydiv outputclass="d4p">
+         <section id="d4p">Most elements of this domain are specializations of either p (and are block elements) or ph (and are inline elements). One is a specialization of foreign and one is a specialization of xref.</section>
+      </refbodydiv>    	    
+      <refbodydiv outputclass="shortname">
+        <section id="shortname">d4p_formatting-d</section>
+      </refbodydiv> 
+      <refbodydiv outputclass="modulename">
+        <section id="modulename">d4p_formattingDomain.ent and d4p_formattingDomain.mod</section>
+      </refbodydiv>
+    </refbody>
+</reference>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="conceptId">
+ <title>Release Notes: Version 0.9.10</title>
+ <shortdesc>Version 0.9.10 released 5 Novemeber 2010</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>
+          <indexterm>release notes<indexterm>Version 0.9.10</indexterm></indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+    <section>
+      <title>EPUB, Kindle, and HTML2 Transformation Types</title>
+      <ul>
+        <li>Rewrite pointers to CSS style sheets in generated HTML files.</li>
+      </ul>
+    </section>
+    <section>
+      <title>Word-to-DITA</title>
+      <ul
+        id="ul_c0f0cea1-860d-4c82-851a-514b46a8275c">
+        <li>Added new parameters for suppressing tab and br elements from DITA XML.</li>
+        <li>Added parameter to include the back pointers to the original Word document.</li>
+      </ul>
+    </section>
+    <section>
+      <title>Vocabulary</title>
+      <ul>
+        <li>Corrected all doctype Toolkit plugin descriptors and top-level catalog.xml files to use dita.specialization.catalog.relative rather than dita.specialization.catalog.</li>
+      </ul>
+    </section>
+    <section>
+      <title>Documentation</title>
+      <ul
+        id="ul_604ba75a-0970-4473-ac8b-9c1e8b36a1bc">
+        <li>Added more how-to and troubleshooting information for Word-to-DITA transform.</li>
+        <li>Recorded video tutorial for Word-to-DITA style-to-tag mapping development. See <xref
+          href="../word2dita/word2dita-video-tutorial-01.xml#conceptId"
+          format="dita"/>.</li>
+      </ul>
+    </section>
+  </conbody>
+</concept>

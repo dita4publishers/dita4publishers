@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:dtd:map" "urn:pubid:dita4publishers.org:doctypes:dita:dtd:map">
+<map
+  title="DITA Topic Map">
+  <topicref
+    href="dita4publishers.xml">
+    <topicref
+      href="publishers-and-publishing-docs.xml"/>
+    <topicref
+      href="specialization-modules-overview.xml">
+      <topicref
+        href="formatting-domain.xml"/>
+      <topicref
+        href="xml-domain.xml"/>
+    </topicref>
+  </topicref>
+</map>

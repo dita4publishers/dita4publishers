@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:topic" "urn:pubid:dita4publishers.org:doctypes:dita:topic">
+<topic
+  id="topic-id">
+  <title>Ruby Domain</title>
+  <shortdesc>Provides markup based on the HTML 5 <xmlelem>ruby</xmlelem> elements for annotating ideographic characters as is done in Japanese-language documents.</shortdesc>
+  <body>
+    <p>The ruby domain provides a single top-level element, <xmlatt>ruby</xmlatt>, which then holds some combination of phrase-level content (the text to which the ruby applies), and some combination of <xmlelem>rb</xmlelem>, <xmlelem>rp</xmlelem>, and <xmlelem>rt</xmlelem> elements. These elements correspond directly to the HTML 5 and HTML 4 <xmlatt>ruby</xmlatt> markup (the main difference being that in HTML 5 the <xmlelem>rb</xmlelem> (ruby base) element is not used).</p>
+    <p>For example, Japanese content with a ruby would be marked up like so:<pre>&lt;p> 探険船シビリアコフ号の北氷洋航海中に撮影されたエピソード映画の中に、一頭の<b>&lt;ruby>
+&lt;rb>白熊&lt;/rb>
+&lt;rp>（&lt;/rp>
+&lt;rt>しろくま&lt;/rt>
+&lt;rp>）&lt;/rp>
+&lt;/ruby></b>を射殺し、その子を生け捕る光景が記録されている。&lt;/p></pre></p>
+    <p>For HTML output the markup is output exactly as tagged in the DITA source and most browsers will render the ruby text above the base text. When that rendition is not provided, then the ruby text is given after the base text within parantheses.</p>
+  </body>
+</topic>

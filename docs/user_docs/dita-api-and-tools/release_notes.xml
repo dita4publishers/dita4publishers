@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:topic" "urn:pubid:dita4publishers.org:doctypes:dita:topic">
+<topic
+  id="topic-id">
+  <title>DITA API and Tools Release Notes</title>
+  <body>
+    <p>Notes on specific releases of the DITA API And Tools package.</p>
+  </body>
+  <topic
+    id="topic_acf52df4-45c7-452a-bcd3-1a77259b6db2">
+    <title>Release 0.1 2010-01-04</title>
+    <body>
+      <p>This is the first release of this package. See the main documentation for package
+        details.</p>
+      <section
+        spectitle="Known Bugs">
+        <p>No known bugs.</p>
+      </section>
+      <section
+        spectitle="Known Issues">
+        <ul
+          id="ul_2fbb2693-7d84-4eba-81dd-a278af9b3b32">
+          <li>Support for DITAVAL files not yet implemented, so the -d option for the map reporter
+            and DXP packager have no effect.</li>
+          <li>DXP packager does not yet support creation of DXP manifest maps (partly because the
+            map design hasn't been started, much less completed).</li>
+          <li>The where-used features of the DITA Link Management Service are not yet
+            implemented.</li>
+        </ul>
+      </section>
+    </body>
+  </topic>
+</topic>

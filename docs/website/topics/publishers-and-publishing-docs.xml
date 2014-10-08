@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:topic" "urn:pubid:dita4publishers.org:doctypes:dita:topic">
+<topic
+  id="topic-1">
+  <title>Publishers and Publishing Documents</title>
+  <body>
+    <p>For the purposes of this project, "publishing documents" means documents produced as the
+      primary business deliverable of a Publishing enterprise and usually representing a profit
+      center. These publication types include:<ul>
+        <li>Commercially-published fiction and non-fiction trade books, e.g., novels, biography,
+          general-non-fiction, self-help, etc. These are documents that are mostly or entirely
+          narrative.</li>
+        <li>Textbooks: primary, secondary, post-secondary, etc. These are documents that can reflect
+          intensive designs and complex combinations of design elements.</li>
+        <li>Periodicals, including glossy magazines, journals, and newsletters.</li>
+        <li>Travel and nature guides.</li>
+        <li>Encyclopedias and dictionaries.</li>
+        <li>General-audience technical publications, e.g., after-market automotive repair
+          manuals.</li>
+        <li>General-audience training and testing, such as standardized test preparation, industrial
+          certification training and testing, etc.</li>
+      </ul></p>
+    <p>There is, of course, significant overlap between the domains of publishing documents, business documents, and technical documents. However, Publishers and publishing are usually distinguished by the following business characteristics and drivers:<ul>
+      <li>Typographic quality and distinction is often a primary requirement. Publications have to look good and be visually distinguished from their competitors in the marketplace.</li>
+      <li>Publishing deadlines are driven by external, invariant forces, such as school calendars, industry events, world events, marketing goals and requirements, etc.</li>
+      <li>Re-use of content on a small scale (below the topic level) is usually not a requirement or not a common requirement.</li>
+      <li>Repurposing of content at relatively large granularity to different media or in different publications is usually a very strong requirement (e.g., syndication of articles or chapters, print, Web, and e-book delivery of entire publications, etc.)</li>
+      <li>Authoring is done by outside authors for whom the primary or only practical authoring tool is Microsoft Word or whatever the Author happens to use.</li>
+      <li>Publishing business processes must tolerate content changes made very late in the process, even when a publication has been typeset and the "plates" are on the printer.</li>
+      <li>Localization, at least by the original publishers, is not a requirement for many, if not most, Publishing documents.</li>
+      </ul></p>
+    <p>These characteristics of Publishers and publishing documents distinguish them from technical
+      documents and from business documents, primarily in the way that the business realities
+      determine both the nature of the publishing development and fulfillment process and the nature
+      of the tools and technology that can be brought to bear. For example, for most publishing
+      documents, it is simply not practical to use traditional batch-composition technology because
+      every publication is a unique page design and because human intervention is almost always
+      needed to ensure appropriate typographic quality. By the same token, the XML-based authoring
+      tools on which Technical Documentors have depended for decades are simply impractical for use
+      in the 3rd-party authoring of most publications. Likewise, XML design decisions that reflect
+      Technical Documentation needs for consistency and repeatability are often exactly the wrong
+      decisions for Publishers, who must be able to support arbitrary and unpredictable information
+      structures and formatting requirements.</p>
+    <p>Fortunately, the DITA standard is both sufficiently general and sufficiently powerful to
+      provide a compelling basis for Publishing-specific XML applications. DITA, by its unique
+      characteristics as an XML application standard, provides the following value to publishers:<ul>
+        <li>Minimizes the cost of startup of XML-based publishing processes. This is entirely
+          because of the Specialization feature of the DITA standard. This project helps to reduce
+          the inherently low cost even more by providing a starter set of DITA system components
+          that all Publishers need. Because DITA-aware processors, content management systems, and
+          editors should be able to work with any DITA-based content regardless of how it's been
+          specialized, the cost of acquiring and configuring software components should be
+          significantly lower for DITA-based systems than for any other XML-based system, simply
+          because most software features should <b>just work</b> out of the box for <i>all valid
+            DITA content</i>.</li>
+        <li>Minimizes the cost of ongoing system maintenance and enhancement. Because of the nature
+          of how Specialization works, new software components should work for all new
+          specializations <i>without modification</i>. This means that systems will tend to require
+          less change over time as the markup design evolves, because processing that worked before
+          continues to work. Assuming good engineering practices are followed that take advantage of
+          specialization, adding new functionality to an existing system should get easier over
+          time, not harder.</li>
+        <li>Maximizes the inherent interchangability of content. Again, this is entirely because of
+          the Specialization feature of the DITA standard: DITA-based content from one Publisher can
+          be used, immediately, with DITA-based content and tools of another Publisher <i>without
+            modification.</i>. This is irrespective of how either party has specialized their
+          content to add the custom elements needed to meet their local business requirements.</li>
+      </ul></p>
+  </body>
+</topic>

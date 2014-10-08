@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="conceptId">
+  <title>HTML2 Transformation Parameters</title>
+  <shortdesc>Unique parameters for the HTML2 transformation type</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>transformation parameters</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <p>The HTML2 transformation type allows a number of parameters that configure the details of the generated HTML. Available options include:<ul
+      id="ul_afc9168f-c20e-44a4-a21c-8f1317200eb8">
+      <li>Include a back-of-the-book index</li>
+      <li>The names of the directories used to hold topics, graphics, and CSS style sheets.</li>
+      <li>The maximum depth of the generated table of contents.</li>
+      </ul></p>
+    <p>The parameters documented in this section are Ant parameters recognized by the <filepath>build_transtype_html2.xml</filepath> Ant script. Each of these Ant parameters corresponds to an XSLT parameter used by the underlying XSLT transforms. The XSLT parameters are defined in the <filepath>map2html2Impl.xsl</filepath> transform in the HTML2 plugin's <filepath>xsl/</filepath> directory.</p>
+  </conbody>
+</concept>

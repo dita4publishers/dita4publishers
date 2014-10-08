@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="conceptId">
+ <title>Word-to-DITA Ant Parameters</title>
+ <shortdesc>Ant parameters for the Word-to-DITA transformation type</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+   <p>To run the Word-to-DITA transformation using the Open Toolkit plugin, specify the following Ant parameters.</p>
+    <section>
+      <title>Required Parameters</title>
+      <parml>
+        <plentry>
+          <pt>args.input</pt>
+          <pd>The absolute filename and path of the DOCX file to process.</pd>
+        </plentry>
+        <plentry>
+          <pt>word.doc</pt>
+          <pd>The path and filename of the Word DOCX file to process.</pd>
+        </plentry>
+      </parml>
+    </section>
+    <section>
+      <title>Optional Parameters</title>
+      <parml>
+        <plentry>
+          <pt>output.dir</pt>
+          <pd>Specifies the absolute path of of the directory to contain the generated output.</pd>
+        </plentry>
+        <plentry>
+          <pt>w2d.clean.output.dir</pt>
+          <pd>Set to "true" to have the output directory cleaned out before
+            running the transform. The default is "false".</pd>
+        </plentry>
+        <plentry>
+          <pt>w2d.debug.xslt</pt>
+          <pd>Turns on debugging of the XSLT transform. Default is "false".</pd>
+        </plentry>
+        <plentry>
+          <pt>w2d.defaultStyleToTagMap</pt>
+          <pd>Specifies the location of the style-to-tag map to use as the
+            default if no style-to-tag-map is specified. The default is the
+            word-builtin-styles-style2tagmap.xml file. This parameter is mostly
+            useful for setting as a default in installation-specific properties
+            files. You would not normally specify it for a specific
+            document.</pd>
+        </plentry>
+        <plentry>
+          <pt>w2d.filename.prefix</pt>
+          <pd>The prefix to use for generated files other than submaps. The
+            default is no prefix.</pd>
+        </plentry>
+        <plentry>
+          <pt>w2d.filter.br</pt>
+          <pd>Control whether or not <xmlelem>br</xmlelem> elements generated
+            from the Word data will be filtered out of the result DITA. Set to
+            "true" to filter out <xmlelem>br</xmlelem> elements. The default is
+            "false" (<xmlelem>br</xmlelem> elements are included in the result
+            DITA). The <xmlelem>br</xmlelem> element is provided by the DITA for
+            Publishers formatting vocabulary domain module.</pd>
+        </plentry>
+        <plentry>
+          <pt>w2d.filter.tabs</pt>
+          <pd>Control whether or not <xmlelem>tab</xmlelem> elements generated
+            from the Word data will be filtered out of the result DITA. Set to
+            "true" to filter out <xmlelem>tab</xmlelem> elements. The default is
+            "false" (<xmlelem>tab</xmlelem> elements are included in the result
+            DITA). The <xmlelem>tab</xmlelem> element is provided by the DITA
+            for Publishers formatting vocabulary domain module.</pd>
+        </plentry>
+        <plentry>
+          <pt>w2d.include.word.backpointers</pt>
+          <pd>Set to "false" to turn off inclusion of <xmlatt>xtrc</xmlatt>
+            attributes in the generated DITA files that point back to the
+            original paragraphs in the Word document. Default is "true"
+            (<xmlatt>xtrc</xmlatt> attributes are generated).</pd>
+        </plentry>
+        <plentry>
+          <pt>w2d.include.word.bookmarks</pt>
+          <pd>Set to "true" to turn inclusion of <xmlelem>data</xmlelem>
+            elements reflecting any Word bookmark start and end markers. Default
+            is "false".</pd>
+        </plentry>
+        <plentry>
+          <pt>w2d.root.map.name</pt>
+          <pd>The filename (without extension) to use for the root map if one is
+            generated. By default uses the filename of the input DOCX file. Only
+            specify this property if the style-to-tag mapping will result in a
+            map. If the style-to-tag mapping only produces topics, then do not
+            specify this property.</pd>
+        </plentry>
+        <plentry>
+          <pt>w2d.root.output.filename</pt>
+          <pd>Specifies the complete filename (including extension), of the root
+            output file, whether it's a topic or a map. You would not normally
+            specify this property unless the behavior of
+            <parmname>w2d.root.map.name</parmname> or
+            <parmname>w2d.root.topic.name</parmname> doesn't give you the result
+            you want.</pd>
+        </plentry>
+        <plentry>
+          <pt>w2d.root.topic.name</pt>
+          <pd>The filename (without extension) to use for the root topic. By
+            default, uses the filename of the input DOCX file. This property is
+            ignored if <parmname>w2d.root.topic.name</parmname> is also
+            specified.</pd>
+        </plentry>
+        <plentry>
+          <pt>w2d.style-to-tag-map</pt>
+          <pd>The absolute filename and path of the style-to-tag mapping to use.
+            If not specified, the built-in mapping file
+            <filepath>org.dita4publishers.word2dita/xsl/word-builtin-styles-style2tagmap.xml</filepath>
+            is used.</pd>
+        </plentry>
+        <plentry>
+          <pt>w2d.submap.name.prefix</pt>
+          <pd>The prefix to use for generated submaps. The default is
+            "map".</pd>
+        </plentry>
+        <plentry>
+          <pt>w2d.temp.dir</pt>
+          <pd>The temporary directory to use for word2dita process. Default is
+            ${basedir}/temp.</pd>
+        </plentry>
+        <plentry>
+          <pt>w2d.topic.extension</pt>
+          <pd>The extension to use for generated topic files. The default is
+            ".dita".</pd>
+        </plentry>
+        <plentry>
+          <pt>w2d.word2dita.xslt</pt>
+          <pd>Specifies the name of the XSLT transform to use to convert the DOCX file to DITA. Default is the <filepath>docx2dita.xsl</filepath> transform in the word2dita Toolkit plugin.</pd>
+        </plentry>
+      </parml>
+    </section>
+ </conbody>
+</concept>

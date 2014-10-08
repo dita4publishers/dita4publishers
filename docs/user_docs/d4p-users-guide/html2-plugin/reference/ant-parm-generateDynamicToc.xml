@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference id="referenceId">
+  <title>html2.generate.dynamic.toc Ant parameter</title>
+  <shortdesc>Specifies whether or not to generate a dynamic TOC in the output.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>table of contents<indexterm>generating</indexterm></indexterm>
+        <indexterm>html2.generate.dynamic.toc ant parameter</indexterm>
+        <indexterm>ant parameters<indexterm>html2.generate.dynamic.toc</indexterm></indexterm>
+        <indexterm>parameters<indexterm>ant<indexterm>html2.generate.dynamic.toc</indexterm></indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section
+      spectitle="Value">
+      <p>"true" or "false"</p>
+    </section>
+    <section
+      spectitle="Default">
+      <p>"true" (generate a dynamic table of contents).</p>
+    </section>
+    <section
+      spectitle="XSLT Parameter">
+      <p>generateDynamicToc.</p>
+    </section>
+    <section
+      spectitle="Notes">
+      <p>The dynamic ToC uses JavaScript to display a dynamic tree view of the ToC.</p>
+    </section>
+  </refbody>
+</reference>

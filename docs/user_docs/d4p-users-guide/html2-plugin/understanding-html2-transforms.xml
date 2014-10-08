@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="conceptId">
+ <title>Understanding the HTML2 Transformations</title>
+ <shortdesc>Guidance on how the HTML2 XSLT transformations are organized and how the processing works.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+   <p>The HTML2 transformations are "map driven", meaning that the initial input document is a resolved DITA map and all processing of the map and its referenced topics is driven directly by the map structure. This processing takes advantage of XSLT2 features that make it easier to do multi-stage processing within a single XSLT transformation and that make it possible to produce multiple result documents. The transform also takes advantage of XSLT2's support for locally-defined functions to make it possible to do complex filename processing, which enables more sophisticated and flexible output processing than the original HTML transformation type can provide (which I will refer to as "HTML1" in this document).</p>
+    <p>The HTML2 transformation type does use the general topic-to-HTML processing provided by the HTML1 transformation type, meaning that any plugin-provided extensions to the HTML transformation type will be used by the HTML2 transformation type.</p>
+    <p>The HTML2 transformation type replaces all the topic file and graphic file list generation required by the HTML1 topic type.</p>
+    <p>Understanding and extending the HTML2 transformation type requires use of and understanding of XSLT2 features.</p>
+    <p>The HTML2 transforms have been designed for maximum ease of extension and customization. They make heavy use of XSLT modes.</p>
+    <p>For the purposes of this discussion, the map and its local-scope dependencies are referred to collectively as "the publication". Because the transform processes everything in one go, it is sensible to think of the compound document defined by map as a single entity for processing purposes. That entity is "the publication".</p>
+ </conbody>
+</concept>

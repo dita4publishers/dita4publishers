@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept
+  id="concept-id">
+  <title>DOCX to DITA Transform Overview</title>
+  <shortdesc>The DOCX-to-DITA transformation provides a configuration-driven transformation from
+    styled Microsoft Word DOCX (Office 2007) documents to DITA-based XML. The Word templates and
+    corresponding style-to-tag mappings are of course specific to a particular use but the transform
+    itself is completely generic. In addition, the base transform can be extended or overridden
+    using normal XSLT override and extension mechanisms to add any needed use-case-specific
+    processing. The transform can generate DITA map and topic documents using any
+    specialization.</shortdesc>
+  <conbody>
+    <p>The DOCX-to-DITA processor has been designed to minimize the effort required to set up and
+      maintain transformations from Word documents to DITA XML. While setting up the
+      style-to-mapping requires knowledge of the target DITA XML structures to be generated, it does
+      not require any programming knowledge. The general design goal for the DOCX-to-DITA process is
+      to be entirely configuration driven for as many use cases as possible so that no programming
+      is required.</p>
+    <p>The transform uses a configuration file, the "style to tag mapping" document, to determine
+      how to map paragraph and character styles in the Word document to DITA markup in the result
+      maps and topics. The transformation can generate multiple map and topic documents from a
+      single Word document. The simplest case is a single Word document results in exactly one topic
+      document.</p>
+    <p>In order for the transform to work, the Word document must follow a few rules:<ul
+        id="ul_b9c9e14f-8bb8-470d-80e3-a35e3e68399e">
+        <li>The transform only recognizes named styles. Manual formatting is not recognized. This
+          means, for example, that you must use character styles for things like bold, italic, and
+          so on, as well as for more semantic items, such as person names, emails, etc.<fn>This
+            restriction may be removed in a future release.</fn></li>
+        <li>Nested structures within topic bodies and sections require unique style names for each
+          distinct level. This means you need different styles for first and second-level list
+          items. For things like list items this is usually the case, but some structures may nest
+          in the DITA but have no visual distinction in the Word document.</li>
+        <li>All the content for a given topic body needs to be contiguous. For example, if you have
+          content that will result in a subordinate topic in the DITA result, it must come after any
+          body content for the parent topic. </li>
+      </ul></p>
+    <p>These rules mean that you won't be able to take just any Word document, code up a style
+      mapping, and get good DITA out. You will likely need to do a little work to define any
+      necessary styles and apply them consistently. However, that effort shouldn't be too hard. If
+      you create document templates and then use them consistently thing should work. For documents
+      that are mostly paragraphs, lists, and so on, the styling requirements are pretty simple.
+      Documents that need to result in more sophisticated structures, such as learning and training
+      assessments or complex reference structures obviously require more effort to style and more
+      care in authoring.</p>
+    <p>The DOCX-to-DITA transform is intended primarily to handle the use case of getting materials
+      from subject matter experts that is then converted to DITA as part of a one-time conversion
+      activity. Because of the inherently fragile nature of this type of conversion (because of the
+      lack of structural controls in word processing systems), the conversion is necessarily a
+      hands-on activity, often requiring preparation of the word before the transform will work. The
+      transform can be used in a batch manner, but only if the incoming Word is reliable and the
+      batch process provides good error reporting and feedback when things go wrong. Fortunately,
+      it's easy to validate the DITA result using, for example, the DITA Open Toolkit to try to
+      generate HTML.</p>
+  </conbody>
+</concept>

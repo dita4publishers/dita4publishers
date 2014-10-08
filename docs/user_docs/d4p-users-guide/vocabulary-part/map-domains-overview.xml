@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE subsection PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:subsection" "urn:pubid:dita4publishers.org:doctypes:dita:subsection">
+<subsection
+  id="subsection-id">
+  <title>Publication Map Domains</title>
+  <shortdesc>The publication map domains provide building blocks for maps that represent publications.</shortdesc>
+  <body>
+    <p>If you examine any publication you will see it has two distict parts:<ul
+      id="ul_a0734658-918c-46aa-8e1b-beeb20fc91b6">
+      <li>The metadata that describes, names, and classifies the publication, including its title, any ISBN or ISSN numbers, copyright statements, authorship, ownership, and so on.</li>
+      <li>The content of the publication itself: the chapters, articles, appendixes, and so on that make up the publication as a package of useful information, organized into some organizational structure (e.g., frontmatter, body, backmatter, etc.).</li>
+      </ul></p>
+    <p>Both of these aspects of publications differ wildly among publishers and among publications from the same publisher. In addition, there is no general correlation between metadata requirements and content structuring requirements. Thus, two publications from the same publisher may have the same metadata requirements but different structuring requirements. Likewise two similar publications from different publishers may have the same content structuring requirements but different metadata requirements.</p>
+    <p>Thus it would almost never be the case that a single map type that defined both metadata structures and content structures would meet anybody's requirements very well.</p>
+    <p>Thus, rather than defining a single "publication map" map type that tries to cover all possible metadata and structure requirements, DITA for Publishers provides two separate map domains, one for metadata (pubmetadata domain) and one for content structuring (pubmap domain).</p>
+    <p>As domains these two domains can be used together or separately. They can be integrated into existing map types or used to construct completely new map types. This maximizes the flexibility of the mechanism.</p>
+    <p>DITA for Publishers includes three sample map types that demonstrate using these domains:<ul
+      id="ul_954891da-95d2-4485-9d6b-d36604a9691d">
+      <li><xmlelem>map</xmlelem><p>The DITA for Publishers map topic type simply integrates the pubmap and pubmetadata domains with the generic DITA <xmlelem>map</xmlelem> map type, making the D4P metadata and topicref types available in a largely unconstrained way.</p></li>
+      <li><xmlelem>pubmap</xmlelem><p>Integrates the pubmap and pubmetadata domain to create a more focused publication map.</p></li>
+      <li><xmlelem>pub-component-map</xmlelem><p>Also integrates the pubmap and pubmetadata domains, but for the creation of publication subcomponents, such as part maps or chapter maps.</p></li>
+      </ul></p>
+    <p>For most publishers the generic pubmap and pub-component-map types will be sufficient to represent most, if not all, publications. You can, of course, use constraint modules to make the base map types more constrained. You can also use either or both modules as the basis for further specialization or simply define your own domains as needed. </p>
+  </body>
+</subsection>

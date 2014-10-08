@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="conceptId">
+ <title>Extending and Overriding the Word to DITA Transform</title>
+ <shortdesc>How to customize the XSLT processing to handle special cases</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+   <p>Any transformation driven by a declarative mapping will be limited in what can be done purely through the mapping. Thus the Word-to-DITA process is designed to be extended and customized to handle special cases.</p>
+    <p>The Word-to-DITA transformation is a three-phase transformation:<ul>
+      <li>Phase one processes the input DOCX document.xml file (and other files as needed) to generate an intermediate "simple word processing" document. The process is not intended to be extended. The "simple" document reflects the original paragraph and character run data from the Word document annotated with the details from the style-to-tag mapping.</li>
+      <li>Phase two processes the intermediate "simple" document to generate the initial result DITA XML.</li>
+      <li>Phase three is the "final fixup" phase, which processes the inital result DITA XML to generate the final DITA XML. By default the final-fixup is just a passthrough stage but can be extended to do cleanup as needed.</li>
+      </ul></p>
+    <p>In addition, the transformation provides default rules for generating output filenames and for generating element IDs, both of which can be overridden.</p>
+    <p>You extend and override the base transformation by creating a top-level XSLT document that imports the docx2dita.xsl transformation from the word2dita Toolkit plugin and implements any override or extension templates required. You can deploy this override in a separate Open Toolkit plugin that depends on the base word2dita plugin and that defines its own transformation type or you can specify the <parmname>w2d.word2dita.xslt</parmname> Ant parameter with the full path and filename of your custom transformation.</p>
+    <p>The second and third processing phases are implemented by the <filepath>simple2dita.xsl</filepath> file.</p>
+    <p>The extension points provided are:<ul>
+      <li>The "final fixup" phase, which you can extend by implementing templates in the "final-fixup" mode. These templates operate on the DITA XML produced by the the second phase and must produce valid DITA markup as their output. Note that the XML handled by the final-fixup mode doesn't have any associated schema or DTD at that point, so there are no <xmlatt>class</xmlatt> attributes to key on. This means you must use templates that match on the element type names, rather than on <xmlatt>class</xmlatt> attribute values.</li>
+      <li>The "generate-id" and "topic-name" modes can be overridden to provide custom ID generation logic. The mappings for individual paragraph and character styles can specify a named "ID generator" value that is then passed as a parameter ot the generate-id mode. Custom ID generator code can use that parameter to select the appropriate ID generation logic.</li>
+      <li>The "topic-url"mode can be overridden to implement custom rules for constructing result topic filenames (base implementation is in the file <filepath>modeTopicUrl.xsl</filepath>).</li>
+      <li>The "map-url" mode can be overridden to implement custom rules for construction result map filenames (base implementation is in the file <filepath>modeMapUrl.xsl</filepath>).</li>
+      </ul></p>
+ </conbody>
+</concept>

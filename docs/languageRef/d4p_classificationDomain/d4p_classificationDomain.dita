@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference id="d4p_classificationDomain">
+    <title>d4p_classificationDomain</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>d4p_classificationDomain</indexterm>
+            <!-- sample from DITA langref
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
+				    </indexterm> -->
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <refbodydiv outputclass="summary">
+          <section id="summary">The d4p_classificationDomain defines specializations of data for classifying components of publications (topics, figures, tables, etc.). This clearly identifies the metadata elements it contains as being classifying as opposed to any other type of metadata (such as identifying metadata). Classifying metadata normally relates its container to items in defined classification taxonomies.</section>
+      </refbodydiv>
+        <refbodydiv outputclass="shortname">
+            <section id="shortname">d4p_classification-d</section>
+        </refbodydiv> 
+        <refbodydiv outputclass="modulename">
+            <section id="modulename">d4p_classificationDomain.ent and d4p_classificationDomain.mod</section>
+        </refbodydiv>
+    </refbody>
+</reference>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference id="sidebar">
+    <title>sidebar</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>sidebar</indexterm>
+            <!-- sample from DITA langref
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
+				    </indexterm> -->
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <refbodydiv outputclass="summary">
+         <section id="summary">A sidebar represents an out-of-line element in a publication and is part of a chapter, article, or division. A sidebar does not necessarily have a distinct point in the greater hierarchy, in many cases it can appear at any one of several locations depending on the output (e.g., at a typesetter's discretion). Because a sidebar is a topic type, it can only come after another topic's title or (if present) body element. This means that if you need a sidebar to appear in your output in the middle of another topic, then you need to use the d4pSidebarAnchor element. That element allows authors to have sidebars appear in outputs at any arbitrary location without breaking the rules of DITA. Sidebars can only nest sidebar and subsection topics.</section>
+      </refbodydiv>
+        <refbodydiv outputclass="d4p">
+         <section id="d4p">This is a specialization of the base topic type and is recommended, in part, to be used as a base for further specialization.</section>
+      </refbodydiv>    	    
+        <refbodydiv outputclass="contains">
+         <section id="contains"/>
+      </refbodydiv>
+        <refbodydiv outputclass="contains-by">
+         <section id="contains-by"/>
+      </refbodydiv>    
+        <refbodydiv outputclass="inheritance">
+          <section id="inheritance">- topic/topic sidebar/sidebar </section>
+      </refbodydiv>
+        <refbodydiv outputclass="example1">
+         <section id="example1"/>
+      </refbodydiv>    	
+        <refbodydiv outputclass="attributes">
+         <section id="attributes"/>
+      </refbodydiv>
+        
+    </refbody>
+</reference>

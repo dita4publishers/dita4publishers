@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="conceptId">
+ <title>Generating InCopy Articles from DITA Topics</title>
+ <shortdesc>You can directly generate InCopy articles from DITA topics using the
+    XSLT transforms in the org.dita4publishers.dita2indesign plugin. You do not
+    have to use the Open Toolkit to run the transform.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+   <p>The <filepath>org.dita4publishers.dita2indesign/xsl</filepath> directory
+      holds the XSLT transforms used to generate InCopy articles from topics and
+      maps. You can run the transforms directly or run them using the Open
+      Toolkit in order to do all necessary DITA preprocessing (conref
+      resolution, filtering, etc.). For testing purposes it is usually most
+      efficient to run the transforms directly, e.g., in a tool like the oXygen
+      XML editor.</p>
+    <p>The transforms can generate either the old INCX format or the newer ICML
+      format. For use with InDesign CS5 and newer you must generate the ICML
+      format. For InDesign CS3 and CS4 you must use the INCX format. The INCX
+      format is essentially obsolete and that form of the transforms is not
+      being actively maintained. This discussion only describes generating ICML
+      InCopy articles.</p>
+    <p>The root transform is <filepath>topic2articleIcml.xsl</filepath>. Here
+      the term "article" means "InCopy article" as opposed to "magazine
+      article". This transform manages the generation of one or more InCopy
+      articles from the input topic. The direct output of the transform is an
+      XML manifest file that lists all the InCopy articles generated. The
+      manifest is designed primarily to support the use of the transform from
+      Java code where the Java code needs to know about all the generated InCopy
+      articles. </p>
+    <p>The core ICML generation is done by the
+      <filepath>topic2icmlImpl.xsl</filepath> transform. It's processing a
+      little convoluted because of the need to generate all result documents
+      before generating the manifest. It uses the file
+      <filepath>elem2styleMapperIcml.xsl</filepath> as the default
+      element-to-style mapping module. Use this module as the model for your own
+      custom mapping.</p>
+    <p>By default each input topic results in one InCopy article, reflecting the
+      element-to-style mapping defined in the elem2styleMapperIcml.xsl module.
+      However, you can extend the base transform to generate multiple InCopy
+      articles from a single input topic. You would need to do this for any
+      content that needs to be placed in its own disconnected frame, such as
+      figures, sidebars, pull quotes, and so on.</p>
+    <p>TBD: Provide sample transform that does this.</p>
+    <p>TBD: Document general pattern for creating a custom InCopy generation
+      transform</p>
+    <p>TBD: How to set up the Toolkit-based transform</p>
+    <p>TBD: Processing a map and its topics</p>
+ </conbody>
+</concept>

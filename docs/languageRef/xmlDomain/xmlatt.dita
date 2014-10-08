@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference id="xmlatt">
+    <title>xmlatt</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>xmlatt</indexterm>
+            <!-- sample from DITA langref
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
+				    </indexterm> -->
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <refbodydiv outputclass="summary">
+         <section id="summary">An xmlelem is an inline element for identifying an attribute of an XML element.</section>
+      </refbodydiv>
+        <refbodydiv outputclass="d4p">
+         <section id="d4p">This is a specialization of keyword. The markup &lt;xmlatt&gt;outputclass&lt;/xmlatt&gt; should produce the output: @outputclass.</section>
+      </refbodydiv>    	    
+        <refbodydiv outputclass="contains">
+         <section id="contains"/>
+      </refbodydiv>
+        <refbodydiv outputclass="contains-by">
+         <section id="contains-by"/>
+      </refbodydiv>    
+      <refbodydiv outputclass="inheritance">
+        <section id="inheritance">
+          <title>Inheritance</title>
+          <p>+ topic/keyword xml-d/xmlatt </p>
+        </section>
+      </refbodydiv>
+      <example id="example1">
+        <fig><title>Sample of an instance of the xmlatt element</title>
+          <codeblock>You can use &lt;xmlatt&gt;outputclass&lt;/xmlatt&gt; on many elements to distinguish them in an output, such as EPUB or PDF.</codeblock>
+        </fig>
+      </example>   	
+        <refbodydiv outputclass="attributes">
+         <section id="attributes"/>
+      </refbodydiv>
+        
+    </refbody>
+</reference>

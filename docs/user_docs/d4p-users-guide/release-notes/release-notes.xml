@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="conceptId">
+ <title>Release Notes</title>
+ <shortdesc>Details about changes from release to release</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>release notes</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <p>The DITA for Publishers materials consists of the following major components. Each component has its own version number. The package of materials as a whole also has a version number, which is incremented for each release. For example, the vocabulary modules may be updated without the need to update any of the Toolkit plugins. In that case, the package and vocabulary version numbers are incremented but the Toolkit version numbers are not. All of the D4P Toolkit plugins report their individual version numbers when then run.</p>
+    <p>The components are:<ul>
+      <li>The DITA for Publishers vocabulary modules, packaged as the Open Toolkit plugin org.dita4publishers.doctypes.</li>
+      <li>The Open Toolkit plugins for EPUB, Kindle, and HTML generation (the "HTML2" plugin).</li>
+      <li>The Word-to-DITA transformation framework and Toolkit plugin</li>
+      <li>The DITA-to-InDesign transformation framework and Toolkit plugin</li>
+      </ul></p>
+    <p>The package also contains renditions of the <cite>DITA for Publishers User Guide</cite>.</p>
+    <p>The source materials for the DITA for Publishers project are available via anonymous git access (including Web-based git access) from <xref
+      href="http://github.com/dita4publishers/dita4publishers" format="html" scope="external"
+      >http://github.com/dita4publishers/dita4publishers</xref>. Note that each of the individual plugins is managed as a separate git project within the dita4publishers GitHub organization and referenced as a git submodule from the main dita4publishers project.</p>
+    <p>If you clone the dita4publishers project you will need to run the git command <codeph>git submodule init</codeph> to initialize all the submodules and get the source for them. You will also find the bash script <filepath>submoduleAll.sh</filepath>, which will set up the D4P Open Toolkit submodules in any git repository you specify. For example, if you make your Open Toolkit directory into a git repository (Command <codeph>git init</codeph> in the DITA-OT directory) then you can run the command <codeph>./submoduleAll.sh {path to OT plugins directory}</codeph> to get all the D4P plugins into your open toolkit. Just run the Toolkit's integrator.xml Ant script to integrate the D4P plugins and you should be ready to go. To update the plugins you can then use the command "git submodule foreach git pull" to get the latest versions of the plugins.</p>
+  </conbody>
+</concept>

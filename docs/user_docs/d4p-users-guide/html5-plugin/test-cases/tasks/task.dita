@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="task_wl3_ctr_qm">
+    <title>Task title</title>
+    <shortdesc/>
+    <taskbody>
+        <context>
+            <p>Context for the current task</p>
+        </context>
+        <steps outputclass="full-scope">
+            <step>
+                <cmd>This is a step cmd and its <cmdname>cmdname</cmdname></cmd>
+                <substeps>
+                    <substep>
+                        <cmd>This is substep 1</cmd>
+                    </substep>
+                    <substep>
+                        <cmd>This is substep 2</cmd>
+                    </substep>
+                </substeps>
+                
+            </step>
+            <step>
+                <cmd>This is step 2</cmd>
+                <info>This is the info block.</info>
+                <stepxmp>This is a step example</stepxmp>
+                <stepresult>This is a step result</stepresult>             
+            </step>
+            
+            <step>
+                <cmd>This is step 3 with choice</cmd>
+                <info>This is the info block.</info>
+                <choices>
+                    <choice>Choice 1</choice>
+                    <choice>Choice 2</choice>
+                    <choice>Choice 3</choice>                  
+                </choices>            
+            </step>
+            
+            <step>
+                <cmd>This is step 4 with choice table</cmd>
+                <info>This is the info block.</info>
+                <choicetable>
+                    <chrow>
+                        <choption>option 1</choption>
+                        <chdesc>Infos regarding opt 1</chdesc>
+                    </chrow>
+                    <chrow>
+                        <choption>option 2</choption>
+                        <chdesc>Infos regarding opt 2</chdesc>
+                    </chrow>
+                </choicetable>         
+            </step>
+        </steps>
+    </taskbody>
+</task>

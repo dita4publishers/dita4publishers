@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept
+  id="subsection-id">
+  <title>Creating Arbitrary EPUB OPF Metadata</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>metadata<indexterm>OPF</indexterm><indexterm>creating</indexterm></indexterm>
+        <indexterm>OPF metadata<indexterm>creating</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <p>The OPF package manifest within an EPUB document can contain metadata entries. The entries required for EPUB validation are created automatically by the EPUB generation process. However, you may want or need to add additional metadata, for example to support the conventions of a particular EPUB reader.</p>
+    <p>You can create arbitrary OPF metadata entries by creating a <xmlelem>data</xmlelem> element in your map's metadata with the name "opf-metadata". Use child <xmlelem>data</xmlelem> elements to define specific metadata items, where the <xmlatt>name</xmlatt> value is is used as the <xmlatt>name</xmlatt> attribute on the OPF <xmlelem>meta</xmlelem> and the <xmlatt>@value</xmlatt> or content of the <xmlelem>data</xmlelem> element is used as the <xmlatt>content</xmlatt> attribute on the OPF <xmlelem>meta</xmlelem> element.</p>
+    <p>For example, this markup in a DITA map:<codeblock>&lt;map>
+ &lt;topicmeta>
+  &lt;data name="opf-metadata">
+    &lt;data name="item-one" value="value one"/>
+    &lt;data name="item-two" value="value two"/>
+  &lt;/data>
+ &lt;/topicmeta>
+&lt;/map></codeblock></p>
+    <p>Would result in OPF metadata like this:<codeblock>   ...
+   &lt;metadata>
+      &lt;dc:title>DITA For Publishers User Guide&lt;/dc:title>
+      &lt;dc:language id="language">en-US&lt;/dc:language>
+      &lt;dc:identifier id="bookid">http://example.org/epubs/&lt;/dc:identifier>
+      &lt;dc:creator opf:role="aut">W. Eliot Kimber&lt;/dc:creator>
+      <b>&lt;meta name="item-one" content="value one"/></b>
+      <b>&lt;meta name="item-two" content="value two"/></b>
+   &lt;/metadata>
+   ...</codeblock></p>
+  </conbody>
+</concept>

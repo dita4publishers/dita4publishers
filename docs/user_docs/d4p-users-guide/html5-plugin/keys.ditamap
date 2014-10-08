@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+ <keydef keys="html5-intro" href="html5-toolkit-plugin.dita"/>
+ <keydef keys="html5-download" href="general/downloading.dita"/>
+ <keydef keys="html5-install" href="general/install.dita"/>
+ <keydef keys="html5-run" href="general/running.dita"/>
+ <keydef keys="html5-index-file" href="general/setting-an-index.dita"/>
+ <keydef keys="html5-changed-behavior" href="general/changed_behavior.dita"/>
+ <keydef keys="html5-license" href="general/licence.dita"/>
+ <keydef keys="html5-requirements" href="general/requirements.dita"/>
+ <keydef keys="html5-navigation-behavior" href="general/navigation_behavior.dita"/>
+ <keydef keys="html5-developper" href="general/developpers.dita"/>
+ 
+ <keydef keys="html5-customization-plugin" href="dev/customization-plugin.dita"/>
+
+ <keydef keys="html5-theme-dev" href="dev/theme-dev.dita"/>
+ <keydef keys="html5-analytics" href="how-to/analytics.dita"/>
+ <keydef keys="html5-theme-general-process" href="dev/theme-general-process.dita"/>
+ <keydef keys="html5-theme-configuration" href="dev/theme-config.dita" />
+ <keydef keys="html5-theme-configuration-file" href="dev/theme-config-file.dita" />
+ <keydef keys="html5-customize-xsl" href="dev/customize-xsl.dita" />
+ <keydef keys="html5-theme-add-conditional-css" href="how-to/theme-add-conditional-css.dita" />
+ 
+ <keydef keys="html5-feature-muti-columns" href="how-to/muti-columns.dita"/>
+ <keydef keys="html5-feature-css-grid" href="how-to/css-grid.dita"/>
+ <keydef keys="html5-feature-images" href="how-to/images.dita"/>
+ <keydef keys="html5-feature-notes" href="how-to/notes.dita"/>
+ <keydef keys="html5-feature-ui-intro" href="how-to/ui-intro.dita"/>
+ <keydef keys="html5-feature-ui-accordion" href="how-to/accordion.dita"/>
+ <keydef keys="html5-feature-ui-images" href="how-to/ui-images.dita"/>
+ 
+ <keydef keys="html5-test-num-list" href="test-cases/list/numbered-list.dita"/>
+ <keydef keys="html5-test-list-style-type" href="test-cases/list/list-style-type.dita"/>
+ <keydef keys="html5-test-task" href="test-cases/tasks/task.dita"/>
+ <keydef keys="html5-test-codeblock" href="test-cases/language/codeblock.dita"/>
+
+ <keydef keys="html5-plugin-directory-structure" href="dev/directory-structure.dita"/>
+ <keydef keys="html5-plugin-ant-properties" href="references/ant-properties.dita"/>
+ 
+ <keydef keys="theme-process-general" href="assets/img/theme-global-process.jpg" format="jpg" scope="local">
+  <topicmeta>
+   <navtitle>Theme creation, general process</navtitle>
+  </topicmeta>
+ </keydef>
+ <keydef keys="html5-default-theme-topic" href="dev/html5-default-theme.dita"/>
+ <keydef keys="html5-reference-topic" href="references/html5-reference.dita"/>
+ <keydef keys="html5-getting-started-topic" href="general/html5-getting-started.dita"/>
+</map>

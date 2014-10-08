@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="conceptId">
+ <title>Release Notes: Version 0.9.16</title>
+ <shortdesc>Version 0.9.16 released 21 March 2011</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>
+          <indexterm>release notes<indexterm>Version 0.9.16</indexterm></indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+    <section>
+      <title>Extensible transformation types (HTML2, EPUB, etc.)</title>
+      <ul>
+        <li>Corrected order of import extension point and base includes in top-level _template XSL files.</li>
+        <li>Added sample no-op extension for the HTML2 transformation type (org.example.d4p.html2extensions).</li>
+      </ul>
+    </section>
+    <section>
+      <title>Word to DITA</title>
+      <ul>
+        <li>Added new attribute, <xmlatt>styleName</xmlatt> to <xmlelem>style</xmlelem> in style-to-tag-map documents. This allows you to define mappings in terms of Word style display names rather than style IDs. The <xmlatt>styleId</xmlatt> attribute continues to be supported.<p>This change addresses an issue seen with documents modified or created in Japanese versions of Word, where all the style IDs got changed from what they were originally.</p><p>The documentation and samples have been updated to reflect the <xmlatt>styleName</xmlatt> attribute.</p></li>
+      </ul>
+    </section>
+  </conbody>
+</concept>

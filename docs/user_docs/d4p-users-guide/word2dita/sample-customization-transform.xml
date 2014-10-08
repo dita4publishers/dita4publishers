@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="conceptId">
+ <title>Sample Custom Word-to-DITA XSLT Stylesheet</title>
+ <shortdesc>A working example of a custom Word-to-DITA XSLT stylesheet</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+   <p>To customize and extend the base Word-to-DITA transformation you need a new top-level XSLT document that includes <filepath>docx2dita.xsl</filepath> transformation and then adds any new templates you need in order to customize processing. The following example shows an example of extending the "final-fixup" mode to capture literal numbers in topic titles.</p>
+    <codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  exclude-result-prefixes="xs "
+  version="2.0">
+  
+  &lt;xsl:import href="../../org.dita4publishers.word2dita/xsl/docx2dita.xsl"/>
+  
+  &lt;xsl:template match="<b>concept/title</b>" mode="final-fixup">
+    &lt;!-- Look for numbers for the form "1-1" at the start of titles and wrap in d4pSimpleEnumeration
+         element. The number must be in the first text node, not in a subelement.
+    -->
+    &lt;xsl:variable name="childNodes" select="./node()" as="node()*"/>
+    &lt;xsl:message> + [DEBUG] childNodes=&lt;xsl:sequence select="$childNodes"/>&lt;/xsl:message>
+    &lt;xsl:choose>
+      &lt;xsl:when test="$childNodes[1]/self::text() and matches($childNodes[1], '^[0-9]+')">
+        &lt;xsl:copy>
+          &lt;xsl:apply-templates select="@*" mode="#current"/>
+          &lt;xsl:analyze-string select="$childNodes[1]" regex="^(([0-9]+(-[0-9]+)*)[ ]+)(.*)">
+            &lt;xsl:matching-substring>
+              &lt;d4pSimpleEnumeration>&lt;xsl:sequence select="regex-group(1)"/>&lt;/d4pSimpleEnumeration>
+              &lt;xsl:sequence select="regex-group(4)"/>
+            &lt;/xsl:matching-substring>
+            &lt;xsl:non-matching-substring>
+              &lt;xsl:sequence select="."/>
+            &lt;/xsl:non-matching-substring>
+          &lt;/xsl:analyze-string>
+          &lt;xsl:apply-templates select="$childNodes[position() > 1]" mode="#current"/>
+        &lt;/xsl:copy>        
+      &lt;/xsl:when>
+      &lt;xsl:otherwise>
+        &lt;xsl:apply-imports/>
+      &lt;/xsl:otherwise>
+    &lt;/xsl:choose>
+  &lt;/xsl:template>
+  
+&lt;/xsl:stylesheet></codeblock>
+    <p>This transform as shown is intended to be packaged in a separate Open Toolkit plugin so that it is in a known location relative to the base transform provided by the Word-to-DITA. In this example the transform is in the directory <filepath>xsl/</filepath> under the plugin's main directory (mirroring the organization of the word-to-DITA plugin itself).</p>
+    <p>The plugin descriptor looks like this:<codeblock>&lt;!-- 
+  Plugin descriptor for an example Word-to-DITA extension transform
+  
+  Use this as a sample for your own plugin.
+  
+  -->
+&lt;plugin id="org.example.d4p.word2ditaextension">
+  &lt;require plugin="org.dita4publishers.word2dita"/> 
+
+  &lt;!-- This plugin just provides the transform in a reliable location
+       relative to the base transform. It doesn't define its own
+       transformation type.
+    -->
+&lt;/plugin></codeblock></p>
+    <p>The directory structure of the plugin is:<codeblock>org.example.d4p.word2ditaextension/
+  plugin.xml
+  xsl/
+    sample-word-to-dita-customization.xsl</codeblock></p>
+    <p>You would copy the <filepath>org.example.d4p.word2ditaextension</filepath> directory to the <filepath>plugins</filepath> directory of your Toolkit in order to make it available. Note that because this plugin doesn't define a new transformation type or directly-extend any other plugins, you don't have to run the integrator.xml script after deploying it.</p>
+    <p>To use the customization you would specify the XSLT file as the value of the <parmname>w2d.word2dita.xslt</parmname> Ant parameter, either on the command line or in an Ant build script that applies the Word-to-DITA process to a specific file.</p>
+    <p>A working version of this plugin is included in the DITA for Publishers Open Toolkit plugin package as the plugin "org.example.d4p.word2ditaextension".</p>
+ </conbody>
+</concept>

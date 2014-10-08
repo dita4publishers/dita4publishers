@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference id="referenceId">
+  <title>html2.file.organization.strategy Ant parameter</title>
+  <shortdesc>Names the output file organization strategy to use for generated files.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>output file organization strategy<indexterm>generating</indexterm></indexterm>
+        <indexterm>html2.file.organization.strategy ant parameter</indexterm>
+        <indexterm>ant parameters<indexterm>html2.file.organization.strategy</indexterm></indexterm>
+        <indexterm>parameters<indexterm>ant<indexterm>html2.file.organization.strategy</indexterm></indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section
+      spectitle="Value">
+      <p>One of the pre-defined strategies "as-authored" or "single-dir" or a user-implemented name. If the strategy name is not recognized (that is, not handled by the base code or an extension) then the default strategy is applied. The default is dependent on the specific transformation type. For HTML2 the default is "as-authored". For EPUB it is "single-dir".</p>
+    </section>
+    <section
+      spectitle="Default">
+      <p>Unset, in which case the transform-type-defined default strategy is used.</p>
+    </section>
+    <section
+      spectitle="XSLT Parameter">
+      <p>fileOrganizationStrategy.</p>
+    </section>
+    <section
+      spectitle="Notes">
+      <p/>
+    </section>
+  </refbody>
+</reference>

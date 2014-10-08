@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="conceptId">
+ <title>Generating DITA From Within OxygenXML</title>
+ <shortdesc>You can transform Word documents from within OxygenXML without using the Open Toolkit</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>OxygenXML<indexterm>running Word-to-DITA transform with</indexterm></indexterm>
+        <indexterm>Word-to-DITA transform<indexterm>from OxygenXML</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+   <p>OxygenXML has two handy features that make transforming Word documents into DITA convenient, especially as you are defining the style-to-tag mapping or implementing custom XSLT extensions:<ul>
+      <li>OxygenXML can open Zip archives in its Archive Browser. As DOCX files are just Zip archives, it means you can open Word DOCX files in Oxygen and get to the individual files inside very easily.</li>
+      <li>OxygenXML can run XSLT transforms and, in particular, can run them against files within Zip packages.</li>
+      </ul></p>
+    <p>In addition, you can use Oxygen's built-in Open Toolkit to manage resolution of the XSD schema for style-to-tag mapping documents simply by deploying the DITA for Publisher's Toolkit plugins to Oxygen's Toolkit instance (see <xref
+      href="../d4p-users-guide/tasks/plugin-installation.xml#taskId"
+      format="dita"/>).</p>
+    <p>You can use Oxygen's normal Toolkit transformation scenario to run transforms against Word documents. Simply set the <parmname>transtype</parmname> Ant parameter to "word2dita" and specify the Word document as the input file.</p>
+    <p>You can also transform Word documents directly in Oxygen, which is handy for testing and development of your style-to-tag mapping.</p>
+    <p>To run the transform in Oxygen, do the following:<ol>
+      <li>Open the DOCX file you want to transform in Oxygen's Archive Browser</li>
+      <li>Navigate to the file <filepath>word/document.xml</filepath> within Archive Browser and open it in the editor (double click on the filename).<p>All Word documents have a file named <filepath>document.xml</filepath>, which contains all the paragraph content for the document. This file is the input to actual Word-to-DITA transform.</p></li>
+      <li>Open the file <filepath>org.dita4publishers.word2dita/xsl/docx2dita.xsl</filepath> from the Toolkit plugin, either as deployed to your Toolkit or from the DITA for Publishers distribution package (the transform has no dependencies on any other Toolkit components so you can run it standalone).</li>
+      <li>From the docx2dita.xsl file, select the <uicontrol>Configure Transformation Scenario</uicontrol> button from the Toolbar and select <uicontrol>New</uicontrol> to create a new transformation scenario.</li>
+      <li>For the XML file select the <filepath>document.xml</filepath> file you opened from the DOCX archive.</li>
+      <li>Select the <uicontrol>Parameters</uicontrol> button to open the Parameters dialog and set the following parameters:<parml>
+        <plentry>
+          <pt>outputDir</pt>
+          <pd>The URI of the output directory to hold the generated files.</pd>
+        </plentry>
+        <plentry>
+          <pt>styleMapUri</pt>
+          <pd>The URI of the style-to-tag map document to use for the transform.</pd>
+        </plentry>
+        </parml></li>
+      <li>Save the scenario and select <uicontrol>Transform now</uicontrol> to run the transform.</li>
+      </ol></p>
+    <p>You should get some output. Use Oxygen's <uicontrol>File->Open</uicontrol> dialog to open the generated file (map or topic).</p>
+    <p>You can now rerun the transform at will and see the updated files in the editor. </p>
+ </conbody>
+</concept>

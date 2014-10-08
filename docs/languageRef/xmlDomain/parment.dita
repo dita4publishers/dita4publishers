@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference id="parment">
+    <title>parment</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>parment</indexterm>
+            <!-- sample from DITA langref
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
+				    </indexterm> -->
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <refbodydiv outputclass="summary">
+         <section id="summary">A parment is an inline entity for identifying a parameter entity. A parameter entity is generally found in DTDs. It is distinguishable from a text entity by its use of the percent symbol rather than the ampersand.</section>
+      </refbodydiv>
+        <refbodydiv outputclass="d4p">
+          <section id="d4p">This is a specialization of keyword. &lt;parment&gt;my-parameter-entity&lt;/parment&gt;
+            Produces: %my-parameter-entity;</section>
+      </refbodydiv>    	    
+        <refbodydiv outputclass="contains">
+         <section id="contains"/>
+      </refbodydiv>
+        <refbodydiv outputclass="contains-by">
+         <section id="contains-by"/>
+      </refbodydiv>    
+      <refbodydiv outputclass="inheritance">
+        <section id="inheritance">
+          <title>Inheritance</title>
+          <p>+ topic/keyword xml-d/parment </p>
+        </section>
+      </refbodydiv>
+      <example id="example1">
+        <fig><title>Sample of an instance of the parment element</title>
+          <codeblock>Don't forget your trailing semi-colon from your &lt;parment&gt;my-parameter-entity&lt;/parment&gt; in your DTD.</codeblock>
+        </fig>
+      </example>   	
+        <refbodydiv outputclass="attributes">
+         <section id="attributes"/>
+      </refbodydiv>
+        
+    </refbody>
+</reference>

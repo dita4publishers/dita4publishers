@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference id="d4p_video">
+    <title>d4p_video</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>d4p_video</indexterm>
+            <!-- sample from DITA langref
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
+				    </indexterm> -->
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <refbodydiv outputclass="summary">
+         <section id="summary">The d4p_video element is for including video in a DITA topic. It corresponds to HTML5's &lt;video&gt; element. While it is possible an editing environment could display video, it is more likely that video won't actually be rendered and playable until a DITA source is transformed into an output deliverable, such as HTML files or an epub3 package. Height and width can be specified as optional attributes. A video's source should be indicated by a child &lt;d4p_media_source&gt; element (more than one source may be specified). A poster image (at most only one) can be specified as a child &lt;d4p_video_poster&gt; element. It is good practice to include a child &lt;desc&gt; element as alternate content for deliverable formats that cannot play video or for accessibility purposes for a user who is visually impaired. For example, a &lt;desc&gt; element might describe what the video shows or give directions for accessing the video in another manner. 
+    </section>
+      </refbodydiv>
+        <refbodydiv outputclass="d4p">
+         <section id="d4p">The d4p_video element is specialized from the base object element.</section>
+      </refbodydiv>    	    
+        <refbodydiv outputclass="contains">
+         <section id="contains"/>
+      </refbodydiv>
+        <refbodydiv outputclass="contains-by">
+         <section id="contains-by"/>
+      </refbodydiv>    
+      <refbodydiv outputclass="inheritance">
+        <section id="inheritance">
+          <title>Inheritance</title>
+          <p>+ topic/object   d4p-media-d/d4p_video </p>
+        </section>
+      </refbodydiv>
+        <refbodydiv outputclass="example1">
+         <section id="example1"/>
+      </refbodydiv>    	
+        <refbodydiv outputclass="attributes">
+         <section id="attributes"/>
+      </refbodydiv>
+        
+    </refbody>
+</reference>

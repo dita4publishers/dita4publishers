@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:topic" "urn:pubid:dita4publishers.org:doctypes:dita:topic">
+<topic
+  id="topic-id">
+  <title>About This Book</title>
+  <body>
+    <p>This publication provides general guidance on how to use the various DITA for Publishers (D4P) materials, in particular, how to install and use the D4P Open Toolkit plugins and how to configure different XML editors to enable editing of D4P documents.</p>
+    <p>The DITA For Publishers markup is documented separately in the <cite>DITA For Publishers Markup Guide and Reference</cite>.</p>
+    <p>All DITA for Publishers materials are available through the DITA for Publishers project on GitHub, <xref href="http://www.dita4publishers.org" format="html" scope="external"
+      >http://www.dita4publishers.org</xref>.</p>
+  </body>
+</topic>

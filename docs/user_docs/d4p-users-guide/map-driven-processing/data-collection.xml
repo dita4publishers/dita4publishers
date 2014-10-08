@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="conceptId">
+ <title>Data Collection Processing Phase</title>
+ <shortdesc>Overview of map-driven-processing data collection phase </shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>map-driven processing<indexterm>data
+          collection</indexterm></indexterm>
+        <indexterm>data collection<indexterm>overview</indexterm></indexterm>
+        <indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+    <p>The data collection process can be extended in several
+      ways:<indexterm>extension points<indexterm>data
+      collection</indexterm></indexterm><ul
+      id="ul_ifb_52d_rh">
+      <li>You can extend the default enumeration data set to add or remove
+        things you do or don't want to number by adding templates in the mode
+        <keyword>construct-enumerable-structure</keyword>.<p>By default the
+        enumeration data reflects all elements with titles: topics, figures,
+        tables, sections, examples, bodydiv, sectiondiv, and div. </p><p>If you
+        wanted to number notes, for example, you could add a template that
+        matches on "topic/note" in the mode construct-enumerable-structure and
+        call the template <keyword>construct-enumerated-element</keyword> with
+        the appropriate content.</p></li>
+      <li>You can extend or modify the index and glossary grouping and sorting
+        behavior, although there should be no need unless you need to apply
+        specific grouping or sorting rules for some reason. Note that as of
+        0.9.19, the grouping and sorting is only tested for English, so getting
+        correct grouping and sorting for other languages, locales, and writing
+        systems will likely require customization or, in the worst case, XSLT
+        extensions that implement appropriate collation.</li>
+      <li> Add your own data collection for whatever purpose by implementing
+        templates in the mode <keyword>data-collection-extensions</keyword>. You
+        can generate whatever XML structures you want through this mode.<p>For
+        example, if you needed specific data to support some interaction feature
+        of your generated output, you could gather that data in the
+        data-collection-extensions mode.</p></li>
+      </ul></p>
+    <p>The collected data is not normally written out—it is simply held in
+      memory as an XSLT variable. However, if you turn debugging on using the
+      <parmname>debug</parmname> parameter the collected data will be written to
+      the output directory as the file
+      <filepath>collected-data.xml</filepath>.</p>
+  </conbody>
+</concept>

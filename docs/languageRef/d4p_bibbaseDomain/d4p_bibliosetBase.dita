@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference id="d4p_bibliosetBase">
+    <title>d4p_bibliosetBase</title>
+    <shortdesc> <!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>d4p_bibliosetBase</indexterm>
+                <!-- sample from DITA langref
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
+				    </indexterm>
+				-->
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <refbodydiv outputclass="summary"><section id="summary">The d4p_bibliosetBase element is the base element for parts of a bibliographic entry, such parts may be author name, title, and publication information. Again, it is not intended to be used but rather intended to be specialized from. It is an inline element.</section></refbodydiv>
+        <refbodydiv outputclass="d4p"><section id="d4p">This element specializes from the ph element. See d4p_simpleBiblioset for an example specialization.</section></refbodydiv>    	    
+        <refbodydiv outputclass="contains"><!-- placeholder for contains --></refbodydiv>
+        <refbodydiv outputclass="contains-by"><!-- placeholder for contains-by --></refbodydiv>    
+        <refbodydiv outputclass="inheritance">
+            <section id="inheritance">
+                <title>Inheritance</title>
+                <p>+ topic/ph d4p-bibbase-d/d4p_bibliosetBase </p>
+            </section>
+        </refbodydiv>
+        <example id="example1">
+            Because this is only intended for use as a base for specialization, see the d4p_simpleBiblioentry for an example.
+        </example>    	
+        <refbodydiv outputclass="attributes"><!-- attributes --></refbodydiv>
+        
+    </refbody>
+</reference>
+

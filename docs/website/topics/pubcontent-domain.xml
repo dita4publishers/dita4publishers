@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:topic" "urn:pubid:dita4publishers.org:doctypes:dita:topic">
+<topic
+  id="topic-id">
+  <title>Publication Content Domain</title>
+  <shortdesc>The publication content domain provides general-purpose content elements that are specific to publications.</shortdesc>
+  <body>
+    <p>The publication content domain currently defines the following elements: <dl>
+      <dlentry>
+        <dt><xmlelem>epigram</xmlelem></dt>
+        <dd>A pithy saying, usually humorous.</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlelem>epigraph</xmlelem></dt>
+        <dd>A brief quotation used to introduce a piece of writing. See <xref href="http://www.wsu.edu/%7Ebrians/errors/epigram.html" format="html" scope="external"
+          >http://www.wsu.edu/~brians/errors/epigram.html</xref>.</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlelem>section-pullquote</xmlelem></dt>
+        <dd>Contains a pull quote. Pull quotes often quote text within the main body of the topic and are presented out of line with the main presentation. The contents of the <xmlelem>section-pullquote</xmlelem> element should not be presented inline as it may be different from the text it quotes (for example, it might ellide part of the original or change the text to make more sense as a pull quote).</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlelem>d4pAttributedQuote</xmlelem></dt>
+        <dd>A quoted phrase that is attributed to a specific source. Uses the <xmlelem>d4pQuoteAttribution</xmlelem> element to identify the source of the quote.</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlelem>d4pAssetSource</xmlelem></dt>
+        <dd>Identifies the source of an asset, such as an image or media object. Normally used within figures or <xmlelem>art</xmlelem> elements.</dd>
+      </dlentry>
+      </dl></p>
+    <p>The <xmlelem>epigraph</xmlelem> element holds one or more paragraphs or other block-level elements followed by an optional <xmlelem>epigraph-attribution</xmlelem> element:<pre>...
+&lt;body>
+&lt;epigraph>
+ &lt;p>&lt;q>Hokey religions and ancient weapons are no 
+match for a good blaster at your side, kid.&lt;/q>
+ &lt;epigraph-attribution>Han Solo, Star Wars, 
+Episode IV&lt;/epigraph-attribution>
+&lt;/epigraph>
+ ...
+</pre></p>
+  </body>
+</topic>

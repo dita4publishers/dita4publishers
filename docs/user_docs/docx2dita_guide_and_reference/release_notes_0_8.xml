@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/topic" "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/topic">
+<topic
+  id="topic-id">
+  <title>Version 0.8 Release Notes</title>
+  <body>
+    <p>Version 0.8 is the first public release of the DOCX2DITA transform. It has the following
+      noteable limitations:<ul
+        id="ul_837a0a1c-8421-49a9-a5ff-7262d1a88781">
+        <li>Fields are not handled in any way, including xrefs, footnotes, etc.</li>
+        <li>Inline format changes (bold, italic, etc.) are ignored.</li>
+      </ul></p>
+  </body>
+</topic>

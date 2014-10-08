@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept
+  id="concept-id">
+  <title>Style to Tag Mapping</title>
+  <shortdesc>The docx2dita transform is driven by a configuration file, the style-to-tag map. The
+    style-to-tag map enables an entirely or almost-entirely configuration-driven transformation of
+    styled Word documents into DITA-based XML, specialized or not. Through careful design of Word
+    templates it is possible to quickly configure the transformation to produce good XML
+    documents.</shortdesc>
+  <conbody>
+    <p>The style-to-tag map consists of a sequence of <xmlelem>style</xmlelem> elements, where each
+      style element defines the mapping for a paragraph, character, list, or table style to the
+      appropriate DITA XML structure. The mapping document may also include an initial <xmlelem
+        >documentation</xmlelem> element that can hold documentation in any markup language (its
+      content is ignored and not validated), as well as <xmlelem>output</xmlelem> elements that
+      define the public and system IDs to use for any generated map or topic documents.</p>
+    <p>The basic rules and constraints for the mapping are:<ul>
+        <li>The result document always consists of a single root topic or map. The first non-skipped
+          and non-root-topic-prolog paragraph in the Word document must be of structure type
+          "topicTitle", "map", or "mapTitle" and level "0" (zero).</li>
+      <li>The @level value on each style determines how the flat sequence of Word paragraphs translates into a hierarchy of maps and topics. You must specify appropriate @level values and you cannot skip levels (you cannot have a level-1 paragraph followed by a level-3 paragraph).</li>
+        <li>Paragraph styles that map to topic titles and contained elements (within topic bodies) must map to exactly one fixed level or specify a relative level value (current level, plus one, or
+        minus one) and a "level group". Most of your styles will map to fixed levels, but things that may occur at many levels and that should always be leveled relative to their context can be
+        defined using relative levels. Examples include topic-creating paragraphs and paragraphs for things that can occur within the topic body or within list items or other contexts.</li>
+        <li>Character style mapping is flat within a paragraph: there is currently no general way to
+          infer multiple levels of inline markup from a flat sequence of character runs (this is
+          more a limitation of Word's character styles than of the mapping mechanism). In theory it
+          would be possible to use marker characters or character styles or, more reliably, embedded
+          XML elements, to capture more complex inline structures.</li>
+        <li>Each mapped style effectively says "I'm this type of structure, I go in this part of the
+          topic, and (if necessary), I'm contained by this containing element." That, plus other
+          details as needed for specific types of target elements, is sufficient to enable accurate
+          creation of DITA XML from appropriately-styled Word documents.</li>
+      <li>Paragraphs that generate topics can also generate maps and topicrefs to those topics. This allows you to generate maps and submaps as well as topics.</li>
+        <li>Common containment is determined by adjacency of similar container types and levels. For
+          example, within a topic body, each sequence of adjacent paragraphs with the same <xmlatt
+            >containerType</xmlatt> and <xmlatt>level</xmlatt> value will be grouped together within
+          the same result element as determined by the <xmlatt>containerType</xmlatt> value.</li>
+      </ul></p>
+    <p>Each style mapping takes the following attributes (see the <filepath>style2tagmap/xsd/style2tagmap.xsd</filepath> schema in the DITA for Publishers doctypes plugin for details):<dl>
+      <dlentry>
+        <dt><xmlatt>styleName</xmlatt></dt>
+        <dd>(Required unless <xmlatt>styleId</xmlatt> is specified) The Word style name. This is the value in the <xmlatt>w:val</xmlatt> attribute of the <xmlelem>w:style</xmlelem>/<xmlelem>w:name</xmlelem> element whose <xmlatt>w:styleId</xmlatt> value matches the style ID specified by a given paragraph, text run, list item, or table. This is the display name of the style as shown in the various style-related dialogs in Word. The style name is not case sensitive, so "Heading 1" and "heading 1" identify the same style. Note that styles may have associated aliases. Mapping to aliases is not supported as of version 0.9.16.<p>If you specify <xmlatt>styleName</xmlatt> you should not specify <xmlatt>styleId</xmlatt>. If you specify both then <xmlatt>styleName</xmlatt> is used.</p></dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>styleId</xmlatt></dt>
+        <dd>(Required if <xmlatt>styleName</xmlatt> is not specified) The Word style ID. This is the value in the <xmlatt>w:val</xmlatt> attribute of the <xmlelem>w:*Style</xmlelem> element associated with given paragraph, text run, list item, or table. Note that this value is not the same as the display name of the style. For example, spaces and underscores in style names are removed to form the style ID. In general, you can construct the style ID for a given style by simply removing all spaces from the style's display name.<p>If you specify <xmlatt>styleId</xmlatt> you should not specify <xmlatt>styleName</xmlatt>. If both are specified, <xmlatt>styleName</xmlatt> is used.</p></dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>structureType</xmlatt></dt>
+        <dd>(Required) Indicates the type of target structure the Word construct represents. Possible values are:<dl>
+          <dlentry>
+            <dt>topicTitle</dt>
+            <dd>Paragraphs that start new topics and provide their titles. The style mapping must also indicate the topic type, prolog type, body type, and topic nesting level.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>map</dt>
+            <dd>Paragraphs that start new maps without titles.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>mapTitle</dt>
+            <dd>Paragraphs that start new maps and provide their titles.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>topicHead</dt>
+            <dd>Paragraphs that generate new <xmlelem>topichead</xmlelem> elements in the result map and provide their titles.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>topicGroup</dt>
+            <dd>Paragraphs that generate new <xmlelem>topicgroup</xmlelem> elements in the result map. Topic groups may have titles (and generated topic groups will use the paragraph content as the title) but topic group titles are always ignored in output per the DITA 1.2 specification.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>topicmeta</dt>
+            <dd>Paragraphs that contribute metadata to a map or topicref.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>prologData</dt>
+            <dd>Paragraphs that contribute metadata to the prolog container of a topic..</dd>
+          </dlentry>
+          <dlentry>
+            <dt>section</dt>
+            <dd>Paragraphs that start new sections and, optionally, provide their titles. The style mapping must specify the section tag name and how the section title is determined (<xmlatt>spectitle</xmlatt>).</dd>
+          </dlentry>
+          <dlentry>
+            <dt>dt</dt>
+            <dd>A paragraph that is the definition term part of a definition list entry.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>dd</dt>
+            <dd>A paragraph that is the definition description part of a definition list entry. Must immediately follow a "dt" structure type paragraph.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>skip</dt>
+            <dd>The paragraph is completely ignored by the transform. Skipped paragraphs are ignored for the purpose of determining adjacent paragraphs when determining common containers. This means, for example, that a sequence of paragraphs mapped to the same level 1 container, interrupted by a skipped paragraph, and followed by more paragraphs in the same level 1 container will be in a single container instance in the result.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>xref</dt>
+            <dd>Represents a cross reference. Intended to map to <xmlelem>xref</xmlelem> or a specialization of <xmlelem>xref</xmlelem>.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>shortdesc</dt>
+            <dd>A paragraph that serves as the short description for its containing topic.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>block</dt>
+            <dd>Paragraphs that are generic block containers, e.g. DITA paragraphs or similar.</dd>
+          </dlentry>
+          </dl></dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>secondStructureType</xmlatt></dt>
+        <dd>For paragraphs that generate multiple result elements, the result structure to generate. Mostly used for paragraphs that generate both topics and maps. In this case it doesn't matter whether the map or topic is second structure type, the result will be the same. Possible values are:<dl>
+          <dlentry>
+            <dt>mapTitle</dt>
+            <dd>Paragraphs that start new maps and provide their titles.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>topicTitle</dt>
+            <dd>Paragraphs that start new topics and provide their titles. The style mapping must also indicate the topic type, prolog type, body type, and topic nesting level.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>topicGroup</dt>
+            <dd>Paragraphs that generate new <xmlelem>topicgroup</xmlelem> elements in the result map. Topic groups may have titles (and generated topic groups will use the paragraph content as the title) but topic group titles are always ignored in output per the DITA 1.2 specification.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>topicHead</dt>
+            <dd>Paragraphs that generate new <xmlelem>topichead</xmlelem> elements in the result map and provide their titles.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>section</dt>
+            <dd>Paragraphs that start new sections and, optionally, provide their titles. The style mapping must specify the section tag name and how the section title is determined (<xmlatt>spectitle</xmlatt>).</dd>
+          </dlentry>
+          </dl></dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>topicZone</xmlatt></dt>
+        <dd>(Optional) Indicates which part of the target topic the result element belongs in. Possible values are:<dl>
+          <dlentry>
+            <dt>title</dt>
+            <dd>Provides a topic title</dd>
+          </dlentry>
+          <dlentry>
+            <dt>titleAlts</dt>
+            <dd>Provides one or more title alternatives</dd>
+          </dlentry>
+          <dlentry>
+            <dt>shortdesc</dt>
+            <dd>Provides the short description for the topic.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>prolog</dt>
+            <dd>Contributes to the topic prolog.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>body</dt>
+            <dd>Contributes to the topic body as a block-level element.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>inline</dt>
+            <dd>An inline element contained by some other generated element.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>topicmeta</dt>
+            <dd>An element that goes in the topicmeta container of a map or topicref element.</dd>
+          </dlentry>
+          </dl></dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>containingTopic</xmlatt></dt>
+        <dd>(Optional) Indicates which topic should contain the element: "root" or "current". When <xmlatt>containingTopic</xmlatt> is "root", the paragraph will be included in the root topic, regardless of where it occurs within the input Word document. This is intended primarily for prolog components. The default is "current".</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>containerType</xmlatt></dt>
+        <dd>(Optional) For components that imply a container, such as list items, specifies the tag name of the containing element, e.g. "ul" for unordered list items. The container type value, along with the <xmlatt>level</xmlatt> value, is used to group sequences of adjacent paragraphs together. All adjacent paragraphs with the same <xmlatt>containerType</xmlatt> and <xmlatt>level</xmlatt> value will be grouped together under a single instance of the specified container.<p>For paragraphs that generate topicrefs, specifying <xmlatt>containerType</xmlatt> results in a common containing element for adjacent topicrefs with the same container type (for example, to put the topicrefs into a topic group).</p></dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>tagName</xmlatt></dt>
+        <dd>(Required) Specifies the XML tag name for the result element generated directly from the Word component.</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>topicType</xmlatt></dt>
+        <dd>(Required when <xmlatt>structureType</xmlatt> or <xmlatt>sectionStructureType</xmlatt> is "topicTitle"). Specifies the topic element tag name.</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>mapType</xmlatt></dt>
+        <dd>(Required when <xmlatt>structureType</xmlatt> or <xmlatt>sectionStructureType</xmlatt> is "mapTitle"). Specifies the map element tag name.</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>prologType</xmlatt></dt>
+        <dd>(Optional). For topics, specifies the prolog element tag name.</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>abstractType</xmlatt></dt>
+        <dd>(Optional). For topics, specifies the abstract element tag name.</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>bodyType</xmlatt></dt>
+        <dd>(Optional). For topics, specifies the body element tag name.</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>shortdescType</xmlatt></dt>
+        <dd>(Optional). For topics and topicrefs, specifies the body element tag name.</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>level</xmlatt></dt>
+        <dd>(Required) Indicates the nesting level for a given topic or other containing structure. Styles within the Word document are always specific to a given nesting level or relative to the level of a preceding paragraph. For structure type "topicTitle", level "0" indicates the root topic for the result document. Note that the level hierarchy for topic- and map-creating paragraphs is distinct from the level hierarchy for paragraphs that contribute to topic bodies (topicZone="body"). For body paragraphs, the level is relative to the body itself. E.g., level="1" would be for first-level list items, level="2" for second-level list items, and so on.<p>The <xmlatt>level</xmlatt> value may be a number from 0 to 9 or one of the keywords <keyword>current</keyword>, <keyword>plusOne</keyword>, or <keyword>minusOne</keyword>. When the value is one of the keywords the level is relative. When a relative level is specified, the <xmlatt>levelGroup</xmlatt> attribute should also be specified. Adjacent paragraphs with the same <xmlatt>levelGroup</xmlatt> value will be leveled relative to the first preceding paragraph with a different (or unspecified) level group. For example, paragraphs that may occur with in the topic body or list items should all use the same level group value.</p></dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>levelGroup</xmlatt></dt>
+        <dd>(Required if <xmlatt>level</xmlatt> is a relative level keyword). Specifies the name of the group to which the paragraph belongs. All adjacent paragraphs in the same level group will determine their level relative to the first preceding paragraph with a different or unspecified level group. If <xmlatt>level</xmlatt> is a numeric value, <xmlatt>levelGroup</xmlatt> is ignored if specified.</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>spectitle</xmlatt></dt>
+        <dd>(Optional) For section structure types, indicates how the section title is constructed. A section-generating paragraph can also provide the section title text for use in a <xmlelem>title</xmlelem> element or the section title can be provided by the paragraph following the section-generating paragraph. The possible values for <xmlatt>spectitle</xmlatt> are:<dl>
+          <dlentry>
+            <dt>#toColon</dt>
+            <dd>The paragraph is expected to have initial text terminated by a colon and whitespace (": "). The section's <xmlatt>spectitle</xmlatt> attribute is set to the value of the text up to but not including the colon. The text following the colon and whitespace is used as the first paragraph of the section, if any.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>#toEmdash</dt>
+            <dd>The paragraph is expected to have initial text terminated by an em dash ("—") and optional whitespace. The section's <xmlatt>spectitle</xmlatt> attribute is set to the value of the text up to but not including the dash. The text following the dash is used as the first paragraph of the section, if any.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>#toPeriod</dt>
+            <dd>The paragraph is expected to have initial text terminated by a period and whitespace (". "). The section's <xmlatt>spectitle</xmlatt> attribute is set to the value of the text up to but not including the period and whitespace. The text following the period is used as the first paragraph of the section, if any.</dd>
+          </dlentry>
+          <dlentry>
+            <dt><i>literal text</i></dt>
+            <dd>The text is used as the value of the section's <xmlatt>spectitle</xmlatt> attribute.</dd>
+          </dlentry>
+          </dl></dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>useContent</xmlatt></dt>
+        <dd>(Optional) Indicates whether all the paragraph's content should be used ("mixed"), only element content should be used ("elementsOnly"), or only the text content, with all text runs included by any mappings ignored ("textOnly"). The "textOnly" value is intended for use in generating attribute values, e.g., values for the <xmlatt>value</xmlatt> attribute of <xmlelem>data</xmlelem> elements. When the value is "elementsOnly", only text runs with character styles will be used in the result XML. All other content will be ignored. This is useful for extracting metadata fields from text content where the text itself is not needed in the XML (because it will be generated at rendition time, for example).</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>baseClass</xmlatt></dt>
+        <dd>(Optional) Specifies the DITA base class for the element to which the component is mapped, e.g. " topic/data ", " topic/author ", etc. This allows the transform to put the result element in the correct location, especially in topic prologs where elements can only occur in a specific place in the sequence of prolog elements. The value is as for the DITA <xmlatt>class</xmlatt> attribute, including leading and trailing whitespace. The values recognized are a function of the specific docx2dita transformation used. In general, values should be the most general DITA-defined classes, but extensions to the base transform may expect or recognize more specialized values. Only needs to be specified for elements that must occur in a specific place within a given topic zone in the result document.</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>putValueIn</xmlatt></dt>
+        <dd>(Optional) For components that map to <xmlelem>data</xmlelem> or a specialization of <xmlelem>data</xmlelem>, indicates where to put the data value: the <xmlatt>value</xmlatt> attribute ("valueAtt") or content ("content").</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>dataName</xmlatt></dt>
+        <dd>(Optional) For components that map to <xmlelem>data</xmlelem> or a specialization of <xmlelem>data</xmlelem>, the value to use for the <xmlatt>name</xmlatt> attribute. If not specified, the <xmlatt>name</xmlatt> attribute is not constructed in the result document.</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>format</xmlatt></dt>
+        <dd>(Required if the style will result in a new topic document) For paragraphs that result in a new topic document, specifies the name of an <xmlelem>output</xmlelem> element that defines the public and system identifier for the result document's document type declaration.</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>mapFormat</xmlatt></dt>
+        <dd>(Required if the style will result in a new map document) For paragraphs that result in a new map document, specifies the name of an <xmlelem>output</xmlelem> element that defines the public and system identifier for the result document's document type declaration.</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>chunk</xmlatt></dt>
+        <dd>(Optional) For paragraphs that generate maps or topicrefs, the value to set on the <xmlatt>chunk</xmlatt> attribute in the result, normally "to-content" (indicating that the result navigation branch should be result in a single output "chunk" (e.g., single HTML page).</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>topicDoc</xmlatt></dt>
+        <dd>(Optional) For paragraphs that generate new topics, when set to "yes", indicates that the topic should be output in its own document. When set to "yes", must also specify a value for <xmlatt>format</xmlatt>. Note that topic-creating paragraphs will also result in new documents if they also generate a topicref and the topic has no parent topic. When <xmlatt>topicDoc</xmlatt> is "yes" and the paragraph is not generating the root topic a topicref to the topic is also generated (which means the root paragraph must generate a map (in addition to a topic if it also generates a topic).</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>topicrefType</xmlatt></dt>
+        <dd>(Optional) For paragraphs that generate new documents and specify "yes" for <xmlatt>topicDoc</xmlatt>, indicates the element type to use for the reference to the generated topic in the result map. Defaults to "topicref".</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>topictitleType</xmlatt></dt>
+        <dd>(Optional) For paragraphs that generate topicrefs, topicheads, or topicgroups, indicates the element type to use for the navigation title element in the result map. Defaults to "navtitle".</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>topicheadType</xmlatt></dt>
+        <dd>(Optional) For paragraphs that generate topic heads (structure type of "topichead"), indicates the element type to use for the topichead in the result map. Defaults to "topichead".</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>topicgroupType</xmlatt></dt>
+        <dd>(Optional) For paragraphs that generate topic groups (structure type of "topicgroup"), indicates the element type to use for the topicgroup in the result map. Defaults to "topicgroup".</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>maprefType</xmlatt></dt>
+        <dd>(Optional) For paragraphs that generate map references (structure type of "map" or "mapTitle"), specifies the element type to use for the map reference. Defaults to "mapref". Note that for DITA bookmaps, the mapref type must be the same as the topicref type that would be used to refer to a topic at that location, e.g., "chapter", "part", or "topicref". When the generated topicref type does not set a default value of "ditamap" for the @format attribute, you must also specify the <xmlatt>maprefFormat</xmlatt> attribute to a value of "ditamap".</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>maprefFormat</xmlatt></dt>
+        <dd>(Optional) For paragraphs that generate map references, the value to specify on the @format attribute for the mapref element, normally "ditamap". Must be specified when the generated map reference element does not set "ditamap" as the default value for the <xmlatt>format</xmlatt> attribute.</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>initialSectionType</xmlatt></dt>
+        <dd>(Optional) For styles that map to topics, indicates the name of a specialization of topic/section to use to contain any paragraphs within the topic that occur before an expliclty-indicated section. If not specified, the topic will not have an initial section. Useful for topic types, such as reference and lcLearningContent, that require all topic body content to be within some form of section.</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>outputclass</xmlatt></dt>
+        <dd>(Optional) The <xmlatt>outputclass</xmlatt> value to use on the element directly generated from the incoming style (that is, the element specified by the <xmlatt>tagName</xmlatt> attribute).</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>topicOutputclass</xmlatt></dt>
+        <dd>(Optional) For styles that generate topics, indicates the <xmlatt>outputclass</xmlatt> value to use for the generated topic.</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>sectionType</xmlatt></dt>
+        <dd>(Optional) For styles that imply the creation of a containing section element, the element type to use.</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>useAsTitle</xmlatt></dt>
+        <dd>(Optional) For styles that map to a specialization of topic/section, indicates whether or not the paragraph content should be used as the section title. The default is "yes". If set to "yes", or unspecified, must set a value for <xmlatt>tagName</xmlatt>.</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>containerOutputclass</xmlatt></dt>
+        <dd>(Optional) For styles that imply the creation of a container element (e.g., list items), specifies the <xmlatt>outputclass</xmlatt> value for the container.</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>navtitleType</xmlatt></dt>
+        <dd>(Optional) For paragraphs that result in a <xmlelem>topicref</xmlelem> element, specifies the tag name to use for the topicref's navigation title element.</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>dlEntryType</xmlatt></dt>
+        <dd>(Optional) For paragraphs that generate definition lists, the element type for the definition list container. Defaults to "dl".</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>rootTopicrefType</xmlatt></dt>
+        <dd>For paragraphs that generate maps, specifies the element type for the root topicref element to use around all generated topicrefs within the map.</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>collection-type</xmlatt></dt>
+        <dd>(Optional) For paragraphs that generate topicrefs, the value to use for the DITA @collection-type attribute (e.g. "sequence").</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>processing-role</xmlatt></dt>
+        <dd>(Optional) For paragraphs that generate topicrefs, the value to use for the DITA @processing-role attribute. Use this to set the processing role to "resource-only" for topicref types that do not already specify a default of "resource-only".</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlatt>idGenerator</xmlatt></dt>
+        <dd>For elements that should have an ID generated, the name of the ID generator to use. The default value is "default", where the default ID generator may be result element type specific (e.g., topics may have a different default ID generator than list items).<p>The set of available ID generators is determined by any local overrides used. The ID generator name is passed as a parameter to the apply-templates call for the mode "generate-id" applied to the incoming element.</p><p>Elements that DITA rules require to have an ID will use the "default" ID generator by default, so it is not necessary to specify this attribute for elements that have a required ID except to change the ID generator (e.g., styles that map to topics).</p><p>For elements for which IDs are optional, specify this attribute with a value of "default" to get IDs using the default generator. Specify a different generator name to use that generator.</p></dd>
+      </dlentry>
+      </dl></p>
+  </conbody>
+</concept>

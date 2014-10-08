@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference id="inside-front-cover">
+   <title>inside-front-cover</title>
+   <shortdesc />
+   <prolog>
+      <metadata>
+         <keywords>
+            <indexterm>pubmapDomain elements<indexterm>inside-front-cover</indexterm>
+            </indexterm>
+            <indexterm>inside-front-cover</indexterm>
+         </keywords>
+      </metadata>
+   </prolog>
+   <refbody>
+      <refbodydiv outputclass="summary">
+         <section id="summary">The &lt;inside-front-cover&gt; element references a topic or map as a inside-front-cover within a book.
+                    </section>
+      </refbodydiv>
+      <refbodydiv outputclass="d4p">
+         <section id="d4p"><!--Any d4p specific information could go here.--></section>
+      </refbodydiv>
+      <refbodydiv outputclass="contains"/>
+      <refbodydiv outputclass="contains-by"/>
+      <refbodydiv outputclass="inheritance">
+         <section id="inheritance">
+            <title>Inheritance</title>
+            <p>+ map/topicref pubmap-d/inside-front-cover </p>
+         </section>
+      </refbodydiv>
+      <!--If appropriate an example could go here.-->
+      <refbodydiv outputclass="attributes"/>
+   </refbody>
+</reference>

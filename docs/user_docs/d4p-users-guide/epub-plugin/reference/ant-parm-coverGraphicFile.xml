@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference id="referenceId">
+  <title>cover.graphic.file Ant parameter</title>
+  <shortdesc>Specifies the absolute or relative path of the graphic to use as the cover graphic for the EPUB.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>cover<indexterm>generating</indexterm></indexterm>
+        <indexterm>cover.graphic.file ant parameter</indexterm>
+        <indexterm>ant parameters<indexterm>cover.graphic.file</indexterm></indexterm>
+        <indexterm>parameters<indexterm>ant<indexterm>cover.graphic.file</indexterm></indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section
+      spectitle="Value">
+      <p>An absolute, platform-specific filename or a path relative to the root map to a JPG, PNG, or GIF to use as the cover graphic.</p>
+    </section>
+    <section
+      spectitle="Default">
+      <p>"" (no cover graphic or cover graphic determined by markup in the input document).</p>
+    </section>
+    <section
+      spectitle="XSLT Parameter">
+      <p>coverGraphicUri (via Ant's conversion of filenames into URIs).</p>
+    </section>
+    <section
+      spectitle="Notes">
+      <p>See <xref
+        href="../creating-cover-graphics.xml#conceptId"
+        format="dita"/> for more information about EPUB-specific cover graphics and alternative ways of specifying the graphic to use.</p>
+    </section>
+  </refbody>
+</reference>

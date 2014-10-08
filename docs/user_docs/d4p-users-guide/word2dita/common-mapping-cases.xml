@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="conceptId">
+ <title>Common Style-to-Tag Mapping Cases</title>
+ <shortdesc>Describes how to map styles to tags for common cases</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+   <p>This section describes how to set up the mapping for different common cases.</p>
+    <p>But first some general tips:<ul>
+      <li>For paragraphs that map to topic components you must specify the <xmlatt>topicZone</xmlatt> attribute as this attribute is used to group incoming paragraphs for further processing. If the <xmlatt>topicZone</xmlatt> attribute is not specified a default of "body" is used. This is usually what you want but would be wrong if the paragraph should have gone in the map or topic prolog.</li>
+      <li>Paragraphs that contribute to the root topic or map metadata can go anywhere in the Word document because they go into a separate topic zone and therefore get plucked out of the input and put in the right place regardless of where they occur.</li>
+      <li>The <xmlatt>level</xmlatt> attribute is what determines the hierarchical relationship among elements within the same output context, such as within the topic body.</li>
+      <li>You can specify either the style display name, using <xmlatt>styleName</xmlatt> or the style ID, using <xmlatt>styleId</xmlatt>. The style name is the display name that is used in the various Word style-related user interfaces. The style ID is the value specified in the underlying markup for paragraphs and character ranges. If you specify both style name and style ID on a mapping, the style name takes precedence. In general, the style name is more reliable as Word may change the style ID, for example, when using locale-specific versions of Word.</li>
+      <li>The "style ID" for Word styles is not the same as the display name of the style, but it is usually very similar. In most cases the style ID is the display name with all spaces and special character removed, e.g., the style with the display name "Heading 1" has the style ID "Heading1". If you happen to define two style names that differ only in their use of spaces, e.g., "Heading 1" and "Heading1", then the style ID of the second style defined will be something like "Heading10" so that the style ID is unique within the Word document. If you're not sure what the style ID is you can open the document.xml file from the DOCX Zip package and look for <xmlelem>w:pStyle</xmlelem> elements—the value of the <xmlatt>w:val</xmlatt> attribute is the style ID.</li>
+      <li>The <xmlatt>tagName</xmlatt> attribute always specifies the name of the <i>primary</i> (most deeply nested) result element. The primary result may be surrounded by other elements as specified with other attributes, such as <xmlatt>containerType</xmlatt>. The element named by <xmlatt>tagName</xmlatt> is the element that will contain the text of the paragraph or character run being mapped, except in a few special cases, such as mapping to section elements.</li>
+      <li>The <xmlatt>outputclass</xmlatt> attribute is helpful for applying further XSLT processing (particularly
+          in finding appropriate elements) and for applying additional styling in an output (like in
+          HTML where the <xmlatt>outputclass</xmlatt> attribute becomes part of the generated class attribute that
+          can be used with CSS).</li>
+      <li>A paragraph that generates a topic may also generate a map or submap and in that case will also generate a topicref to the topic (and a mapref to the submap if a submap is generated). This lets you generate trees of maps in addition to trees of topics. You can choose to generate a hierarchy of topics as separate topic documents with nested topicrefs or as a single XML document with a root topic and nested topics. </li>
+      </ul></p>
+    <p>Finally, the design of the current style-to-tag mapping document evolved somewhat organically based on client requirements as they came up. There are aspects of it that are not necessarily logically consistent. I have started the process of designing a new style-to-tag mapping document type but it's on the back burner. But I would definitely welcome any suggestions for how to make the mapping markup clearer or easier to use.</p>
+ </conbody>
+  <concept
+    id="normal-paragraph-mapping">
+    <title>Simple Paragraphs and Character Runs</title>
+    <conbody>
+      <p>For paragraphs that simply map directly to elements within the topic body with no required container elements the general mapping specification is:<codeblock>&lt;style
+  styleName="<i>Normal</i>"
+  tagName="<i>p</i>"
+  topicZone="body"
+  level="1"
+/></codeblock></p>
+      <p>Where the parts in italics are what you would change to match a specific Word paragraph style to a specific DITA output element.</p>
+      <p>This example maps a paragraph with the name "Normal" to the DITA element <xmlelem>p</xmlelem>.</p>
+      <p>Likewise, for character runs, you specify the style name and tag name:<codeblock>&lt;style
+  styleName="<i>Heading 1 Char</i>"
+  tagName="<i>ph</i>"
+  topicZone="body"
+  level="1"
+/></codeblock></p>
+      <p>Note that as of version 0.9.16 there is no support for nesting character styles in the output, so if you need something like "bold italics" which you would typically markup like <codeph>&lt;b>&lt;i></codeph> in DITA you will need to define a single phrase-level element like <xmlelem>bi</xmlelem>. Note that the DITA for Publishers formatting domain includes elements for common combinations of bold, italic, and smallcaps, as well as other elements you might need. You can also use the transform's "final fixup" mode to convert single elements like <xmlelem>bi</xmlelem> into nested elements if you want.</p>
+    </conbody>
+  </concept>
+  <concept
+    id="headings">
+    <title>Heading Paragraphs That Map to Topics</title>
+    <conbody>
+      <p>To map heading paragraphs to topics you specify the topic type and the markup details for the generated topic. The heading paragraph becomes the topic title and the other topic elements are generated automatically.</p>
+      <p>For example, to map the paragraph "Heading 1" to a concept topic you would use this mapping:<codeblock>&lt;style styleName="Heading 1"
+  structureType="topicTitle"
+  tagName="title"
+  topicType="concept"
+  bodyType="conbody"
+  level="1"
+  topicDoc="yes"
+  format="concept"
+  topicrefType="chapter"
+/></codeblock></p>
+      <p>The structure type "topicTitle" indicates that this paragraph acts as a topic title, which means it will generate a new topic, either in a separate document or as a subtopic of a parent topic. In this case the value of the <xmlatt>level</xmlatt> attribute ("1") indicates that this is a top-level topic.</p>
+      <p>The <xmlatt>tagName</xmlatt> attribute defines the tagname to use for the topic's title element, "title" in this case (it would only be different from "title" if you were generating a specialized topic with a specialized topic title element).</p>
+      <p>The <xmlatt>topicType</xmlatt> attribute specifies the tagname for the root element of the topic to be generated, "concept" in this case.</p>
+      <p>The <xmlatt>bodyType</xmlatt> attribute specifies the tagname for the topic body element, "conbody" in this case.</p>
+      <p>The <xmlatt>level</xmlatt> attribute indicates that this is a top-level topic and it would be subordinate only to a paragraph that specifies level zero, which is normally reserved for the paragraph that generates the root map or topic and should normally be the first unskipped paragraph in the Word document.</p>
+      <p>The <xmlatt>topicDoc</xmlatt> attribute indicates that this topic should be put in a new document, which in turn implies the generation of a topicref to the generated document. The default is "no" so you must specify <xmlatt>topicDoc</xmlatt> with a value of "yes" if you want the topic chunked out to a new file.</p>
+      <p>If you specify "yes" for <xmlatt>topicDoc</xmlatt> then you must specify <xmlatt>format</xmlatt>, which names an <xmlelem>output</xmlelem> element defined in the style-to-tag mapping document. The format value determines the public and system IDs to use for the generated topic document. You must also specify the <xmlatt>topicrefType</xmlatt> attribute if process is generating a map in addition to topics.</p>
+      <p>If you specify "yes" for <xmlatt>topicDoc</xmlatt> and the topic is not the root topic (meaning the primary result topic) then the style mapping should also generate a map so that there is a place to put a topicref to the generated topic document.</p>
+      <p>The <xmlatt>topicrefType</xmlatt> attribute specifies the tagname to use for the topicref that will refer to the generated topic. In this case the topicref tagname is "chapter".</p>
+      <p>Mapping lower-level headings uses the same pattern, specifying the appropriate level, e.g., level "2" for paragraph style Heading 2 and so on.</p>
+    </conbody>
+  </concept>
+  <concept
+    id="mapping-lists">
+    <title>Mapping List Paragraphs (Generating Container Elements)</title>
+    <conbody>
+      <p>Lists are typical of elements that must be generated within the context of container elements, e.g. <xmlelem>li</xmlelem> within <xmlelem>ol</xmlelem> or <xmlelem>ul</xmlelem>.</p>
+      <p>To map list item paragraphs to DITA lists you map the paragraph to the appropriate list item element, e.g., <xmlelem>li</xmlelem> and then specify the name of the container element to wrap all adjacent list items in, specified using the <xmlatt>containerType</xmlatt> attribute, like so:<codeblock>&lt;style
+  styleName="List Bullet"
+  tagName="li"
+  containerType="ul"
+  level="1"
+  topicZone="body"
+/></codeblock></p>
+      <p>Here the tag name is "li", indicating that the paragraph content will be output in a <xmlelem>li</xmlelem> element. The <xmlatt>containerType</xmlatt> attribute names the tagname of the container element for the list item, <xmlelem>ul</xmlelem> in this case. The value "1" for the <xmlatt>level</xmlatt> attribute means that this is the first level of thing within the topic zone (body). Any elements to be nested inside the list item would need to specify level "2" (for example, paragraphs for 2nd-level list items).</p>
+      <p>The implication of <xmlatt>containerType</xmlatt> is that all adjacent Word paragraphs with the same container type will be output into a single instance of the specified container. This is how you can get a sequence of ListBullet paragraphs to output as a single DITA <xmlelem>ul</xmlelem> element.</p>
+      <p>This pattern of <xmlatt>tagName</xmlatt> and <xmlatt>containerType</xmlatt> can be used for any paragraphs that need to be output inside a common container that are not creating DITA <xmlelem>section</xmlelem> elements (which have special mapping support).</p>
+    </conbody>
+  </concept>
+  <concept
+    id="mapping-dl">
+    <title>Mapping Definition Lists</title>
+    <conbody>
+      <p>Definition lists are a challenge because there is no single Word structure that maps directly to definition lists and DITA requires two-levels of containment: one for the definition list as a whole and one for each term/definition pair. To model definition lists you must use pairs of paragraphs: one for the definition term and one for the definition description. </p>
+      <p>Definition term paragraphs use the <xmlatt>structureType</xmlatt> value "dt" and definition description paragraphs use the <xmlatt>structureType</xmlatt> value "dd". For a pair of paragraph styles that represent a term/definition pair, they both specify the same value for the <xmlatt>dlEntryType</xmlatt> attribute, e,g., "dlentry". Finally, they both specify the same value for the <xmlatt>containerType</xmlatt> attribute, which specifies the overall definition list element, e.g. "dl".</p>
+      <p>Thus, given two paragraph styles "Def Term" and "Def Desc" you would define these mappings to generate a normal DITA definition list:<codeblock>&lt;style
+  styleName="Def Term"
+  structureType="dt"
+  tagName="dt"
+  dlEntryType="dlentry"
+  containerType="dl"
+  topicZone="body"
+/>
+&lt;style
+  styleName="Def Desc"
+  structureType="dd"
+  tagName="dd"
+  dlEntryType="dlentry"
+  containerType="dl"
+  topicZone="body"
+/></codeblock></p>
+      <p>Note that the resulting markup doesn't have to be a specialization of <xmlelem>dl</xmlelem> it just has to have the same structural pattern of two levels of containment with the lowest-level elements in common containers. You could use this mapping pattern to generate simple tables, for example.</p>
+    </conbody>
+  </concept>
+  <concept
+    id="mapping-procedures">
+    <title>Mapping Procedure Steps</title>
+    <conbody>
+      <p>Steps in procedures are similar to definition lists in that there are two layers of markup that wrap the paragraphs for a step: the <xmlelem>steps</xmlelem> element that contains each <xmlelem>step</xmlelem> and the <xmlelem>cmd</xmlelem> element that is the required first subelement of <xmlelem>step</xmlelem>.</p>
+      <p>Given a paragraph that is the first or only paragraph of a step, you can map it by treating it like a definition list, using a <xmlatt>structureType</xmlatt> of "dt":<codeblock>&lt;style styleName="List 1"
+  structureType="dt"
+  dlEntryType="step"
+  containerType="steps"
+  tagName="cmd"
+  level="1"
+/></codeblock></p>
+      <p>Here the paragraph style "List1" is mapped to <xmlelem>cmd</xmlelem> within <xmlelem>step</xmlelem> within <xmlelem>steps</xmlelem>.</p>
+      <p>If you have follow-on paragraphs for the step they should go in an <xmlelem>info</xmlelem> element. For this case you would use normal mapping and specify level 2:<codeblock>&lt;style
+  styleName="BodyText Step"
+  containerType="info"
+  tagName="p"
+  level="2"
+  structureType="block"
+  topicZone="body"
+/></codeblock></p>
+      <p>If you have list items that need to go in the <xmlelem>info</xmlelem> element then you use a definition list mapping like so:<codeblock>&lt;style
+  styleName="Bullet 2 Step"
+  containerType="info"
+  dlEntryType="ul"
+  tagName="li"
+  level="2"
+  structureType="dt"
+  topicZone="body"
+/></codeblock></p>
+      <p>Because the container type for both BodyText Step and Bullet 2 Step is "info" in this example both paragraph types will end up contributing to the same info element in the output if they occur together.</p>
+    </conbody>
+  </concept>
+  <concept
+    id="mapping-tables">
+    <title>Mapping Tables</title>
+    <conbody>
+      <p>Word tables are automatically converted to DITA tables. Paragraph and character styles within table cells will be mapped as defined in the mapping but you don't have direct control over how the table elements map to DITA markup (but you can always post-process the initial DITA into whatever you want).</p>
+      <p>The transform captures as much detail from the Word table as can be expressed using DITA tables, including the precise table geometry, row and column spans, row and cell borders, and horizontal and vertical cell alignment.</p>
+    </conbody>
+  </concept>
+  <concept
+    id="skipping-paras">
+    <title>Skipping Paragraphs</title>
+    <conbody>
+      <p>It's often useful or necessary to have paragraphs in the Word document that shouldn't be reflected in the DITA output. For this case you can use a <xmlatt>structureType</xmlatt> of "skip". Paragraphs with a structure type of "skip" are ignored and have no effect on output. In particular, they do not affect the determination of what paragraphs are adjacent for <xmlatt>containerType</xmlatt> processing.</p>
+      <p>In addition to explicitly-skipped paragraphs, paragraphs that are not otherwise mapped and that have empty content (that is, they normalize to a single blank or to the empty string) are automatically skipped. This saves you having worry about users creating empty paragraphs to get vertical spacing in Word documents.</p>
+    </conbody>
+  </concept>
+  <concept
+    id="mapping-to-sections">
+    <title>Mapping to Sections</title>
+    <conbody>
+      <p>DITA sections are challenging because they have three ways to represent the title: a literal title child element, an explicit <xmlatt>spectitle</xmlatt> attribute, or a <xmlatt>spectitle</xmlatt> set in the document type and not intended to be set by authors. In addition, some topic types require the use of sections within the topic body. This all leads to a bit of complexity.</p>
+      <p>The simplest case is where a paragraph acts as the title of section and should result in a section where the paragraph is section title and the subsequent paragraphs are within the section. For this you specify a <xmlatt>structureType</xmlatt> of section and a <xmlatt>tagName</xmlatt> of "title" (or whatever the section title element should be, but usually "title"):<codeblock>&lt;style 
+  styleName="My Section Title"
+  structureType="section" 
+  tagName="title"
+  sectionType="section"
+  topicZone="body"
+  useAsTitle="yes"  
+/></codeblock></p>
+      <p>Note that you don't have to worry about the <xmlatt>level</xmlatt> attribute with sections because DITA sections cannot nest and must be direct children of the topic body. So the conversion processing will always do the right thing for sections.</p>
+      <p>Note, however, that if you have any sections within your topic body then all the paragraphs that follow the first section-creating paragraph will be in a section because there's no way to indicate that a given paragraph should not be in a section. However, this shouldn't be a problem in practice because it would be a very rare markup design that expected there to be a random mix of section elements and non-section elements within the topic body.</p>
+      <p>Any paragraphs that precede the first section-creating paragraph within a topic body will be direct children of the topic body <i>unless</i> you specify the <xmlatt>initialSectionType</xmlatt> attribute for the paragraph that generates the containing topic. </p>
+      <p>For example, the Learning and Training learningContent topic type requires the use of section-type elements within the topic body. To handle this case you can specify the <xmlatt>initialSectionType</xmlatt> attribute to indicate that the initial paragraphs of the topic body should be wrapped in a section.</p>
+      <p>For example, given a paragraph style "Lesson Title" that maps to a learningContent topic, you would define a mapping like this:<codeblock>&lt;style 
+  styleName="Lesson Title"
+  structureType="topicTitle"
+  initialSectionType="lcIntro"
+  topicType="learningContent"
+  bodyType="learningContentbody"
+  level="1"
+/>    </codeblock></p>
+      <p>This will result in markup like this:<codeblock>&lt;learningContent id="topicid">
+  &lt;title>Learning Content&lt;/title>
+  &lt;shortdesc>Put a shortdesc of one or two sentences here.&lt;/shortdesc>
+  &lt;learningContentbody>
+    &lt;lcIntro>
+       ... (paragraphs go here)      
+    &lt;/lcIntro>
+  &lt;/learningContentbody>
+&lt;/learningContent></codeblock></p>
+      <p>All paragraphs up to the first paragraph that maps to section would go within the <xmlelem>lcIntro</xmlelem> element in this example.</p>
+      <p>In some cases paragraphs should map to a section, provide the title or spectitle, and then be the first paragraph of the section. For example, a paragraph like this:<codeblock>Usage: Controls the construction of the section title.</codeblock></p>
+      <p>Could provide the spec title of "Usage" and the initial paragraph of "Controls the construction of the section title.".</p>
+      <p>You can do this by indicating that the paragraph is not the section title and that the spectitle is the text up to the first colon:<codeblock>&lt;style styleName="My Section"
+  structureType="section"
+  tagName="p"
+  topicZone="body"
+  spectitle="#toColon"
+  
+/></codeblock></p>
+      <p>Here the keyword value "#toColon" for the <xmlatt>spectitle</xmlatt> attribute indicates that the spectitle value should be taken from the paragraph content up to, but not including, the first colon. (Other values could be implemented but as of version 0.9.6 the only implemented value is "#toColon".) The value "p" for the <xmlatt>tagName</xmlatt> attribute indicates that the paragraph will be the first paragraph of the section rather than the title.</p>
+      <p>You can also specify a literal value for <xmlatt>spectitle</xmlatt>, which simply becomes the value of the <xmlatt>spectitle</xmlatt> attribute in the generated DITA XML.</p>
+    </conbody>
+  </concept>
+  <concept
+    id="mapping-to-maps">
+    <title>Mapping to Maps and Map Components (Topicrefs)</title>
+    <conbody>
+      <p>The simplest mapping is one in which a single Word document maps to a single result topic document. However, you can generate systems of maps in addition to topics from a single input Word file. However, this gets a little complex because there's a lot going on.</p>
+      <p>When you are generating a map and topics you must map the first non-skipped paragraph in the Word document to a map element, which will generate the root map of the output structure. It can also map to a topic (and by implication, a topicref to that topic) but it need not.</p>
+      <p>For example, if your first paragraph has the style "Publication Title" and you want to generate a bookmap map but not a topic you would use this mapping:<codeblock>&lt;style styleName="Title"
+  level="0"
+  structureType="mapTitle"
+  tagName="title"
+  mapFormat="bookmap"
+  mapType="bookmap"
+  prologType="topicmeta"
+/></codeblock></p>
+      <p>The <xmlatt>structureType</xmlatt> value of "mapTitle" triggers the general map generation. The other attributes define the details of the map markup: <xmlatt>mapType</xmlatt> and <xmlatt>prologType</xmlatt>. The value "0" (zero) for the <xmlatt>level</xmlatt> attribute indicates that this is the root output structure. You should only have one level-zero paragraph-to-map or paragraph-to-topic mapping.</p>
+      <p>If you map a paragraph to a structure type of "mapTitle" at a level other than zero then you will create a submap that is referenced from the parent map (that is, the map that is one level up in the mapping hierarchy). In this case you must specify the <xmlatt>maprefType</xmlatt> attribute in order to get a topicref generated in the parent map.</p>
+      <p>When a paragraph maps to a map and a topic you specify a structure type of "mapTitle" and specify the topic type using the <xmlatt>secondStructureType</xmlatt> attribute. You can then specify the other attributes used to generate a result topic as you would for a structure type of "mapTitle":<codeblock>&lt;style
+  styleName="Topic Title"
+  bodyType="learningContentbody"
+  chunk="to-content"
+  mapFormat="learningMap"
+  format="learningContent"
+  initialSectionType="section"
+  level="1"
+  mapType="map"
+  prologType="prolog"
+  secondStructureType="topicTitle"
+  structureType="mapTitle"
+  tagName="title"
+  topicDoc="yes"
+  topicType="learningContent"
+  topicrefType="learningContentRef"
+/></codeblock></p>
+      <p>This example maps a paragraph named "Topic Title" to a generic map (<xmlatt>mapType</xmlatt> of "map") and a learningContent topic referenced from the map. The value of "1" for the <xmlatt>level</xmlatt> attribute means this map will be a submap to the root map.</p>
+      <p>There are attributes for specifying the element types for each different kind of element that might result from generating both a map and topic.</p>
+      <p>When a new document  should be referenced from the current map simply specify the <xmlatt>topicrefType</xmlatt> attribute and a structure type of "topicTitle".</p>
+    </conbody>
+  </concept>
+  <concept
+    id="mapping-metadata">
+    <title>Mapping Metadata</title>
+    <conbody>
+      <p>To map paragraphs to <xmlelem>data</xmlelem> elements within the root
+        topic prolog, you must specify:<ul
+        id="ul_egh_k3v_3h">
+        <li><xmlatt>topicZone</xmlatt> as "prolog"</li>
+        <li><xmlatt>baseClass</xmlatt> as "- topic/data " (note the trailing
+          blank) </li>
+        <li><xmlatt>containingTopic</xmlatt> as "root" </li>
+        <li><xmlatt>level</xmlatt> as "0"</li>
+        </ul></p>
+      <p>To map to unspecialized <xmlelem>data</xmlelem> you would specify
+        <xmlatt>tagName</xmlatt> as "data". You can put the paragraph content
+        either into the content of the <xmlelem>data</xmlelem> element or into
+        the <xmlatt>value</xmlatt> attribute. To put it in content, set
+        <xmlatt>putValueIn</xmlatt> to "content", otherwise set it to
+        "value".</p>
+      <p>Because the DITA content model for <xmlelem>prolog</xmlelem> is a bit
+        fiddly, with a required sequence of element types, you may need to apply
+        post-processing in the "final-fixup" mode to make sure the resulting
+        prolog content is valid.</p>
+    </conbody>
+  </concept>
+  <concept
+    id="mapping-sidebars">
+    <title>Mapping Sidebars</title>
+    <conbody>
+      <p>Sidebars are a particular problematic element because they often have no fixed location in the overall hierarchy. That is, they are often allowed (by publishers' business rules) to occur at many different levels (perhaps inside Heading 1, Heading 2, Heading 3, and Heading 4 sections). This used to require specific Word styles for each hierarchical level that the sidebar could appear at (e.g., Sidebar Title in Heading 1, Sidebar Title in Heading 2). That increased work and potential for error for maintainers of the style-to-tag mapping (because they had to make sure they had appropriate definitions for each level a sidebar was allowed at) and for authors (because they had to use the right sidebar style for whatever level the sidebar was to appear at. These obstacles have been overcome starting in 0.9.19 RC 11.</p>
+      <p>FIXME: Rewrite to reflect new relative level values.</p>
+      <p>With 0.9.19 RC 11, there is further processing that recalculates the level for individual instances of topic-generating styles. Because the recalculation respects the relationships between levels as established in the style-to-tag mapping, authors can place sidebars where they want and mapping maintainers only need a single sidebar title style definition (assuming they set the relationships correctly). The easiest (perhaps best) way to set the level for sidebars is to give them a really deep level, such as 50. In the recalculation, each instance of the sidebar title will be assigned a level that nests the sidebar within the parent topic.</p>
+      <p>For example, to map the paragraph "Sidebar Title" to a sidebar topic you would use this mapping:<codeblock>&lt;style styleName="Sidebar Title"
+  structureType="topicTitle"
+  tagName="title"
+  topicType="sidebar"
+  bodyType="body"
+  prologType="prolog"
+  level="50"
+/></codeblock></p>
+      <p>For information on other attributes, see the section <xref href="#headings" format="dita"/>.</p>
+      
+    </conbody>
+  </concept>
+</concept>

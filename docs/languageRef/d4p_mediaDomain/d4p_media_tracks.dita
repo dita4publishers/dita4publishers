@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference id="d4p_media_tracks">
+    <title>d4p_media_tracks</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>d4p_media_tracks</indexterm>
+            <!-- sample from DITA langref
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
+				    </indexterm> -->
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <refbodydiv outputclass="summary">
+         <section id="summary">The d4p_media_tracks element is analogous to the HTML5 &lt;track&gt; element. It is to be used to specify external tracks that go along with the media file, such as subtitles for different languages, captions, or metadata. The @kind attribute specifies the kind of track, and possible values are subtitles, captions, descriptions, chapters, and metadata. @kind is required. The @src attribute gives the source of the track; it is required. @srclang provides the name of the language of the track; it is optional. The @label is a human readable title for the track.</section>
+      </refbodydiv>
+        <refbodydiv outputclass="d4p">
+          <section id="d4p">The d4p_media_tracks is specialized from foreign.</section>
+      </refbodydiv>    	    
+        <refbodydiv outputclass="contains">
+         <section id="contains"/>
+      </refbodydiv>
+        <refbodydiv outputclass="contains-by">
+         <section id="contains-by"/>
+      </refbodydiv>    
+      <refbodydiv outputclass="inheritance">
+        <section id="inheritance">
+          <title>Inheritance</title>
+          <p>+ topic/foreign  d4p-media-d/d4p_media_tracks </p>
+        </section>
+      </refbodydiv>
+        <refbodydiv outputclass="example1">
+         <section id="example1"/>
+      </refbodydiv>    	
+        <refbodydiv outputclass="attributes">
+         <section id="attributes"/>
+      </refbodydiv>
+        
+    </refbody>
+</reference>

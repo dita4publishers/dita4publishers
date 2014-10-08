@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference id="referenceId">
+  <title>epub.pubid.uri.stub Ant parameter</title>
+  <shortdesc>Specifies the URI prefix stub to use in constructing the full EPUB ID value in the EPUB metadata.</shortdesc>
+  <refbody>
+    <section
+      spectitle="Value">
+      <p>Any valid URI string. If this is a relative URI it should end with a "/" character.</p>
+    </section>
+    <section
+      spectitle="Default">
+      <p>"http://my-URI-stub/" (this is a placeholder that will be flagged by the EPUB transform).</p>
+    </section>
+    <section
+      spectitle="XSLT Parameter">
+      <p>idURIStub</p>
+    </section>
+    <section
+      spectitle="Notes">
+      <p>This parameter should normally reflect the organization that owns or publishes the EPUB, e.g., "http://mydomain.com/EPUB" or something similar.</p>
+    </section>
+  </refbody>
+</reference>

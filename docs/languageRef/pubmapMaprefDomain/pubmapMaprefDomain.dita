@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference id="pubmapMaprefDomain">
+    <title>pubmapMaprefDomain</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>pubmapMaprefDomain</indexterm>
+            <!-- sample from DITA langref
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
+				    </indexterm> -->
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <refbodydiv outputclass="summary">
+         <section id="summary">pubmapMaprefDomain defines references to submaps from within maps that integrate the pubmapDomain. In particular, it allows publication component specific maps that are specializations of pubmap.</section>
+      </refbodydiv>
+        <refbodydiv outputclass="d4p">
+         <section id="d4p">This domain provides references for the following:
+           <ul>
+             <li>Element name: appendix-mapref; inheritance: + map/topicref pubmap-d/appendix pubmapMapref-d/appendix-mapref</li>
+             <li>Element name: appendixes-mapref; inheritance: + map/topicref pubmap-d/appendixes pubmapMapref-d/appendixes-mapref</li>
+             <li>Element name: article-mapref; inheritance: + map/topicref pubmap-d/article pubmapMapref-d/article-mapref</li>
+             <li>Element name: backmatter-mapref; inheritance: + map/topicref pubmap-d/backmatter pubmapMapref-d/backmatter-mapref</li>
+             <li>Element name: bibliolist-mapref; inheritance: + map/topicref pubmap-d/bibliolist pubmapMapref-d/bibliolist-mapref</li>
+             <li>Element name: chapter-mapref; inheritance: + map/topicref pubmap-d/chapter pubmapMapref-d/chapter-mapref</li>
+             <li>Element name: department-mapref; inheritance: + map/topicref pubmap-d/department pubmapMapref-d/department-mapref</li>
+             <li>Element name: frontmatter-mapref; inheritance: + map/topicref pubmap-d/frontmatter pubmapMapref-d/frontmatter-mapref</li>
+             <li>Element name: glossary-mapref; inheritance: + map/topicref pubmap-d/glossary pubmapMapref-d/glossary-mapref</li>
+             <li>Element name: glossary-group-mapref; inheritance: + map/topicref pubmap-d/glossary pubmapMapref-d/glossary-group-mapref</li>
+             <li>Element name: keydefs-mapref; inheritance: + map/topicref pubmap-d/keydefs pubmapMapref-d/keydefs-mapref</li>
+             <li>Element name: keydef-mapref; inheritance: + map/topicref pubmap-d/keydef pubmapMapref-d/keydef-mapref</li>
+             <li>Element name: part-mapref; inheritance: + map/topicref pubmap-d/part pubmapMapref-d/part-mapref</li>
+             <li>Element name: partsection-mapref; inheritance: + map/topicref pubmap-d/partsection pubmapMapref-d/partsection-mapref</li>
+             <li>Element name: pubbody-mapref; inheritance: + map/topicref pubmap-d/pubbody pubmapMapref-d/pubbody-mapref</li>
+             <li>Element name: publication-mapref; inheritance: + map/topicref pubmap-d/publication pubmapMapref-d/publication-mapref</li>
+             <li>Element name: sidebar-mapref; inheritance: + map/topicref pubmap-d/sidebar pubmapMapref-d/sidebar-mapref</li>
+             <li>Element name: subsection-mapref; inheritance: + map/topicref pubmap-d/subsection pubmapMapref-d/subsection-mapref</li>
+             <li>Element name: wrap-cover-mapref; inheritance: + map/topicref pubmap-d/wrap pubmapMapref-d/wrap-cover-mapref </li>
+           </ul>
+         </section>
+      </refbodydiv>    	    
+      <refbodydiv outputclass="shortname">
+        <section id="shortname">pubmapMapref-d</section>
+      </refbodydiv> 
+      <refbodydiv outputclass="modulename">
+        <section id="modulename">pubmapMaprefDomain.ent and pubmapMaprefDomain.mod</section>
+      </refbodydiv>
+      
+    </refbody>
+</reference>

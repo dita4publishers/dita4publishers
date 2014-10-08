@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference id="stanza">
+    <title>stanza</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>stanza</indexterm>
+            <!-- sample from DITA langref
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
+				    </indexterm> -->
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <refbodydiv outputclass="summary">
+         <section id="summary">stanza represents a group of verse-lines.</section>
+      </refbodydiv>
+        <refbodydiv outputclass="d4p">
+         <section id="d4p">stanza specializes from ph.</section>
+      </refbodydiv>    	    
+        <refbodydiv outputclass="contains">
+         <section id="contains"/>
+      </refbodydiv>
+        <refbodydiv outputclass="contains-by">
+         <section id="contains-by"/>
+      </refbodydiv>    
+      <refbodydiv outputclass="inheritance">
+        <section id="inheritance">
+          <title>Inheritance</title>
+          <p>+ topic/ph       d4p-verse-d/stanza </p>
+        </section>
+      </refbodydiv>
+      <example id="example1">
+        <fig><title>Sample of an instance of the stanza element</title>
+          <codeblock> 
+&lt;verse&gt;
+  &lt;stanza&gt;
+    &lt;verse-line&gt;'Twas brillig and the slithy tothes&lt;/verse-line&gt;
+    &lt;verse-line&gt;Did gyre and gymbal in the wabe&lt;/verse-line&gt;
+    &lt;verse-line&gt;All mimsy were the borogroves&lt;/verse-line&gt;
+    &lt;verse-line&gt;And the mome raths outgrabe.&lt;/verse-line&gt;
+  &lt;/stanza&gt;
+&lt;/verse&gt;
+          </codeblock>
+        </fig>
+      </example>  	
+        <refbodydiv outputclass="attributes">
+         <section id="attributes"/>
+      </refbodydiv>
+        
+    </refbody>
+</reference>

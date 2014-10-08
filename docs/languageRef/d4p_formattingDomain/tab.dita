@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference id="tab">
+    <title>tab</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>tab</indexterm>
+            <!-- sample from DITA langref
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
+				    </indexterm> -->
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <refbodydiv outputclass="summary">
+         <section id="summary">tab is a placeholder element for a singular horizontal tab character (HTML entity &amp;#09;). This is needed because a tab character is whitespace that is often discarded by default by XSLT processors. Tabs can be used to separate items into lists to save space on a page (such as when items are short in length). You should consider whether using tabs is appropriate or if a table (or simple table) is a better option.</section>
+      </refbodydiv>
+        <refbodydiv outputclass="d4p">
+         <section id="d4p">The tab character (HTML entity &amp;09;) is difficult to represent in some outputs, especially HTML-based outputs like epub. One possible solution is to use five non-breaking spaces (HTML entity &amp;#160;); the non-breaking space is a good choice because multiple regular spaces will be ignored by most HTML rendering. The downside to using non-breaking spaces is that you are not guaranteed your items will line up. If you want your items to line up neatly, then the best solution is to use a table.</section>
+      </refbodydiv>    	    
+        <refbodydiv outputclass="contains">
+         <section id="contains"/>
+      </refbodydiv>
+        <refbodydiv outputclass="contains-by">
+         <section id="contains-by"/>
+      </refbodydiv>    
+        <refbodydiv outputclass="inheritance">
+         <section id="inheritance">
+                <title>Inheritance</title>
+           <p>+ topic/ph    d4p-formatting-d/tab </p>
+            </section>
+      </refbodydiv>
+      <example id="example1">
+        <fig><title>Sample of an instance of the tab element</title>
+          <codeblock>&lt;p&gt;This is text before a tab&lt;tab /&gt;This is text after a tab&lt;/p&gt;</codeblock></fig>
+      </example>    	
+        <refbodydiv outputclass="attributes">
+         <section id="attributes"/>
+      </refbodydiv>
+        
+    </refbody>
+</reference>

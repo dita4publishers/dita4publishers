@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="conceptId">
+ <title>Troubleshooting the Word-to-DITA Process</title>
+ <shortdesc>Tips on figuring out why the Word-to-DITA process isn't working correctly.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>Word-to-DITA transform<indexterm>troubleshooting</indexterm></indexterm>
+        <indexterm>troubleshooting</indexterm>
+        <indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+   <p>There are several ways in which the transform can go wrong:<ul>
+      <li>The markup generated is not valid against the DTD or schema the document is using</li>
+      <li>The generated maps do not match the generated topics (for example, you get a topicref to a file that wasn't generated or a failure to generate a reference to a topic that was generated).</li>
+      </ul></p>
+    <p>Failures can be caused by any of the following:<ul>
+      <li>Incorrect style-to-tag mapping specifications</li>
+      <li>Incorrect styling in the Word document</li>
+      <li>Bugs in the Word-to-DITA transformation code</li>
+      </ul></p>
+    <p>If you have eliminated the first two causes then the issue is likely a bug. Do not hesitate to report bugs or suspected bugs. If this documentation didn't give you the information you needed to clearly distinguish user error from code bugs then that's a bug too and needs to be reported.</p>
+    <p>Your main debugging tools are:<ul>
+      <li>The Word-to-DITA transformation log.<p>If you run the transform through the Toolkit then the Word-to-DITA transformation messages should be in the larger Toolkit log. They will be at the end of the log since the transform is the last thing run.</p><p>If you run the transform directly then the log will be wherever XSLT messages go, which is a function of how you run the transform. I almost always run it from within Oxygen, which captures the messages in a separate window.</p><p>If you are using the command line in Windows, be sure to set a large window buffer size in the propery settings for your command window. By default, you may only see the last 100 lines or so, which is usually not enough.</p></li>
+      <li>Validation of the generated XML, either with the Tookit or in an XML-aware editor that is configured with the doctypes you're converting to. <p>When invalid XML is generated it's usually pretty obvious what the issue is because it's a direct result of an error in the style-to-tag mapping specification and a validating editor should take you right to the point of error. </p></li>
+      <li>Draft mode with the style names exposed in Word.<p>In Word's draft mode view you can expose the style names along one edge of the editing pane. The exact way to turn it on differs from version to version. In Word 2007 for Mac it is the "style area width" setting within the View settings. Being able to see the style names makes it easier to spot places where the Word is not styled correctly or the mapping didn't account for something it should have.</p></li>
+      </ul></p>
+ </conbody>
+  <concept
+    id="general-debugging-tips">
+    <title>General Troubleshooting Tips</title>
+    <conbody>
+      <p>The first tip is to isolate as many variables as possible.</p>
+      <p>This usually means creating the smallest test case that creates the problem. That makes it easier to work out what the problem is and provides a more convenient data set if you need to get outside help figuring out what the issue is.</p>
+      <p>Verify that the files you think are involved really are. Usually the easiest way to do this is to introduce syntax errors into files and verify that stuff breaks. If it doesn't break then you know something's not hooked up right.</p>
+      <p>Get a second pair of eyes. Often the most efficient way to spot an error is to explain the failure to someone else—you'll often realize the problem in the course of explaining it. If not, a fresh set of eyes will often spot something silly you've overlooked because you're too close to it.</p>
+      <p>Double check the style IDs. Style IDs are case sensitive and, as explained elsewhere, may not always match the display name for the style. A simple typo can throw things off and be hard to catch, especially if you've spent too long staring at your mapping specification. If you can, switch to using style names (new in version 0.9.16), which are not case sensitive and are easier to validate since the match what you see in Word itself.</p>
+    </conbody>
+  </concept>
+  <concept
+    id="missing-content">
+    <title>The Markup is Not Valid Against the DTD</title>
+    <conbody>
+      <p>The first thing to check is that the map or topic is getting generated with the correct DOCTYPE declaration. This is determined by the value of the <xmlatt>format</xmlatt> attribute on the <xmlelem>style</xmlelem> element that generates the map or topic and the corresponding <xmlelem>output</xmlelem> element that specifies the public and system identifiers to use in the DOCTYPE declaration.</p>
+      <p>If that is correct, then you have to examine the generated XML and see what didn't get generated correctly. Typical errors result from not generating container elements correctly, such as for list items.</p>
+      <p>If the mapping looks correct then the problem must be in the Word data. Verify that the Word document is styled correctly.</p>
+      <p>Also verify that your assumption about what the markup should be is correct. Create the markup you want to generate in an editor and verify that your understanding of what it should be is correct.</p>
+    </conbody>
+  </concept>
+</concept>

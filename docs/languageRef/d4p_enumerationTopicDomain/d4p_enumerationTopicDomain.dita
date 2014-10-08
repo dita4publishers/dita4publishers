@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference id="d4p_enumerationTopicDomain">
+    <title>d4p_enumerationTopicDomain</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>d4p_enumerationTopicDomain</indexterm>
+            <!-- sample from DITA langref
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
+				    </indexterm> -->
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <refbodydiv outputclass="summary">
+            <section id="summary">The d4p_enumerationTopicDomain defines specializations of data for defining and specifying both literal (invariant) and automatic enumerators for use in content, for example, to capture numbers from original content or to provide author control over number of things specific to a given publication. WARNING: This domain is entirely experimental. There is no guarantee for ongoing support for this domain. The markup details may change without warning. Due to the experimental nature of this domain, no further documentation is provided at this time; when the domain is stable, documentation will be provided. Interested users should see the domain definition files.</section>
+      </refbodydiv>
+        <refbodydiv outputclass="shortname">
+            <section id="shortname">d4p_enumerationTopic-d</section>
+        </refbodydiv> 
+        <refbodydiv outputclass="modulename">
+            <section id="modulename">d4p_enumerationTopicDomain.ent and d4p_enumerationTopicDomain.mod</section>
+        </refbodydiv>
+    </refbody>
+</reference>

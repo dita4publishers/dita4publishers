@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:topic" "urn:pubid:dita4publishers.org:doctypes:dita:topic">
+<topic
+  id="topic-id">
+  <title>Sample Publication: The Wonderful Wizard of Oz</title>
+  <body>
+    <p><cite>The Wonderful Wizard of Oz</cite> sample shows how to use a simple publication map and
+      the <xmlelem>chapter</xmlelem> topic type to represent a typical fiction publication that is
+      organized into chapters. It includes a few graphics using the <xmlelem>art</xmlelem>
+      specialization.</p>
+  </body>
+</topic>

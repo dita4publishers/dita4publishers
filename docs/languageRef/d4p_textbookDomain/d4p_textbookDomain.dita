@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference id="d4p_textbookDomain">
+    <title>d4p_textbookDomain</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>d4p_textbookDomain</indexterm>
+            <!-- sample from DITA langref
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
+				    </indexterm> -->
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <refbodydiv outputclass="summary">
+          <section id="summary">d4p_textbookDomain defines elements often needed for textbooks. It currently only provides the "display map" specialization of &lt;fig&gt;.</section>
+      </refbodydiv>
+        <refbodydiv outputclass="d4p">
+         <section id="d4p"> </section>
+      </refbodydiv>    	    
+      <refbodydiv outputclass="shortname">
+        <section id="shortname">d4p_textbook-d</section>
+      </refbodydiv> 
+      <refbodydiv outputclass="modulename">
+        <section id="modulename">d4p_textbookDomain.ent and d4p_textbookDomain.mod</section>
+      </refbodydiv>
+      
+        
+    </refbody>
+</reference>

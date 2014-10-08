@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference id="referenceId">
+  <title>epub.xxx Ant parameter</title>
+  <shortdesc/>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>transformation parameters<indexterm/></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section
+      spectitle="Value">
+      <p/>
+    </section>
+    <section
+      spectitle="Default">
+      <p/>
+    </section>
+    <section
+      spectitle="XSLT Parameter">
+      <p/>
+    </section>
+    <section
+      spectitle="Notes">
+      <p/>
+    </section>
+  </refbody>
+</reference>

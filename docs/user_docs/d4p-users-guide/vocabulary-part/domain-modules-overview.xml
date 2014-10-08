@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE subsection PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:subsection" "urn:pubid:dita4publishers.org:doctypes:dita:subsection">
+<subsection
+  id="subsection-id">
+  <title>DITA For Publishers Domains</title>
+  <shortdesc>The D4P vocabulary modules include a number of domains you can use to augment both map and topic types.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>domain modules</indexterm>
+        <indexterm>vocabulary modules<indexterm>domain</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p>Domain vocabulary modules provide element types or attributes that can be mixed into map or topic types. DITA for Publishers provides a set of map domains, a set of topic domains, and a set of attribute domains.</p>
+    <p>The map domains provide publication-specific metadata (pubmetadataDomain) and publication-specific topicref types (pubmapDomain) that can be used together or separately to create new map types specifically for publications. Because these are domains they can be integrated with existing map types or they can be used to create new map types. The D4P pubmap and pub-component-map map types are examples of using the map domains to define publication-specific map types. The D4P document types also includes an example of integrating the map domains into a generic <xmlelem>map</xmlelem> map type. The d4p_enumerationMapDomain provides markup for use within topicrefs to define and control numbering of things, such as topic titles and lists.</p>
+    <p>The element domains provide elements for use within topics. They are:<ul>
+      <li>d4p_classificationDomain<p>Provides metadata elements with the specific semantic of "classification" as distinct from any other use of metadata.</p></li>
+      <li>d4p_enumerationTopicDomain<p>Provides elements for capturing or controlling the number of things like topics and list items. There is a corresponding map domain, d4p_enumerationMapDomain.</p></li>
+      <li>d4p_formattingDomain<p>Provides elements intended to express direct formatting intent, such as line breaks, tabs, additional inline decoration types (e.g., strikethrough), and inclusion of formatter-specific snippets, such as embedded InDesign INX markup.</p></li>
+      <li>d4p_pubcontentDomain<p>Provides elements typical to publications, such as epigrams used in part and chapter openers.</p></li>
+      <li>d4p_simpleEnumerationDomain<p>Provides simple enumeration markup for
+        simply capturing literal numbers, for example, from legacy
+        content.</p></li>
+      <li>d4p_variablesDomain<p>Provides a simple mechanism for scoped variables
+        that can be referenced from any context.</p></li>
+      <li>d4p_verseDomain<p>Provides markup for representing poetry and similar stanza-based content.</p></li>
+      </ul></p>
+    <p>The attribute domains are:<ul>
+      <li>d4p_renditionTargetAttDomain<p>Provides a <xmlatt>props</xmlatt> specialization intended to specify different rendition targets such as PDF, EPUB, HTML, etc. The allowed values are not defined by the module since the set of sensible values is unbounded.</p></li>
+      </ul></p>
+  </body>
+</subsection>

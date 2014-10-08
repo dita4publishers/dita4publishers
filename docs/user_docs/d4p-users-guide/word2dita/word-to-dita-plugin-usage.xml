@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="conceptId">
+ <title>Generating DITA from Word Using the Toolkit Plugin</title>
+ <shortdesc>How to use the Word-to-DITA Toolkit Plugin to generate DITA content from Word documents.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+    <p>To use the transformation as a Toolkit plugin simply deploy the DITA for Publishers Toolkit plugins to your Open Toolkit directory. The Word-to-DITA transformation type is "word2dita".</p>
+    <section>
+      <title>Required Parameters</title>
+      <parml>
+        <plentry>
+          <pt><parmname>args.input</parmname></pt>
+          <pd>The absolute filename and path of the DOCX file to process.</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.style-to-tag-map</parmname></pt>
+          <pd>The absolute filename and path of the style-to-tag mapping to use.</pd>
+        </plentry>
+      </parml>
+    </section>
+    <section>
+      <title>Optional Parameters</title>
+      <parml>
+        <plentry>
+          <pt><parmname>output.dir</parmname></pt>
+          <pd>Specifies the absolute path of of the directory to contain the generated output.</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.clean.output.dir</parmname></pt>
+          <pd>When set to "true" deletes any files in the output directory before running the generation.</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.filter.br</parmname></pt>
+          <pd>When set to any value (e.g., "true"), filters out literal break characters, which are otherwise preserved in the DITA output as <xmlelem>br</xmlelem> elements.</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.filter.tabs</parmname></pt>
+          <pd>When set to any value (e.g. "true"), filters out literal tab characters, which are otherwise preserved in the DITA output as <xmlelem>tab</xmlelem> elements.</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.root.output.filename</parmname></pt>
+          <pd>The filename to use for the root output file (the root map or root topic depending on how your mapping is set up), e.g. "rootmap.ditamap".</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.word2dita.xslt</parmname></pt>
+          <pd>Specifies the name of the XSLT transform to use to convert the DOCX file to DITA. Default is the <filepath>docx2dita.xsl</filepath> transform in the word2dita Toolkit plugin.</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.debug.xslt</parmname></pt>
+          <pd>Turns on debugging of the XSLT transform. Default is "false".</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.media.dir</parmname></pt>
+          <pd>Name of the directory to put any media objects extracted from the Word document.</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.root.map.name</parmname></pt>
+          <pd>The name for the root map, e.g. "myPubRootmap". Do not include any file extension.</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.root.topic.name</parmname></pt>
+          <pd>The name for the root topic, e.g. "myPubRootTopic". Do not include any file extension. This value will be used for the root topic filename and @id value.</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.submap.name.prefix</parmname></pt>
+          <pd>The prefix to use for the names of generated submaps. Default is "map".</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.include.word.backpointers</parmname></pt>
+          <pd>When set to "true", include @xtrf and @xtrc attributes with the locations of the Word paragraphs that generated each element. Default is "true".</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.include.word.bookmarks</parmname></pt>
+          <pd>When set to "true", reflect Word bookmark start and end boundaries in the generated DITA output as &lt;data> elements. Default is "false". </pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.filename.prefix</parmname></pt>
+          <pd>The prefix to use for all generated filenames, e.g. "pub1234_". Default is no prefix. Use a prefix to ensure that generated map and topic filenames are unique outside the scope of the files generated for a single Word document.</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.submap.name.prefix</parmname></pt>
+          <pd>The prefix to use for generated submaps, e.g., "submap_". Default is no prefix.</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.language</parmname></pt>
+          <pd>The value to use for the @xml:lang attribute in generated maps and topics. Default is "en-US".</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.generate.navtitles</parmname></pt>
+          <pd>When set to "true" generates navigation titles for topicrefs, using the title of the referenced topic. Default is "true".</pd>
+        </plentry>
+      </parml>
+    </section>
+ </conbody>
+</concept>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference id="d4p_renditionTargetDomain">
+    <title>d4p_renditionTargetDomain</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>d4p_renditionTargetDomain</indexterm>
+            <!-- sample from DITA langref
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
+				    </indexterm> -->
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <refbodydiv outputclass="summary">
+          <section id="summary">d4p_renditionTargetDomain defines a single attribute: 
+            d4p_renditionTarget. This global attribute is intended to allow filtering and flagging 
+            based on the rendition type, e.g., PDF, EPUB, HTML, etc.</section>
+      </refbodydiv>
+        <refbodydiv outputclass="d4p">
+         <section id="d4p"> </section>
+      </refbodydiv>    	 
+      <refbodydiv outputclass="shortname">
+        <section id="shortname">d4p_renditionTargetAtt-d</section>
+      </refbodydiv> 
+      <refbodydiv outputclass="modulename">
+        <section id="modulename">d4p_renditionTargetAttDomain.ent</section>
+      </refbodydiv>
+      
+        
+    </refbody>
+</reference>

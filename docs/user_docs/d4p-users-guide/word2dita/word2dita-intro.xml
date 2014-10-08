@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:chapter" "urn:pubid:dita4publishers.org:doctypes:dita:chapter">
+<chapter
+  id="chapter-id">
+  <title>The Word-to-DITA Transformation Framework</title>
+  <shortdesc>The Word-to-DITA (Word2DITA) transformation framework enables the reliable generation of maps and topics form styled Word documents.</shortdesc>
+  <body>
+    <p>The Word-to-DITA transformation framework provides a general facility for converting styled Microsoft Word documents into DITA maps and topics. It is intended primarily to support ongoing authoring of DITA content using Microsoft Word, where all authoring is done in Word and DITA maps and topics are generated from the Word on demand. It does <b>not</b> provide a way to go from DITA back to Word (although that would be technically possible, if not trivial).</p>
+    <p>The Word-to-DITA transformation is <b>not</b> intended to support general data conversion from arbitrary Word documents to DITA. It requires at least some amount of consistent styling. However, it may still produce useful starting points from lightly-styled documents. Try it and see. Because the output of the transform can be quite complete, it may be most effective to do data cleanup in Word (that is, applying appropriate styles) and then use the transform to generate more-or-less ready-to-use maps and topics, rather than generating DITA content that needs significant rework to be usable.</p>
+    <note>The OxygenXML editor provides pretty good support for pasting Word document content into DITA XML. For ad-hoc, small-volume data conversion you may find that easier than trying to configure
+      the Word-to-DITA process. See the OxygenXML documentation for details.</note>
+    <p>The Word-to-DITA process can do any of the following:<ul
+      id="ul_f1f8e18d-4cee-48a7-8451-8343a23b7c7e">
+      <li>Generate a single DITA topic document from a single Word document</li>
+      <li>Generate a single DITA map document and one or more topic documents from a single Word document</li>
+      <li>Generate a tree of maps and one or more topic documents from a single Word document.</li>
+      </ul></p>
+    <p>Transformations are from Word documents using a specific set of named styles to DITA documents of any type. The transformation is defined entirely or mostly through a declarative style-to-tag map that defines how each Word paragraph and character style maps to specific DITA structures.</p>
+    <p>The declarative style-to-tag map makes it quick and relatively easy to set up and maintain conversions. As long as the style-to-tag mapping is sufficient no XSLT programming is required.</p>
+    <p>If the style-to-tag map is not sufficient then you can extend the base Word-to-DITA transform using XSLT. Some reasons to extend include:<ul>
+      <li>Handling complex structures that cannot be expressed with declarative mapping (usually deeply-nested structures)</li>
+      <li>Implementing custom rules for assigning element IDs.</li>
+      <li>Implementing custom rules for constructing map and topic filenames.</li>
+      </ul></p>
+    <p>The Word-to-DITA transform can be used either through the DITA Open Toolkit or as a standalone XSLT transformation (for example, to embed it in a CMS-managed tool chain). While it is packaged as an Open Toolkit plugin, it has no dependencies on any Toolkit components—it just uses the Toolkit's processing framework to make it convenient to apply the transform.</p>
+  </body>
+</chapter>

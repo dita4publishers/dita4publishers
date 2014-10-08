@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="dita-gutenberg-samples"><title>DITA Project Gutenberg Samples</title>
+  <prolog>
+  </prolog>
+  <conbody>
+    <p>The the DITA2InDesign project materials include a number of books from <xref
+        href="http://www.gutenberg.org" format="html" scope="external">Project Gutenberg</xref> that
+      have been converted to DITA format. These books serve primarily as realistic test documents
+      used to exercise the DITA-to-InDesign process, but they also serve more generally as
+      non-trivial, interesting, unencumbered sample DITA documents that can be used for
+      demonstration, product testing, and experimentation. The materials served here are provided
+      as-is. They have been converted as quickly as possible and the markup, while valid, is not
+      necessarily optimal.</p>
+    <p>Contributions to this data set are welcomed: if you convert a Gutenberg document to DITA and
+      would like to add it to this collection simply contact one of the project members or post a
+      note to the dita-users Yahoo group. The only requirements are that the documents be
+      syntactically valid DITA (using either standard doctypes or, if using non-standard shells or
+      specializations, includes the necessary non-standard declaration sets) and include all
+      required Project Gutenberg license and attribution statements. You can use the existing
+      documents as models for how to represent the Project Gutenberg statements.</p>
+    <p>The samples are available in source form from the dita2indesign code repository within the
+        <filepath>trunk/dita_gutenberg_samples</filepath> folder as well as in packages available
+      through the project file download area. The HTML and PDF renderings are served through the
+      project's Web site. </p>
+    <p>The available samples are:</p>
+    <table frame="all">
+      <title>DITA Project Gutenberg Sample Documents</title>
+      <tgroup cols="4">
+        <colspec colname="c1" colnum="1"/>
+        <colspec colname="c2" colnum="2"/>
+        <colspec colname="c3" colnum="3"/>
+        <colspec colname="c4" colnum="4"/>
+        <thead>
+          <row>
+            <entry>Document Title</entry>
+            <entry>Source Location</entry>
+            <entry>Renditions</entry>
+            <entry>Notes</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><cite>Encyclopaedia Britannica 11th Edition, Vol 4, Part 3 of 4</cite></entry>
+            <entry><xref
+                href="http://dita2indesign.svn.sourceforge.net/viewvc/dita2indesign/trunk/dita_gutenberg_samples/dita_src/eb_vol_04_part_03_of_04/"
+                format="html" rev="" scope="external">eb_vol_04_part_03_of_04</xref></entry>
+            <entry>
+              <p><xref
+                  href="http://dita2indesign.sourceforge.net/dita_gutenberg_samples/dita_encyclopaedia_britannica/html/index.html"
+                  format="html" platform="" scope="external">HTML, no frames</xref></p>
+              <p><xref
+                  href="http://dita2indesign.sourceforge.net/dita_gutenberg_samples/dita_encyclopaedia_britannica/html/frameset.html"
+                  format="html" platform="" scope="external">HTML with frames and Toc</xref></p>
+              <p><xref
+                  href="http://dita2indesign.sourceforge.net/dita_gutenberg_samples/dita_encyclopaedia_britannica/pdf/eb_vol_04_part_03_of_04.pdf"
+                  format="pdf" platform="" scope="external">PDF</xref></p>
+            </entry>
+            <entry>Uses one topic for each entry. Contains about 450 entries, renderes to about 575
+              pages.</entry>
+          </row>
+          <row>
+            <entry><cite>The Outline of Science, Volume 1 of 4</cite></entry>
+            <entry><xref
+                href="http://dita2indesign.svn.sourceforge.net/viewvc/dita2indesign/trunk/dita_gutenberg_samples/dita_src/outline_of_science/"
+                format="html" rev="" scope="external">outline_of_science</xref></entry>
+            <entry>
+              <p><xref
+                  href="http://dita2indesign.sourceforge.net/dita_gutenberg_samples/dita_outline_of_science/html/index.html"
+                  format="html" platform="" scope="external">HTML, no frames</xref></p>
+              <p><xref
+                  href="http://dita2indesign.sourceforge.net/dita_gutenberg_samples/dita_outline_of_science/html/frameset.html"
+                  format="html" platform="" scope="external">HTML with frames and Toc</xref></p>
+              <p><xref
+                  href="http://dita2indesign.sourceforge.net/dita_gutenberg_samples/dita_outline_of_science/pdf/outline_of_science.pdf"
+                  format="pdf" platform="" scope="external">PDF</xref></p>
+            </entry>
+            <entry>Uses one top-level topic per chapter, with nested topics, representing a typical
+              "narrative" document. Nine chapters, renders to about 150 pages. Uses a bookmap rather
+              than a generic map.</entry>
+          </row>
+          <row>
+            <entry>T. S. Eliot's <cite>The Waste Land</cite></entry>
+            <entry><xref
+              href="http://dita2indesign.svn.sourceforge.net/viewvc/dita2indesign/trunk/dita_gutenberg_samples/dita_src/ts_eliot_wasteland/"
+                format="html" rev="" scope="external">ts_eliot_wasteland</xref></entry>
+            <entry>
+              <p><xref
+                href="http://dita2indesign.sourceforge.net/dita_gutenberg_samples/ts_eliot_wasteland/html/index.html"
+                  format="html" platform="" scope="external">HTML, no frames</xref></p>
+              <p><xref
+                href="http://dita2indesign.sourceforge.net/dita_gutenberg_samples/ts_eliot_wasteland/html/frameset.html"
+                  format="html" platform="" scope="external">HTML with frames and Toc</xref></p>
+              <p><xref
+                href="http://dita2indesign.sourceforge.net/dita_gutenberg_samples/ts_eliot_wasteland/pdf/ts_eliot_wasteland.pdf"
+                  format="pdf" platform="" scope="external">PDF</xref></p>
+            </entry>
+            <entry>Entire poem is one topic, with a nested topic for Eliot's notes. Uses a generic map. Uses outputclass= to
+            indicate formatting specifics for the poem itself. Note that these outputclassed elements would be natural 
+            candidates for specialization in a "poetry" domain or "poem" topic type.</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </conbody></concept>

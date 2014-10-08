@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="conceptId">
+ <title>Tips for Using Word With the Word-to-DITA Transform</title>
+ <shortdesc>Things you can or should do to make the transformation most effective</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+   <p>All inline content that should generate DITA markup must be styled with a character style. This avoids complications around interpreting arbitrary formatting into the appropriate markup. This may require defining new character styles for bold, italic, and so on. </p>
+    <p>You can use Word's search and replace feature to find arbitrary styling and replace it with the use of specific character styles.</p>
+    <p>Likewise, you can use Word's search and replace to change one style name into another. This makes it relatively easy to migrate existing Word documents to new style names if you change the style names for some reason.</p>
+    <p>If you are defining new styles in order to facilitate mapping to DITA it is a good idea to name the styles so that all the styles used in a particular structure start with the same prefix. This will cause the styles to be grouped together within the Word style list. Otherwise users have to jump around in the style list to find the right style, which is very annoying.</p>
+    <p>If you are setting up styles to facilitate direct authoring (rather than after-the-fact style application) then be sure to set up the "next style" setting for each style wherever possible.</p>
+    <p>If authors will be creating deeply-nested structures use outline levels with paragraphs so that the Word outline view reflects the intended DITA structure as much as possible.</p>
+    <p>Encourage authors to use Draft mode and turn on the paragraph style display—this makes it much easier for authors to see what is really going on the Word document and helps avoid styling errors.</p>
+    <p>Use the Word style and template manager to keep the set of styles in your documents and templates as focused as possible.</p>
+    <p>As much as possible prefer a "manuscript" visual style over a WYSIWYG style so that it's clearer to authors that what they create visually in Word will not necessarily translate directly to the XML.</p>
+ </conbody>
+</concept>

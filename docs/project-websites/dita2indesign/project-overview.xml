@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="project-overview">
+  <title>Project Overview</title>
+  <titlealts>
+    <searchtitle>DITA2InDesign Project Overview</searchtitle>
+  </titlealts>
+  <prolog>
+    <critdates>
+      <created date="2008-01-31"/>
+      <revised modified="2008-01-31"/>
+    </critdates>
+  </prolog>
+  <conbody>
+    <p>The DITA2InDesign plugin is a processor that takes DITA content (maps or individual topics)
+      and, through a series of steps, composes that content as sophisticated pages using all the
+      features of the Adobe InDesign product. </p>
+    <p>Adobe InDesign is a desktop publishing application designed to meet the typography and layout
+      requirements of publishers. It is widely used for highly-designed publications including
+      glossy magazines, trade books, marketing brochures, as well as more mundane publications. It
+      is not as widely used for technical documents because it is not, itself, an XML authoring
+      environment, although it does provide some XML support. In the marketplace, InDesign is
+      largely replacing Quark XPress as the dominant interactive layout system.</p>
+    <p>InDesign is part of the Adobe Creative Suite family of products, which includes products such
+      as Illustrator and PhotoShop, as well as many others. The current Creative Suite version is
+      CS3. Thus when talking about InDesign versions you must specify the Creative Suite version.
+      InDesign CS3 is the current version.</p>
+    <p>InDesign provides XML import features. However, these features are not sufficient by
+      themselves to import and layout out XML as sophisticated as the typical DITA-based
+      publication. In particular, the XML import feature does not automatically create new pages to
+      accommodate arbitrary amounts of content nor can it apply different page masters based on
+      element in context rules. It does provide some handy features for making it easy to map
+      elements to specific character and paragraph styles.</p>
+    <p>This means that getting DITA-based content (or any non-trivial, variable XML) into InDesign
+      requires custom scripting to manage the creation of new pages with the appropriate page
+      masters and the placement of content into linked frames on those pages. That scripting, while
+      non-trivial, is not too hard in CS3, but it is, by its nature, document type and layout
+      specific.</p>
+    <p>Getting XML into InDesign also requires that the XML be carefully prepared for import as
+        follows:<ul>
+        <li>All whitespace must be reduced to just those characters that should be displayed as
+          content. In addition, all newlines must be removed except those that should be taken by
+          InDesign as paragraph markers.</li>
+        <li>Elements must be added to act as anchors for generated text. The text itself can be
+          generated using InDesign styles but there must be an XML element to apply the styles
+        to.</li>
+      </ul></p>
+    <p>In addition, the XML preparation can do any re-ordering or additional grouping, although
+      InDesign's XML mechanism is flexible enough to allow structures to be laid out in an order
+      that is different from its XML source order.</p>
+    <p>Given these aspects of InDesign, a process that automates the import and layout of XML into
+      InDesign must have the following components:<ol>
+        <li>An XML-to-XML transform that prepares the XML for import into InDesign. Because of
+          limitations in InDesign's built-in XSLT engine, this transform must be run outside of
+          InDesign.</li>
+        <li>A set of InDesign scripts that manage the XML import process and implement the
+          XML-to-InDesign-Component process, creating new pages and frames as necessary to
+          accommodate all the content in the incoming XML.</li>
+        <li>An InDesign template document to serve as the import target. Because there is a mapping
+          from XML elements in context to InDesign styles and page masters, there is a necessary
+          dependency between the XML-to-XML transform and the scripts and the templates as the
+          transforms and scripts must know what the style and page master names are. </li>
+      </ol></p>
+    <p>For the DITA2InDesign plug-in the plan is to define a set of "standard" InDesign component
+      names that can then be used in any InDesign template to enable flowing of DITA content into
+      that template. This allows the XML-to-XML transform and the import script to be completely
+      generic, such that using a different layout for a given publication is simply a matter of
+      changing the typographic details in the template without changing the names of things.</p>
+    <p>In the case where the existing templates don't provide a layout distinction that you need,
+      you would create a modified template that adds the named styles or page layouts you need and
+      then use the same sort of extension technique used for the Open Toolkit HTML plug-in to extend
+      the XML-to-XML transform to apply your new style and page layout names where needed. Ideally
+      this would require just a few lines of relatively simple XSLT code.</p>
+    <p>In the case where you needed more sophisticated automatic placement or sizing functionality
+      you would need to extend the InDesign scripts, which would be more involved.</p>
+    <p>For layouts that require more sophistication in layout automation than the DITA2InDesign
+      plug-in can provide the <xref href="http://www.typefi.com" format="html" scope="external"
+        >Typefi product</xref> would probably be an appropriate solution. Typefi is an InDesign
+      plug-in that provides very sophisticated automated layout heuristics that go far beyond what
+      could be done for the DITA2InDesign plug-in.</p>
+    <p>When implemented, you would use the plug-in by first applying the XML-to-XML-for-Import
+      transform using normal Open Toolkit mechanisms. The result of that transform would be one or
+      more XML instances, each instance representing the content to be used to create a single
+      InDesign document. You would then use the plug-in provided InDesign scripts to import the
+      generated XML into InDesign. You would then use InDesign's features to adjust the formatted
+      result as needed. This import process could be started automatically using InDesign's
+      command-line. It could also be integrated with InDesign server to provide a fully-automated
+      batch process.</p>
+    <p>Note that there is no plan or intention to guarantee the ability to get DITA XML back out of
+      InDesign with this plug-in. It is intended to be a one-way process from authoritative DITA
+      source to InDesign-composed pages. However, to the degree that the original DITA markup is
+      preserved in the generated XML it should be possible to export XML back out of InDesign
+      following text changes made in InDesign and run a transform that essentially reverses the
+      original augmentation. However, that process is not in the scope of this plug-in at this time
+      (of course, if somebody wanted to contribute that functionality it would be very welcome).
+    </p>
+  </conbody>
+</concept>

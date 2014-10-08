@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference id="d4p_simplebibDomain">
+    <title>d4p_simplebibDomain</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>d4p_simplebibDomain</indexterm>
+            <!-- sample from DITA langref
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
+				    </indexterm> -->
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <refbodydiv outputclass="summary">
+         <section id="summary">The simpleBib Domain provides a simple bibliography markup that is sufficient to identify bibliography entries as distinct from other paragraphs but does not try to model the detailed fields within a bibliography entry.</section>
+      </refbodydiv>
+        <refbodydiv outputclass="d4p">
+         <section id="d4p"/>
+      </refbodydiv>    	    
+      <refbodydiv outputclass="shortname">
+        <section id="shortname">d4p_simplebib-d</section>
+      </refbodydiv> 
+      <refbodydiv outputclass="modulename">
+        <section id="modulename">d4p_simplebibDomain.ent and d4p_simplebibDomain.mod</section>
+      </refbodydiv>
+      
+        
+    </refbody>
+</reference>

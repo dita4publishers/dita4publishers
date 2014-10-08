@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="conceptId">
+ <title>Setting Up an Ant Script for Running the Word-to-DITA Transform</title>
+ <shortdesc>How to set up an Ant task to run the Word-to-DITA transform against DOCX files.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>word-to-dita Toolkit plugin<indexterm>Ant script for</indexterm></indexterm>
+        <indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+    <p>You can set up an Ant script to run the transform against a specific Word document. A typical script looks like this:<codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;project name="Single Word Doc to Map and Topics 01" default="transformMyDoc">
+
+  &lt;property file="build.properties"/>
+  &lt;property file="${user.home}/.build.properties"/>
+  &lt;property file="${user.home}/build.properties"/>
+  
+  &lt;!-- This property should be set in one of the included files above
+       to reflect the location of Toolkit on your machine:
+    -->
+  &lt;property name="dita-ot-dir" location="c:\DITA-OT1.5"/>
+  
+  &lt;dirname property="myAntFile.dir" file="${ant.file}"/>
+  
+  &lt;tstamp/>
+  
+  &lt;target name="transformMyDoc">
+    
+    &lt;property name="word.doc" 
+      location="${myAntFile.dir}/<b>word2dita_single_doc_to_map_and_topics_01.docx</b>"/>
+    
+    &lt;basename  property="doc.base.name" file="${word.doc}" suffix=".docx"/>
+  
+    &lt;ant antfile="${dita-ot-dir}/build.xml" target="dita2word2dita">
+      &lt;!-- Set this to the filename of the DOCX file to be transformed: -->
+      &lt;property name="args.input" 
+        location="${word.doc}"/>
+  
+      &lt;!-- Change w2d.style-to-tag-map to point to your style-to-tag map document: -->
+      &lt;property name="w2d.style-to-tag-map" 
+          location="${myAntFile.dir}/<b>style2tagmap.xml</b>"/>
+      
+      
+      &lt;property name="w2d.root.output.filename" 
+          value="${doc.base.name}.ditamap"/>
+      
+      &lt;!-- Specify output.dir to set to the output directory to contain the generated DITA files: -->
+      
+      &lt;property name="output.dir" location="${myAntFile.dir}/../dita"/>
+      &lt;property name="w2d.clean.output.dir" value="true"/>&lt;!-- Clean output directory before doing generation -->
+      &lt;property name="w2d.debug.xslt" value="true"/>&lt;!-- Turn XSLT debug messages on -->
+    &lt;/ant>
+    &lt;ant antfile="${dita-ot-dir}/build.xml" target="dita2xhtml">
+      &lt;property name="args.input" 
+        location="${myAntFile.dir}/../dita/${doc.base.name}.ditamap"/>
+    &lt;/ant>
+  &lt;/target>  
+
+&lt;/project></codeblock></p>
+    <p>The text in bold is what you would change to reflect your documents.</p>
+    <p>Note the initial <xmlelem>property</xmlelem> elements that import a file named <filepath>build.properties</filepath>. This approach lets you put this script anywhere and use the build.properties file to set the location of your Toolkit, defined in the Ant property <varname>dita-ot-dir</varname>. (See <xref
+      href="w2d-getting-started.xml#conceptId"
+      format="dita"/> for more details on this one-time setup task.)</p>
+    <p>If you name this file <filepath>build.xml</filepath> in an appropriate directory (e.g., the same directory as the Word document), you can run this Ant script from the command line like so:<codeblock>c:\workspace\myworddoc\> <b>ant</b></codeblock></p>
+    <p>You can also specify the Word document as a command-line parameter:<codeblock>c:\workspace\myworddoc\ > ant <b>-Dword.doc=c:/workspace/anotherworddoc/some-document.docx</b></codeblock></p>
+    <p>TODO: It should be possible to use Ant to convert a set of documents in one go but I haven't worked out the details for that yet.</p>
+    <p>If you want to get really sophisticated you can extend your Ant script to run the Toolkit against the DITA files you just generated, for example, to generate HTML as a way to validate the generated files. To do that you would add this <xmlelem>ant</xmlelem> element after the <xmlelem>ant</xmlelem> element that runs the Word-to-DITA transform:<codeblock>      &lt;ant antfile="${dita-ot-dir}/build.xml" target="dita2xhtml">
+        &lt;property name="args.input" 
+          location="${myAntFile.dir}/../dita/${doc.base.name}.ditamap"/>
+      &lt;/ant></codeblock></p>
+    <p>You can, of course, add any other normal Toolkit arguments you might want to add.</p>
+  </conbody>
+</concept>

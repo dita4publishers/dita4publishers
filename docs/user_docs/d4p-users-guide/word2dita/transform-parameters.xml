@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="conceptId">
+ <title>Word-to-DITA XSLT Transformation Parameters</title>
+ <shortdesc>Required and optional parameters for the Word-to-DITA XSLT transformation</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>transformation parameters<indexterm>word-to-dita transformation</indexterm></indexterm>
+        <indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+    <p>To run the docx2dita.xsl transformation outside the Toolkit use the XSLT parameters shown here.</p>
+    <section>
+      <title>Required Parameters</title>
+      <parml>
+        <plentry>
+          <pt>outputDir</pt>
+          <pd>The directory to put generated output in. Should be an absolute URL.</pd>
+        </plentry>
+        <plentry>
+          <pt>styleMapUri</pt>
+          <pd>The URI of the style-to-tag map to use. Should be specified as an absolute URL, e.g., "file://workspace/word2dita/xsl/mystyle-to-tag-map.xml".</pd>
+        </plentry>
+      </parml>
+    </section>
+    <section>
+      <title>Optional Parameters</title>
+      <parml>
+        <plentry>
+          <pt>chartsAsTables</pt>
+          <pd>When set to "true", treat embedded Word charts as tables. Puts the data for the chart into a DITA table. Default is "false" (charts will not be reflected in the DITA result).</pd>
+        </plentry>
+        <plentry>
+          <pt>fileNamePrefix</pt>
+          <pd>The prefix to use for generated filenames other than subordinate maps. Default is "" (no prefix).</pd>
+        </plentry>
+        <plentry>
+          <pt>filterBr</pt>
+          <pd>When set to "true" filters out all literal break characters. If not specified, all literal breaks in the word document are preserved in the intermediate transform and, by default, in the resulting DITA XML (using the DITA4Publishers <xmlelem>br</xmlelem> element from the formatting domain).</pd>
+        </plentry>
+        <plentry>
+          <pt>filterTabs</pt>
+          <pd>When set to "true" filters out all literal tab characters. If not specified, all literal tabs in the word document are preserved in the intermediate transform and, by default, in the resulting DITA XML (using the DITA4Publishers <xmlelem>tab</xmlelem> element from the formatting domain).</pd>
+        </plentry>
+        <plentry>
+          <pt>generateNavtitles</pt>
+          <pd>When set to "true", generated topicrefs will have navigation titles reflecting the titles of the referenced topics. Default is "true".</pd>
+        </plentry>
+        <plentry>
+          <pt>imageFilenamePrefix</pt>
+          <pd>The prefix to use for filenames for images referenced by the generated DITA markup. Use this parameter ensure that the filenames for referenced images will be unique outside the scope of the XML generated from the Word document. For embedded images that are not linked to an external graphic, the filenames are always of the form "image1.xxx", "image2.xxx", etc. The default is no prefix.</pd>
+        </plentry>
+        <plentry>
+          <pt>includeWordBackPointers</pt>
+          <pd>When set to "true", the resulting DITA files include <xmlatt>xtrc</xmlatt> attributes that contain XPath expressions that locate the Word paragraph element from which the DITA element was generated. Set to "false" to turn this off. Default is "true" (<xmlatt>xtrc</xmlatt> attributes are generated).</pd>
+        </plentry>
+        <plentry>
+          <pt>includeWordBookmarks</pt>
+          <pd>When set to "true", the resulting DITA files include
+            <xmlelem>data</xmlelem> elements that reflect the bookmark start and
+            end markers. This can be useful in debugging cross reference
+            processing or other uses of bookmarks. The default is "false".</pd>
+        </plentry>
+        <plentry>
+          <pt>language</pt>
+          <pd>Specifies the value to use for the <xmlatt>xml:lang</xmlatt>
+            attribute, e.g. "ja-JP". If not specified, the value "en-US" is
+            used.</pd>
+        </plentry>
+        <plentry>
+          <pt>mapNumberFormat</pt>
+          <pd>The number formatting string, as for the <xmlelem>xsl:number</xmlelem> instruction, to use when generating map filenames. The default is "_1_1", which produces names like "map_1_1.ditamap". Use a value of "_01_01" to get filenames like "map_01_02.ditamap". Used by the default map URL construction logic.</pd>
+        </plentry>
+        <plentry>
+          <pt>mediaDirUri</pt>
+          <pd>The URI of the folder to put graphics in (determines the value of <xmlatt>src</xmlatt> and <xmlatt>href</xmlatt> attributes for generated graphic references). Default is "topics/media" under the main output directory.</pd>
+        </plentry>
+        <plentry>
+          <pt>rawPlatformString</pt>
+          <pd>The operating system platform as provided by the Ant os.name property. Default is "unknown".</pd>
+        </plentry>
+        <plentry>
+          <pt>rootMapName</pt>
+          <pd>The name (without extension) to use for the root map. Default is "rootmap".</pd>
+        </plentry>
+        <plentry>
+          <pt>rootMapUrl</pt>
+          <pd>The full filename the root map. Constructed from the <parmname>rootMapName</parmname> parameter by default.</pd>
+        </plentry>
+        <plentry>
+          <pt>rootTopicName</pt>
+          <pd>The name (without extension) to use for the root topic. </pd>
+        </plentry>
+        <plentry>
+          <pt>saveIntermediateDocs</pt>
+          <pd>When set to "true", saves the intermediate documents created during the transformation process to the file system for debugging purposes. Default is "false" unless "debug" is also set to "true".</pd>
+        </plentry>
+        <plentry>
+          <pt>submapNamePrefix</pt>
+          <pd>The prefix to use for the filenames of generated submaps. Default is "map".</pd>
+        </plentry>
+        <plentry>
+          <pt>topicExtension</pt>
+          <pd>The filename extension to use for topics. Default is ".dita".</pd>
+        </plentry>
+        <plentry>
+          <pt>topicNumberFormat</pt>
+          <pd>The number formatting string, as for the <xmlelem>xsl:number</xmlelem> instruction, to use when generating topic filenames. The default is "_1_1", which produces names like "topic_1_1.dita". Use a value of "_01_01" to get filenames like "topic_01_02.dita". Used by the default topic URL construction logic.</pd>
+        </plentry>
+        <plentry>
+          <pt>useLinkedGraphicNames</pt>
+          <pd>Use the names of linked graphics for graphic references when present. Note that Word documents can include images that are not linked to external file. In this case the images will have filenames like "image1.xxx". Default is "false".</pd>
+        </plentry>
+        <plentry>
+          <pt>warnOnUnstyledParas</pt>
+          <pd>Issue warnings for Word paragraphs that do not have any associated style. Default is "false". Unstyled paragraphs will map to DITA <xmlelem>p</xmlelem> by default so it is not strictly necessary to style all paragraphs in the Word document.</pd>
+        </plentry>
+      </parml>
+    </section>
+  </conbody>
+</concept>

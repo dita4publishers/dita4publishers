@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference id="pubmetadataDomain">
+    <title>pubmetadataDomain</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>pubmetadataDomain</indexterm>
+            <!-- sample from DITA langref
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
+				    </indexterm> -->
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <refbodydiv outputclass="summary">
+          <section id="summary">The pubmetadataDomain contains a rich set of elements to be used for representing metadata information for publications that meets the needs of publishers (such as that which describes, names, and classifies the publication, including its title, any ISBN or ISSN numbers, copyright statements, authorship, ownership, and so on). Publishing publication metadata tends to be more demanding than that required by technical documents. As a map domain, the publishing metadata elements can be added to any map type. To use this, integrate the domain into your local map types.</section>
+      </refbodydiv>
+    </refbody>
+</reference>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference id="referenceId">
+  <title>html2.generate.frameset Ant parameter</title>
+  <shortdesc>Specifies whether or not to generate an HTML frameset file for the map.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>frameset<indexterm>generating</indexterm></indexterm>
+        <indexterm>html2.generate.frameset ant parameter</indexterm>
+        <indexterm>ant parameters<indexterm>html2.generate.frameset</indexterm></indexterm>
+        <indexterm>parameters<indexterm>ant<indexterm>html2.generate.frameset</indexterm></indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section
+      spectitle="Value">
+      <p>"true" or "false"</p>
+    </section>
+    <section
+      spectitle="Default">
+      <p>"false" (do not generate a frameset).</p>
+    </section>
+    <section
+      spectitle="XSLT Parameter">
+      <p>generateFrameset.</p>
+    </section>
+    <section
+      spectitle="Notes">
+      <p>The use of framesets is generally deprecated as HTML practice and the frameset elements are deprecated in the latest HTML standards.</p>
+    </section>
+  </refbody>
+</reference>

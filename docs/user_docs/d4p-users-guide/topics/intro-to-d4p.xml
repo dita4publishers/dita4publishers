@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:chapter" "urn:pubid:dita4publishers.org:doctypes:dita:chapter">
+<chapter
+  id="chapter-id">
+  <title>Introduction to DITA For Publishers</title>
+  <body>
+    <p>The DITA for Publishers project applies the DITA standard and DITA technology to the specific requirements of Publishers as distinct from the requirements of technical documentation. The general goal of the project is to make creating and using DITA-based solutions for Publishing-specific business challenges as quick and easy as possible by providing a solid base from which you can start immediately.</p>
+    <p>DITA For Publishers is an open-source project, currently hosted on GitHub. It is intended to be a community effort. The initial work on DITA for Publishers has been sponsored largely by Really Strategies, Inc.</p>
+    <p>By "Publishers" we mean enterprises whose primary business is producing authored material intended for reading by humans, e.g., books and magazines, usually where print is (or has been) the primary delivery medium. This category includes of course publishers of fiction and non-fiction trade books, magazines, journals, textbooks, nature and travel guides, and so on. It also includes groups within other enterprises who publish materials that are not product manuals or other very specialized information.</p>
+    <p>While DITA is often associated exclusively with technical documentation and highly modular information, DITA is a completely general standard and technology and can be applied to documents of any sort. DITA absolutely does not require modular writing or breaking all your content into small files or any other particular way of doing things. It does, of course, support those ways of doing things quite well, but it also supports other ways of doing things just as well.</p>
+    <p>As a technology, DITA offers a number of compelling advantages over other XML standards and approaches. In particular, it enables blind interchange of content while also allowing customized markup. This aspect of DITA is of vital importance to Publishers where the ability to interchange content with the lowest cost to all parties is of paramount importance. As a Publisher you want to be able to license your content to others and licence other's content. You want to be able to reuse components of publications in new packages as quickly and easily as possible. You want your content to have the highest value for the lowest cost.</p>
+    <p>DITA enables all of this. The premise of the DITA for Publishers project is that DITA, because of its unique design and architectural features, provides the lowest possible cost of startup and ownership and provides the highest possible value for interchange.</p>
+    <p>But for Publishers (or any enterprise) to be able to take advantage of this value there must be something to start with that works out of the box and that makes it practical to go forward. That is the goal of DITA for Publishers—to make getting started with DITA in a publishing context as quick and easy as it can possibly be.</p>
+    <p>DITA for Publishers does this by providing the following materials:<ul>
+      <li>A set of DITA vocabulary modules ("specializations") optimized for representing typical Publishing documents, namely books and magazines. The markup provided by these modules supports the business realities of Publishing, such as the fact that publications can be quite varied in their structure, that sometimes you have to capture arbitrary formatting, and on on.</li>
+      <li>A set of plugins for the DITA Open Toolkit that support these vocabulary modules.</li>
+      <li>An EPUB generation plugin for the DITA Open Toolkit, making it possible to generate publication-ready EPUBs from DITA-based content.</li>
+      <li>A general-purpose Word-to-DITA transformation framework for converting manuscripts in Word into DITA, in order to support Word-primary editorial processes.</li>
+      <li>A general-purpose DITA-to-InDesign transformation framework for generating InDesign articles and documents from DITA-based content.</li>
+      <li>General knowledge and guidance on how to apply the DITA technology and tools to typical Publishing business processes.</li>
+      </ul></p>
+  </body>
+</chapter>

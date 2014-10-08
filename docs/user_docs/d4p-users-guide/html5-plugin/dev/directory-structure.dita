@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="concept_31k_mbp_sh">
+ <title>Directory structure</title>
+ <shortdesc>The following describes the structure of the plugin directory.</shortdesc>
+ <conbody>
+  <section>
+   <title>html5-libs</title>
+   <p>The <filepath>libs</filepath> directory contains javascripts or css librairies that are used
+    to build the HTML5 output for the project. Popular libraries includes: <ul>
+     <li><xref keyref="modernizr">Modernizr</xref></li>
+     <li><xref keyref="jquery">jQuery</xref></li>
+     <li><xref keyref="jquery-ui">jQuery UI</xref></li>
+     <li><xref keyref="grid-960-js">960 css grid</xref></li>
+    </ul></p>
+   <p>The library also contains the html5 library that has been developped for this project.</p>
+   <p>The <filepath>lib</filepath> directory contains an ant project
+    (<filepath>build.xml</filepath>) which allows you to create custom builds from the library to
+    the themes directory.</p>
+  </section>
+  <section>
+   <title>themes</title>
+   <p>The theme directory contains themes used for production. <b>You should never edit content in
+     this directory.</b>
+   </p>
+   <p>The content of this directory is built using the site's intructions contained in the ant
+    build.xml process (found in the lib directory).</p>
+  </section>
+  <section>
+   <title>xsl</title>
+   <p>The xsl directory contains all xsl for this project.<draft-comment author="paperdigits">Should
+     you edit the xsl if you want to customize?</draft-comment></p>
+  </section>
+ </conbody>
+</concept>

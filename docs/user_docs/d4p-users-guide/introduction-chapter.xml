@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE part PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:part" "urn:pubid:dita4publishers.org:doctypes:dita:part">
+<part
+  id="part-id">
+  <title>The DITA For Publishers Open Toolkit Plugins</title>
+  <body>
+    <p>The DITA For Publishers (D4P) project provides a number of plugins for the DITA Open Toolkit. These plugins include:<ul>
+      <li>A plugin with all the D4P vocabulary modules and sample document type shells (org.dita4publishers.doctypes) or simply "the doctypes plugin".</li>
+      <li>An EPUB generation plugin that allows generation of EPUBs from any DITA map (org.dita4publishers.epub)</li>
+      <li>Plugins that provide D4P-specific extensions to the other standard Toolkit plugins (HTML, PDF, etc.). These plugins are named by the map, topic, or domain type they support plus the transformation type they extend, e.g. "org.dita4publishers.formatting-d.fo".</li>
+      </ul></p>
+    <p>The D4P plugins are designed to themselves be extended using normal Toolkit extension mechanisms.</p>
+    <p>The D4P doctypes plugin integrates the D4P vocabulary modules with the Open Toolkit and thereby makes them available to any tool that does or can use the Toolkit's entity resolution catalog. For example, if you deploy the D4P doctypes plugin to the Toolkit integrated with OxygenXML, you can immediately start editing D4P maps and topics.</p>
+    <p>The doctypes plugin is the only plugin that is required in order to work with DITA for Publishers content. The other plugins may be used or not as you choose.</p>
+  </body>
+</part>

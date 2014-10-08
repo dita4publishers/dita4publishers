@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="conceptId">
+ <title>HTML2 Plugin</title>
+ <shortdesc>Generating HTML using map-drive processing</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>HTML<indexterm>generating</indexterm></indexterm>
+        <indexterm>map-driven processing<indexterm>generating HTML</indexterm></indexterm>
+        <indexterm>HTML2 Toolkit plugin</indexterm>
+        <indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+   <p>The HTMLT2 Toolkit extends the original Toolkit's HTML generation process by adding a map-driven process whereby the HTML generation for each topic is driven by processing of the root input map. This allows each topic to be processed with full knowledge of its use context in the map. This in turn enables a number of important functions:<ul>
+      <li>Numbering of topics and within-topic elements in terms of the topicref hierarchy in the map ("enumeration").</li>
+      <li>Processing of topics in terms of semantics imposed by topicrefs (e.g., processing a generic topic as a "chapter" because it is referenced by a <xmlelem>chapter</xmlelem> topicref.</li>
+      <li>Distinguishing separate uses of the same topic within a map in order to do automatic chunking and link rewriting.</li>
+      <li>Generating HTML files in a structure different from the source file organization structure.</li>
+      <li>Generation of literal HTML files for topic heads as though the topic heads were references to title-only topics.</li>
+      <li>Generation of a back-of-the-book index and other publication-scope lists.</li>
+      </ul></p>
+    <p>The HTML2 transform uses the base HTML transformation type for general topic HTMl generation. It accepts all the parameters for the base HTML transform in addition to the HTML2-specific parameters documented in this section.</p>
+ </conbody>
+</concept>

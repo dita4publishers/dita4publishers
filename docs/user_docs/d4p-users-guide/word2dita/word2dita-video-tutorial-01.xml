@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept
+  id="conceptId">
+  <title>Word-to-DITA Style-to-Tag Mapping Video Tutorial</title>
+  <shortdesc>A video tutorial on setting up a non-trivial style-to-tag mapping for a typical technical document.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>word-to-DITA transform<indexterm>video tutorial</indexterm></indexterm>
+        <indexterm>tutorials<indexterm>word-to-DITA video tutorial</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <p>This video tutorials works through the start-to-finish process of creating a new style-to-tag mapping for a Word document that represents a typical technical document that becomes a tree of topics with concepts and tasks.</p>
+    <note>This video predates release 0.9.16 and so shows using <xmlatt>styleId</xmlatt> rather than <xmlatt>styleName</xmlatt>. You should prefer <xmlatt>styleName</xmlatt> rather than <xmlatt>styleId</xmlatt>.</note>
+    <note>
+      <p>The video is served from the Screencast.com site.</p>
+    </note>
+    <p d4p_renditionTarget="pdf epub">The video tutorial is at <xref
+      href="http://www.screencast.com/t/5NQQRhO1mXC"
+      format="html"
+      scope="external">http://www.screencast.com/t/5NQQRhO1mXC</xref> on the Screencast site.</p>
+    <fig d4p_renditionTarget="html"
+      id="word2dita-video-tutorial-01">
+      <title>Word-to-DITA Video Tutorial: Technical Document Style to Tag Mapping</title>
+      <p>External video link: <xref
+        href="http://www.screencast.com/t/5NQQRhO1mXC"
+        format="html"
+        scope="external">http://www.screencast.com/t/5NQQRhO1mXC</xref></p>
+      <object d4p_renditionTarget="html"
+        id="scPlayer"
+        outputclass="embeddedObject"
+        width="640"
+        height="400"
+        type="application/x-shockwave-flash"
+        data="http://content.screencast.com/users/drmacro/folders/Camtasia/media/ae252c66-f460-47c9-942c-0e9b015e8782/mp4h264player.swf">
+        <param
+          name="movie"
+          value="http://content.screencast.com/users/drmacro/folders/Camtasia/media/ae252c66-f460-47c9-942c-0e9b015e8782/mp4h264player.swf"/>
+        <param
+          name="quality"
+          value="high"/>
+        <param
+          name="bgcolor"
+          value="#FFFFFF"/>
+        <param
+          name="flashVars"
+          value="thumb=http://content.screencast.com/users/drmacro/folders/Camtasia/media/ae252c66-f460-47c9-942c-0e9b015e8782/FirstFrame.jpg&amp;containerwidth=640&amp;containerheight=400&amp;content=http://content.screencast.com/users/drmacro/folders/Camtasia/media/ae252c66-f460-47c9-942c-0e9b015e8782/Word-To-DITA%20Style%20to%20Tag%20Mapping%20Tutorial.mp4&amp;blurover=false"/>
+        <param
+          name="allowFullScreen"
+          value="true"/>
+        <param
+          name="scale"
+          value="showall"/>
+        <param
+          name="allowScriptAccess"
+          value="always"/>
+        <param
+          name="base"
+          value="http://content.screencast.com/users/drmacro/folders/Camtasia/media/ae252c66-f460-47c9-942c-0e9b015e8782/"/>
+        <!--<iframe type="text/html" frameborder="0" scrolling="no" style="overflow:hidden;" src="http://www.screencast.com/users/drmacro/folders/Camtasia/media/ae252c66-f460-47c9-942c-0e9b015e8782/embed" height="400" width="640" ></iframe>-->
+      </object>
+    </fig>
+  </conbody>
+</concept>

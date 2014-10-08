@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:dtd:map" "urn:pubid:dita4publishers.org:doctypes:dita:dtd:map">
+<map>
+  <title>DITA For Publishers</title>
+  <topicref
+    href="topics/dita4publishers.xml">
+    <topicref
+      href="topics/d4p-license-terms.xml"/>
+    <topicref
+      href="topics/publishers-and-publishing-docs.xml"/>
+    <topicref
+      href="topics/specialization-modules-overview.xml">
+      <topicref
+        href="topics/d4p-topic-types.xml"/>
+      <topicref
+        href="topics/pubmap-domain.xml"/>
+      <topicref
+        href="topics/classification-domain.xml"/>
+      <topicref
+        href="topics/enumeration-domains.xml"/>
+      <topicref
+        href="topics/formatting-domain.xml"/>
+      <topicref
+        href="topics/pubcontent-domain.xml"/>
+      <topicref
+        href="topics/rendition-target-att-domain.xml"/>
+      <topicref
+        href="topics/ruby-domain.xml"/>
+      <topicref
+        href="topics/versie-domain.xml"/>
+      <topicref
+        href="topics/xml-domain.xml"/>
+    </topicref>
+    <topicref
+      href="topics/how-to-use.xml">
+      <topicref
+        href="topics/install-instructions.xml"/>
+      <topicref
+        href="topics/using-source-code.xml"/>
+      <topicref
+        href="topics/eclipse-setup.xml"/>
+    </topicref>
+    <topicref
+      href="topics/sample-publications-overview.xml">
+      <topicref
+        href="topics/sample-pub-wizard-of-oz.xml"/>
+      <topicref
+        href="topics/sample-pub-shakespear-plays.xml">
+        <topicref
+          href="topics/shakespear-plays-license.xml"/>
+        <topicref
+          href="topics/shakespear-plays-epubs-catalog.xml"/>
+      </topicref>
+      <topicref
+        href="topics/call-for-samples.xml"/>
+    </topicref>
+  </topicref>
+</map>

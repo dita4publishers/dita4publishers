@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="conceptId">
+ <title>Generating DITA from Documents (Word-to-DITA Transformation Framework)</title>
+ <shortdesc>The DITA for Publishers Word-to-DITA framework is packaged as an Open Toolkit plugin.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>Word-to-DITA transformation framework<indexterm>Open Toolkit plugin for</indexterm></indexterm>
+        <indexterm>Open Toolkit plugins<indexterm>Word-to-DITA transform</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+   <p>The Word-to-DITA transformation framework enables reliable generation of DITA maps and topics from styled Word documents. See <xref
+      href="word2dita-intro.xml#chapter-id"
+      format="dita"/> for details. It can be used as a standalone XSLT transform or can be run against Word documents using the Open Toolkit.</p>
+ </conbody>
+</concept>
