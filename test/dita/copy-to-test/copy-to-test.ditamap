@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+ <title>Copy-To Test</title>
+  <topicref
+    href="topics/chapter-01.dita">
+    <topicref
+      href="topics/copy-to-source-01.dita"
+      copy-to="topics/subsection-01.dita">
+      <topicref
+        href="topics/topic-01.dita"/>
+    </topicref>
+    <topicref
+      href="topics/copy-to-source-02.dita"
+      copy-to="topics/subsection-02.dita">
+      <topicref
+        href="topics/topic-01.dita"/>
+    </topicref>
+    <topicref
+      href="topics/copy-to-source-02.dita">
+      <topicref
+        href="topics/topic-02.dita"/>
+    </topicref>
+    <topicref
+      href="topics/topic-02.dita"/>
+  </topicref>
+</map>

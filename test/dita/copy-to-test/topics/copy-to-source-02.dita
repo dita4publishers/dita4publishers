@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_p34_kqz_sp">
+  <title>Copied-To Topic 02</title>
+  <body>
+    <p>The source filename of this topic is "copy-to-source-02" but it is copied to "subsection-02" for the first topicref to it. It is not copied-to for the second reference.</p>
+  </body>
+</topic>

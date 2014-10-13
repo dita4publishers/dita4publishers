@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_xyf_rqz_sp">
+  <title>Child of Copied-To Topic</title>
+  <body>
+    <p>This topic's topicref is a child of the copy-to topic ref (copy-to-source-01/subsection-01).</p>
+  </body>
+</topic>
