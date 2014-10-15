@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
-<topic id="topic_uv1_frz_sp">
-  <title>Second Child of Copied-to Topic</title>
-  <body>
-    <p>This topic is referenced from a child topicref of copied-to topic, but with no copy-to</p>
-  </body>
-</topic>

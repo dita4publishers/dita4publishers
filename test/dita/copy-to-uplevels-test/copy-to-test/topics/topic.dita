@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_my3_5m2_tp">
+  <title>Common Topic</title>
+  <body>
+    <p>This topic is in the ../commons directory relative to the root map.</p>
+    <p>This is a keyconref to paragraph p01:</p>
+    <p
+      conkeyref="warehouse-topic-01/p01"/>
+  </body>
+</topic>

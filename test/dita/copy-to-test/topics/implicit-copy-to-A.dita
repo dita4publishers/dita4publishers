@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_uv1_frz_sp">
+  <title>Second Child of Copied-to Topic</title>
+  <body>
+    <p>This topic is referenced from a child topicref of copied-to topic, but with no copy-to.</p>
+    <p>This topic is referenced twice in the map with no explicit copy-tos. For EPUB and HTML5 it should get a copy-to applied to the second reference.</p>
+    <p>This is a conkeyref to paragraph p02:</p>
+    <p
+      conkeyref="warehouse-topic-01/p02"/>
+    <p>This is a conref to paragraph p02:</p>
+    <p
+      conref="../common/warehouse-01.dita#topic-id/p02"/>
+  </body>
+</topic>
