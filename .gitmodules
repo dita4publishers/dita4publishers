@@ -119,3 +119,6 @@
 [submodule "toolkit_plugins/org.dita-community.adjust-copy-to"]
 	path = toolkit_plugins/org.dita-community.adjust-copy-to
 	url = https://github.com/dita-community/org.dita-community.adjust-copy-to.git
+[submodule "toolkit_plugins/org.dita-community.preprocess-extensions"]
+	path = toolkit_plugins/org.dita-community.preprocess-extensions
+	url = https://github.com/dita-community/org.dita-community.preprocess-extensions.git
