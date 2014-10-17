@@ -3,26 +3,29 @@
 <map>
  <title>Copy-To Test</title>
   <keydef keys="warehouse-topic-01" href="common/warehouse-01.dita"/>
-  <topicref
+  <topicref keys="chap-01"
     href="topics/chapter-01.dita">
-    <topicref
+    <topicref keys="ch01-ss01"
       href="topics/copy-to-source-01.dita"
       copy-to="topics/copy-to-01.dita">
-      <topicref
+      <topicref keys="ch01-ss01-sss01"
+        href="topics/topic-01.dita"/>
+      <!-- Duplicate key definition: Note that this is retained in the resolved map. -->
+      <topicref keys="ch01-ss01-sss01"
         href="topics/topic-01.dita"/>
     </topicref>
-    <topicref
+    <topicref keys="ch01-ss02 second-key"
       href="topics/copy-to-source-02.dita"
       copy-to="topics/copy-to-02.dita">
-      <topicref
+      <topicref keys="ch01-ss02-sss01"
         href="topics/topic-01.dita"/>
     </topicref>
-    <topicref
+    <topicref keys="ch01-ss03"
       href="topics/copy-to-source-02.dita">
-      <topicref
+      <topicref keys="ch01-ss03-sss01"
         href="topics/implicit-copy-to-A.dita"/>
     </topicref>
-    <topicref
+    <topicref keys="ch01-ss04"
       href="topics/implicit-copy-to-A.dita"/>
   </topicref>
 </map>
