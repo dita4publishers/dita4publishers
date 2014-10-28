@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_wwg_y5s_vp">
+  <title>Test of Keyrefs for "Variables"</title>
+  <body>
+    <p>Full publication title (linktext in keydef): <ph
+      keyref="pubtitle-no-variables-linktext"/></p>
+    <p>Full publication title (keywords in keydef): <ph
+      keyref="pubtitle-no-variables-keywords"/></p>
+    <p>Publication title with embedded keyref: <ph
+      keyref="pubtitle-variables"/></p>
+    <p>Publication title with embedded conkeyref: <ph
+      keyref="pubtitle-conkeyref"/></p>
+    <p>Product name: <keyword
+      keyref="prodname"/></p>
+    <p>Xref: <xref
+      keyref="pubtitle-variables"/></p>
+  </body>
+</topic>

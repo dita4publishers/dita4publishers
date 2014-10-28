@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+  <title>Keyrefs for Variables</title>
+  <topicgroup>
+    <keydef
+      keys="pubtitle-no-variables-linktext">
+      <topicmeta>
+        <linktext> <ph>This Is the Full Publication Title A as Single Keyword String Value within a linktext/ph element</ph> </linktext>
+      </topicmeta>
+    </keydef>
+    <keydef
+      keys="pubtitle-no-variables-keywords">
+      <topicmeta>
+        <keywords>
+          <keyword>This Is the Full Publication Title A as Single Keyword String Value within a keywords/keyword element</keyword>
+        </keywords>
+      </topicmeta>
+    </keydef>
+    <keydef
+      keys="prodname">
+      <topicmeta>
+        <keywords>
+          <keyword>Product Name from Keydef</keyword>
+        </keywords>
+      </topicmeta>
+    </keydef>
+    <keydef
+      keys="pubtitle-variables">
+      <topicmeta>
+        <linktext>
+          This Is the Publication Title with keyref: /<keyword
+          keyref="prodname"/>/
+        </linktext>
+      </topicmeta>
+    </keydef>
+    <keydef
+      keys="pubtitle-conkeyref">
+      <topicmeta>
+        <keywords>
+          <keyword>This Is the Publication Title with conkeyref: /<text
+            conkeyref="warehouse/prodname"/>/</keyword>
+        </keywords>
+      </topicmeta>
+    </keydef>
+  </topicgroup>
+  <topicgroup>
+    <keydef
+      href="warehouse.dita"
+      keys="warehouse"/>
+  </topicgroup>
+  <topicgroup>
+    <topicref
+      href="topic.dita"/>
+  </topicgroup>
+</map>

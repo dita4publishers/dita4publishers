@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topicid">
+  <title>Definition List That Serves as A Link Target</title>
+  <body>
+    <p>Link to dl entry "cherry": <xref href="#topicid/def-cherry"/> </p>
+    <dl>
+      <dlentry>
+        <dt>apple</dt>
+        <dd>A red fruit</dd>
+      </dlentry>
+      <dlentry>
+        <dt>berry</dt>
+        <dd>A blue fruit</dd>
+      </dlentry>
+      <dlentry
+        id="def-cherry">
+        <dt>cherry</dt>
+        <dd>A smaller red fruit.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>durian</dt>
+        <dd>An Asian fruit reputed to be very smelly.</dd>
+      </dlentry>
+    </dl>
+  </body>
+</topic>
