@@ -23,5 +23,9 @@
         <dd>An Asian fruit reputed to be very smelly.</dd>
       </dlentry>
     </dl>
+    <p>Link to key "third-topic": <xref
+      keyref="third-topic"/>. Should be "A third topic"</p>
+    <p>Link to key "key1":  <xref
+      keyref="key1"/>. Should be "Links to Other Topics"</p>
   </body>
 </topic>
