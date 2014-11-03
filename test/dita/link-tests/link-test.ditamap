@@ -2,6 +2,7 @@
 <!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
 <map>
  <title>Link Tests</title>
+  <keydef keys="image-01" format="png" href="content/media/scaleProblem.png"/>
   <topicref keys="key1 key2"
     href="content/links-to-other-topics.dita"/>
   <topicref keys="key1 third-topic"

@@ -4,5 +4,14 @@
   <title>A third topic</title>
   <body>
     <p>This is a third topic</p>
+    <fig
+      id="fig_slc_2q1_yp">
+      <title>A Figure Title With Embeded <i>markup</i></title>
+      <image
+        keyref="image-01"
+        id="image_by2_hq1_yp">
+        <alt>Image 01</alt>
+      </image>
+    </fig>
   </body>
 </topic>
