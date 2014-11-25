@@ -156,7 +156,10 @@
             <subsection
               href="d4p-users-guide/html2-plugin/overall-process-flow.xml"/>
             <subsection
-              href="d4p-users-guide/html2-plugin/customizing-enumeration.xml"/>
+              href="d4p-users-guide/html2-plugin/customizing-enumeration.xml">
+              <topicref
+                href="d4p-users-guide/topics/using-collected-data.dita"/>
+            </subsection>
           </subsection>
           <subsection
             href="d4p-users-guide/html2-plugin/html2-transtype-parameters-ref.xml">
