@@ -232,6 +232,7 @@
 			<fileset dir="${plugin.src}">
 				<exclude name="org.dita4publishers.pubmap.fo/**"/> 
 				<exclude name="*.zip"/> 
+				<exclude name="**/test/**"/> 
 			</fileset>
 		</copy>
     <copy todir="${plugin.dist}">
@@ -408,7 +409,6 @@
         <include name="*.txt"/>
       	<include name="*/**"/>
         <exclude name="org.dita4publishers.pubmap.fo/**"/>
-        <exclude name="org.dita4publishers.epub3/**"/>
       </fileset>
     </zip>
   </target>
