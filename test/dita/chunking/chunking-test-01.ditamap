@@ -8,4 +8,41 @@
     </topicmeta>
   </topicref>
   <topicref href="topics-01.dita" navtitle="Child topic 01, no chunk"/>
+  <topichead>
+    <topicmeta>
+      <navtitle>Topic Head 1: Not Chunked.</navtitle>
+    </topicmeta>
+    <topicref href="topics-01.dita" navtitle="Child topic 01, no chunk"/>
+  </topichead>
+  <topichead chunk="to-content">
+    <topicmeta>
+      <navtitle>Topic Head 2: chunk="to-content".</navtitle>
+    </topicmeta>
+    <topicref href="topics-01.dita" navtitle="Child topic 01, within to-content chunk"/>
+  </topichead>
+  <topichead chunk="to-content by-topic">
+    <topicmeta>
+      <navtitle>Topic Head 3: chunk="to-content by-topic".</navtitle>
+    </topicmeta>
+    <topicref href="topics-01.dita" navtitle="Child topic 01, within to-content by-topic chunk"/>
+  </topichead>
+  <topichead chunk="to-content by-topic select-topic">
+    <topicmeta>
+      <navtitle>Topic Head 4: chunk="to-content by-topic select-topic".</navtitle>
+    </topicmeta>
+    <topicref href="topics-01.dita" navtitle="Child topic 01, within to-content by-topic select-topic chunk"/>
+  </topichead>
+  <topichead copy-to="topic-head-05.dita">
+    <topicmeta>
+      <navtitle>Topic Head 5: copy-to="topic-head-05.dita".</navtitle>
+    </topicmeta>
+    <topicref href="topics-01.dita" navtitle="Child topic 01, within copy-to topichead"/>
+  </topichead>
+  <topichead copy-to="topic-head-06.dita" chunk="to-content">
+    <topicmeta>
+      <navtitle>Topic Head 6: copy-to="topic-head-06.dita" chunk="to-content".</navtitle>
+    </topicmeta>
+    <topicref href="topics-01.dita" chunk="to-content" 
+      navtitle="Child topic 01, within copy-to topichead, chunk='to-content'"/>
+  </topichead>
 </map>
