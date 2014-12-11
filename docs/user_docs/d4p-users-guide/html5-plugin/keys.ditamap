@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
 <map>
- <keydef keys="html5-intro" href="html5-toolkit-plugin.dita"/>
- <keydef keys="html5-download" href="general/downloading.dita"/>
- <keydef keys="html5-install" href="general/install.dita"/>
- <keydef keys="html5-run" href="general/running.dita"/>
- <keydef keys="html5-index-file" href="general/setting-an-index.dita"/>
- <keydef keys="html5-changed-behavior" href="general/changed_behavior.dita"/>
- <keydef keys="html5-license" href="general/licence.dita"/>
- <keydef keys="html5-requirements" href="general/requirements.dita"/>
- <keydef keys="html5-navigation-behavior" href="general/navigation_behavior.dita"/>
- <keydef keys="html5-developper" href="general/developpers.dita"/>
+ <keydef keys="html5-intro" href="html5-toolkit-plugin.dita" type="concept"/>
+ <keydef keys="html5-download" href="general/downloading.dita" type="concept"/>
+ <keydef keys="html5-install" href="general/install.dita" type="concept"/>
+ <keydef keys="html5-run" href="general/running.dita" type="concept"/>
+ <keydef keys="html5-index-file" href="general/setting-an-index.dita" type="concept"/>
+ <keydef keys="html5-changed-behavior" href="general/changed_behavior.dita" type="concept"/>
+ <keydef keys="html5-license" href="general/licence.dita" type="concept"/>
+ <keydef keys="html5-requirements" href="general/requirements.dita" type="concept"/>
+ <keydef keys="html5-navigation-behavior" href="general/navigation_behavior.dita" type="concept"/>
+ <keydef keys="html5-developper" href="general/developpers.dita" type="concept"/>
  
  <keydef keys="html5-customization-plugin" href="dev/customization-plugin.dita"/>
 
@@ -34,7 +34,12 @@
  <keydef keys="html5-test-list-style-type" href="test-cases/list/list-style-type.dita"/>
  <keydef keys="html5-test-task" href="test-cases/tasks/task.dita"/>
  <keydef keys="html5-test-codeblock" href="test-cases/language/codeblock.dita"/>
-
+ 
+ <keydef keys="html5-tables" href="test-cases/tables/tables.dita" type="concept"/>
+ <keydef keys="html5-test-simple-table" href="test-cases/tables/simple-table.dita" type="concept"/>
+ <keydef keys="html5-test-long-table" href="test-cases/tables/long-table.dita" type="concept"/>
+ <keydef keys="html5-test-complex-table" href="test-cases/tables/complex-table.dita" type="concept"/>
+ 
  <keydef keys="html5-plugin-directory-structure" href="dev/directory-structure.dita"/>
  <keydef keys="html5-plugin-ant-properties" href="references/ant-properties.dita"/>
  

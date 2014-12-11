@@ -17,6 +17,12 @@
     <topicref keyref="html5-test-list-style-type"/>
   </topichead>
 
+  <topicref keyref="html5-tables">
+    <topicref keyref="html5-test-simple-table"/>
+    <topicref keyref="html5-test-long-table"/>
+    <topicref keyref="html5-test-complex-table"/>
+  </topicref>
+  
   <topicref keyref="html5-test-task"/>
   <topicref keyref="html5-test-codeblock"/>
   <topicref keyref="html5-feature-muti-columns"/>
