@@ -1,2 +1,3 @@
 #!/bin/bash
-ant -f DITA-OT1.8.5/build_demo.xml
+# build all DITA_OT samples
+ant -f samples/ant_sample/sample_all.xml
