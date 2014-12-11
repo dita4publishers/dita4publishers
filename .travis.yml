@@ -1,19 +1,16 @@
 language: java
 jdk:
   - oraclejdk7
-
-# Use sed to replace the SSH URL with the public URL, then initialize submodules
-before_install:
-  - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
-  - git submodule update --init --recursive
-  - ./travis-before-install.sh
 before_script:
   - chmod +x travis-before-script.sh
   - chmod +x travis-before-install.sh
   - chmod +x run-tests.sh
   - ./travis-before-script.sh
+before_install:
+  - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
+  - git submodule update --init --recursive
+  - ./travis-before-install.sh
 script: "./run-tests.sh"
-
 # Handle git submodules yourself
 git:
     submodules: false
