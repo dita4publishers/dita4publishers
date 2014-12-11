@@ -1,0 +1,8 @@
+language: java
+jdk:
+  - oraclejdk7
+before_install:
+  - ./travis-before-install.sh
+before_script:
+  - ./travis-before-script.sh
+script: "./run-tests.sh"
