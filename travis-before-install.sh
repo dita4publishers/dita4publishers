@@ -11,11 +11,3 @@ cp -r toolkit_plugins/* DITA-OT1.8.5/plugins/
 
 # integrate
 ant -f DITA-OT1.8.5/integrator.xml
-
-# set env
-travis env set DITA_DIR DITA-OT1.8.5
-travis env set ANT_OPTS="-Xmx512m $ANT_OPTS -Djavax.xml.transform.TransformerFactory=net.sf.saxon.TransformerFactoryImpl"
-travis env set CLASSPATH DITA-OT1.8.5/lib/dost.jar:DITA-OT1.8.5/lib/commons-codec-1.4.jar:DITA-OT1.8.5/lib/resolver.jar:lib/icu4j.jar:DITA-OT1.8.5/lib/xercesImpl.jar:DITA-OT1.8.5/lib/xml-apis.jar:DITA-OT1.8.5/lib/saxon/saxon9.jar:DITA-OT1.8.5/lib/saxon/saxon9-dom.jar
-
-# list env
-travis env list
