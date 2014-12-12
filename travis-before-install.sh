@@ -8,6 +8,7 @@ tar -xvf dita-ot.tar.gz
 
 # install dp4 plugins
 cp -r toolkit_plugins/* DITA-OT1.8.5/plugins/
+cp -r test DITA-OT1.8.5/
 
 # integrate
 ant -f DITA-OT1.8.5/integrator.xml
