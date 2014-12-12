@@ -6,7 +6,6 @@ env:
 before_script:
   - chmod +x travis-before-install.sh
   - chmod +x run-tests.sh
-  - ./travis-before-script.sh
 before_install:
   - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
   - git submodule update --init --recursive
