@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept xml:lang="en-us" id="basictables">
+
+ <title>Simple Table</title>
+ <shortdesc>This topic has examples of a complex
+  table, it was part of the DITA Test Suite developped by Jeremy H. Griffith.</shortdesc>
+ <conbody>
+
+   <p>This table is very simple.</p>
+
+   <simpletable outputclass="SimpleTable" relcolwidth="1* 1*">
+    <sthead>
+     <stentry><p outputclass="cellheading">Pet</p></stentry>
+     <stentry><p outputclass="cellheading">Name</p></stentry>
+    </sthead>
+    <strow>
+     <stentry><p outputclass="cellbody">Cat</p></stentry>
+     <stentry><p outputclass="cellbody">Phantom</p></stentry>
+    </strow>
+    <strow>
+     <stentry><p outputclass="cellbody">Dog</p></stentry>
+     <stentry><p outputclass="cellbody">Pumpkin</p></stentry>
+    </strow>
+   </simpletable>
+ 
+ </conbody>
+ 
+</concept>

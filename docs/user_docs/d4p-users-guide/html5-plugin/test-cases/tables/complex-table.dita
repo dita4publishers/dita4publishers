@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept xml:lang="en-us" id="basictables">
+ <title>Complex Table</title>
+ <shortdesc>This topic has examples of a complex
+  table, it was part of the DITA Test Suite developped by Jeremy H. Griffith.</shortdesc>
+ <conbody>
+
+   <p>This table has row and column spans.</p>
+
+   <table id="complex" outputclass="ComplexTable">
+    <title outputclass="tabletitle">DITA List Types</title>
+    <tgroup cols="4">
+     <colspec colnum="1" colname="col1" colwidth="96*" />
+     <colspec colnum="2" colname="col2" colwidth="72*" />
+     <colspec colnum="3" colname="col3" colwidth="72*" />
+     <colspec colnum="4" colname="col4" colwidth="72*" />
+     <thead>
+      <row>
+       <entry align="center" valign="middle" colname="col1" morerows="1">
+        <p outputclass="cellheading">Name</p></entry>
+       <entry align="center" valign="middle" namest="col2" nameend="col4">
+        <p outputclass="cellheading">Tags</p></entry>
+      </row>
+      <row>
+       <entry align="center" valign="middle" colname="col2"><p
+        outputclass="cellheading">List</p></entry>
+       <entry align="center" valign="middle" colname="col3"><p
+        outputclass="cellheading">Entry</p></entry>
+       <entry align="center" valign="middle" colname="col4"><p
+        outputclass="cellheading">Parts</p></entry>
+      </row>
+     </thead>
+     <tbody>
+      <row>
+       <entry align="left" valign="top" colname="col1">
+        <p outputclass="cellbody">Simple</p></entry>
+       <entry align="left" valign="top" colname="col2">
+        <p outputclass="cellbody">&lt;sl&gt;</p></entry>
+       <entry align="left" valign="top" colname="col3">
+        <p outputclass="cellbody">&lt;sli&gt;</p></entry>
+       <entry align="left" valign="middle" colname="col4" morerows="2">
+        <p outputclass="cellbody">None</p></entry>
+      </row>
+      <row>
+       <entry align="left" valign="top" colname="col1">
+        <p outputclass="cellbody">Ordered</p></entry>
+       <entry align="left" valign="top" colname="col2">
+        <p outputclass="cellbody">&lt;ol&gt;</p></entry>
+       <entry align="left" valign="middle" colname="col3" morerows="1">
+        <p outputclass="cellbody">&lt;li&gt;</p></entry>
+      </row>
+      <row>
+       <entry align="left" valign="top" colname="col1">
+        <p outputclass="cellbody">Unordered</p></entry>
+       <entry align="left" valign="top" colname="col2">
+        <p outputclass="cellbody">&lt;ul&gt;</p></entry>
+      </row>
+      <row>
+       <entry align="left" valign="top" colname="col1">
+        <p outputclass="cellbody">Definition</p></entry>
+       <entry align="left" valign="top" colname="col2">
+        <p outputclass="cellbody">&lt;dl&gt;</p></entry>
+       <entry align="left" valign="top" colname="col3">
+        <p outputclass="cellbody">&lt;dlentry&gt;</p></entry>
+       <entry align="left" valign="top" colname="col4">
+        <p outputclass="cellbody">&lt;dt&gt;, &lt;dd&gt;</p></entry>
+      </row>
+      <row>
+       <entry align="left" valign="top" colname="col1">
+        <p outputclass="cellbody">Parameter</p></entry>
+       <entry align="left" valign="top" colname="col2">
+        <p outputclass="cellbody">&lt;parml&gt;</p></entry>
+       <entry align="left" valign="top" colname="col3">
+        <p outputclass="cellbody">&lt;plentry&gt;</p></entry>
+       <entry align="left" valign="top" colname="col4">
+        <p outputclass="cellbody">&lt;pt&gt;, &lt;pd&gt;</p></entry>
+      </row>
+     </tbody>
+    </tgroup>
+   </table>
+   <p>This is text following the table.</p>
+  
+ </conbody>
+ 
+</concept>

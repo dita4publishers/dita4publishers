@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept xml:lang="en-us" id="basictables">
+ <title>Long Table</title>
+ <shortdesc>This topic has examples of a simpletable and of a complex table.</shortdesc>
+ <conbody>
+   <p>This table is from the DITA 1.2 spec.</p>
+
+   <table>
+    <title>Description of domain modules</title>
+    <desc>
+     <data-about>
+      <data name="d4p_datatable">
+         <data name="activate">1</data>
+         <data name="options">
+          <data name="searching">true</data>
+          <data name="ordering">true</data>
+         </data>
+      </data>
+     </data-about>
+    </desc>
+    <tgroup cols="2"><colspec colname="col1" colwidth="8*"/><colspec
+     colname="col2" colwidth="22*"/>
+     <thead>
+      <row valign="bottom">
+       <entry colname="col1">Domains</entry>
+       <entry colname="col2">Purpose</entry>
+      </row>
+     </thead>
+     <tbody>
+      <row>
+       <entry colname="col1">Indexing domain</entry>
+       <entry colname="col2">The indexing domain provides several new elements
+        for use with                 indexing. The new elements allow authors
+        to define "See" and "See also" references,                 and to
+        override the default sort order for a term. </entry>
+      </row>
+      <row>
+       <entry colname="col1">Highlight domain</entry>
+       <entry colname="col2">The typographic elements are used to highlight
+        text with styles                 (such as bold, italic, and monospace).
+        Never use these elements when a semantically                 specific
+        element is available. These elements are not intended for use by 
+        specializers, and are intended solely for use by authors
+        when no semantically                 appropriate element is available
+        and a formatting effect is required.</entry>
+      </row>
+      <row>
+       <entry colname="col1">Programming domain</entry>
+       <entry colname="col2">The programming domain elements are used to
+        define the syntax                 and to give examples of programming
+        languages. </entry>
+      </row>
+      <row>
+       <entry colname="col1">Software domain</entry>
+       <entry colname="col2">The software domain elements are used to describe
+        the operation                 of a software program. </entry>
+      </row>
+      <row>
+       <entry colname="col1">UI domain</entry>
+       <entry colname="col2">The user interface domain elements are used
+        to describe the user                 interface of a software program. </entry>
+      </row>
+      <row>
+       <entry colname="col1">Utilities domain</entry>
+       <entry colname="col2">The utilities domain elements represent common
+        features of a                 language that may not necessarily be
+        semantic, such as image maps.</entry>
+      </row>
+      <row>
+       <entry colname="col1">Map Group domain</entry>
+       <entry colname="col2">The mapgroup domain elements define, group,
+        or reference                 content. </entry>
+      </row>
+      <row>
+       <entry colname="col1">xNAL domain</entry>
+       <entry colname="col2">The xNAL domain elements represent a subset
+        of the Extensible                 Name and Address Standard. The domain
+        can be included in any topic type or map,                 although
+        the implementations provided by OASIS only include it in the bookmap
+        specialization. It is used to encode information about
+        the author or authors of DITA                 information. </entry>
+      </row>
+      <row>
+       <entry>Hazard Statement domain </entry>
+       <entry>The hazard statement domain elements represent labeling for
+        product safety                 hazards that readers need to be aware
+        of. The domain can be included in any topic                 type or
+        map. Its elements are used to inform readers about potential hazards,
+        consequences, and avoidance strategies </entry>
+      </row>
+      <row>
+       <entry>Machine Industry domain</entry>
+       <entry>The machine-industry task domain contains elements for use
+        describing tasks                 that involve machines or other pieces
+        of hardware. </entry>
+      </row>
+      <row>
+       <entry>Delay Resolution domain</entry>
+       <entry>The delayed conref resolution domain provides several elements
+        for use when                 using DITA in situations that enable
+        delayed or run time resolution of conref. The                 elements
+        allow users to resolve some conref values statically, while delaying
+        others                 for later resolution. </entry>
+      </row>
+      <row>
+       <entry>Abbreviate domain</entry>
+       <entry>The abbreviate domain element is used to represent a reference
+        to a term that                 may appear in an abbreviated form (often
+        an acronym). </entry>
+      </row>
+      <row>
+       <entry>Glossref domain</entry>
+       <entry>The glossref domain elements are convenience elements that
+        are used to                 reference glossary topics or to reference
+        multiple topics in a single collection.               </entry>
+      </row>
+      <row>
+       <entry>Classify domain</entry>
+       <entry>The classification domain elements are used to identify subjects
+        covered by the                 content </entry>
+      </row>
+      <row>
+       <entry>Learning domain</entry>
+       <entry>The learning domain elements represent the base elements that
+        are used to                 create learning and training content.</entry>
+      </row>
+      <row>
+       <entry>Learning Interaction Base domain</entry>
+       <entry>The learning interaction base domain defines an "abstract"
+        base type for all                 learning assessments. </entry>
+      </row>
+      <row>
+       <entry>Learning Map domain</entry>
+       <entry>The learning and training map domain organizes groups of topics
+        as learning                 objects</entry>
+      </row>
+      <row>
+       <entry>Learning Metadata domain</entry>
+       <entry>The learning and training metadata domain describes specific
+        characteristics of                 the learning content. </entry>
+      </row>
+     </tbody>
+    </tgroup>
+   </table>
+   <p>This is text following the table.</p>
+ 
+ 
+ </conbody>
+ 
+</concept>
