@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/dita4publishers/dita4publishers.svg?branch=master)](https://travis-ci.org/dita4publishers/dita4publishers)
+
 dita4publishers
 ===============
 
