@@ -21,5 +21,5 @@ The project is tested against:
 * DITA_OT version 1.7.5
 * DITA_OT version 1.6.3
 
-If the build failed, it might failes on a specific version of the OT. Click on the build image and check the detailed build status for each versions of the OT.
+If the build failed, it might failed on a specific version of the OT. Click on the build image and check the detailed build status for each versions of the OT.
 
