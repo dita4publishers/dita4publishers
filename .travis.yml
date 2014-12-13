@@ -2,7 +2,7 @@ language: java
 jdk:
   - oraclejdk7
 env:
-  - DITA_DIR=DITA-OT1.8.5 ANT_OPTS=-Xmx512m $ANT_OPTS -Djavax.xml.transform.TransformerFactory=net.sf.saxon.TransformerFactoryImpl CLASSPATH=DITA-OT1.8.5/lib/dost.jar:DITA-OT1.8.5/lib/commons-codec-1.4.jar:DITA-OT1.8.5/lib/resolver.jar:lib/icu4j.jar:DITA-OT1.8.5/lib/xercesImpl.jar:DITA-OT1.8.5/lib/xml-apis.jar:DITA-OT1.8.5/lib/saxon/saxon9.jar:DITA-OT1.8.5/lib/saxon/saxon9-dom.jar ANT_HOME=DITA-OT1.8.5/tools/ant PATH=DITA-OT1.8.5/tools/ant/bin:$PATH
+  - DITA_DIR=DITA-OT1.8.5 ANT_OPTS=-Xmx512m $ANT_OPTS -Djavax.xml.transform.TransformerFactory=net.sf.saxon.TransformerFactoryImpl CLASSPATH=DITA-OT1.8.5/lib/:DITA-OT1.8.5/lib/dost.jar:DITA-OT1.8.5/lib/commons-codec-1.4.jar:DITA-OT1.8.5/lib/resolver.jar:lib/icu4j.jar:DITA-OT1.8.5/lib/xercesImpl.jar:DITA-OT1.8.5/lib/xml-apis.jar:DITA-OT1.8.5/lib/saxon/saxon9.jar:DITA-OT1.8.5/lib/saxon/saxon9-dom.jar ANT_HOME=DITA-OT1.8.5/tools/ant PATH=DITA-OT1.8.5/tools/ant/bin:$PATH
 before_script:
   - chmod +x travis-before-install.sh
   - chmod +x run-tests.sh
