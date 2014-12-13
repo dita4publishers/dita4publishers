@@ -11,3 +11,15 @@ See the wiki for details on how to set up new clones of this project.
 ### News
 
 **7 Oct 2014**: EPUB3 implementation is under way. See the org.dita4publishers.epub project for details.
+
+### Test on Travis-CI
+
+December 13, 2014: We are starting to use Travis CI to perform test automatically on the project.
+
+The project is tested against:
+* DITA_OT version 1.8.5
+* DITA_OT version 1.7.5
+* DITA_OT version 1.6.3
+
+If the build failed, it might failes on a specific version of the OT. Click on the build image and check the detailed build status for each versions of the OT.
+
