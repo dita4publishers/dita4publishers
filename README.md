@@ -1,4 +1,7 @@
-[![Build Status](https://travis-ci.org/dita4publishers/dita4publishers.svg?branch=master)](https://travis-ci.org/dita4publishers/dita4publishers)
+[![Build Status](https://travis-ci.org/dita4publishers/dita4publishers.svg?branch=master)](https://travis-ci.org/dita4publishers/dita4publishers) 
+**NOTE:** 
+* The project is tested against 3 versions of the DITA-OT. Click on the icon to see the build status for a specific version.
+* The test does not cover all aspect of the project at this moment.
 
 dita4publishers
 ===============
