@@ -326,7 +326,7 @@
 			</fileset>
 		</copy>
     <!-- Integrate the deployed plugins: -->
-    <antcall target="integrate"/>
+    <ant target="integrate" antfile="${dita-ot-dir}/integrator.xml"/>
 
 	</target>
 	
@@ -751,7 +751,7 @@
     <antcall target="pdf-d4p-user-guide"/>
 	</target>
 	
-	<target name="generate-epubs-for-samples" depends="integrate, epub-wizard-of-oz, epub-shakespear-plays"
+	<target name="generate-epubs-for-samples" depends="epub-wizard-of-oz, epub-shakespear-plays"
 	  description="Generate ePUB versions of the publications in sample_data"
 	>
 	</target>

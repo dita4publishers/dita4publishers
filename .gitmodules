@@ -162,3 +162,7 @@
 	path = toolkit_plugins/org.dita-community.preprocess-extensions
 	url = https://github.com/dita-community/org.dita-community.preprocess-extensions.git
 	branch=master
+[submodule "toolkit_plugins/org.dita4publishers.html5.bootstrap"]
+	path = toolkit_plugins/org.dita4publishers.html5.bootstrap
+	url = https://github.com/blefort/org.dita4publishers.html5.bootstrap.git
+	branch = master

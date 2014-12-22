@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_ghc_fnn_bq">
+  <title>Using collected-data </title>
+  <body>
+    <p>In the context of the HTML2 and HTML5 (and EPUB) transformation types, you have access to the "collected data" structure in any template, from which you can calculate the numbers of anything that's been collected. The default collected data structure only captures things that have titles (topics, figures, tables, sections). </p>
+    <p>If you look at map2html2Impl.xsl, you'll see this bit of code: &lt;xsl:apply-templates select="." mode="generate-content"> &lt;xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/> &lt;xsl:with-param name="uniqueTopicRefs" as="element()*" select="$uniqueTopicRefs" tunnel="yes"/> &lt;/xsl:apply-templates> </p>
+    <p>The key bit here is the "collected-data" parameter: it's passed as a tunnel parameter, which means that it will be available to any template reached from this point. In the context of this code that means ultimately that any template in the default mode can get the collected-data parameter. This means that an otherwise-normal override of a base HTML generation template can also use the collected-data parameter and from that do whatever publication-wide numbering you need. </p>
+    <p>If what we want to do is number paragraphs, we need to find the template that handles paragraphs. I know from experience this will be in dita2htmlImpl.xsl in the base HTML transform. I find this template by searching on " topic/p " and find this template: &lt;xsl:template match="*[contains(@class, ' topic/p ')]" name="topic.p"> &lt;!-- To ensure XHTML validity, need to determine whether the DITA kids are block elements. If so, use div_class="p" instead of p --> ... </p>
+    <p>To override this in our extension, copy the template and modify it as required, starting with adding the collected-data parameter: &lt;xsl:template match="*[contains(@class, ' topic/p ')]" name="topic.p"> &lt;xsl:param name="collected-data" as="element()" tunnel="yes"/> ... </p>
+    <p>If you turn the "debug" parameter on when you run the transform, the collected-data XML will be saved to the output directory and you can look at it to see what you have available. Basically, it is the simplest XML structure that reflects the hierarchy of the publication as defined by the map and the topic elements, with sufficient information to all you to reliably number things and also get back to the input elements. </p>
+    <p>To number paragraphs, you could so something like this: &lt;xsl:variable name="topic-number"> &lt;xsl:number count=" </p>
+  </body>
+</topic>
