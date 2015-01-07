@@ -412,6 +412,26 @@
       </fileset>
     </zip>
   </target>
+  
+  <target name="package-html5-plugins" depends="dist-init, dist-toolkit-plugins"
+     description="Creates an HTML5-only distribution package">
+    <zip destfile="${package.dist}/dita4publishers-html5-toolkit-plugins-${package_version}.zip">
+      <fileset dir="${plugin.dist}">
+        <include name="*.txt"/>
+        <include name="org.dita-community.common.xslt/**"/>
+        <include name="org.dita-community.preprocess-extensions/**"/>
+        <include name="org.dita-community.adjust-copy-to/**"/>
+        <include name="org.dita4publishers.common.html/**"/> 
+        <include name="org.dita4publishers.common.mapdriven/**"/>
+        <include name="org.dita4publishers.common.xslt/**"/>
+        <include name="org.dita4publishers.math/**"/>
+        <include name="org.dita4publishers.math-d.html/**"/>
+        <include name="org.dita4publishers.json/**"/>
+        <include name="org.dita4publishers.html5/**"/>
+        <include name="org.dita4publishers.html5.bootstrap/**"/>
+      </fileset>
+    </zip>
+  </target>
 	
 	<target name="push-toolkit-plugin-to-ivy" depends="package-toolkit-plugins"
 			description="Puts the Toolkit plugin in Ivy reflecting the value of the version_property in version.properties"
