@@ -433,6 +433,25 @@
     </zip>
   </target>
 	
+  <target name="package-epub-plugins" depends="dist-init, dist-toolkit-plugins"
+     description="Creates an EPUB-only distribution package">
+    <zip destfile="${package.dist}/dita4publishers-epub-toolkit-plugins-${package_version}.zip">
+      <fileset dir="${plugin.dist}">
+        <include name="*.txt"/>
+        <include name="org.dita-community.common.xslt/**"/>
+        <include name="org.dita-community.preprocess-extensions/**"/>
+        <include name="org.dita-community.adjust-copy-to/**"/>
+        <include name="org.dita4publishers.common.html/**"/> 
+        <include name="org.dita4publishers.common.mapdriven/**"/>
+        <include name="org.dita4publishers.common.xslt/**"/>
+        <include name="org.dita4publishers.math/**"/>
+        <include name="org.dita4publishers.math-d.html/**"/>
+        <include name="org.dita4publishers.html2/**"/>
+        <include name="org.dita4publishers.epub/**"/>
+      </fileset>
+    </zip>
+  </target>
+	
 	<target name="push-toolkit-plugin-to-ivy" depends="package-toolkit-plugins"
 			description="Puts the Toolkit plugin in Ivy reflecting the value of the version_property in version.properties"
 			>
