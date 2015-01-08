@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE bookmap PUBLIC "-//OASIS//DTD DITA BookMap//EN" "bookmap.dtd">
+<bookmap>
+    <booktitle>
+        <mainbooktitle>Test of Metadata Cascading</mainbooktitle>
+    </booktitle>
+  <bookmeta>
+    <metadata>
+      <category><data
+        name="cat1"
+        value="value1"/></category>
+    </metadata>
+  </bookmeta>
+  <chapter
+    href="topic.dita"/>
+  <chapter href="chapter-02.ditamap" format="ditamap"/>
+</bookmap>
