@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Install tree command because it's handy
+apt-get install tree
+
 # get DITA_OT
 wget $DITA_REPO -O dita-ot.tar.gz --max-redirect=2
 
