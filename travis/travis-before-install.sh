@@ -6,11 +6,9 @@ wget $DITA_REPO -O dita-ot.tar.gz --max-redirect=2
 # untar
 tar -xvf dita-ot.tar.gz
 
-# install dp4 plugins
-cp -r toolkit_plugins/* $DITA_DIR/plugins/
+# install dp4 plugins (note, this runs the integrator script)
+ant deploy-toolkit-plugins -Ddita-ot-dir=$DITA_DIR
 
 # install tests
 cp -r test $DITA_DIR/
 
-# integrate
-ant -f $DITA_DIR/integrator.xml
