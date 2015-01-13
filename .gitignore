@@ -4,3 +4,4 @@
 *.epub
 *.mobi
 sample_data/
+!test/bin/
