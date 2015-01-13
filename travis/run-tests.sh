@@ -1,3 +1,4 @@
 #!/bin/bash
-# build all DITA_OT samples
-ant -f $DITA_DIR/test/ant/test_all.xml
+# The command to run is defined in the env in the .travis.yml configuration
+# so that we can either use ant or use the DIT 2.x dita command
+`$cmd`
