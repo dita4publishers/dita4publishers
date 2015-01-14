@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/dita4publishers/dita4publishers.svg?branch=master)](https://travis-ci.org/dita4publishers/dita4publishers)
+
 **Notes:** 
-* The project is tested against 3 versions of the DITA-OT. Click on the icon to see the build status for a specific version.
+* The project is tested against multiple versions of the DITA-OT. Click on the icon to see the build status for a specific version.
 * The test does not cover all aspect of the project at this moment.
 
 dita4publishers
@@ -20,9 +21,7 @@ See the wiki for details on how to set up new clones of this project.
 December 13, 2014: We are starting to use Travis CI to perform test automatically on the project.
 
 The project is tested against:
+* DITA_OT version 2.0.x
 * DITA_OT version 1.8.5
-* DITA_OT version 1.7.5
-* DITA_OT version 1.6.3
 
-If the build failed, it might failed on a specific version of the OT. Click on the build image and check the detailed build status for each versions of the OT.
 
