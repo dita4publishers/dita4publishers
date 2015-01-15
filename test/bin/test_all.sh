@@ -15,5 +15,4 @@ r=$?
 echo "$r return code from EPUB transform" 
 rFinal=$(($rFinal && $r))
 echo "Final return code is $rFinal" 
-exit $rFinal 
-# End of script
+exit $rFinal

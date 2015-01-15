@@ -3,4 +3,3 @@
 # so that we can either use ant or use the DIT 2.x dita command
 echo Calling command $CMD...
 $CMD
-echo Done
