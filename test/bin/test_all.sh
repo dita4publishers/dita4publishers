@@ -14,5 +14,12 @@ bin/dita -f epub -i test/dita/complex_map/complex_map.ditamap -o out/complex_map
 r=$?
 echo "$r return code from EPUB transform" 
 rFinal=$(($rFinal && $r))
+# HTML2 transform:
+echo Running HTML2 transform on complex_map:
+cd $otdir
+bin/dita -f html2 -i test/dita/complex_map/complex_map.ditamap -o out/complex_map 
+r=$?
+echo "$r return code from HTML2 transform" 
+rFinal=$(($rFinal && $r))
 echo "Final return code is $rFinal" 
 exit $rFinal
