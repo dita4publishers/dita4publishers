@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+ <title>Documentation</title>
+ <keydef keys="test" href="concept.dita" type="concept"/>
+ 
+ <topicref keyref="test">
+  <topicref keyref="test">
+   <topicref keyref="test">
+    <topicref keyref="test">
+     <topicref keyref="test">
+      <topicref keyref="test">
+       <topicref keyref="test">
+        <topicref keyref="test">
+         <topicref keyref="test">
+          <topicref keyref="test">
+           <topicref keyref="test">
+            <topicref keyref="test">
+             
+            </topicref>
+           </topicref>
+          </topicref>
+         </topicref>
+        </topicref>
+       </topicref>
+      </topicref>
+     </topicref>
+    </topicref>
+   </topicref>
+  </topicref>
+ </topicref>
+</map>
