@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+ <title>Reltable Test</title>
+  <topicgroup>
+    <keydef keys="resource-01" href="topics/resource-01.dita"/>
+  </topicgroup>
+  <topichead>
+    <topicmeta>
+      <navtitle>Navigation Tree</navtitle>
+    </topicmeta>
+    <mapref href="submap-01.ditamap"/>
+    <topicref keyref="resource-01"/>
+  </topichead>
+  <reltable>
+    <relrow>
+      <relcell>
+        <mapref href="submap-01.ditamap"/>
+      </relcell>
+      <relcell>
+        <topicref keyref="resource-01"/>
+      </relcell>
+    </relrow>
+  </reltable>
+</map>
