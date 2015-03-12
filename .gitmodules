@@ -144,7 +144,7 @@
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.media-d.html"]
 	path = toolkit_plugins/org.dita4publishers.media-d.html
-	url = git@github.com:dita4publishers/org.dita4publishers.media-d.html.git
+	url = https://github.com/dita4publishers/org.dita4publishers.media-d.html.git
 	branch=master
 [submodule "toolkit_plugins/net.sourceforge.dita4publishers.doctypes"]
 	path = toolkit_plugins/net.sourceforge.dita4publishers.doctypes
