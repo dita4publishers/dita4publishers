@@ -5,12 +5,113 @@
 <!-- (c) Copyright IBM Corp. 2004, 2006 All Rights Reserved. -->
 <project name="sample_d4p-html5" default="samples.html5" basedir=".">
   
-  <property name="dita.dir" location="${basedir}/../.."/>
-  
   <target name="samples.html5" description="build the samples for the web">
     <ant antfile="${dita.dir}/build.xml">
-      <property name="args.input" location="${dita.dir}/test/dita/complex_map/complex_map.ditamap"/>
-      <property name="output.dir" location="${dita.dir}/out/complex_map"/>
+      <property name="args.input" location="${dita.dir}/dita4publishers/test/dita/complex_map/complex_map.ditamap"/>
+      <property name="output.dir" location="${dita.dir}/out/test/complex_map"/>
+      <property name="transtype" value="d4p-html5"/>
+    </ant>
+    
+    <ant antfile="${dita.dir}/build.xml">
+      <property name="args.input" location="${dita.dir}/dita4publishers/test/dita/bookmaps/bookmap-01.ditamap"/>
+      <property name="output.dir" location="${dita.dir}/out/test/bookmap"/>
+      <property name="transtype" value="d4p-html5"/>
+    </ant>
+    
+    <ant antfile="${dita.dir}/build.xml">
+      <property name="args.input" location="${dita.dir}/dita4publishers/test/dita/chunking/chunking-test-01.ditamap"/>
+      <property name="output.dir" location="${dita.dir}/out/test/chunking-test-01"/>
+      <property name="transtype" value="d4p-html5"/>
+    </ant>
+    
+    <ant antfile="${dita.dir}/build.xml">
+      <property name="args.input" location="${dita.dir}/dita4publishers/test/dita/copy-to-test/copy-to-test.ditamap"/>
+      <property name="output.dir" location="${dita.dir}/out/test/copy-to-test"/>
+      <property name="transtype" value="d4p-html5"/>
+    </ant>
+    
+    <ant antfile="${dita.dir}/build.xml">
+      <property name="args.input" location="${dita.dir}/dita4publishers/test/dita/copy-to-uplevels-test/copy-to-test/copy-to-uplevels-test.ditamap"/>
+      <property name="output.dir" location="${dita.dir}/out/test/copy-to-iplevels"/>
+      <property name="transtype" value="d4p-html5"/>
+    </ant>
+    
+    <ant antfile="${dita.dir}/build.xml">
+      <property name="args.input"  location="${dita.dir}/dita4publishers/test/dita/cross-deliverable-linking/map-a/map-a.ditamap"/>
+      <property name="output.dir" location="${dita.dir}/out/test/map-a"/>
+      <property name="transtype" value="d4p-html5"/>
+    </ant>
+    
+    <ant antfile="${dita.dir}/build.xml">
+      <property name="args.input"  location="${dita.dir}/dita4publishers/test/dita/cross-deliverable-linking/map-ab/map-ab.ditamap"/>
+      <property name="output.dir" location="${dita.dir}/out/test/map-ab"/>
+      <property name="transtype" value="d4p-html5"/>
+    </ant>
+    
+    <ant antfile="${dita.dir}/build.xml">
+      <property name="args.input"  location="${dita.dir}/dita4publishers/test/dita/cross-deliverable-linking/map-b/map-b.ditamap"/>
+      <property name="output.dir" location="${dita.dir}/out/test/map-b"/>
+      <property name="transtype" value="d4p-html5"/>
+    </ant>
+    
+    <ant antfile="${dita.dir}/build.xml">
+      <property name="args.input"  location="${dita.dir}/dita4publishers/test/dita/cross-deliverable-linking/map-c/map-c.ditamap"/>
+      <property name="output.dir" location="${dita.dir}/out/test/map-c"/>
+      <property name="transtype" value="d4p-html5"/>
+    </ant>
+    
+    <!-- topic is broken -->
+    <!--ant antfile="${dita.dir}/build.xml">
+      <property name="args.input" location="${dita.dir}/dita4publishers/test/dita/d4p_SimpleEnumerationDomain/simpleEnumeration-001.xml"/>
+      <property name="output.dir" location="${dita.dir}/out/test/simpleEnumeration-01"/>
+      <property name="transtype" value="d4p-html5"/>
+    </ant-->
+       
+    <ant antfile="${dita.dir}/build.xml">
+      <property name="args.input" location="${dita.dir}/dita4publishers/test/dita/element_type_test/element_type_test.ditamap"/>
+      <property name="output.dir" location="${dita.dir}/out/test/element-typ"/>
+      <property name="transtype" value="d4p-html5"/>
+    </ant>
+    
+    <ant antfile="${dita.dir}/build.xml">
+      <property name="args.input" location="${dita.dir}/dita4publishers/test/dita/image_scaling/imageSample/flowers.ditamap"/>
+      <property name="output.dir" location="${dita.dir}/out/test/image-scaling"/>
+      <property name="transtype" value="d4p-html5"/>
+    </ant>
+
+    <ant antfile="${dita.dir}/build.xml">
+      <property name="args.input" location="${dita.dir}/dita4publishers/test/dita/keyrefs/keyref-xref-to-fig/keyref-xref-to-fig-test.ditamap"/>
+      <property name="output.dir" location="${dita.dir}/out/test/keyref-xref-figure"/>
+      <property name="transtype" value="d4p-html5"/>
+    </ant>
+    
+    <ant antfile="${dita.dir}/build.xml">
+      <property name="args.input" location="${dita.dir}/dita4publishers/test/dita/keyrefs/keyrefs-for-variables/keyrefs-for-variables.ditamap"/>
+      <property name="output.dir" location="${dita.dir}/out/test/keyref-variables"/>
+      <property name="transtype" value="d4p-html5"/>
+    </ant>
+    
+    <ant antfile="${dita.dir}/build.xml">
+      <property name="args.input" location="${dita.dir}/dita4publishers/test/dita/keyrefs/keyrefs-to-external-resources/keyrefs-to-external-resources-01.ditamap"/>
+      <property name="output.dir" location="${dita.dir}/out/test/keyref-external-resource"/>
+      <property name="transtype" value="d4p-html5"/>
+    </ant>
+    
+    <ant antfile="${dita.dir}/build.xml">
+      <property name="args.input" location="${dita.dir}/dita4publishers/test/dita/keyrefs/keyrefs-to-images/keyrefs-to-images-01.ditamap"/>
+      <property name="output.dir" location="${dita.dir}/out/test/keyref-images"/>
+      <property name="transtype" value="d4p-html5"/>
+    </ant>
+      
+    <ant antfile="${dita.dir}/build.xml">
+      <property name="args.input" location="${dita.dir}/dita4publishers/test/dita/keyrefs/map-to-map-via-keyref/map-to-map-via-keyref.ditamap"/>
+      <property name="output.dir" location="${dita.dir}/out/test/map-to-map-keyref"/>
+      <property name="transtype" value="d4p-html5"/>
+    </ant>
+    
+    <ant antfile="${dita.dir}/build.xml">
+      <property name="args.input" location="${dita.dir}/dita4publishers/test/dita/keyrefs/maps_above_topics/root-map-01.ditamap"/>
+      <property name="output.dir" location="${dita.dir}/out/test/map-above-topics"/>
       <property name="transtype" value="d4p-html5"/>
     </ant>
   </target>
