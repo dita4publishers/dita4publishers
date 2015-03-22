@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- This file is part of the DITA Open Toolkit project hosted on
+     Sourceforge.net. See the accompanying license.txt file for
+     applicable licenses.-->
+<!-- (c) Copyright IBM Corp. 2004, 2006 All Rights Reserved. -->
+<project name="sample_epub" default="samples.epub" basedir=".">
+
+  <property name="dita.dir" location="${basedir}/../.."/>
+
+  <target name="samples.epub" description="build the samples for the web">
+    <ant antfile="${dita.dir}/build.xml">
+      <property name="args.input" location="${dita.dir}/test/dita/complex_map/complex_map.ditamap"/>
+      <property name="output.dir" location="${dita.dir}/out/complex_map"/>
+      <property name="transtype" value="epub"/>
+    </ant>
+  </target>
+
+
+</project>
