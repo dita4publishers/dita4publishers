@@ -21,7 +21,7 @@ See the wiki for details on how to set up new clones of this project.
 December 13, 2014: We are starting to use Travis CI to perform test automatically on the project.
 
 The project is tested against:
-* DITA_OT version 2.0.x
 * DITA_OT version 1.8.5
+* DITA_OT version 1.7.5
 
 

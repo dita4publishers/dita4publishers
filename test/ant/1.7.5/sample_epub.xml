@@ -5,8 +5,6 @@
 <!-- (c) Copyright IBM Corp. 2004, 2006 All Rights Reserved. -->
 <project name="sample_epub" default="samples.epub" basedir=".">
 
-  <property name="dita.dir" location="${basedir}/../.."/>
-
   <target name="samples.epub" description="build the samples for the web">
     <ant antfile="${dita.dir}/build.xml">
       <property name="args.input" location="${dita.dir}/test/dita/complex_map/complex_map.ditamap"/>
