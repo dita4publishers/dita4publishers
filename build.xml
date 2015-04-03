@@ -212,33 +212,51 @@
     </copy>
 	</target>
 	
-	<target name="dist-toolkit-plugins" description="Packages the DITA Open Toolkit plugins for deployment to a working Toolkit instance"
-		 depends="
-		dist-init, 
-		dist-dita2indesign-toolkit-plugins
-		"
+	<target name="dist-license" 
+	  description="Packages the license used for all packages"
+		 depends="dist-init"
 		>
-    <delete includeEmptyDirs="true" failonerror="false">
-      <fileset dir="${plugin.dist}"  includes="org.dita4publishers.*/**"/>
-      <fileset dir="${plugin.dist}"  includes="org.dita4publshers.*/**"/>
-<!--      <fileset dir="${plugin.dist}"  includes="org.dita-community.*/**"/>-->
-    </delete>
     <copy todir="${plugin.dist}">
       <fileset dir="${license.dir}">
         <include name="*"/>
       </fileset>
     </copy>
+	</target>
+	
+	<target name="dist-common-toolkit-plugins" 
+	  description="Packages the plugins used by all D4P transformation types"
+		 depends="dist-init, dist-license"
+		>
 		<copy todir="${plugin.dist}">
 			<fileset dir="${plugin.src}">
-				<exclude name="org.dita4publishers.pubmap.fo/**"/> 
-				<exclude name="*.zip"/> 
-				<exclude name="**/test/**"/> 
+			  <include name="org.dita-community.adjust-copy-to/**"/>
+			  <include name="org.dita-community.common.xslt/**"/>
+			  <include name="org.dita-community.preprocess-extensions/**"/>
+        <include name="org.dita4publishers.common.mapdriven/**"/>
+			  <include name="org.dita4publishers.common.xslt/**"/>
 			</fileset>
 		</copy>
-    <copy todir="${plugin.dist}">
-      <fileset dir="${plugin-shakespear-samples-src}">
-      </fileset>
-    </copy>
+	</target>
+  
+  <target name="dist-doctype-plugins" 
+     description="Packages just the doctype plugins"
+     depends="dist-init, dist-license"
+    >
+		<copy todir="${plugin.dist}">
+			<fileset dir="${plugin.src}">
+			  <include name="org.dita4publishers.doctypes/**"/>
+			  <include name="org.dita4publishers.math/**"/>
+			  <include name="org.dita4publishers.xmldomain.doctypes/**"/>
+			</fileset>
+		</copy>
+    <replace dir="${plugin.dist}/org.dita4publishers.math/doctypes/mathml3/dtd">
+      <!-- 
+      %character; to %mll3_character;
+      -->
+      <include name="*.dtd"/>
+      <replacetoken><![CDATA[%character;]]></replacetoken>
+      <replacevalue><![CDATA[%mml_character;]]></replacevalue>
+    </replace>
 	  <!-- Standalone Math plugin -->
 		<!-- FIX a bug/unfortunate potential parameter entity name clash with the MathML3 DTD -->
 		<replace dir="${plugin.dist}/org.dita4publishers.math/doctypes/mathml3/dtd">
@@ -249,14 +267,78 @@
 			<replacetoken><![CDATA[<!ENTITY % character ]]></replacetoken>
 			<replacevalue><![CDATA[<!ENTITY % mml_character ]]></replacevalue>
 		</replace>
-    <replace dir="${plugin.dist}/org.dita4publishers.math/doctypes/mathml3/dtd">
-      <!-- 
-      %character; to %mll3_character;
-      -->
-      <include name="*.dtd"/>
-      <replacetoken><![CDATA[%character;]]></replacetoken>
-      <replacevalue><![CDATA[%mml_character;]]></replacevalue>
-    </replace>
+    
+	</target>
+  
+  <target name="dist-common-html-toolkit-plugins" 
+     description="Packages just the doctype plugins"
+     depends="dist-common-toolkit-plugins"
+    >
+		<copy todir="${plugin.dist}">
+			<fileset dir="${plugin.src}">
+			  <include name="org.dita4publishers.html2/**"/>
+			  <!-- These are required because the HTML2 transform 
+			       adds the MathJax stuff by default.
+			    -->
+			  <include name="org.dita4publishers.common.html/**"/>
+			</fileset>
+		</copy>
+  </target>
+
+  <target name="dist-html2-toolkit-plugins" 
+     description="Packages just the doctype plugins"
+     depends="dist-init, dist-license, dist-common-html-toolkit-plugins"
+    >
+		<copy todir="${plugin.dist}">
+			<fileset dir="${plugin.src}">
+			  <include name="org.dita4publishers.html2/**"/>
+			  <!-- These are required because the HTML2 transform 
+			       adds the MathJax stuff by default.
+			    -->
+			  <include name="org.dita4publishers.math-d.html/**"/>
+			  <include name="org.dita4publishers.media-d.html/**"/>
+			</fileset>
+		</copy>
+  </target>
+	
+  <target name="dist-html5-toolkit-plugins" 
+     description="Packages just the doctype plugins"
+     depends="dist-html2-toolkit-plugins"
+    >
+		<copy todir="${plugin.dist}">
+			<fileset dir="${plugin.src}">
+			  <include name="org.dita4publishers.html5/**"/>
+			  <include name="org.dita4publishers.json/**"/>
+			</fileset>
+		</copy>
+  </target>
+	
+  <target name="dist-epub-toolkit-plugins" 
+     description="Packages just the doctype plugins"
+     depends="dist-html2-toolkit-plugins"
+    >
+		<copy todir="${plugin.dist}">
+			<fileset dir="${plugin.src}">
+			  <include name="org.dita4publishers.epub/**"/>
+			</fileset>
+		</copy>
+  </target>
+	
+	<target name="dist-toolkit-plugins" description="Packages the DITA Open Toolkit plugins for deployment to a working Toolkit instance"
+		 depends="dist-common-toolkit-plugins, 
+		 dist-doctype-plugins, 
+		 dist-epub-toolkit-plugins, 
+		 dist-html5-toolkit-plugins, 
+		 dist-html2-toolkit-plugins
+		 "
+		>
+		<copy todir="${plugin.dist}">
+			<fileset dir="${plugin.src}">
+				<include name="org.dita4publishers.common.xslfo/**"/> 
+				<include name="org.dita4publishers.*.fo/**"/> 
+				<include name="org.dita4publishers.*.html/**"/> 
+			</fileset>
+		</copy>
     <copy todir="${doctypes.plugin-shakespear-dist}/doctypes">
       <fileset dir="${doctypes-skakespear-samples.src}">
       </fileset>
@@ -312,8 +394,8 @@
 	<target name="deploy-toolkit-plugins" depends="dist-toolkit-plugins"
 	  description="Deploy plugins to local DITA Open Toolkit">
 		<delete failonerror="true" includeemptydirs="true">
-			<fileset dir="${plugin-deploy_target}" includes="org.dita4publishers.*/**">
-			</fileset>
+			<fileset dir="${plugin-deploy_target}" includes="org.dita4publishers.*/**"/>
+			<fileset dir="${plugin-deploy_target}" includes="org.dita-community.*/**"/>			
 		</delete>
 		<mkdir dir="${plugin-deploy_target}"/>
 		<copy todir="${plugin-deploy_target}">
@@ -323,6 +405,24 @@
 				<!--
 				<exclude name="org.dita4publishers.pubmap.fo/**"/>
 				-->
+			</fileset>
+		</copy>
+    <!-- Integrate the deployed plugins: -->
+    <ant target="integrate" antfile="${dita-ot-dir}/integrator.xml"/>
+
+	</target>
+	
+	<target name="deploy-html5-toolkit-plugins" depends="dist-html5-toolkit-plugins"
+	  description="Deploy only the HTML5 plugin and its dependencies to local DITA Open Toolkit">
+		<delete failonerror="true" includeemptydirs="true">
+			<fileset dir="${plugin-deploy_target}" includes="org.dita4publishers.*/**"/>
+			<fileset dir="${plugin-deploy_target}" includes="org.dita-community.*/**"/>			
+		</delete>
+		<mkdir dir="${plugin-deploy_target}"/>
+		<copy todir="${plugin-deploy_target}">
+			<fileset dir="${plugin.dist}">
+				<include name="**/*"/>
+        <exclude name="**/CVS"/>
 			</fileset>
 		</copy>
     <!-- Integrate the deployed plugins: -->
