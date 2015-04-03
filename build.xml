@@ -314,12 +314,23 @@
   </target>
 	
   <target name="dist-epub-toolkit-plugins" 
-     description="Packages just the doctype plugins"
+     description="Packages just the EPUB plugins"
      depends="dist-html2-toolkit-plugins"
     >
 		<copy todir="${plugin.dist}">
 			<fileset dir="${plugin.src}">
 			  <include name="org.dita4publishers.epub/**"/>
+			</fileset>
+		</copy>
+  </target>
+	
+  <target name="dist-kindle-toolkit-plugins" 
+     description="Packages just the kindle plugins"
+     depends="dist-epub-toolkit-plugins"
+    >
+		<copy todir="${plugin.dist}">
+			<fileset dir="${plugin.src}">
+			  <include name="org.dita4publishers.kindle/**"/>
 			</fileset>
 		</copy>
   </target>
@@ -412,8 +423,8 @@
 
 	</target>
 	
-	<target name="deploy-html5-toolkit-plugins" depends="dist-html5-toolkit-plugins"
-	  description="Deploy only the HTML5 plugin and its dependencies to local DITA Open Toolkit">
+	<target name="deploy-disted-plugins">
+	  <!-- Deploys whatever have been put in the dist directory -->
 		<delete failonerror="true" includeemptydirs="true">
 			<fileset dir="${plugin-deploy_target}" includes="org.dita4publishers.*/**"/>
 			<fileset dir="${plugin-deploy_target}" includes="org.dita-community.*/**"/>			
@@ -430,6 +441,22 @@
 
 	</target>
 	
+	<target name="deploy-html2" depends="dist-html2-toolkit-plugins, deploy-disted-plugins"
+	  description="Deploy only the HTML2 plugin and its dependencies to local DITA Open Toolkit">
+	</target>
+	
+ 	<target name="deploy-html5" depends="dist-html5-toolkit-plugins, deploy-disted-plugins"
+	  description="Deploy only the HTML5 plugin and its dependencies to local DITA Open Toolkit">
+	</target>
+	
+ <target name="deploy-epub" depends="dist-epub-toolkit-plugins, deploy-disted-plugins"
+	  description="Deploy only the EPUB plugin and its dependencies to local DITA Open Toolkit">
+	</target>
+
+ <target name="deploy-kindle" depends="dist-kindle-toolkit-plugins, deploy-disted-plugins"
+	  description="Deploy only the Kindle plugin and its dependencies to local DITA Open Toolkit">
+	</target>
+
 	<target name="dist-init" depends="init">
 		<delete failonerror="false" includeemptydirs="true">
 			<fileset dir="${dist}" includes="*/**"/>
