@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e # exit with nonzero exit code if anything fails
 
-SCRIPT_DIR=${PWD##*/} 
+SCRIPT_DIR=${PWD} 
 echo "SCRIPT DIR =" $SCRIPT_DIR
 
 export ANT_OPTS=-Xmx2048m
