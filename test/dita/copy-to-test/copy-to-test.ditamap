@@ -3,8 +3,9 @@
 <map>
  <title>Copy-To Test</title>
   <keydef keys="warehouse-topic-01" href="common/warehouse-01.dita"/>
+  <keydef keys="topic-0111" href="topics/chapter-01.dita"/>
   <topicref keys="chap-01"
-    href="topics/chapter-01.dita">
+    keyref="topic-0111">
     <topicref keys="ch01-ss01"
       href="topics/copy-to-source-01.dita"
       copy-to="topics/copy-to-01.dita">

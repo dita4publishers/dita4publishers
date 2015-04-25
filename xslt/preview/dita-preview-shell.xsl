@@ -18,6 +18,6 @@
        Copyright (c) 2009 Really Strategies, Inc.
       ============================================================ -->    
   
-  <xsl:import href="rsuite:/res/plugin/rsuite-dita-support/preview/dita-previewImpl.xsl"/>  
+  <xsl:import href="dita-previewImpl.xsl"/>  
   
 </xsl:stylesheet>
