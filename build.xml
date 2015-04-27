@@ -276,11 +276,9 @@
     >
 		<copy todir="${plugin.dist}">
 			<fileset dir="${plugin.src}">
-			  <include name="org.dita4publishers.html2/**"/>
-			  <!-- These are required because the HTML2 transform 
-			       adds the MathJax stuff by default.
-			    -->
 			  <include name="org.dita4publishers.common.html/**"/>
+			  <include name="org.dita4publishers.math-d.html/**"/>
+			  <include name="org.dita4publishers.media-d.html/**"/>
 			</fileset>
 		</copy>
   </target>
@@ -303,7 +301,7 @@
 	
   <target name="dist-html5-toolkit-plugins" 
      description="Packages just the doctype plugins"
-     depends="dist-html2-toolkit-plugins"
+     depends="dist-init, dist-license, dist-common-html-toolkit-plugins"
     >
 		<copy todir="${plugin.dist}">
 			<fileset dir="${plugin.src}">
@@ -315,7 +313,7 @@
 	
   <target name="dist-epub-toolkit-plugins" 
      description="Packages just the EPUB plugins"
-     depends="dist-html2-toolkit-plugins"
+     depends="dist-init, dist-license, dist-common-html-toolkit-plugins"
     >
 		<copy todir="${plugin.dist}">
 			<fileset dir="${plugin.src}">
