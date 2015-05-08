@@ -336,7 +336,7 @@
 	<target name="dist-toolkit-plugins" description="Packages the DITA Open Toolkit plugins for deployment to a working Toolkit instance"
 		 depends="dist-common-toolkit-plugins, 
 		 dist-doctype-plugins, 
-		 dist-epub-toolkit-plugins, 
+		 dist-kindle-toolkit-plugins, 
 		 dist-html5-toolkit-plugins, 
 		 dist-html2-toolkit-plugins
 		 "
