@@ -77,4 +77,4 @@ git commit -m "Deploy documention"
 # will be lost, since we are overwriting it.) We redirect any output to
 # /dev/null to hide any sensitive credential data that might otherwise be exposed.
 echo -e "${YELLOW}Pushing content${NC}"
-git push  > /dev/null 2>&1
+git push
