@@ -247,6 +247,7 @@
 			  <include name="org.dita4publishers.doctypes/**"/>
 			  <include name="org.dita4publishers.math/**"/>
 			  <include name="org.dita4publishers.xmldomain.doctypes/**"/>
+			  <include name="net.sourceforge.dita4publishers.doctypes/**"/>
 			</fileset>
 		</copy>
     <replace dir="${plugin.dist}/org.dita4publishers.math/doctypes/mathml3/dtd">
