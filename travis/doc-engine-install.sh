@@ -78,3 +78,5 @@ git commit -m "Deploy documention"
 # /dev/null to hide any sensitive credential data that might otherwise be exposed.
 echo -e "${YELLOW}Pushing content${NC}"
 git push
+
+exit 0
