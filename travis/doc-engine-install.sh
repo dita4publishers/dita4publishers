@@ -10,8 +10,8 @@ SCRIPT_DIR=${PWD}
 D4P_DIR=$SCRIPT_DIR/dita4publishers
 HOME_DIR="$(dirname "$TRAVIS_BUILD_DIR")"
 DOC_DIR=$(basename "$GH_REF")
-DITA_REPO=http://sourceforge.net/projects/dita-ot/files/DITA-OT%20Stable%20Release/DITA%20Open%20Toolkit%201.8/DITA-OT1.8.5_full_easy_install_bin.tar.gz/download
 
+export DITA_REPO=http://sourceforge.net/projects/dita-ot/files/DITA-OT%20Stable%20Release/DITA%20Open%20Toolkit%201.8/DITA-OT1.8.5_full_easy_install_bin.tar.gz/download
 export DOC_ENGINE_DIR=$SCRIPT_DIR
 export ANT_OPTS=-Xmx2048m
 export DITA_DIR=DITA-OT1.8.5
