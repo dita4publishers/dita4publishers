@@ -51,7 +51,7 @@ echo -e "${YELLOW}Building documentation${NC}"
 
 mkdir $HOME_DIR/$OUTDIR
 ant -f ./$DITA_DIR/integrator.xml
-ant -f ./$DITA_DIR/build.xml -Dargs.input=$TRAVIS_BUILD_DIR/$DITAMAP -Doutput.dir=$HOME_DIR/$OUTDIR -Dtranstype=TRANSTYPE
+ant -f ./$DITA_DIR/build.xml -Dargs.input=$TRAVIS_BUILD_DIR/$DITAMAP -Doutput.dir=$HOME_DIR/$OUTDIR -Dtranstype=$TRANSTYPE
 
 # clone dir
 echo -e "${YELLOW}Adding files to gh-pages branch${NC}"
