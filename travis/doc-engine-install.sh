@@ -3,35 +3,49 @@ set -e # exit with nonzero exit code if anything fails
 
 OUTDIR=OUT
 D4P_DIR=dita4publishers
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
 
 SCRIPT_DIR=${PWD} 
 HOME_DIR="$(dirname "$TRAVIS_BUILD_DIR")"
 DOC_DIR=$(basename "$GH_REF")
+DITA_REPO=http://sourceforge.net/projects/dita-ot/files/DITA-OT%20Stable%20Release/DITA%20Open%20Toolkit%201.8/DITA-OT1.8.5_full_easy_install_bin.tar.gz/download
+export DOC_ENGINE_DIR=$SCRIPT_DIR
 
 export ANT_OPTS=-Xmx2048m
 export DITA_DIR=DITA-OT1.8.5
 export CLASSPATH=$DITA_DIR/lib/:$DITA_DIR/lib/dost.jar:$DITA_DIR/lib/commons-codec-1.4.jar:$DITA_DIR/lib/resolver.jar:lib/icu4j.jar:$DITA_DIR/lib/xercesImpl.jar:$DITA_DIR/lib/xml-apis.jar:$DITA_DIR/lib/saxon/saxon9.jar:$DITA_DIR/lib/saxon/saxon9-dom.jar
 export ANT_HOME=$DITA_DIR/tools/ant PATH=$DITA_DIR/tools/ant/bin:$PATH
-export DITA_REPO=http://sourceforge.net/projects/dita-ot/files/DITA-OT%20Stable%20Release/DITA%20Open%20Toolkit%201.8/DITA-OT1.8.5_full_easy_install_bin.tar.gz/download
-export DOC_ENGINE_DIR=$SCRIPT_DIR
+
+
+echo "[ + info ] Variables"
+echo "\$HOME_DIR: $HOME_DIR"
+echo "\$DOC_DIR: $DOC_DIR"
+echo "\$SCRIPT_DIR: $SCRIPT_DIR"
+echo "\$D4P_DIR: $D4P_DIR"
+echo "\$OUTDIR: $OUTDIR"
+echo "\$DITA_REPO: $DITA_REPO"
+
+echo "[ + info ] Environement Variables"
+echo "\$ANT_OPTS: $ANT_OPTS"
+echo "\$DITA_DIR: $DITA_DIR"
+echo "\$CLASSPATH: $CLASSPATH"
+echo "\$ANT_HOME: $ANT_HOME"
 
 
 if [ -z "$BRANCH" ]; 
 	then 
-	echo " [ + info ] Using branch $BRANCH"
+	echo -e "${YELLOW} Using branch $BRANCH${NC}"
 	cd $TRAVIS_BUILD_DIR
     git checkout $BRANCH
 fi
 
+echo -e "${YELLOW} Installing engine${NC}"
 
-echo " [ + info ] installing engine"
 cd $D4P_DIR
-git checkout doc-engine
-git pull
 git submodule update --init --recursive
-
-chmod +x $SCRIPT_DIR/travis/travis-before-install.sh
-bash $SCRIPT_DIR/travis/travis-before-install.sh
+chmod +x ./travis/travis-before-install.sh
+bash ./travis/travis-before-install.sh
 
 echo " [ + info ] Building documentation"
 mkdir $HOME_DIR/$OUTDIR
