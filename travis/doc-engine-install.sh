@@ -49,8 +49,8 @@ bash ./travis/travis-before-install.sh
 
 echo " [ + info ] Building documentation"
 mkdir $HOME_DIR/$OUTDIR
-ant -f $DITA_DIR/integrator.xml
-ant -f $DITA_DIR/build.xml -Dargs.input=$TRAVIS_BUILD_DIR/$DITAMAP -Doutput.dir=$HOME_DIR/$OUTDIR -Dtranstype=TRANSTYPE
+ant -f ./$DITA_DIR/integrator.xml
+ant -f ./$DITA_DIR/build.xml -Dargs.input=$TRAVIS_BUILD_DIR/$DITAMAP -Doutput.dir=$HOME_DIR/$OUTDIR -Dtranstype=TRANSTYPE
 
 # clone dir
 echo " [ + info ] Adding files to gh-pages branch"
