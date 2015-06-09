@@ -16,6 +16,7 @@
 	           versions of project components.
 	  -->
   <property file="version.properties"/>
+  <property file=".build.properties"/>
   <property file="build.properties"/>
   <property file="${user.home}/.build.properties"/>
   <property file="${user.home}/build.properties"/>
