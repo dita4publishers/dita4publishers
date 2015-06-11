@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e # exit with nonzero exit code if anything fails
 
+git config --global push.default simple
+
 OUTDIR=OUT
 
 YELLOW='\033[1;33m'
