@@ -546,6 +546,8 @@
       <fileset dir="${plugin.dist}">
         <include name="org.dita-community.common.xslt/**"/>
         <include name="org.dita4publishers.doctypes/**"/>
+			  <include name="org.dita4publishers.math/**"/>
+			  <include name="org.dita4publishers.xmldomain.doctypes/**"/>
         <include name="org.dita4publishers.word2dita/**"/>
       </fileset>
     </zip>
