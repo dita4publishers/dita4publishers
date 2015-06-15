@@ -238,6 +238,18 @@
 		</copy>
 	</target>
   
+	<target name="dist-word2dita-toolkit-plugins" 
+	  description="Packages the plugins used the word2dita plugin"
+		 depends="dist-init, dist-license, dist-doctype-plugins"
+		>
+		<copy todir="${plugin.dist}">
+			<fileset dir="${plugin.src}">
+			  <include name="org.dita-community.common.xslt/**"/>
+			  <include name="org.dita4publishers.word2dita/**"/>
+			</fileset>
+		</copy>
+	</target>
+  
   <target name="dist-doctype-plugins" 
      description="Packages just the doctype plugins"
      depends="dist-init, dist-license"
@@ -338,7 +350,8 @@
 		 dist-doctype-plugins, 
 		 dist-kindle-toolkit-plugins, 
 		 dist-html5-toolkit-plugins, 
-		 dist-html2-toolkit-plugins
+		 dist-html2-toolkit-plugins, 
+		 dist-word2dita-toolkit-plugins
 		 "
 		>
 		<copy todir="${plugin.dist}">
@@ -522,6 +535,18 @@
     <zip destfile="${package.dist}/dita4publishers-vocabulary-plugins-${vocab_version}.zip">
       <fileset dir="${plugin.dist}">
         <include name="org.dita4publishers.doctypes/**"/>
+      </fileset>
+    </zip>
+  </target>
+	
+	<target name="package-word2dita-plugins" depends="dist-init, dist-word2dita-toolkit-plugins"
+		description="Create distributable Zip package for the Word2DITA transform plugin with its dependencies"
+		>
+    <zip destfile="${package.dist}/dita4publishers-word2dita-plugins-${package_version}.zip">
+      <fileset dir="${plugin.dist}">
+        <include name="org.dita-community.common.xslt/**"/>
+        <include name="org.dita4publishers.doctypes/**"/>
+        <include name="org.dita4publishers.word2dita/**"/>
       </fileset>
     </zip>
   </target>
