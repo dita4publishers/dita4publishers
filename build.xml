@@ -256,6 +256,7 @@
     >
 		<copy todir="${plugin.dist}">
 			<fileset dir="${plugin.src}">
+			  <include name="net.sourceforge.dita4publishers.doctypes/**"/>
 			  <include name="org.dita4publishers.doctypes/**"/>
 			  <include name="org.dita4publishers.math/**"/>
 			  <include name="org.dita4publishers.xmldomain.doctypes/**"/>
