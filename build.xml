@@ -413,6 +413,22 @@
 
 
 	
+	<target name="deploy-preprocess-test-plugin" 
+	  description="Deploy plugins to local DITA Open Toolkit">
+	  <echo> Deploying org.dita-community.preprocess-tester...</echo>
+	  <copy todir="${plugin-deploy_target}">
+			<fileset dir="${plugin.src}/org.dita-community.preprocess-tester">
+				<include name="**"/>
+			</fileset>
+		</copy>
+	  <echo> Calling integrator...</echo>
+    <!-- Integrate the deployed plugins: -->
+    <ant target="integrate" antfile="${dita-ot-dir}/integrator.xml"/>
+
+  </target>
+
+
+	
 	<target name="deploy-toolkit-plugins" depends="dist-toolkit-plugins"
 	  description="Deploy plugins to local DITA Open Toolkit">
 		<delete failonerror="true" includeemptydirs="true">
