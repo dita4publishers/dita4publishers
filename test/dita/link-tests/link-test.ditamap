@@ -9,4 +9,21 @@
     href="content/third-topic.dita"/>
   <topicref
     href="content/dl-xref-test.dita"/>
+  <reltable>
+    <relrow>
+      <relcell>
+        <topicref keyref="key1"/>
+      </relcell>
+      <relcell>
+        <!-- Tests of external-scope topicrefs with no @format attribute, as sometimes
+             occurs within IBM docs or older DITA docs. With 1.3 can also occur
+             due to new implicit @format rules.
+          -->
+        <topicref href="http://opensource.org/licenses/cpl1.0.php"
+navtitle="Common Public License, version 1.0" type="html" scope="external" />
+<topicref href="http://www.apache.org/licenses/LICENSE-2.0" navtitle="Apache License, version 2.0"
+scope="external"/>
+      </relcell>
+    </relrow>
+  </reltable>
 </map>

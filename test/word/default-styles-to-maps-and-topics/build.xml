@@ -16,10 +16,10 @@
  		location="${ditaOutputDir}/${baseFilename}.ditamap"
  	/>
  	<property name="expectedDitaFile" 
- 		location="${ditaOutputDir}/topics/topic_1_1_1.dita"
+ 		location="${ditaOutputDir}/w2d_test-default-styles-to-maps-and-topics.ditamap"
  	/>
  	<property name="expectedHtmlFile" 
- 		location="${htmlOutputDir}/topics/topic_1_1_1.html"
+ 		location="${htmlOutputDir}/index.html"
  	/>
 
  	<ant 

@@ -51,10 +51,6 @@
  		  value="${basedir}/style2tagmap.xml"
  		/>
  		<property
- 		  name="w2d.root.topic.name"
- 		  value="${baseFilename}"
- 		/>
- 		<property
  		  name="w2d.filter.br"
  		  value="true"
  		/>

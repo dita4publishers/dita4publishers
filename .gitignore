@@ -5,3 +5,5 @@
 *.mobi
 sample_data/
 !test/bin/
+test/word/default-styles-to-maps-and-topics/dita/
+test/word/default-styles-to-maps-and-topics/html/
