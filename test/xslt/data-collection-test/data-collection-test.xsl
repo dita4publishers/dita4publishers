@@ -14,13 +14,13 @@
        The output is the collected-data.xml file.
        
     -->
-  <xsl:import href="../../../toolkit_plugins/net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../../toolkit_plugins/net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  <xsl:import href="../../../toolkit_plugins/net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
+  <xsl:import href="../../../toolkit_plugins/org.dita-community.common.xslt/xsl/dita-support-lib.xsl"/>
+  <xsl:import href="../../../toolkit_plugins/org.dita-community.common.xslt/xsl/relpath_util.xsl"/>
+  <xsl:import href="../../../toolkit_plugins/org.dita4publishers.common.html/xsl/html-generation-utils.xsl"/>
   <xsl:import href="plugin:org.dita.base:xsl/common/dita-utilities.xsl"/>
   <xsl:import href="plugin:org.dita.base:xsl/common/output-message.xsl"/>
 
-  <xsl:import href="../../../toolkit_plugins/net.sourceforge.dita4publishers.common.mapdriven/xsl/dataCollection.xsl"/>
+  <xsl:import href="../../../toolkit_plugins/org.dita4publishers.common.mapdriven/xsl/dataCollection.xsl"/>
   
   <xsl:output method="xml" indent="yes"/>
   
@@ -47,8 +47,8 @@
   <xsl:template match="/">
     <xsl:variable name="rootMapUrl" select="string(document-uri(.))" as="xs:string"/>
     <xsl:call-template name="mapdriven:collect-data">
-      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
-      <xsl:with-param name="rootMapDocUrl" select="$rootMapUrl" as="xs:string"/>
+      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="true()"/>
+      <xsl:with-param name="rootMapDocUrl" select="$rootMapUrl" as="xs:string" tunnel="yes"/>
     </xsl:call-template>
   </xsl:template>
 
