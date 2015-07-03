@@ -584,22 +584,12 @@
     </zip>
   </target>
   
-  <target name="package-html5-plugins" depends="dist-init, dist-toolkit-plugins"
+  <target name="package-html5-plugins" depends="dist-init, dist-html5-toolkit-plugins"
      description="Creates an HTML5-only distribution package">
     <zip destfile="${package.dist}/dita4publishers-html5-toolkit-plugins-${package_version}.zip">
       <fileset dir="${plugin.dist}">
         <include name="*.txt"/>
-        <include name="org.dita-community.common.xslt/**"/>
-        <include name="org.dita-community.preprocess-extensions/**"/>
-        <include name="org.dita-community.adjust-copy-to/**"/>
-        <include name="org.dita4publishers.common.html/**"/> 
-        <include name="org.dita4publishers.common.mapdriven/**"/>
-        <include name="org.dita4publishers.common.xslt/**"/>
-        <include name="org.dita4publishers.math/**"/>
-        <include name="org.dita4publishers.math-d.html/**"/>
-        <include name="org.dita4publishers.json/**"/>
-        <include name="org.dita4publishers.html5/**"/>
-        <include name="org.dita4publishers.html5.bootstrap/**"/>
+        <include name="*/**"/>
       </fileset>
     </zip>
   </target>
@@ -653,79 +643,6 @@
         <include name="html/**/*"/>
 			</fileset>
 		</zip>
-	</target>
-	
-	<target name="upload-packages-to-sourceforge" depends="package-delivery, package-epub-plugin, upload-epubs-to-sourceforge"
-		description="Uploads the delivery packages to SourceForge in order to enable a new file release"
-		>
-		<scp todir="${sourceforge.username}@frs.sourceforge.net:uploads" password="${sourceforge.password}"
-			verbose="true"
-			>
-      <fileset dir="${dist}">
-        <include name="*.zip"/>
-      </fileset>
-		</scp>
-	  </target>
-		
-	<target name="upload-epubs-to-sourceforge" depends="generate-epubs-for-samples, do-upload-epubs-to-sourceforge">
-  </target>
-	
-	<target name="do-upload-epubs-to-sourceforge" 
-		>
-		<scp todir="${sourceforge.username}@frs.sourceforge.net:/home/frs/project/d/di/dita4publishers/epubs/" 
-			password="${sourceforge.password}"
-			verbose="true"
-			>
-			<fileset dir="${dist}/dita4publishers/epubs">
-				<include name="**/*.epub"/>
-			</fileset>
-		</scp>
-	  </target>
-	  
-  <target name="upload-d4p-user-guide-html-sourceforge" 
-  	depends="html-d4p-user-guide" 
-  	description="Upload D4P User Guide HTML to sourceforge">
-  	
-    <scp todir="${sourceforge.username},dita4publishers@web.sourceforge.net:htdocs/d4p-user-guide"
-     password="${sourceforge.password}"    	
-      verbose="true"
-      >
-      <fileset dir="${build}/docs/html/d4p-users-guide">
-        <include name="**/*"/>
-      </fileset>
-    </scp>
-  </target>
-	
-	<target name="upload-website-contents-to-sourceforge" depends="generate-web-site" description="Upload Web site contents to sourceforge">
-		<scp todir="${sourceforge.username},dita4publishers@web.sourceforge.net:htdocs"
-		 password="${sourceforge.password}"
-			verbose="true"
-			>
-			<fileset dir="${website.source}/static-html">
-				<include name="index.html"/>
-			</fileset>
-      <fileset dir="${website.build}">
-        <include name="**/*"/>
-      </fileset>
-		</scp>
-	</target>
-	
-	<target name="upload-d4p-user-guide-html5-sourceforge" depends="html5-d4p-user-guide"
-		description="Upload HTML5 version of UG contents to sourceforge">
-		<property name="pub.name" value="d4p-users-guide"></property>
-		<scp todir="${sourceforge.username},dita4publishers@web.sourceforge.net:htdocs/d4p-user-guide-html5"
-		 password="${sourceforge.password}"
-			verbose="true"
-			>
-			<fileset dir="${build}/docs/html5/${pub.name}">
-        <include name="**/*"/>
-				<exclude name="collected-data.xml"/>
-				<exclude name="copy-graphics.xml"/>
-				<exclude name="dita.list"/>
-				<exclude name="dita.xml.properties"/>
-				<exclude name="graphicMap.xml"/>
-      </fileset>
-		</scp>
 	</target>
 	
 	<target name="epub-d4p-user-guide">
