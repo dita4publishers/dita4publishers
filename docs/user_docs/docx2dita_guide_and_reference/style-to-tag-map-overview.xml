@@ -9,12 +9,22 @@
     templates it is possible to quickly configure the transformation to produce good XML
     documents.</shortdesc>
   <conbody>
-    <p>The style-to-tag map consists of a sequence of <xmlelem>style</xmlelem> elements, where each
+    <p>The style-to-tag map consists of a sequence of style elements, where each
       style element defines the mapping for a paragraph, character, list, or table style to the
       appropriate DITA XML structure. The mapping document may also include an initial <xmlelem
         >documentation</xmlelem> element that can hold documentation in any markup language (its
       content is ignored and not validated), as well as <xmlelem>output</xmlelem> elements that
       define the public and system IDs to use for any generated map or topic documents.</p>
+    <p>The style elements can be: 
+      <ul>
+        <li><xmlelem>paragraphStyle</xmlelem> - Used for paragraph styles</li>
+        <li><xmlelem>characterStyle</xmlelem> - Used for character styles</li>
+        <li><xmlelem>style</xmlelem> - This element was used for all kinds of styles, before the 
+          dita4publishers release 0.9.19RC12. The latest Word2DITA release requires that you <xref href="style-to-tag-map-migrate.xml" format="dita">migrate</xref> your 
+          style-to-tag map to the latest markup.</li>
+      </ul></p>
+    <p>The distinct element types for paragraph and character styles include subelements 
+      for defining map, topicref, and topic generation details.</p>
     <p>The basic rules and constraints for the mapping are:<ul>
         <li>The result document always consists of a single root topic or map. The first non-skipped
           and non-root-topic-prolog paragraph in the Word document must be of structure type
