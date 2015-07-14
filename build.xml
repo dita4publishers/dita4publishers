@@ -239,12 +239,25 @@
 		</copy>
 	</target>
   
+	<target name="dist-word2dita-toolkit-plugins" 
+	  description="Packages the plugins used the word2dita plugin"
+		 depends="dist-init, dist-license, dist-doctype-plugins"
+		>
+		<copy todir="${plugin.dist}">
+			<fileset dir="${plugin.src}">
+			  <include name="org.dita-community.common.xslt/**"/>
+			  <include name="org.dita4publishers.word2dita/**"/>
+			</fileset>
+		</copy>
+	</target>
+  
   <target name="dist-doctype-plugins" 
      description="Packages just the doctype plugins"
      depends="dist-init, dist-license"
     >
 		<copy todir="${plugin.dist}">
 			<fileset dir="${plugin.src}">
+			  <include name="net.sourceforge.dita4publishers.doctypes/**"/>
 			  <include name="org.dita4publishers.doctypes/**"/>
 			  <include name="org.dita4publishers.math/**"/>
 			  <include name="org.dita4publishers.xmldomain.doctypes/**"/>
@@ -278,11 +291,9 @@
     >
 		<copy todir="${plugin.dist}">
 			<fileset dir="${plugin.src}">
-			  <include name="org.dita4publishers.html2/**"/>
-			  <!-- These are required because the HTML2 transform 
-			       adds the MathJax stuff by default.
-			    -->
 			  <include name="org.dita4publishers.common.html/**"/>
+			  <include name="org.dita4publishers.math-d.html/**"/>
+			  <include name="org.dita4publishers.media-d.html/**"/>
 			</fileset>
 		</copy>
   </target>
@@ -305,7 +316,7 @@
 	
   <target name="dist-html5-toolkit-plugins" 
      description="Packages just the doctype plugins"
-     depends="dist-html2-toolkit-plugins"
+     depends="dist-init, dist-license, dist-common-html-toolkit-plugins"
     >
 		<copy todir="${plugin.dist}">
 			<fileset dir="${plugin.src}">
@@ -317,7 +328,7 @@
 	
   <target name="dist-epub-toolkit-plugins" 
      description="Packages just the EPUB plugins"
-     depends="dist-html2-toolkit-plugins"
+     depends="dist-init, dist-license, dist-common-html-toolkit-plugins"
     >
 		<copy todir="${plugin.dist}">
 			<fileset dir="${plugin.src}">
@@ -342,7 +353,8 @@
 		 dist-doctype-plugins, 
 		 dist-kindle-toolkit-plugins, 
 		 dist-html5-toolkit-plugins, 
-		 dist-html2-toolkit-plugins
+		 dist-html2-toolkit-plugins, 
+		 dist-word2dita-toolkit-plugins
 		 "
 		>
 		<copy todir="${plugin.dist}">
@@ -400,6 +412,22 @@
           <include name="org.dita4publishers.*/**"/>
         </fileset>
       </zip>
+  </target>
+
+
+	
+	<target name="deploy-preprocess-test-plugin" 
+	  description="Deploy plugins to local DITA Open Toolkit">
+	  <echo> Deploying org.dita-community.preprocess-tester...</echo>
+	  <copy todir="${plugin-deploy_target}">
+			<fileset dir="${plugin.src}/org.dita-community.preprocess-tester">
+				<include name="**"/>
+			</fileset>
+		</copy>
+	  <echo> Calling integrator...</echo>
+    <!-- Integrate the deployed plugins: -->
+    <ant target="integrate" antfile="${dita-ot-dir}/integrator.xml"/>
+
   </target>
 
 
@@ -530,6 +558,20 @@
     </zip>
   </target>
 	
+	<target name="package-word2dita-plugins" depends="dist-init, dist-word2dita-toolkit-plugins"
+		description="Create distributable Zip package for the Word2DITA transform plugin with its dependencies"
+		>
+    <zip destfile="${package.dist}/dita4publishers-word2dita-plugins-${package_version}.zip">
+      <fileset dir="${plugin.dist}">
+        <include name="org.dita-community.common.xslt/**"/>
+        <include name="org.dita4publishers.doctypes/**"/>
+			  <include name="org.dita4publishers.math/**"/>
+			  <include name="org.dita4publishers.xmldomain.doctypes/**"/>
+        <include name="org.dita4publishers.word2dita/**"/>
+      </fileset>
+    </zip>
+  </target>
+	
 	<target name="package-toolkit-plugins" depends="dist-init, dist-toolkit-plugins"
 		description="Create distributable Zip package of the Toolkit plugins, including the vocabulary modules."
 		>
@@ -542,41 +584,21 @@
     </zip>
   </target>
   
-  <target name="package-html5-plugins" depends="dist-init, dist-toolkit-plugins"
+  <target name="package-html5-plugins" depends="dist-init, dist-html5-toolkit-plugins"
      description="Creates an HTML5-only distribution package">
     <zip destfile="${package.dist}/dita4publishers-html5-toolkit-plugins-${package_version}.zip">
       <fileset dir="${plugin.dist}">
         <include name="*.txt"/>
-        <include name="org.dita-community.common.xslt/**"/>
-        <include name="org.dita-community.preprocess-extensions/**"/>
-        <include name="org.dita-community.adjust-copy-to/**"/>
-        <include name="org.dita4publishers.common.html/**"/> 
-        <include name="org.dita4publishers.common.mapdriven/**"/>
-        <include name="org.dita4publishers.common.xslt/**"/>
-        <include name="org.dita4publishers.math/**"/>
-        <include name="org.dita4publishers.math-d.html/**"/>
-        <include name="org.dita4publishers.json/**"/>
-        <include name="org.dita4publishers.html5/**"/>
-        <include name="org.dita4publishers.html5.bootstrap/**"/>
+        <include name="*/**"/>
       </fileset>
     </zip>
   </target>
 	
-  <target name="package-epub-plugins" depends="dist-init, dist-toolkit-plugins"
+  <target name="package-epub-plugins" depends="dist-init, dist-epub-toolkit-plugins"
      description="Creates an EPUB-only distribution package">
     <zip destfile="${package.dist}/dita4publishers-epub-toolkit-plugins-${package_version}.zip">
       <fileset dir="${plugin.dist}">
-        <include name="*.txt"/>
-        <include name="org.dita-community.common.xslt/**"/>
-        <include name="org.dita-community.preprocess-extensions/**"/>
-        <include name="org.dita-community.adjust-copy-to/**"/>
-        <include name="org.dita4publishers.common.html/**"/> 
-        <include name="org.dita4publishers.common.mapdriven/**"/>
-        <include name="org.dita4publishers.common.xslt/**"/>
-        <include name="org.dita4publishers.math/**"/>
-        <include name="org.dita4publishers.math-d.html/**"/>
-        <include name="org.dita4publishers.html2/**"/>
-        <include name="org.dita4publishers.epub/**"/>
+        <include name="*/**"/>
       </fileset>
     </zip>
   </target>
@@ -621,79 +643,6 @@
         <include name="html/**/*"/>
 			</fileset>
 		</zip>
-	</target>
-	
-	<target name="upload-packages-to-sourceforge" depends="package-delivery, package-epub-plugin, upload-epubs-to-sourceforge"
-		description="Uploads the delivery packages to SourceForge in order to enable a new file release"
-		>
-		<scp todir="${sourceforge.username}@frs.sourceforge.net:uploads" password="${sourceforge.password}"
-			verbose="true"
-			>
-      <fileset dir="${dist}">
-        <include name="*.zip"/>
-      </fileset>
-		</scp>
-	  </target>
-		
-	<target name="upload-epubs-to-sourceforge" depends="generate-epubs-for-samples, do-upload-epubs-to-sourceforge">
-  </target>
-	
-	<target name="do-upload-epubs-to-sourceforge" 
-		>
-		<scp todir="${sourceforge.username}@frs.sourceforge.net:/home/frs/project/d/di/dita4publishers/epubs/" 
-			password="${sourceforge.password}"
-			verbose="true"
-			>
-			<fileset dir="${dist}/dita4publishers/epubs">
-				<include name="**/*.epub"/>
-			</fileset>
-		</scp>
-	  </target>
-	  
-  <target name="upload-d4p-user-guide-html-sourceforge" 
-  	depends="html-d4p-user-guide" 
-  	description="Upload D4P User Guide HTML to sourceforge">
-  	
-    <scp todir="${sourceforge.username},dita4publishers@web.sourceforge.net:htdocs/d4p-user-guide"
-     password="${sourceforge.password}"    	
-      verbose="true"
-      >
-      <fileset dir="${build}/docs/html/d4p-users-guide">
-        <include name="**/*"/>
-      </fileset>
-    </scp>
-  </target>
-	
-	<target name="upload-website-contents-to-sourceforge" depends="generate-web-site" description="Upload Web site contents to sourceforge">
-		<scp todir="${sourceforge.username},dita4publishers@web.sourceforge.net:htdocs"
-		 password="${sourceforge.password}"
-			verbose="true"
-			>
-			<fileset dir="${website.source}/static-html">
-				<include name="index.html"/>
-			</fileset>
-      <fileset dir="${website.build}">
-        <include name="**/*"/>
-      </fileset>
-		</scp>
-	</target>
-	
-	<target name="upload-d4p-user-guide-html5-sourceforge" depends="html5-d4p-user-guide"
-		description="Upload HTML5 version of UG contents to sourceforge">
-		<property name="pub.name" value="d4p-users-guide"></property>
-		<scp todir="${sourceforge.username},dita4publishers@web.sourceforge.net:htdocs/d4p-user-guide-html5"
-		 password="${sourceforge.password}"
-			verbose="true"
-			>
-			<fileset dir="${build}/docs/html5/${pub.name}">
-        <include name="**/*"/>
-				<exclude name="collected-data.xml"/>
-				<exclude name="copy-graphics.xml"/>
-				<exclude name="dita.list"/>
-				<exclude name="dita.xml.properties"/>
-				<exclude name="graphicMap.xml"/>
-      </fileset>
-		</scp>
 	</target>
 	
 	<target name="epub-d4p-user-guide">
