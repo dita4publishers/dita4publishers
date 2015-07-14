@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_ofr_r54_rs">
+  <title>Root of to-content Chunk</title>
+  <body>
+    <p>This topic is referenced by a topicref that specifies @chunk="to-content" and has a nested topicref.</p>
+  </body>
+</topic>

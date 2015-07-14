@@ -20,6 +20,24 @@
     </topicmeta>
     <topicref href="topics-01.dita" navtitle="Child topic 01, within to-content chunk"/>
   </topichead>
+  <topicref chunk="to-content" href="chunk-root-01.dita">
+    <topicmeta>
+      <navtitle>chunk="to-content" Test 1</navtitle>
+    </topicmeta>
+    <topicref href="topics-01.dita" navtitle="Child topic 01, within to-content chunk"/>
+  </topicref>
+  <topicref chunk="to-content" href="chunk-root-01.dita">
+    <topicmeta>
+      <navtitle>chunk="to-content" Test 2</navtitle>
+    </topicmeta>
+    <topicref href="topics-01.dita" navtitle="Child topic 01, within to-content chunk"/>
+  </topicref>
+  <topicref chunk="to-content select-branch" href="chunk-root-01.dita">
+    <topicmeta>
+      <navtitle>chunk="to-content" Test 3 (includes select-branch)</navtitle>
+    </topicmeta>
+    <topicref href="topics-01.dita" navtitle="Child topic 01, within to-content chunk"/>
+  </topicref>
   <topichead chunk="to-content by-topic">
     <topicmeta>
       <navtitle>Topic Head 3: chunk="to-content by-topic".</navtitle>
