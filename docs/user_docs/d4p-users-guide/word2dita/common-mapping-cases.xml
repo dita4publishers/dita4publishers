@@ -78,13 +78,7 @@
   topicZone="body"
   level="1"
 /></codeblock></p>
-      <p>Note that as of version 0.9.16 there is no support for nesting character styles in the
-        output, so if you need something like "bold italics" which you would typically markup like
-          <codeph>&lt;b>&lt;i></codeph> in DITA you will need to define a single phrase-level
-        element like <xmlelem>bi</xmlelem>. Note that the DITA for Publishers formatting domain
-        includes elements for common combinations of bold, italic, and smallcaps, as well as other
-        elements you might need. You can also use the transform's "final fixup" mode to convert
-        single elements like <xmlelem>bi</xmlelem> into nested elements if you want.</p>
+      <p>You can specify <xmlatt>containerType</xmlatt> on <xmlelem>characterStyle</xmlelem> in order to generate two levels of containment, e.g., <xmlelem>i</xmlelem> within <xmlelem>b</xmlelem>. You can also use the transform's "final fixup" mode to convert single elements like <xmlelem>bi</xmlelem> into nested elements if you want.</p>
     </conbody>
   </concept>
   <concept id="headings">
@@ -93,17 +87,17 @@
       <p>To map heading paragraphs to topics you specify the topic type and the markup details for
         the generated topic. The heading paragraph becomes the topic title and the other topic
         elements are generated automatically.</p>
-      <p>For example, to map the paragraph "Heading 1" to a concept topic you would use this
-        mapping:<codeblock>&lt;paragraphStyle styleName="Heading 1"
-                      structureType="topicTitle"
-                      tagName="title"
-                      level="1">
-         <topicrefProperties topicrefType="chapter"/>
-         <topicProperties topicType="concept"
-                          bodyType="conbody"
-                          topicDoc="yes"
-                          format="concept"/>
-      </paragraphStyle></codeblock></p>
+      <p>For example, to map the paragraph "Heading 1" to a concept topic you would use this mapping:<codeblock>&lt;paragraphStyle styleName="Heading 1"
+     structureType="topicTitle"
+     tagName="title"
+     level="1">
+   &lt;topicrefProperties topicrefType="chapter"/>
+   &lt;topicProperties topicType="concept"
+     bodyType="conbody"
+     topicDoc="yes"
+     format="concept"
+   />
+&lt;/paragraphStyle></codeblock></p>
       <p>The structure type "topicTitle" indicates that this paragraph acts as a topic title, which
         means it will generate a new topic, either in a separate document or as a subtopic of a
         parent topic. In this case the value of the <xmlatt>level</xmlatt> attribute ("1") indicates
@@ -143,15 +137,13 @@
       <p>Lists are typical of elements that must be generated within the context of container
         elements, e.g. <xmlelem>li</xmlelem> within <xmlelem>ol</xmlelem> or
         <xmlelem>ul</xmlelem>.</p>
-      <p>To map list item paragraphs to DITA lists you map the paragraph to the appropriate list
-        item element, e.g., <xmlelem>li</xmlelem> and then specify the name of the container element
-        to wrap all adjacent list items in, specified using the <xmlatt>containerType</xmlatt>
-        attribute, like
-        so:<codeblock>&lt;paragraphStyle styleName="List Bullet"
-                      tagName="li"
-                      containerType="ul"
-                      level="1"
-                      topicZone="body"/></codeblock></p>
+      <p>To map list item paragraphs to DITA lists you map the paragraph to the appropriate list item element, e.g., <xmlelem>li</xmlelem> and then specify the name of the container element to wrap all adjacent list items in, specified using the <xmlatt>containerType</xmlatt> attribute, like so:<codeblock>&lt;paragraphStyle
+  styleName="List Bullet"
+  tagName="li"
+  containerType="ul"
+  level="1"
+  topicZone="body"
+/></codeblock></p>
       <p>Here the tag name is "li", indicating that the paragraph content will be output in a
           <xmlelem>li</xmlelem> element. The <xmlatt>containerType</xmlatt> attribute names the
         tagname of the container element for the list item, <xmlelem>ul</xmlelem> in this case. The
@@ -184,17 +176,19 @@
       <p>Thus, given two paragraph styles "Def Term" and "Def Desc" you would define these mappings
         to generate a normal DITA definition
         list:<codeblock>&lt;paragraphStyle styleName="Def Term"
-                      structureType="dt"
-                      tagName="dt"
-                      dlEntryType="dlentry"
-                      containerType="dl"
-                      topicZone="body"/>
+  structureType="dt"
+  tagName="dt"
+  dlEntryType="dlentry"
+  containerType="dl"
+  topicZone="body"
+/>
 &lt;paragraphStyle styleName="Def Desc"
-                      structureType="dd"
-                      tagName="dd"
-                      dlEntryType="dlentry"
-                      containerType="dl"
-                      topicZone="body"/></codeblock></p>
+  structureType="dd"
+  tagName="dd"
+  dlEntryType="dlentry"
+  containerType="dl"
+  topicZone="body"
+/></codeblock></p>
       <p>Note that the resulting markup doesn't have to be a specialization of <xmlelem>dl</xmlelem>
         it just has to have the same structural pattern of two levels of containment with the
         lowest-level elements in common containers. You could use this mapping pattern to generate
@@ -211,30 +205,33 @@
       <p>Given a paragraph that is the first or only paragraph of a step, you can map it by treating
         it like a definition list, using a <xmlatt>structureType</xmlatt> of
         "dt":<codeblock>&lt;paragraphStyle styleName="List 1"
-                      structureType="dt"
-                      dlEntryType="step"
-                      containerType="steps"
-                      tagName="cmd"
-                      level="1"/></codeblock></p>
+  structureType="dt"
+  dlEntryType="step"
+  containerType="steps"
+  tagName="cmd"
+  level="1"
+/></codeblock></p>
       <p>Here the paragraph style "List1" is mapped to <xmlelem>cmd</xmlelem> within
           <xmlelem>step</xmlelem> within <xmlelem>steps</xmlelem>.</p>
       <p>If you have follow-on paragraphs for the step they should go in an <xmlelem>info</xmlelem>
         element. For this case you would use normal mapping and specify level
         2:<codeblock>&lt;paragraphStyle styleName="BodyText Step"
-                      containerType="info"
-                      tagName="p"
-                      level="2"
-                      structureType="block"
-                      topicZone="body"/></codeblock></p>
+  containerType="info"
+  tagName="p"
+  level="2"
+  structureType="block"
+  topicZone="body"
+/></codeblock></p>
       <p>If you have list items that need to go in the <xmlelem>info</xmlelem> element then you use
         a definition list mapping like
         so:<codeblock>&lt;paragraphStyle styleName="Bullet 2 Step"
-                      containerType="info"
-                      dlEntryType="ul"
-                      tagName="li"
-                      level="2"
-                      structureType="dt"
-                      topicZone="body"/></codeblock></p>
+  containerType="info"
+  dlEntryType="ul"
+  tagName="li"
+  level="2"
+  structureType="dt"
+  topicZone="body"
+/></codeblock></p>
       <p>Because the container type for both BodyText Step and Bullet 2 Step is "info" in this
         example both paragraph types will end up contributing to the same info element in the output
         if they occur together.</p>
@@ -280,11 +277,12 @@
           <xmlatt>tagName</xmlatt> of "title" (or whatever the section title element should be, but
         usually
         "title"):<codeblock>&lt;paragraphStyle styleName="My Section Title"
-                      structureType="section"
-                      tagName="title"
-                      sectionType="section"
-                      topicZone="body"
-                      useAsTitle="yes"/></codeblock></p>
+  structureType="section"
+  tagName="title"
+  sectionType="section"
+  topicZone="body"
+  useAsTitle="yes"
+/></codeblock></p>
       <p>Note that you don't have to worry about the <xmlatt>level</xmlatt> attribute with sections
         because DITA sections cannot nest and must be direct children of the topic body. So the
         conversion processing will always do the right thing for sections.</p>
@@ -301,13 +299,14 @@
         section-type elements within the topic body. To handle this case you can specify the
           <xmlatt>initialSectionType</xmlatt> attribute to indicate that the initial paragraphs of
         the topic body should be wrapped in a section.</p>
-      <p>For example, given a paragraph style "Lesson Title" that maps to a learningContent topic,
-        you would define a mapping like
-        this:<codeblock>&lt;paragraphStyle styleName="Lesson Title" structureType="topicTitle" level="1">
-         <topicProperties initialSectionType="lcIntro"
-                          topicType="learningContent"
-                          bodyType="learningContentbody"/>
-      </paragraphStyle></codeblock></p>
+      <p>For example, given a paragraph style "Lesson Title" that maps to a learningContent topic, you would define a mapping like this:<codeblock>&lt;paragraphStyle styleName="Lesson Title" 
+    <b>structureType="topicTitle"</b> 
+    level="1">
+  &lt;topicProperties initialSectionType="lcIntro"
+      topicType="learningContent"
+      bodyType="learningContentbody"
+  />
+&lt;/paragraphStyle></codeblock></p>
       <p>This will result in markup like
         this:<codeblock>&lt;learningContent id="topicid">
   &lt;title>Learning Content&lt;/title>
@@ -328,10 +327,11 @@
       <p>You can do this by indicating that the paragraph is not the section title and that the
         spectitle is the text up to the first
         colon:<codeblock>&lt;paragraphStyle styleName="My Section"
-                      structureType="section"
-                      tagName="p"
-                      topicZone="body"
-                      spectitle="#toColon"/></codeblock></p>
+  structureType="section"
+  tagName="p"
+  topicZone="body"
+  spectitle="#toColon"
+/></codeblock></p>
       <p>Here the keyword value "#toColon" for the <xmlatt>spectitle</xmlatt> attribute indicates
         that the spectitle value should be taken from the paragraph content up to, but not
         including, the first colon. (Other values could be implemented but as of version 0.9.6 the
@@ -355,11 +355,11 @@
       <p>For example, if your first paragraph has the style "Publication Title" and you want to
         generate a bookmap map but not a topic you would use this
         mapping:<codeblock>&lt;paragraphStyle styleName="Title"
-                      level="0"
-                      structureType="mapTitle"
-                      tagName="title">
-         <mapProperties tagName="title" format="bookmap" prologType="topicmeta"/>
-      </paragraphStyle></codeblock></p>
+  level="0"
+  structureType="mapTitle"
+  tagName="title">
+   &lt;mapProperties tagName="title" format="bookmap" prologType="topicmeta"/>
+&lt;/paragraphStyle></codeblock></p>
       <p>The <xmlatt>structureType</xmlatt> value of "mapTitle" triggers the general map generation.
         The other attributes define the details of the map markup: <xmlatt>mapType</xmlatt> and
           <xmlatt>prologType</xmlatt>. The value "0" (zero) for the <xmlatt>level</xmlatt> attribute
@@ -375,17 +375,25 @@
         then specify the other attributes used to generate a result topic as you would for a
         structure type of
         "mapTitle":<codeblock>&lt;paragraphStyle styleName="Topic Title"
-                      level="1"
-                      secondStructureType="topicTitle"
-                      structureType="mapTitle"
-                      tagName="title">
-         <mapProperties format="learningContent" prologType="prolog" tagName="title"/>
-         <topicrefProperties chunk="to-content" topicrefType="learningContentRef"/>
-         <topicProperties bodyType="learningContentbody"
-                          initialSectionType="section"
-                          topicDoc="yes"
-                          topicType="learningContent"/>
-      </paragraphStyle></codeblock></p>
+     level="1"
+     secondStructureType="topicTitle"
+     structureType="mapTitle"
+     tagName="title">
+   &lt;mapProperties 
+       format="learningContent" 
+       prologType="prolog" tagName="title"
+   />
+   &lt;topicrefProperties 
+       chunk="to-content" 
+       topicrefType="learningContentRef"
+   />
+   &lt;topicProperties 
+       bodyType="learningContentbody"
+       initialSectionType="section"
+       topicDoc="yes"
+       topicType="learningContent"
+   />
+&lt;/paragraphStyle></codeblock></p>
       <p>This example maps a paragraph named "Topic Title" to a generic map
           (<xmlatt>mapType</xmlatt> of "map") and a learningContent topic referenced from the map.
         The value of "1" for the <xmlatt>level</xmlatt> attribute means this map will be a submap to
@@ -438,11 +446,11 @@
         the parent topic.</p>
       <p>For example, to map the paragraph "Sidebar Title" to a sidebar topic you would use this
         mapping:<codeblock>&lt;paragraphStyle styleName="Sidebar Title"
-                      structureType="topicTitle"
-                      tagName="title"
-                      level="50">
-         <topicProperties topicType="sidebar" bodyType="body" prologType="prolog"/>
-      </paragraphStyle></codeblock></p>
+    structureType="topicTitle"
+    tagName="title"
+    level="50">
+   &lt;topicProperties topicType="sidebar" bodyType="body" prologType="prolog"/>
+&lt;/paragraphStyle></codeblock></p>
       <p>For information on other attributes, see the section <xref href="#headings" format="dita"
         />.</p>
 
