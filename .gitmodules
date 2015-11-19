@@ -168,3 +168,6 @@
 [submodule "toolkit_plugins/org.dita-community.xhtml-adjct"]
 	path = toolkit_plugins/org.dita-community.xhtml-adjct
 	url = git@github.com:dita-community/org.dita-community.xhtml-adjct.git
+[submodule "toolkit_plugins/org.dita-community.common.mapdriven"]
+	path = toolkit_plugins/org.dita-community.common.mapdriven
+	url = git@github.com:dita-community/org.dita-community.common.mapdriven.git
