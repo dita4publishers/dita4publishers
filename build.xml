@@ -232,6 +232,7 @@
 			<fileset dir="${plugin.src}">
 			  <include name="org.dita-community.adjust-copy-to/**"/>
 			  <include name="org.dita-community.common.xslt/**"/>
+			  <include name="org.dita-community.common.mapdriven/**"/>
 			  <include name="org.dita-community.preprocess-extensions/**"/>
         <include name="org.dita4publishers.common.mapdriven/**"/>
 			  <include name="org.dita4publishers.common.xslt/**"/>
