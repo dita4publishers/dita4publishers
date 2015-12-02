@@ -36,7 +36,7 @@
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.graphviz"]
 	path = toolkit_plugins/org.dita4publishers.graphviz
-	url = https://github.com/dita4publishers/org.dita4publishers.graphviz
+	url = git@github.com:dita4publishers/org.dita4publishers.graphviz.git
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.html2"]
 	path = toolkit_plugins/org.dita4publishers.html2
