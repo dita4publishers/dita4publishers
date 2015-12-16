@@ -540,7 +540,12 @@
     </copy>
 
 	</target>
-	
+  
+  <target name="deploy-doctypes" depends="dist-doctype-plugins, deploy-disted-plugins"
+    description="Deploy only the EPUB plugin and its dependencies to local DITA Open Toolkit">
+  </target>
+  
+  
 	<target name="package-epub-plugin" depends="dist-epub-plugin">
     <zip destfile="${dist}/dita4publishers-epub-plugin-${epub_version}.zip">
       <fileset dir="${plugin.dist}">
