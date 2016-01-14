@@ -78,7 +78,12 @@
   topicZone="body"
   level="1"
 /></codeblock></p>
-      <p>You can specify <xmlatt>containerType</xmlatt> on <xmlelem>characterStyle</xmlelem> in order to generate two levels of containment, e.g., <xmlelem>i</xmlelem> within <xmlelem>b</xmlelem>. You can also use the transform's "final fixup" mode to convert single elements like <xmlelem>bi</xmlelem> into nested elements if you want.</p>
+      <p>You can specify <xmlatt>containerType</xmlatt> on <xmlelem>characterStyle</xmlelem> in order to generate two levels of 
+        containment, e.g., <xmlelem>i</xmlelem> within <xmlelem>b</xmlelem>. 
+        You can also use the transform's "final fixup" mode to convert single elements like <xmlelem>bi</xmlelem> 
+        into nested elements if you want. Note that the DITA for Publishers formatting domain
+        includes elements for common combinations of bold, italic, and smallcaps, as well as other
+        elements you might need.</p>
     </conbody>
   </concept>
   <concept id="headings">
