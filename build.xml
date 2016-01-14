@@ -262,7 +262,6 @@
 			  <include name="org.dita4publishers.doctypes/**"/>
 			  <include name="org.dita4publishers.math/**"/>
 			  <include name="org.dita4publishers.xmldomain.doctypes/**"/>
-			  <include name="net.sourceforge.dita4publishers.doctypes/**"/>
 			</fileset>
 		</copy>
     <replace dir="${plugin.dist}/org.dita4publishers.math/doctypes/mathml3/dtd">
@@ -457,7 +456,12 @@
 	<target name="deploy-disted-plugins">
 	  <!-- Deploys whatever have been put in the dist directory -->
 		<delete failonerror="true" includeemptydirs="true">
-			<fileset dir="${plugin-deploy_target}" includes="org.dita4publishers.*/**"/>
+			<fileset dir="${plugin-deploy_target}" includes="org.dita4publishers.*/**">
+			  <exclude name="net.sourceforge.dita4publishers.doctypes/**"/>
+			  <exclude name="org.dita4publishers.doctypes/**"/>
+			  <exclude name="org.dita4publishers.math/**"/>
+			  <exclude name="org.dita4publishers.xmldomain.doctypes/**"/>
+			</fileset>
 			<fileset dir="${plugin-deploy_target}" includes="org.dita-community.*/**"/>			
 		</delete>
 		<mkdir dir="${plugin-deploy_target}"/>
@@ -540,7 +544,12 @@
     </copy>
 
 	</target>
-	
+  
+  <target name="deploy-doctypes" depends="dist-doctype-plugins, deploy-disted-plugins"
+    description="Deploy only the EPUB plugin and its dependencies to local DITA Open Toolkit">
+  </target>
+  
+  
 	<target name="package-epub-plugin" depends="dist-epub-plugin">
     <zip destfile="${dist}/dita4publishers-epub-plugin-${epub_version}.zip">
       <fileset dir="${plugin.dist}">
