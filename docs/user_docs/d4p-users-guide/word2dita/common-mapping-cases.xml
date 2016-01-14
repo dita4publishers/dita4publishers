@@ -78,10 +78,7 @@
   topicZone="body"
   level="1"
 /></codeblock></p>
-      <p>Note that as of version 0.9.16 there is no support for nesting character styles in the
-        output, so if you need something like "bold italics" which you would typically markup like
-          <codeph>&lt;b>&lt;i></codeph> in DITA you will need to define a single phrase-level
-        element like <xmlelem>bi</xmlelem>. Note that the DITA for Publishers formatting domain
+      <p>Note that the DITA for Publishers formatting domain
         includes elements for common combinations of bold, italic, and smallcaps, as well as other
         elements you might need. You can also use the transform's "final fixup" mode to convert
         single elements like <xmlelem>bi</xmlelem> into nested elements if you want.</p>
