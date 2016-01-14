@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project version="15.2">
+<project version="17.1">
     <meta>
         <filters directoryPatterns="" filePatterns="" positiveFilePatterns="" showHiddenFiles="false"/>
         <options>
-            <serialized version="15.2" xml:space="preserve">
-                <map>
+            <serialized version="17.1" xml:space="preserve">
+                <serializableOrderedMap>
                     <entry>
                         <String>enable.project.master.files.support</String>
                         <Boolean>true</Boolean>
                     </entry>
-                </map>
+                </serializableOrderedMap>
             </serialized>
         </options>
     </meta>
@@ -18,15 +18,10 @@
         <folder path="docs/"/>
         <folder path="sample_data/"/>
         <folder path="toolkit_plugins/"/>
-        <folder path="../northstar-travel/"/>
-        <folder path="../omics-plugin/"/>
-        <folder path="../rsuite-sales-demo%20trunk/"/>
-        <file name="templates/maps/D4P%20Pubmap.ditamap"/>
         <file name="docs/user_docs/d4p-users-guide.ditamap"/>
         <file name="docs/website/dita4publishers.ditamap"/>
         <file name="sample_data/epub-test/epub-test.ditamap"/>
         <file name="test/dita/image_scaling/imageSample/flowers.ditamap"/>
-        <file name="doctypes/pubmap/dtd/pubmap.mod"/>
         <file name="sample_data/simple_publication/simple_publication.ditamap"/>
         <file name="sample_data/website/website.ditamap"/>
     </projectTree>
