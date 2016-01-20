@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference id="ref-epub.fonts.manifest">
+  <title>epub.font.manifest Ant parameter</title>
+  <shortdesc>Specifies the URI of the font manifest file that lists fonts to be embedded in the EPUB.</shortdesc>
+  <refbody>
+    <section>
+      <p>Fonts included by the font manifest may be marked for obfuscation. See <xref
+          keyref="epub-embedding-fonts/conceptId"/> and <xref
+          keyref="paramref-epub-obfuscate-fonts/ref-epub.obfuscate.fonts"/>.</p>
+    </section>
+    <section
+      spectitle="Value">
+      <p>An absolute URI pointing to the font manifest document.</p>
+      <p>For example, "<filepath>file://workspace/docs/pub01/fonts/font-manifest.xml</filepath>". If
+        the font manifest is within a plugin you can use the plugin's OT-defined Ant directory
+        property to construct the value. If your plugin's ID is "org.example.myepubplugin" then you
+        can use this in an Ant build file (either for the plugin itself or used to call the Open
+        Toolkit):<codeblock>&lt;makeurl 
+  file="${dita.plugin.org.example.myepubplugin.dir}/fonts/font-manifest.xml"
+  property="epub.font.manifest"
+/></codeblock></p>
+      <p>This sets the value of the Ant property <parmname>epub.font.manifest</parmname> to the URI
+        constructed from the value of the <xmlatt>file</xmlatt> attribute.</p>
+    </section>
+    <section
+      spectitle="Default">
+      <p>"<filepath>fonts</filepath>".</p>
+    </section>
+  </refbody>
+</reference>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="root"><title>Root Topic</title>
+  <topic id="subtopic-01"><title>Subtopic 01</title>
+    <body><p>See <xref keyref="subtopic-02"/>.</p></body>
+  </topic>
+  <topic id="subtopic-02"><title>Subtopic 02</title>
+  </topic>
+</topic>

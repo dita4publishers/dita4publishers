@@ -38,7 +38,8 @@
     <topicmeta>
       <navtitle>Key Definitions</navtitle>
     </topicmeta>
-    <keydef keys="language-reference" href="../languageRef/language-reference.ditamap" format="ditamap"/>
+    <keydef keys="language-reference" href="../languageRef/language-reference.ditamap"
+      format="ditamap"/>
   </keydefs>
   <publication>
     <covers>
@@ -107,6 +108,8 @@
             href="d4p-users-guide/epub-plugin/creating-opf-metadata.xml"/>
           <subsection
             href="d4p-users-guide/epub-plugin/overriding-base-processing.xml"/>
+          <topicref href="d4p-users-guide/epub-plugin/embedding-fonts.xml"
+            keys="epub-embedding-fonts"/>
           <subsection
             href="d4p-users-guide/epub-plugin/epub-transtype-parameters-ref.xml">
             <topicref
@@ -116,6 +119,8 @@
             <topicref
               href="d4p-users-guide/epub-plugin/reference/ant-parm-coverGraphicFile.xml"
               keys="ant-param_cover.graphic.file"/>
+            <topicref href="d4p-users-guide/epub-plugin/reference/ant-parm-epubtype.xml"
+              keys="parmref-d4p-epubtype"/>
             <topicref
               href="d4p-users-guide/epub-plugin/reference/ant-parm-d4pMaxNavDepth.xml"
               keys="ant-param_d4p.max.nav.depth"/>
@@ -124,8 +129,14 @@
               keys="ant-param_d4p.max.toc-depth"/>
             <topicref
               href="d4p-users-guide/epub-plugin/reference/ant-parm-epubIncludeAutoRellinks.xml"/>
+            <topicref href="d4p-users-guide/epub-plugin/reference/ant-parm-epub-font-manifest.xml"
+              keys="paramref-epub-font-manifest"/>
+            <topicref href="d4p-users-guide/epub-plugin/reference/ant-parm-epub-font-output-dir.xml"
+              keys="paramref-epub-fonts-output-dir"/>
             <topicref
               href="d4p-users-guide/epub-plugin/reference/ant-parm-epubPubidUriStub.xml"/>
+            <topicref href="d4p-users-guide/epub-plugin/reference/ant-parm-d4p.obfuscate.fonts.xml"
+              keys="paramref-epub-obfuscate-fonts"/>
             <topicref
               href="d4p-users-guide/epub-plugin/reference/ant-parm-epubTempDir.xml"/>
             <topicref

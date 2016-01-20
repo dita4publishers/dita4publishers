@@ -14,7 +14,11 @@
   </prolog>
  <taskbody>
     <context>
-      <p>You must have the EPUB plugin deployed to the Open Toolkit used by OxygenXML, normally in the <filepath>frameworks/dita/DITA-OT</filepath> directory under Oxygen's installation directory. You can also use a different Toolkit by changing the value of the <parmname>dita.dir</parmname> Ant parameter.</p>
+      <p>You must have the EPUB plugin deployed to the Open Toolkit used by OxygenXML, normally in
+        the <filepath>frameworks/dita/DITA-OT</filepath> directory under Oxygen's installation
+        directory. You can also use a different Toolkit by changing the value of the
+          <parmname>dita.dir</parmname> Ant parameter. OxygenXML comes with the EPUB transform
+        pre-installed by default.</p>
       <p>These instructions reflect Oxygen version 11.2 and 12.0.</p>
       <p>To set up an EPUB transformation scenario in OxygenXML, do the following.</p>
     </context>

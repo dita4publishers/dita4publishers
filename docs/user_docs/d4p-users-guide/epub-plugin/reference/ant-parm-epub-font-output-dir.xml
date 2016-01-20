@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference id="ref-epub.fonts.output.dir">
+  <title>epub.fonts.output.dir Ant parameter</title>
+  <shortdesc>Specifies the directory within the EPUB to store embedded fonts.</shortdesc>
+  <refbody>
+    <section
+      spectitle="Value">
+      <p>A path, relative to the root of the EPUB package, to store any embedded fonts.</p>
+    </section>
+    <section
+      spectitle="Default">
+      <p>"fonts".</p>
+    </section>
+  </refbody>
+</reference>

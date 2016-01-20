@@ -11,7 +11,9 @@
     </metadata>
   </prolog>
  <conbody>
-    <note>At the moment, this mechanism only supports a single CSS file. A future enhancement will be to allow the copying of all the CSS files in a specified directory.</note>
+    <note>At the moment, this mechanism only supports a single CSS file. You can use extensions to
+      the copy graphics process to include additional resources in your EPUB, such as additional CSS
+      style sheets, Javascript scripts, branding graphics, and so on.</note>
    <p>The EPUB transformation type uses the same Ant parameters for CSS styles sheets as for the normal HTML transformation type. The difference is that you <i>must</i> copy the CSS files to the output since they need to be part of the EPUB package. Thus the <parmname>args.copycss</parmname> parameter is implicitly set to "yes" if you specify the <parmname>args.css</parmname> parameter.</p>
     <p>Likewise, the parameter <parmname>args.csspath</parmname> is ignored because the EPUB processor controls how the CSS files are referenced in the generated HTML files.</p>
     <p>You may specify the directory within the EPUB package to contain the CSS
