@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project version="17.1">
+<project version="18.0">
     <meta>
         <filters directoryPatterns="" filePatterns="" positiveFilePatterns="" showHiddenFiles="false"/>
         <options>
-            <serialized version="17.1" xml:space="preserve">
+            <serialized version="18.0" xml:space="preserve">
                 <serializableOrderedMap>
                     <entry>
                         <String>enable.project.master.files.support</String>
@@ -14,10 +14,13 @@
         </options>
     </meta>
     <projectTree name="dita4publishers.xpr">
+        <folder path="../../dita-ot/"/>
         <folder path="."/>
         <folder path="docs/"/>
         <folder path="sample_data/"/>
         <folder path="toolkit_plugins/"/>
+        <folder path="../../workspace-dita-community/dita-test-cases/"/>
+        <folder path="../../workspace-ditaot/"/>
         <file name="docs/user_docs/d4p-users-guide.ditamap"/>
         <file name="docs/website/dita4publishers.ditamap"/>
         <file name="sample_data/epub-test/epub-test.ditamap"/>
