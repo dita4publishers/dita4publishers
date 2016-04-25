@@ -291,6 +291,7 @@
     >
 		<copy todir="${plugin.dist}">
 			<fileset dir="${plugin.src}">
+			  <include name="org.dita4publishers.common.mapdriven/**"/>
 			  <include name="org.dita4publishers.common.html/**"/>
 			  <include name="org.dita4publishers.math-d.html/**"/>
 			  <include name="org.dita4publishers.media-d.html/**"/>
