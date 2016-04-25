@@ -5,9 +5,12 @@
   <title>Installing the DITA For Publishers Package</title>
   <taskbody>
     <context>
-      <p>The DITA For Publishers materials are provided as a single Zip package from the project's download page: <xref href="https://sourceforge.net/projects/dita4publishers/files/" scope="external"
-        format="html"
-        >https://sourceforge.net/projects/dita4publishers/files/</xref>. The Toolkit plugins are intended for use with the 1.6, 1.7, and 1.8 versions of the Open Toolkit but may work with the 1.4.3 version. The DITA for Publishers plugins are tested against the latest stable and milestone releases. Open Toolkit 1.6.3 is the oldest version I would recommend using. The D4P transforms may work with 1.5.4 but are not guaranteed to do so.</p>
+      <p>The DITA For Publishers materials are provided as a single Zip package from the project's
+        download page: <xref href="https://sourceforge.net/projects/dita4publishers/files/"
+          scope="external" format="html"
+          >https://sourceforge.net/projects/dita4publishers/files/</xref>. The Toolkit plugins are
+        intended for use with the 1.7, and 1.8 versions of the Open Toolkit. Support for the 2.x
+        Open Toolkit is under development.</p>
     </context>
     <steps>
       <step>

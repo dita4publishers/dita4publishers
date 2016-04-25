@@ -6,7 +6,7 @@
   <refbody>
     <section
       spectitle="Value">
-      <p>A path, relative to the root of the EPUB package, to store any embedded fonts.</p>
+      <p>The path, relative to the root of the EPUB package, to store any embedded fonts.</p>
     </section>
     <section
       spectitle="Default">

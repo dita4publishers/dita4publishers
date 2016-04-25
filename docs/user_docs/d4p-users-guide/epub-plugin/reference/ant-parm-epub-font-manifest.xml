@@ -6,8 +6,8 @@
   <refbody>
     <section>
       <p>Fonts included by the font manifest may be marked for obfuscation. See <xref
-          keyref="epub-embedding-fonts/conceptId"/> and <xref
-          keyref="paramref-epub-obfuscate-fonts/ref-epub.obfuscate.fonts"/>.</p>
+          keyref="epub-embedding-fonts"/> and <xref
+          keyref="paramref-epub-obfuscate-fonts"/>.</p>
     </section>
     <section
       spectitle="Value">

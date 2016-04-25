@@ -2,8 +2,8 @@
 <!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
 <concept id="conceptId">
  <title>Embedding Fonts in Your EPUB</title>
- <shortdesc>You can embed fonts into your EPUB by providing a manifest that lists the fonts to be
-    embedded.</shortdesc>
+ <shortdesc>You can embed fonts into your EPUB by providing a manifest that lists the font files to
+    be embedded.</shortdesc>
   <prolog>
     <metadata>
       <keywords>
@@ -20,17 +20,26 @@
       file size concerns, if you need to embed fonts in your EPUB you can do so.</p>
     <p>To embed fonts you define a <term>font manifest</term> document that lists the fonts to be
       embedded and then specify the URI of the manifest as a runtime option to the EPUB transform
-        (<xref keyref="paramref-epub-font-manifest/ref-epub.fonts.manifest"/>). The fonts listed
+        (<xref keyref="paramref-epub-font-manifest"/>). The fonts listed
       will be copied to the temporary output location and included in the EPUB file. You can also
       specify the location within the EPUB package where the fonts will be stored, which by default
       is the directory named "<filepath>fonts</filepath>" (<xref
-        keyref="paramref-epub-fonts-output-dir/ref-epub.fonts.output.dir"/>).</p>
-    <p>You must create the appropriate @font-face entries in the CSS style sheets used for the HTML
-      content. The @font-face entries must reflect the location of the fonts in the final EPUB
-      package, not their source location. For example, if the fonts are stored in a directory named
-        "<filepath>my-fonts</filepath>" but packaged in the default "<filepath>fonts</filepath>"
-      directory, then your CSS needs to reflect the "<filepath>fonts</filepath>" directory, not the
-        "<filepath>my-fonts</filepath>". See examples of @font-face entries below.</p>
+        keyref="paramref-epub-fonts-output-dir"/>).</p>
+    <p>You can optionally obfuscate any fonts by specifying "obfuscate" for the
+        <xmlatt>obfuscate</xmlatt> attribute and setting the runtime Ant property
+        <parmname>epub.obfuscate.fonts</parmname> to true (<xref
+        keyref="paramref-epub-obfuscate-fonts"/>). By default fonts are not obfuscated and fonts
+      marked for obfuscation are not actually obfuscated unless you specifically turn obfuscation on
+      with the <parmname>epub.obfuscate.fonts</parmname> Ant property. This allows you to generate
+      EPUBs with unobfuscated fonts for testing or for use with readers that do not support
+      obfuscation without having to modify the font manifest.</p>
+    <p>You must create the appropriate <xmlatt>font-face</xmlatt> entries in the CSS style sheets
+      used for the HTML content. The @font-face entries must reflect the location of the fonts in
+      the final EPUB package, not their source location. For example, if the fonts are stored in a
+      directory named "<filepath>my-fonts</filepath>" but packaged in the default
+        "<filepath>fonts</filepath>" directory, then your CSS needs to reflect the
+        "<filepath>fonts</filepath>" directory, not "<filepath>my-fonts</filepath>". See examples of
+        <xmlatt>font-face</xmlatt> entries below.</p>
   </conbody>
   <concept id="concept_tw3_1nc_r5">
     <title>The Font Manifest File</title>
@@ -62,15 +71,15 @@
         font manifest document must be in the same directory as the referenced font
         ("Papyrus.ttc").</p>
       <p>You group the <xmlelem>font</xmlelem> elements into one or more <xmlelem>font-set</xmlelem>
-        elements. For now there is no special functionality associated with font sets but they be
-        used in the future to enable conditional selection of fonts at runtime if anyone needs that
-        level of control or convenience.</p>
+        elements. For now there is no special functionality associated with font sets but they may
+        be used in the future to enable conditional selection of fonts at runtime if anyone needs
+        that level of control or convenience.</p>
       <p>The <xmlelem>title</xmlelem> and <xmlelem>desc</xmlelem> elements are just for
         documentation purposes.</p>
       <p>If you need to obfuscate a font when it is embedded you can specify the
           <xmlatt>obfuscate</xmlatt> attribute on <xmlelem>font</xmlelem> or
-          <xmlelem>font-family</xmlelem> with the value "obfuscate". Fonts marked "obfuscate" will
-        be obfuscated when obfuscation is turned on at EPUB generation time (obfuscation is off by
+          <xmlelem>font-set</xmlelem> with the value "obfuscate". Fonts marked "obfuscate" will be
+        obfuscated when obfuscation is turned on at EPUB generation time (obfuscation is off by
         default).</p>
       <p>For
         example:<codeblock>&lt;font uri="Papyrus.ttc" <b>obfuscate="obfuscate"</b>/></codeblock></p>
@@ -88,7 +97,7 @@
       </metadata>
     </prolog>
     <conbody>
-      <p>To use embedded fonts you just include @font-face instructions in your CSS style sheets in
+      <p>To use embedded fonts you must include @font-face instructions in your CSS style sheets in
         order to associate font family names to the font files in your EPUB. There is no automatic
         matching of font-family values to font files. The EPUB generation process does not do any
         manipulation of CSS files for you.</p>
@@ -101,9 +110,10 @@
 }</codeblock></p>
       <p>The font-family value is the name that will be used on font-family entries elsewhere in the
         CSS. The src value is the relative URL of the font file as it is packaged in the EPUB,
-        relative to the location of the CSS style sheet file.</p>
+        relative to the location of the CSS style sheet file as packaged in the EPUB.</p>
       <p>In this example, the style sheet must be in a directory next to the
-          <filepath>fonts</filepath> directory, may a directory named <filepath>css</filepath>.</p>
+          <filepath>fonts</filepath> directory, maybe a directory named
+        <filepath>css</filepath>.</p>
       <p>You need one @font-face entry for each different combination of font properties (font
         weight, font style, etc.) for a given font family.</p>
       <p>See the CSS specification or a good CSS guide for details.</p>

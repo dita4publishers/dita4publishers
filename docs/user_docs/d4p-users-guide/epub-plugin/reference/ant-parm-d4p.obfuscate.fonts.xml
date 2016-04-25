@@ -6,8 +6,8 @@
     manifest used when generating the EPUB.</shortdesc>
   <refbody>
     <section>
-      <p>See <xref keyref="epub-embedding-fonts/conceptId"/> and <xref
-          keyref="paramref-epub-font-manifest/ref-epub.fonts.manifest"/>.</p>
+      <p>See <xref keyref="epub-embedding-fonts"/> and <xref
+          keyref="paramref-epub-font-manifest"/>.</p>
     </section>
     <section spectitle="Value">
       <dl>

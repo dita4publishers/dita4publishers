@@ -150,9 +150,9 @@
       </dlentry>
       <dlentry>
         <dt>XML (xmlDomain)</dt>
-        <dd>Provides elements for identifying mentions of XML constructs. (Note:
-          this domain will be replaced by the equivalent domain in DITA
-          1.3).</dd>
+        <dd>Provides elements for identifying mentions of XML constructs. (Note: this domain is made
+            obsolete by XML domain in DITA 1.3. However, the markup details between the two domains
+            are slightly different).</dd>
       </dlentry>
       </dl></p>
     <p>The project's vocabulary modules also include configurations of the standard OASIS-defined topic types that integrate the various DITA for Publishers domain modules.</p>

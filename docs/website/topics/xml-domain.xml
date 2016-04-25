@@ -6,7 +6,8 @@
   <body>
     <p>The XML domain provides phrase-level elements for identifying mentions of XML components. It
       is convenient for documents that discuss XML markup (such as this one).</p>
-    <note>This domain will be made obsolete but the similar (but not identical) DITA 1.3 XML and markup domains.</note>
+    <note>This domain is now obsolete with the similar (but not identical) DITA 1.3 XML and markup
+      domains.</note>
     <p>The XML domain provides the following element types:<dl>
         <dlentry>
           <dt><xmlelem>xmlelem</xmlelem></dt>

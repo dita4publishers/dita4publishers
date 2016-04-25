@@ -5,13 +5,19 @@
   <title>Using the DITA For Publishers Source</title>
   <taskbody>
     <context>
-      <p>You can also use the DITA For Publishers materials directly from the project's source code control system. You can also use the materials as a model for local development setups for developing your own DITA specializations. The materials are managed using git through SourceForge. You can use any git client to access the source code, such as TortoisGit, the Atlasian SourceTree tool, or a git plugin for Eclipse.</p>
+      <p>You can also use the DITA For Publishers materials directly from the project's source code
+        control system. You can also use the materials as a model for local development setups for
+        developing your own DITA specializations. The materials are managed using git through
+        GitHub. You can use any git client to access the source code, such as TortoisGit, the
+        Atlasian SourceTree tool, or a git plugin for Eclipse.</p>
     </context>
     <steps>
       <step>
-        <cmd>Using a git client, clone the repository to your local machine, following the instructions on the project's code access page: <xref format="html"
-          href="https://sourceforge.net/p/dita4publishers/git" scope="external"
-          >https://sourceforge.net/p/dita4publishers/git</xref>. (Note that the "rc" branch has the latest code and is the one you should normally be working with.)</cmd>
+        <cmd>Using a git client, clone the repository to your local machine, following the
+          instructions on the project's code access page: <xref
+            href="https://github.com/dita4publishers/dita4publishers" format="html" scope="external"
+          />. (Note that the "develop" branch has the latest code and is the one you should normally
+          be working with.)</cmd>
       </step>
       <step>
         <cmd>Create a file named <filepath>build.properties</filepath> or <filepath
@@ -30,6 +36,12 @@
             this:<codeblock>dita-ot-dir=<i>{path-to-toolkit}</i></codeblock></p>
           <p>Where "<i>{path-to-toolkit}</i> is wherever directory contains your Toolkit, e.g.
             "c:/dita-ot" or "/Applications/Oxygen/frameworks/dita/DITA-OT" or whatever.</p>
+          <note>As of Oxygen 17.1, you can configured OxygenXML to use an Open Toolkit anywhere on
+            your machine. I find it convenient to maintain my OT under my user directory,
+              <filepath>~/dita-ot/DITA-OT</filepath>. That makes it easy to find and update and also
+            makes it easy to have different Open Toolkit versions available and switch among them
+            quickly or have project-specific Open Toolkits as the OT location can be set as a
+            project-specific setting.</note>
           <p>If you use Oxygen or similar tool that provides a Toolkit and maintain multiple
             versions of the tool, it can be useful to define a separate property for the editor
             location,

@@ -12,9 +12,16 @@
       <li>Use the Word-to-DITA transformation framework to convert consistently-styled Word documents into DITA maps and topics.</li>
       <li>Use the DITA-to-InDesign transforms to generate InCopy and InDesign documents from DITA source.</li>
       </ul></p>
-    <p>As provided, the plugins and documents can be used immediately with the DITA Open Toolkit. The Toolkit plugins have been tested with the 1.5 Open Toolkit. They may work with the 1.4.3 Toolkit but that use is not supported.</p>
+    <p>As of April 2016: As provided, the plugins and documents can be used immediately with the
+      DITA Open Toolkit. The current plugins should work with the 1.7.5 and 1.8.5 Open Toolkits. The
+      EPUB, HTML5, HTML2, and Kindle plugins have dependencies on the 1.8.5 preprocessing that means
+      they may not work at all with the 2.x Open Toolkit. Other plugins may or may not work with the
+      2.x plugins but none have been tested or verified with the 2.x Open Toolkit. The EPUB
+      transform may work with OT 2.x but support for 2.x is still experimental.</p>
     <p>You should be able to use the materials with any DITA-aware XML editor that uses the Open Toolkit to resolve DTD references, such as OxygenXML. All the materials have been developed and tested using OxygenXML primarily, but they do not have any Oxygen-specific aspects or data (nor anything specific to any other editor).</p>
     <p>Note that currently there are only DTD versions of the vocabulary modules, so tools that require XSD schemas will not be able to use them right now. XSD versions can be generated almost automatically using the trang DTD-to-XSD conversion tool (integrated with the OxygenXML editor). These XSD files will work but will not themselves be conforming DITA vocabulary modules. If you have a need for XSD versions of any vocabulary modules, please post that requirement to the Yahoo DITA User's mailing list.</p>
+    <p>Development of RELAX NG versions of the DITA for Publishers vocabulary is targeted for later
+      in 2016.</p>
     <p>See the <xref
       href="../d4p-user-guide/index.html"
       format="html"

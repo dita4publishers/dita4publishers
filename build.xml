@@ -719,13 +719,13 @@
 
     <ant antfile="${dita-ot-dir}/build.xml" 
           dir="${dita-ot-dir}"
-          target="dita2html5"
+          target="dita2d4p-html5"
           
           >
       <property name="args.input" location="${root.map}"/>
       <property name="args.outext" value="html"/>
       <property name="args.copycss" value="yes"/>
-    	<property name="args.css" location="/${basedir}/src/css/d4p-docs-html5.css"/>
+<!--    	<property name="args.css" location="/${basedir}/src/css/d4p-docs-html5.css"/>-->
     	<property name="args.csspath" value="css"/>
     	<property name="args.cssroot" value="css"/>
     	<property name="args.hide.parent.link" value="yes"/>

@@ -7,16 +7,14 @@
     <critdates>
       <created
         date="2009-05-20"/>
-      <revised
-        modified="2014-07-02"/>
+      <revised modified="2016-04-25"/>
     </critdates>
   </prolog>
   <body>
-    <p>Updates for 2 July 2014:<ul id="ul_e5a3356b-1f4e-4c6d-a24b-68eb7d56fed6">
-      <li>Release of 0.9.19RC12. This is a major update: lots of code changes and improvements, especially to the Word-to-DITA process. This is still a release candidate because the necessary documentation updates have not been finished and need to do more regression testing. Also, the HTML5 transform currently has a few wrinkles that we are ironing out—this latest version may or may not work for you. We're working on it but it will probably be August before we can get everything sorted for HTML5.</li>
-      <li>The DITA for Publishers source repository has been migrated from Subversion to git (still on the SourceForge project). The latest code is now managed on the "rc" branch in the git repository, available at <xref
-        href="https://sourceforge.net/p/dita4publishers/git/ci/rc/tree/" format="html" scope="external">https://sourceforge.net/p/dita4publishers/git/ci/rc/tree/</xref>.</li>
-      <li>With 0.9.19RC12, the plugins work on the 1.6, 1.7, and 1.8 Open Toolkit versions, there is no longer a need for OT-version-specific packages.</li>
+    <p>Updates for 25 July 2016:<ul id="ul_e5a3356b-1f4e-4c6d-a24b-68eb7d56fed6">
+        <li>Updates to EPUB transform to support font embedding and obfuscation</li>
+        <li>Various fixes to the HTML5 transform</li>
+        <li>Small fixes to various DITA Community plugins</li>
       </ul></p>
     <p>The DITA for Publishers project is an open-source, community project to enable the quick and productive use of DITA by Publishers. Enabling activities include:<ul
       id="ul_05546f8a-88ba-476d-8d8b-352681eb9e67">
@@ -29,7 +27,8 @@
       <li>Providing a transformation framework and Open Toolkit plugin for converting styled Word documents to DITA.</li>
       <li>Providing a transformation framework and Open Toolkit plugin for generating InCopy and InDesign documents from DITA content.</li>
       <li>Host additional DITA-related tools specific to or of significant value to publishers when those tools need a home.</li>
-      <li>Provide an open forum for gathering Publishing-specific requirements for the DITA standard and its supporting tools, in anticipating of the eventual formation of a Publishing subcommittee within the DITA Technical Committee.</li>
+      <li>Provide an open forum for gathering Publishing-specific requirements for the DITA standard
+          and its supporting tools.</li>
       </ul></p>
     <p>See the <xref
       href="../d4p-user-guide/index.html"
@@ -59,11 +58,24 @@ version available at <xref
           colwidth="1*"/>
         <tbody>
           <row>
-            <entry>dita4publishers DITA materials (includes Open Toolkit plugins)<note>The 0.9.18 version is the last <i>stable</i> release. However 0.9.19RC12 is the latest release and is the one you should should use if at all possible.</note></entry>
-            <entry><xref
-              format="html"
-              href="https://sourceforge.net/projects/dita4publishers/files/"
-              scope="external">https://sourceforge.net/projects/dita4publishers/files/</xref></entry>
+            <entry>dita4publishers materials<note>The old SourceForge-based code (version 0.9.x) is
+                  obsolete. All current code and releases are on GitHub in the
+                  dita4publishers/dita4publishers project</note></entry>
+            <entry>
+                <p>Main Web site: <xref href="http://dita4publishers.org" format="html"
+                    scope="external"/></p>
+                <p>Releases: <xref
+                    href="https://github.com/dita4publishers/dita4publishers/releases" format="html"
+                    scope="external"
+                    >https://github.com/dita4publishers/dita4publishers/releases</xref></p>
+                <p>Code: <xref href="https://github.com/dita4publishers/dita4publishers"
+                    format="html" scope="external"
+                    >https://github.com/dita4publishers/dita4publishers</xref>.
+                  Note that currently the latest code is on the develop branch for all components.
+                  Also, the dita4publishers git repository uses git submodules to include the code
+                  for all the plugins and sample documents. See the project readme file for details
+                  on working with the submodules.</p>
+              </entry>
           </row>
           <row>
             <entry>dita4publishers user documentation</entry>
@@ -71,35 +83,17 @@ version available at <xref
               ><i>DITA for Publishers User Guide</i></xref> (D4P HTML2 transform)<!--, <xref href="../d4p-user-guide-html5/index.html" scope="external" format="html">../d4p-user-guide-html5/index.html</xref> (HTML5)--></p><p>The D4P package also includes an EPUB and Kindle version of the <cite>User Guide</cite>.</p></entry>
           </row>
           <row>
-            <entry>dita4publishers SourceForge project </entry>
-            <entry><xref
-              format="html"
-              href="https://sourceforge.net/projects/dita4publishers/"
-              scope="external">https://sourceforge.net/projects/dita4publishers/</xref></entry>
-          </row>
-          <row>
             <entry>Report bugs and request features</entry>
-            <entry><xref href="https://sourceforge.net/p/dita4publishers/_list/tickets" format="html" scope="external">https://sourceforge.net/p/dita4publishers/_list/tickets</xref></entry>
+            <entry><xref href="https://github.com/dita4publishers/dita4publishers/issues"
+                  format="html" scope="external"
+                  >https://github.com/dita4publishers/dita4publishers/issues</xref><p>For issues
+                  against a specific plugin, use the issue tracker for that plugin. All plugins are
+                  either in the <xref href="https://github.com/dita4publishers" format="html"
+                    scope="external">DITA for Publishers</xref> or <xref
+                    href="https://github.com/dita-community" format="html" scope="external">DITA
+                    Community</xref> organizations on GitHub.</p></entry>
           </row>
-          <row>
-            <entry>dita4publishers source code access (git-based)<note>The "rc" branch has the most recent code. The "release" branch will have the latest stable release (currently the very-old 0.9.18 release).</note></entry>
-            <entry><xref format="html" href="https://sourceforge.net/p/dita4publishers/code" scope="external">https://sourceforge.net/p/dita4publishers/git</xref></entry>
-          </row>
-          <row>
-            <entry>EPUBs (readable with EPUB readers)</entry>
-            <entry>
-              <ul
-                id="ul_9615148a-627f-4bcb-b36e-b4170fe86747">
-                <li><xref
-                  href="http://downloads.sourceforge.net/dita4publishers/wizard-of-oz.epub"
-                  format="html"
-                  scope="external">Wizard of Oz</xref></li>
-                <li><xref
-                  href="shakespear-plays-epubs-catalog.xml#topic-1"
-                  format="dita">Shakespear Play EPub Catalog</xref></li>
-              </ul>
-            </entry>
-          </row>
+            <!--<row><entry>EPUBs (readable with EPUB readers)</entry><entry><ul id="ul_9615148a-627f-4bcb-b36e-b4170fe86747"><li><xref href="http://downloads.sourceforge.net/dita4publishers/wizard-of-oz.epub" format="html" scope="external">Wizard of Oz</xref></li><li><xref href="shakespear-plays-epubs-catalog.xml#topic-1" format="dita">Shakespear Play EPub Catalog</xref></li></ul></entry></row>-->
         </tbody>
       </tgroup>
       </table></p>

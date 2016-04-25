@@ -20,7 +20,7 @@
         <li><xmlelem>paragraphStyle</xmlelem> - Used for paragraph styles</li>
         <li><xmlelem>characterStyle</xmlelem> - Used for character styles</li>
         <li><xmlelem>style</xmlelem> - This element was used for all kinds of styles, before the 
-          dita4publishers release 0.9.19RC12. The latest Word2DITA release requires that you <xref href="style-to-tag-map-migrate.xml" format="dita">migrate</xref> your 
+          dita4publishers release 0.9.19RC12. The latest Word2DITA release requires that you <xref keyref="style-to-tag-map-migration">migrate</xref> your 
           style-to-tag map to the latest markup.</li>
       </ul></p>
     <p>The distinct element types for paragraph and character styles include subelements 
