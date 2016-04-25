@@ -24,7 +24,6 @@
     <dependency org="saxonica" name="saxon9-xpath" rev="9.1.0.7" />
     <dependency org="saxonica" name="saxon9-s9api" rev="9.1.0.7" />
 
-    <dependency org="jboss" name="jbpm" rev="rsuite-20090317" />
 
   </dependencies>
 </ivy-module>

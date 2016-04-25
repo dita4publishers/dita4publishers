@@ -37,7 +37,7 @@
   <property name="kindleBuild" location="${build}/kindle"/>
   <property name="docs.dir" location="${basedir}/docs"/>
   <property name="docs" location="${basedir}/docs"/>
-  <property name="templates.dir" location="${basedir}/templates"/>
+  <property name="templates.dir" location="${toolkit.plugin.src}/org.dita4publishers.doctypes/templates"/>
   <property name="website.source" location="${docs}/website"/>
   <property name="website.build" location="${build}/website"/>
 	<property name="sampledata" location="${basedir}/sample_data"/>
@@ -564,6 +564,7 @@
     <zip destfile="${package.dist}/dita4publishers-vocabulary-plugins-${vocab_version}.zip">
       <fileset dir="${plugin.dist}">
         <include name="org.dita4publishers.doctypes/**"/>
+        <include name="org.dita4publishers.xmldomain.doctypes/**"/>
       </fileset>
     </zip>
   </target>
@@ -708,6 +709,7 @@
       <property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
       <property name="output.dir" location="${output.dir}"/>
     	<property name="html2.generate.dynamic.toc" value="true"/>
+      <property name="html2.generate.index" value="true"/>
     </ant>    
   	
   </target>
@@ -1010,34 +1012,6 @@
 
 	</target>
 
-	 <target name="init-web-site">
-	    <delete includeEmptyDirs="true" failonerror="false">
-	      <fileset dir="${website.build}"  includes="*/**"/>
-	    </delete>
-	</target>
-
-	 <target name="generate-web-site" depends="init-web-site, html-api-and-tools-docs" description="Generate Web site HTML">
- 	
-    <ant antfile="${dita-ot-dir}/build.xml"
-      dir="${dita-ot-dir}"
-      target="dita2xhtml"
-      
-      >
-      <property name="args.input" location="${docs}/website/dita4publishers.ditamap"/>
-      <property name="transtype" value="dita2xhtml"/>
-      <property name="args.outext" value="html"/>
-      <property name="args.xhtml.toc" value="toc"/>
-      <property name="dita.dir" location="${dita-ot-dir}"/>
-      <property name="dita.temp.dir" location="${temp}/dita-temp"/>
-      <property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
-      <property name="output.dir" location="${website.build}"/>
-    </ant>
- 	
- 	  <copy todir="${website.build}" >
- 	  	<fileset dir="${docs}/website/static-html" includes="index.html"/>
- 	  </copy>
-  </target>
-	
 	<target name="init-target" depends="init">
     <delete dir="${target.home}" failonerror="false"/>
     <mkdir dir="${target.home}"/>
