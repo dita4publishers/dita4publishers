@@ -521,7 +521,7 @@
                                                 <null/>
                                             </field>
                                             <field name="value">
-                                                <String>${cfd}/fonts/font-manifest.xml</String>
+                                                <String>fonts/font-manifest.xml</String>
                                             </field>
                                             <field name="defaultValue">
                                                 <null/>
@@ -571,22 +571,29 @@
                                                 <String>html2.generate.index</String>
                                             </field>
                                             <field name="description">
-                                                <String></String>
+                                                <null/>
                                             </field>
                                             <field name="value">
                                                 <String>true</String>
                                             </field>
                                             <field name="defaultValue">
-                                                <null/>
+                                                <String>false</String>
                                             </field>
                                             <field name="type">
-                                                <Integer>5</Integer>
+                                                <Integer>4</Integer>
                                             </field>
                                             <field name="possibleValues">
-                                                <null/>
+                                                <String-array>
+                                                    <String>true</String>
+                                                    <String>false</String>
+                                                    <null/>
+                                                </String-array>
                                             </field>
                                             <field name="possibleValuesDescriptions">
-                                                <null/>
+                                                <String-array>
+                                                    <String></String>
+                                                    <String></String>
+                                                </String-array>
                                             </field>
                                         </ditaParameter>
                                     </list>
