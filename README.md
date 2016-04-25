@@ -14,6 +14,7 @@ See the wiki for details on how to set up new clones of this project.
 
 ### News
 
+**24 April 2016**: EPUB3 implementation essentially complete with the addition of font embedding and obfuscation.
 **7 Oct 2014**: EPUB3 implementation is under way. See the org.dita4publishers.epub project for details.
 
 ### Test on Travis-CI
