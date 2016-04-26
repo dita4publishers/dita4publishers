@@ -196,11 +196,11 @@
         <chapter
           href="d4p-users-guide/vocabulary-part/d4p-vocabulary-concepts.xml">
           <topicref
-            href="../website/topics/specialization-modules-overview.xml">
+            href="d4p-users-guide/vocabulary-part/topics/specialization-modules-overview.xml">
             <topicref
-              href="../website/topics/d4p-topic-types.xml"/>
+              href="d4p-users-guide/vocabulary-part/topics/d4p-topic-types.xml"/>
             <topicref
-              href="../website/topics/pubmap-domain.xml"/>
+              href="d4p-users-guide/vocabulary-part/topics/pubmap-domain.xml"/>
             <topicref
               href="d4p-users-guide/vocabulary-part/domain-modules-overview.xml"
               collection-type="sequence">
@@ -209,23 +209,23 @@
               <subsection
                 href="d4p-users-guide/vocabulary-part/topic-domains-overview.xml"/>
               <topicref
-                href="../website/topics/classification-domain.xml"/>
+                href="d4p-users-guide/vocabulary-part/topics/classification-domain.xml"/>
               <topicref
-                href="../website/topics/enumeration-domains.xml"/>
+                href="d4p-users-guide/vocabulary-part/topics/enumeration-domains.xml"/>
               <topicref
-                href="../website/topics/formatting-domain.xml"/>
+                href="d4p-users-guide/vocabulary-part/topics/formatting-domain.xml"/>
               <topicref
-                href="../website/topics/pubcontent-domain.xml"/>
+                href="d4p-users-guide/vocabulary-part/topics/pubcontent-domain.xml"/>
               <subsection
                 href="d4p-users-guide/vocabulary-part/rendition-target-att.xml"/>
               <topicref
-                href="../website/topics/ruby-domain.xml"/>
+                href="d4p-users-guide/vocabulary-part/topics/ruby-domain.xml"/>
               <subsection
-                href="../website/topics/variables-domain.xml"/>
+                href="d4p-users-guide/vocabulary-part/topics/variables-domain.xml"/>
               <topicref
-                href="../website/topics/versie-domain.xml"/>
+                href="d4p-users-guide/vocabulary-part/topics/versie-domain.xml"/>
               <topicref
-                href="../website/topics/xml-domain.xml"/>
+                href="d4p-users-guide/vocabulary-part/topics/xml-domain.xml"/>
             </topicref>
           </topicref>
         </chapter>
