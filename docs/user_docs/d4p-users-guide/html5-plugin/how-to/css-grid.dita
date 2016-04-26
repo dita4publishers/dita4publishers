@@ -6,10 +6,7 @@
   attribute outputclass to positions their elements on the grid.</shortdesc>
  <conbody>
   <p>The following code</p>
-  <codeblock>
-   <data-about>
-    <data name="language" value="xml"/>
-   </data-about>
+  <codeblock><data name="language" value="xml"/>
    &lt;p outputclass="grid_2"&gt;...&lt;/p&gt;
 &lt;p outputclass="grid_2"&gt;...&lt;/p&gt;
 &lt;p outputclass="clear-before"&gt;Always clear after&lt;/p&gt;</codeblock>

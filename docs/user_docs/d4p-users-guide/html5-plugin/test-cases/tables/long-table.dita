@@ -8,16 +8,13 @@
 
    <table>
     <title>Description of domain modules</title>
-    <desc>
-     <data-about>
-      <data name="d4p_datatable">
+    <desc><data name="d4p_datatable">
          <data name="activate">1</data>
          <data name="options">
           <data name="searching">true</data>
           <data name="ordering">true</data>
          </data>
       </data>
-     </data-about>
     </desc>
     <tgroup cols="2"><colspec colname="col1" colwidth="8*"/><colspec
      colname="col2" colwidth="22*"/>

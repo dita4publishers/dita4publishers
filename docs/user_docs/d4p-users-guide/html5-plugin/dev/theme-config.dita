@@ -23,10 +23,7 @@
      which is concatenated and a style.min.css with is also compressed);</li>
     <li>The element that should reference the file in the final output and its attribute so it can
      render like this for example:
-     <codeblock>
-     <data-about>
-      <data name="language" value="xml"/>
-     </data-about>
+     <codeblock><data name="language" value="xml"/>
      &lt;link 
      rel="stylesheet" 
      media="handheld, only screen and (max-device-width: 320px)" 

@@ -4,10 +4,7 @@
  <title>How to add Internet Explorer conditional css</title>
  <shortdesc></shortdesc>
  <conbody>
-<codeblock>
- <data-about>
-  <data name="language" value="xml"/>
- </data-about>
+<codeblock><data name="language" value="xml"/>
  
     &lt;tag&gt;
       &lt;name&gt;style&lt;/name&gt;

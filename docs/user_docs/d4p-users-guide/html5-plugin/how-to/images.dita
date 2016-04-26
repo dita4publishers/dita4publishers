@@ -9,26 +9,17 @@
       <p>The attribute @class of body element controls general layout of the page. If the @class contains the value
           <option>img-with-shadow</option>, then all images will have a drop shadow by default.</p>
       <p>
-        <codeblock>
-           <data-about>
-    <data name="language" value="xml"/>
-   </data-about>
+        <codeblock><data name="language" value="xml"/>
 &lt;image keyref="img-dita" align="left" placement="break"/&gt;</codeblock>
         <image keyref="img-dita" align="left" placement="break" />
       </p>
       <p>
-        <codeblock>
-           <data-about>
-    <data name="language" value="xml"/>
-   </data-about>
+        <codeblock><data name="language" value="xml"/>
 &lt;image keyref="img-dita" align="center" placement="break"/&gt;</codeblock>
         <image keyref="img-dita" align="center" placement="break"/>
       </p>
       <p>
-        <codeblock>
-           <data-about>
-    <data name="language" value="xml"/>
-   </data-about>
+        <codeblock><data name="language" value="xml"/>
 &lt;image keyref="img-dita" align="right" placement="break"/&gt;</codeblock>
         <image keyref="img-dita" align="right" placement="break"/>
       </p>
@@ -36,10 +27,7 @@
     
     <section>
       <title>Floating image</title>
-      <codeblock>
-                 <data-about>
-    <data name="language" value="xml"/>
-   </data-about>
+      <codeblock><data name="language" value="xml"/>
 &lt;p&gt;
   &lt;image keyref="img-dita" align="left" /&gt;
   Lorem ipsum dolor sit amet.
@@ -51,10 +39,7 @@
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
       
-      <codeblock>
-         <data-about>
-    <data name="language" value="xml"/>
-   </data-about>
+      <codeblock><data name="language" value="xml"/>
 &lt;p&gt;
   &lt;image keyref="img-dita" align="right" /&gt;
   Lorem ipsum dolor sit amet.
@@ -72,10 +57,7 @@
       <p>The SVG is output a standard image.. This example use the <xref keyref="jquery-cycle"/> under the <xref
           keyref="MIT"> license as an example.</xref></p>
       <p>
-        <codeblock>
-           <data-about>
-    <data name="language" value="xml"/>
-   </data-about>
+        <codeblock><data name="language" value="xml"/>
 &lt;image keyref="img-dita-svg" align="right" /&gt;</codeblock>
         <image keyref="img-dita-svg" align="center"/>
       </p>
@@ -84,10 +66,7 @@
       <title>Cycle</title>
       <sectiondiv id="image-cycle">
         <p>Please look at the image below for few seconds.</p>
-        <codeblock>
-           <data-about>
-    <data name="language" value="xml"/>
-   </data-about>
+        <codeblock><data name="language" value="xml"/>
 &lt;sectiondiv outputclass="d4p-ui-cycle"&gt;
   &lt;image keyref="img-dita-3" align="left"/&gt;
   &lt;image keyref="img-dita-2" align="left"/&gt;

@@ -22,9 +22,7 @@
                     must be removed. </info>
                 <stepxmp>
                     <codeblock>
-                        <data-about>
                             <data name="language" value="xml"></data>
-                        </data-about>
 &lt;xsl:template name="gen-page-links"&gt;
     &lt;!-- remove content --&gt;
 &lt;/xsl:template&gt;
@@ -36,10 +34,8 @@
                     mode.</cmd>
                 <info> In the HTML5 plugin, this template is used to control the header.</info>
                 <stepxmp>
-                    <codeblock>
-                        <data-about>
-                            <data name="language" value="xml"></data>
-                        </data-about>
+                    <codeblock>                        
+                            <data name="language" value="xml"></data>                        
   &lt;xsl:template match="*" mode="generate-header"&gt;
     &lt;xsl:param name="documentation-title" as="xs:string" select="''" tunnel="yes" /&gt;
     &lt;div class="contain-to-grid sticky"&gt;
@@ -63,10 +59,7 @@
                 <stepxmp>
                     <p>In Foundation, you can define a grid-based column layout using &lt;div> class
                         attributes:</p>
-                    <codeblock>
-                        <data-about>
-                            <data name="language" value="xml"></data>
-                        </data-about>
+                    <codeblock><data name="language" value="xml"></data>                        
       &lt;section role="main"&gt;
         &lt;div class="row"&gt;
           &lt;div class="large-3 medium-4 columns"&gt;
@@ -81,10 +74,7 @@
                     </codeblock>
                     <p>To use the grid layout, add the code to the
                             <apiname>generate-section-container</apiname> mode: </p>
-                    <codeblock>
-                        <data-about>
-                            <data name="language" value="xml"></data>
-                        </data-about>
+                    <codeblock><data name="language" value="xml"/>
      &lt;xsl:template match="*" mode="generate-section-container"&gt;
       &lt;xsl:param name="navigation" as="element()*"  tunnel="yes" /&gt;
       &lt;xsl:param name="is-root" as="xs:boolean"  tunnel="yes" select="false()" /&gt;
