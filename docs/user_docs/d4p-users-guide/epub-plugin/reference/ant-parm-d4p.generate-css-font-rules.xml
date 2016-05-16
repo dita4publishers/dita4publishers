@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference id="ref-epub.obfuscate.fonts">
+  <title>epub.generate.css.font.rules Ant parameter</title>
+  <shortdesc>Indicates whether or not to generate CSS @font-face rules using the configuration
+    details specified a font manifest.</shortdesc>
+  <refbody>
+    <section>
+      <p>See <xref keyref="epub-embedding-fonts"/> and <xref
+          keyref="paramref-epub-font-manifest"/>.</p>
+      <p>The name and location of the generated CSS file is configured in the font-manifest file
+        specified at runtime.</p>
+    </section>
+    <section spectitle="Value">
+      <dl>
+        <dlentry>
+          <dt>true</dt>
+          <dd>Generate a CSS fragment containing @font-face rules as defined in the font
+            manifest.</dd>
+        </dlentry>
+        <dlentry>
+          <dt>false</dt>
+          <dd>Do not generate a @font-face CSS fragment.</dd>
+        </dlentry>
+      </dl>
+    </section>
+    <section
+      spectitle="Default">
+      <p>"false".</p>
+    </section>
+  </refbody>
+</reference>

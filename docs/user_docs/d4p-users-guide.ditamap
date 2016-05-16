@@ -112,10 +112,6 @@
           <subsection
             href="d4p-users-guide/epub-plugin/epub-transtype-parameters-ref.xml">
             <topicref
-              href="d4p-users-guide/epub-plugin/reference/ant-parm-argsCssOutputDir.xml"
-              keys="args.css.output.dir.refentry"
-              collection-type="sequence"/>
-            <topicref
               href="d4p-users-guide/epub-plugin/reference/ant-parm-coverGraphicFile.xml"
               keys="ant-param_cover.graphic.file"/>
             <topicref href="d4p-users-guide/epub-plugin/reference/ant-parm-epubtype.xml"
@@ -128,6 +124,8 @@
               keys="ant-param_d4p.max.toc-depth"/>
             <topicref
               href="d4p-users-guide/epub-plugin/reference/ant-parm-epubIncludeAutoRellinks.xml"/>
+            <topicref href="d4p-users-guide/epub-plugin/reference/ant-parm-epub-copy-system-css.xml"
+              keys="paramref-epub-copy-system-css"/>
             <topicref href="d4p-users-guide/epub-plugin/reference/ant-parm-epub-font-manifest.xml"
               keys="paramref-epub-font-manifest"/>
             <topicref href="d4p-users-guide/epub-plugin/reference/ant-parm-epub-font-output-dir.xml"
@@ -136,6 +134,9 @@
               href="d4p-users-guide/epub-plugin/reference/ant-parm-epubPubidUriStub.xml"/>
             <topicref href="d4p-users-guide/epub-plugin/reference/ant-parm-d4p.obfuscate.fonts.xml"
               keys="paramref-epub-obfuscate-fonts"/>
+            <topicref
+              href="d4p-users-guide/epub-plugin/reference/ant-parm-d4p.generate-css-font-rules.xml"
+              keys="paramref-epub-generate-css-font-rules"/>
             <topicref
               href="d4p-users-guide/epub-plugin/reference/ant-parm-epubTempDir.xml"/>
             <topicref

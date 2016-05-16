@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference id="ref-epub.fonts.manifest">
+  <title>epub.copy.system.css Ant parameter</title>
+  <shortdesc>Indicates whether or not to copy the built-in CSS files to the EPUB.</shortdesc>
+  <refbody>
+    <section>
+      <p>When set to "false" turns off copying of the built-in CSS files to the EPUB. The default is
+        "true" (copy the system CSS files).</p>
+    </section>
+    <section spectitle="Value">
+      <p>One of the keywords "true" or "false". </p>
+    </section>
+    <section
+      spectitle="Default">
+      <p>"<filepath>true</filepath>".</p>
+    </section>
+  </refbody>
+</reference>
