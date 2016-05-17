@@ -58,6 +58,7 @@
 	<property name="api-and-tools.dirname" value="d4p-api-and-tools"/>
 	<property name="api-and-tools.target" location="${target.home}/${api-and-tools.dirname}"/>
   <property name="api-and-tools.dist" location="${dist}/${api-and-tools.dirname}"/>
+  <property name="release.dir" location="${basedir}/release"/>
 	
 	<import file="${dita-ot-dir}${file.separator}integrator.xml" optional="yes"/>
   <import file="install-ivy.xml"/>
@@ -549,15 +550,6 @@
   <target name="deploy-doctypes" depends="dist-doctype-plugins, deploy-disted-plugins"
     description="Deploy only the EPUB plugin and its dependencies to local DITA Open Toolkit">
   </target>
-  
-  
-	<target name="package-epub-plugin" depends="dist-epub-plugin">
-    <zip destfile="${dist}/dita4publishers-epub-plugin-${epub_version}.zip">
-      <fileset dir="${plugin.dist}">
-        <include name="org.dita4publishers.epub/**"/>
-      </fileset>
-    </zip>		
-	</target>
 	
 	<target name="package-vocabulary-plugins" depends="dist-init, dist-toolkit-plugins"
 		description="Create distributable Zip packages of the different Toolkit plugins"
@@ -608,11 +600,17 @@
 	
   <target name="package-epub-plugins" depends="dist-init, dist-epub-toolkit-plugins"
      description="Creates an EPUB-only distribution package">
-    <zip destfile="${package.dist}/dita4publishers-epub-toolkit-plugins-${package_version}.zip">
+    <zip destfile="${release.dir}/dita4publishers-epub-toolkit-plugins-${package_version}.zip">
       <fileset dir="${plugin.dist}">
         <include name="*/**"/>
       </fileset>
     </zip>
+  </target>
+  
+  <target name="make-plugin-packages"
+    description="Make all the plugin packages for release on GitHub"
+    >
+    <antcall target="package-epub-plugins"/>
   </target>
 		
 	<target name="package-delivery" 
