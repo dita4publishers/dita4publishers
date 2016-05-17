@@ -500,7 +500,8 @@
   	</delete>
 		<mkdir dir="${dist}"/>
 		<mkdir dir="${package.dist}"/>
-  </target>
+	  <mkdir dir="${release.dir}"/>
+	</target>
 	
   <target name="dist-api-and-tools" description="Create distribution package for API and tools materials."
   	depends="package-api-and-tools">
@@ -554,18 +555,24 @@
 	<target name="package-vocabulary-plugins" depends="dist-init, dist-toolkit-plugins"
 		description="Create distributable Zip packages of the different Toolkit plugins"
 		>
-    <zip destfile="${package.dist}/dita4publishers-vocabulary-plugins-${vocab_version}.zip">
+    <zip destfile="${release.dir}/dita4publishers-vocabulary-plugins-${vocab_version}.zip">
       <fileset dir="${plugin.dist}">
+        <!-- net.sourceforge.* provides legacy mapping catalogs for
+             the old net.sourceforge versions of the vocab.
+          -->
+        <include name="net.sourceforge.dita4publishers.doctypes/**"/>
         <include name="org.dita4publishers.doctypes/**"/>
         <include name="org.dita4publishers.xmldomain.doctypes/**"/>
+        <include name="org.dita4publishers.shakespear.doctypes/**"/>
       </fileset>
     </zip>
+	  
   </target>
 	
 	<target name="package-word2dita-plugins" depends="dist-init, dist-word2dita-toolkit-plugins"
 		description="Create distributable Zip package for the Word2DITA transform plugin with its dependencies"
 		>
-    <zip destfile="${package.dist}/dita4publishers-word2dita-plugins-${package_version}.zip">
+    <zip destfile="${release.dir}/dita4publishers-word2dita-plugins-${package_version}.zip">
       <fileset dir="${plugin.dist}">
         <include name="org.dita-community.common.xslt/**"/>
         <include name="org.dita4publishers.doctypes/**"/>
@@ -579,7 +586,7 @@
 	<target name="package-toolkit-plugins" depends="dist-init, dist-toolkit-plugins"
 		description="Create distributable Zip package of the Toolkit plugins, including the vocabulary modules."
 		>
-    <zip destfile="${package.dist}/dita4publishers-toolkit-plugins-${package_version}.zip">
+    <zip destfile="${release.dir}/dita4publishers-toolkit-plugins-${package_version}.zip">
       <fileset dir="${plugin.dist}">
         <include name="*.txt"/>
       	<include name="*/**"/>
@@ -590,7 +597,7 @@
   
   <target name="package-html5-plugins" depends="dist-init, dist-html5-toolkit-plugins"
      description="Creates an HTML5-only distribution package">
-    <zip destfile="${package.dist}/dita4publishers-html5-toolkit-plugins-${package_version}.zip">
+    <zip destfile="${release.dir}/dita4publishers-html5-toolkit-plugins-${package_version}.zip">
       <fileset dir="${plugin.dist}">
         <include name="*.txt"/>
         <include name="*/**"/>
@@ -610,7 +617,15 @@
   <target name="make-plugin-packages"
     description="Make all the plugin packages for release on GitHub"
     >
+    <!-- Each target clears and uses the dist directory, so have to call
+         them rather than using depends. 
+      -->
     <antcall target="package-epub-plugins"/>
+    <antcall target="package-html5-plugins"/>
+    <antcall target="package-word2dita-plugins"/>
+    <antcall target="package-vocabulary-plugins"/>
+    <antcall target="package-toolkit-plugins"/>
+    <antcall target="package-dita2indesign-toolkit-plugins"/>
   </target>
 		
 	<target name="package-delivery" 
@@ -639,7 +654,7 @@
       </fileset>
     </copy>
     -->
-		<zip destfile="${dist}/${package.zip.base}-${package_version}.zip">
+		<zip destfile="${release.dir}/${package.zip.base}-${package_version}.zip">
 			<fileset dir="${package.dist}" >
 			</fileset>
       <fileset dir="${dist}" >
