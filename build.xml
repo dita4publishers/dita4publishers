@@ -617,6 +617,10 @@
   <target name="make-plugin-packages"
     description="Make all the plugin packages for release on GitHub"
     >
+    <delete dir="${release.dir}" includeEmptyDirs="true" failonerror="false">
+      <include name="**/*"/>
+    </delete>
+    
     <!-- Each target clears and uses the dist directory, so have to call
          them rather than using depends. 
       -->
