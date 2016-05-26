@@ -156,7 +156,7 @@
       &lt;/font>
   ...
 &lt;/font-set></codeblock></p>
-      <p>The <xmlatt>css-url</xmlatt> attribute on <xmlelem>font-set</xmlelem> specifies the
+      <p>The <xmlatt>css-filename</xmlatt> attribute on <xmlelem>font-set</xmlelem> specifies the
         filename to use for the generated CSS file. The default is "fonts.css". The location of the
         file is relative to the configured fonts directory.</p>
       <p>On the <xmlelem>font</xmlelem> element you specify the

@@ -55,6 +55,8 @@
         href="d4p-users-guide/topics/about-this-book.xml"/>
       <topicref
         href="d4p-users-guide/release-notes/release-notes.xml">
+        <topicref href="d4p-users-guide/release-notes/release-notes-1.0.0RC19.xml"
+          keys="relnotes-1_0_0RC19"/>
         <topicref href="d4p-users-guide/release-notes/release-notes-1.0.0RC17.xml"
           keys="relnotes-1_0_0RC17"/>
         <topicref href="d4p-users-guide/release-notes/release-notes-1.0.0.xml"/>

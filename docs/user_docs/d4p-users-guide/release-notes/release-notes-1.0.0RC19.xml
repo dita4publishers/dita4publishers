@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="conceptId">
+  <title>Release Notes: Version 1.0.0RC19</title>
+  <shortdesc>Version 1.0.0RC19</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>
+          <indexterm>release notes<indexterm>Version 1.0.0RC19</indexterm></indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <section>
+      <title>Theme for the Release</title>
+      <p>This release adds additional functionality to the EPUB transform's support for embedded
+        fonts, namely the option to generate CSS @font-face rules for embedded fonts. See <xref
+          keyref="epub-embedding-fonts"/> for details.</p>
+    </section>
+    <section id="section_ggg_vf4_tv">
+      <title>Resolved Issues</title>
+      <p>These are the most significant issues addressed in this release:</p>
+      <ul id="ul_gdd_xf4_tv">
+        <li>EPUB issue #66: Generate CSS @font-face declarations from the font manifest .<p>Provides
+            a new runtime option (<xref keyref="paramref-epub-generate-css-font-rules"/>) that
+            generates a CSS file with @font-face rules for all the fonts defined in the font
+            manifest. You can add markup to the font manifest to control the details of the
+            @font-face rules generated for a given font. See <xref keyref="epub-embedding-fonts"
+            />.</p></li>
+        <li>Fixed an issue with the handling of the <parmname>args.csspath</parmname> parameter
+          where the parameter would not be respected. The EPUB process now uses the
+            <parmname>args.csspath</parmname> parameter to set the result directory in the EPUB
+          where CSS files are stored, which is set to "css" by default.</li>
+        <li>Added a new runtime parameter (<xref keyref="paramref-epub-copy-system-css"/>) to
+          control inclusion of the default HTML CSS files in the generated EPUB. Set the parameter
+          to "false" to omit the common-ltr.css and common-rtl.css files from the EPUB.</li>
+      </ul>
+    </section>
+  </conbody>
+</concept>

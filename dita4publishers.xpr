@@ -1274,7 +1274,6 @@
     </meta>
     <projectTree name="dita4publishers.xpr">
         <folder path="../../dita-ot/"/>
-        <folder path="../d4p_temp/"/>
         <folder path="../dita4publishers-dist/"/>
         <folder path="."/>
         <folder path="docs/"/>

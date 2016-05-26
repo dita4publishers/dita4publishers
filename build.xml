@@ -728,6 +728,10 @@
       <property name="output.dir" location="${output.dir}"/>
     	<property name="html2.generate.dynamic.toc" value="true"/>
       <property name="html2.generate.index" value="true"/>
+      <property name="args.css" location="${basedir}/docs/github-websites/dita4publishers.github.io/d4p-users-guide/css/screen.css"/>
+      <property name="args.copycss" value="no"/>
+      <property name="args.csspath" value="css"/>
+      
     </ant>    
   	
   </target>
