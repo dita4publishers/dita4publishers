@@ -11,13 +11,12 @@
     </metadata>
   </prolog>
  <conbody>
-    <p>The Word2DITA transform is packaged as an Open Toolkit plugin (see <xref
-      format="dita"
-      href="word-to-dita-plugin.xml#conceptId"/>). This makes it easy to apply the transform to Word documents using an existing Open Toolkit installation. You can also apply the transform directly to the document.xml file within a DOCX package, e.g., using OxygenXML. The Word2DITA transform is not dependent on any Open Toolkit preprocessing or Toolkit-provided components.</p>
+    <p>The Word2DITA transform is packaged as an Open Toolkit plugin (see <xref      
+      keyref="generating-dita-from-documents"/>). This makes it easy to apply the transform to Word documents using an existing Open Toolkit installation. You can also apply the transform directly to the document.xml file within a DOCX package, e.g., using OxygenXML. The Word2DITA transform is not dependent on any Open Toolkit preprocessing or Toolkit-provided components.</p>
     <p>To convert one of the sample files, follow these steps:<ol
         id="ol_9afef18a-a29f-4275-acee-d51a88dacadd">
         <li>Deploy the DITA for Publishers Toolkit plugins to your Open Toolkit (see <xref
-            format="dita" href="../tasks/plugin-installation.xml#taskId"/>).</li>
+            keyref="installing-toolkit-plugins"/>).</li>
         <li>Create a file named <filepath>build.properties</filepath> in your home directory (e.g.,
             <filepath>/Users/ekimber</filepath>) and in that file put a line like
             this:<codeblock>dita-ot-dir=<b>c:/DITA-OT</b></codeblock><p>Where the part in bold
@@ -75,9 +74,7 @@
       documents. You will likely find that you also need to refine how your documents are styled so
       that they map most effectively.</p>
     <p>Finally, remember that the Word-to-DITA process is a work in progress and there is always room for improvement. Please report any bugs or feature requests to the DITA for Publishers bug tracker
-      on GitHub (<xref
-      format="html"
-      href="https://github.com/dita4publishers/d4p-word2dita/issues">https://github.com/dita4publishers/d4p-word2dita/issues</xref></p>
+      on GitHub (<xref keyref="github-issue-tracker-d4p-word2dita"/>)</p>
     <p>Remember too that the Word to DITA framework is open source, which means I welcome fixes and
       enhancements from the community.</p>
   </conbody>

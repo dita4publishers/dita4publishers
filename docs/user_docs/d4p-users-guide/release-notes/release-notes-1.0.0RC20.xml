@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="conceptId">
+  <title>Release Notes: Version 1.0.0RC20</title>
+  <shortdesc>Version 1.0.0RC20</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>
+          <indexterm>release notes<indexterm>Version 1.0.0RC20</indexterm></indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <section>
+      <title>Theme for the Release</title>
+      <p>This release adds enhancements to the Word-to-DITA transformation framework, adding the
+        ability to set the <xmlatt>xml:lang</xmlatt> attribute for directly-generated elements via
+        the style-to-tag map and putting generated maps through the final-fixup mode, in addition to
+        topics.</p>
+    </section>
+    <section id="section_ggg_vf4_tv">
+      <title>Resolved Issues</title>
+      <p>These are the most significant issues addressed in this release:</p>
+      <ul id="ul_gdd_xf4_tv">
+        <li>Word2DITA issue 20, Provide way to set language on style-to-tag map.<p>The
+              <xmlelem>paragraphStyle</xmlelem>, <xmlelem>characterStyle</xmlelem>,
+              <xmlelem>mapProperties</xmlelem>, and <xmlelem>topicProperties</xmlelem> elements
+            allow a new attribute, <xmlatt>langAttValue</xmlatt>, that specifies the value to use
+            for the <xmlatt>xml:lang</xmlatt> attribute on the elements directly generated for those
+            styles. For maps and topics, the value specified on <xmlatt>langAttValue</xmlatt>
+            overrides the language specified by the <parmname>language</parmname> runtime parameter
+            (which defaults to "en-US").</p></li>
+      </ul>
+    </section>
+  </conbody>
+</concept>

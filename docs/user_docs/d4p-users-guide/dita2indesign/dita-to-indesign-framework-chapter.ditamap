@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pub-component-map PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:dtd:pub-component-map" "pub-component-map.dtd">
+<pub-component-map>
+  <chapter keys="usage-dita-to-indesign"
+    href="dita-to-indesign-framework-chapter.xml">
+    <subsection
+      href="indesign-product-overview.xml"/>
+    <subsection
+      href="generating-incopy-articles-from-topics.xml"/>
+    <subsection
+      href="dita-to-indesign-plugin-usage.xml"/>
+    <subsection
+      href="generating-incopy-articles.xml">
+      <subsection
+        href="mapping-paragraphs-to-indesign-styles.xml"/>
+      <subsection
+        href="grouped-style-name-syntax.xml"/>
+    </subsection>
+    <subsection
+      href="indesign-optimization.xml"/>
+  </chapter>
+</pub-component-map>
