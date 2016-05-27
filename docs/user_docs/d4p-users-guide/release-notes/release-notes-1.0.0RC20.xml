@@ -27,8 +27,8 @@
         <li>Word2DITA issue 19: Provide way to generate arbitrary attributes through the
           style-to-tag map<p>Adds a new subelement, <xmlelem>additionalAttributes</xmlelem>, to
               <xmlelem>paragraphStyle</xmlelem> and <xmlelem>characterStyle</xmlelem>, with which
-            you can specify any additional attributes for the directly-generated result
-          element.</p></li>
+            you can specify any additional attributes for the directly-generated result element. See
+              <xref keyref="style-to-tag-mapping"/>.</p></li>
         <li>Word2DITA issue 20: Provide way to set language on style-to-tag map.<p>The
               <xmlelem>paragraphStyle</xmlelem>, <xmlelem>characterStyle</xmlelem>,
               <xmlelem>mapProperties</xmlelem>, and <xmlelem>topicProperties</xmlelem> elements
@@ -36,7 +36,10 @@
             for the <xmlatt>xml:lang</xmlatt> attribute on the elements directly generated for those
             styles. For maps and topics, the value specified on <xmlatt>langAttValue</xmlatt>
             overrides the language specified by the <parmname>w2d.language</parmname> Ant parameter
-            (which defaults to "en-US").</p></li>
+            (which defaults to "en-US"). See <xref keyref="style-to-tag-mapping"/>.</p></li>
+        <li>Word2DITA issue 21: Put generated maps through final-fixup mode<p>Generated maps are now
+            processed in mode "final-fixup" just as topics are, making it easier to adjust the
+            details of generated maps. See <xref keyref="w2d-extending-and-overridding"/>.</p></li>
       </ul>
     </section>
   </conbody>

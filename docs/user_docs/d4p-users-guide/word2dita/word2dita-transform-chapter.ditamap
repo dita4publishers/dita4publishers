@@ -11,21 +11,16 @@
     </subsection>
     <subsection
       href="../../docx2dita_guide_and_reference/word2dita-from-oxygen.xml"/>
-    <subsection
-      href="../../docx2dita_guide_and_reference/style-to-tag-map-overview.xml"
-      format="dita"
-      scope="local"
-      collection-type="sequence"/>
+    <subsection href="../../docx2dita_guide_and_reference/style-to-tag-map-overview.xml"
+      format="dita" scope="local" collection-type="sequence" keys="style-to-tag-mapping"/>
     <subsection
       href="common-mapping-cases.xml"/>
     <subsection
       href="troubleshooting-word2dita.xml"/>
     <subsection
       href="word2dita-video-tutorial-01.xml"/>
-    <subsection
-      href="customizing-the-transform.xml">
-      <subsection
-        href="sample-customization-transform.xml"/>
+    <subsection href="customizing-the-transform.xml" keys="w2d-extending-and-overridding">
+      <subsection href="sample-customization-transform.xml"/>
     </subsection>
     <subsection
       href="word-usage-tips.xml"/>
