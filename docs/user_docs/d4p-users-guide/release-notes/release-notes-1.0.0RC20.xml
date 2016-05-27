@@ -24,7 +24,12 @@
       <title>Resolved Issues</title>
       <p>These are the most significant issues addressed in this release:</p>
       <ul id="ul_gdd_xf4_tv">
-        <li>Word2DITA issue 20, Provide way to set language on style-to-tag map.<p>The
+        <li>Word2DITA issue 19: Provide way to generate arbitrary attributes through the
+          style-to-tag map<p>Adds a new subelement, <xmlelem>additionalAttributes</xmlelem>, to
+              <xmlelem>paragraphStyle</xmlelem> and <xmlelem>characterStyle</xmlelem>, with which
+            you can specify any additional attributes for the directly-generated result
+          element.</p></li>
+        <li>Word2DITA issue 20: Provide way to set language on style-to-tag map.<p>The
               <xmlelem>paragraphStyle</xmlelem>, <xmlelem>characterStyle</xmlelem>,
               <xmlelem>mapProperties</xmlelem>, and <xmlelem>topicProperties</xmlelem> elements
             allow a new attribute, <xmlatt>langAttValue</xmlatt>, that specifies the value to use

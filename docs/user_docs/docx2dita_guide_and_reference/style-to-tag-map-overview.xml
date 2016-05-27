@@ -18,10 +18,10 @@
     <p>The style elements can be:<ul>
         <li><xmlelem>paragraphStyle</xmlelem> - Used for paragraph styles</li>
         <li><xmlelem>characterStyle</xmlelem> - Used for character styles</li>
-        <li><xmlelem>style</xmlelem> - This element was used for all kinds of styles, before the
-          dita4publishers release 0.9.19RC12. The latest Word2DITA release requires that you <xref
-            keyref="style-to-tag-map-migration">migrate</xref> your style-to-tag map to the latest
-          markup.</li>
+        <li><xmlelem>style</xmlelem> - Obsolete. This element was used for all kinds of styles,
+          before the dita4publishers release 0.9.19RC12. The latest Word2DITA release requires that
+          you <xref keyref="style-to-tag-map-migration">migrate</xref> your style-to-tag map to the
+          latest markup.</li>
       </ul></p>
     <p>The distinct element types for paragraph and character styles include subelements 
       for defining map, topicref, and topic generation details.</p>
@@ -355,5 +355,22 @@
               generated root or topic.</p></dd>
         </dlentry>
       </dl></p>
+    <p>Within <xmlelem>paragraphStyle</xmlelem> and <xmlelem>characterStyle</xmlelem> you can use
+      the <xmlelem>additionalAttributes</xmlelem> element to specify additional attributes to be set
+      on the directly-generated element. For example, you can use it to set conditional
+      attributes:<codeblock>&lt;paragraphStyle styleName="myPara"
+  structureType="block"
+  tagName="p"
+  topicZone="body"
+>
+  <b>&lt;additionalAttributes>
+    &lt;attribute name="displayTarget" value="pdf"/>
+    &lt;attribute name="audience" value="learner"/>
+  &lt;/additionalAttributes>
+</b>&lt;/paragraphStyle></codeblock></p>
+    <p>This style mapping will result in the attributes <xmlatt>displayTarget</xmlatt> and
+        <xmlatt>audience</xmlatt> being set to the values "pdf" and "learner" respecitively on the
+      generated <xmlelem>p</xmlelem>
+      element:<codeblock>&lt;p displayTarget="pdf" audience="learner">...&lt;/p></codeblock></p>
   </conbody>
 </concept>
