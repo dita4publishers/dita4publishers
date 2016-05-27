@@ -136,6 +136,15 @@
           <pt>w2d.word2dita.xslt</pt>
           <pd>Specifies the name of the XSLT transform to use to convert the DOCX file to DITA. Default is the <filepath>docx2dita.xsl</filepath> transform in the word2dita Toolkit plugin.</pd>
         </plentry>
+        <plentry>
+          <pt>w2d.language</pt>
+          <pd>Specifies the value of the <xmlatt>xml:lang</xmlatt> atribute for generated maps and
+            topics. If not specified, the <xmlatt>xml:lang</xmlatt> attribute is set to "en-US" by
+            default. If you specify <xmlatt>langAttValue</xmlatt> for
+              <xmlelem>mapProperties</xmlelem> or <xmlelem>topicProperties</xmlelem> in a
+            style-to-tag map, that value will override the <parmname>w2d.language</parmname>
+            value.</pd>
+        </plentry>
       </parml>
     </section>
  </conbody>

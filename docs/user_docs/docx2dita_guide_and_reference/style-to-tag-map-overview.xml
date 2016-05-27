@@ -15,13 +15,13 @@
         >documentation</xmlelem> element that can hold documentation in any markup language (its
       content is ignored and not validated), as well as <xmlelem>output</xmlelem> elements that
       define the public and system IDs to use for any generated map or topic documents.</p>
-    <p>The style elements can be: 
-      <ul>
+    <p>The style elements can be:<ul>
         <li><xmlelem>paragraphStyle</xmlelem> - Used for paragraph styles</li>
         <li><xmlelem>characterStyle</xmlelem> - Used for character styles</li>
-        <li><xmlelem>style</xmlelem> - This element was used for all kinds of styles, before the 
-          dita4publishers release 0.9.19RC12. The latest Word2DITA release requires that you <xref keyref="style-to-tag-map-migration">migrate</xref> your 
-          style-to-tag map to the latest markup.</li>
+        <li><xmlelem>style</xmlelem> - This element was used for all kinds of styles, before the
+          dita4publishers release 0.9.19RC12. The latest Word2DITA release requires that you <xref
+            keyref="style-to-tag-map-migration">migrate</xref> your style-to-tag map to the latest
+          markup.</li>
       </ul></p>
     <p>The distinct element types for paragraph and character styles include subelements 
       for defining map, topicref, and topic generation details.</p>
@@ -345,6 +345,15 @@
         <dt><xmlatt>idGenerator</xmlatt></dt>
         <dd>For elements that should have an ID generated, the name of the ID generator to use. The default value is "default", where the default ID generator may be result element type specific (e.g., topics may have a different default ID generator than list items).<p>The set of available ID generators is determined by any local overrides used. The ID generator name is passed as a parameter to the apply-templates call for the mode "generate-id" applied to the incoming element.</p><p>Elements that DITA rules require to have an ID will use the "default" ID generator by default, so it is not necessary to specify this attribute for elements that have a required ID except to change the ID generator (e.g., styles that map to topics).</p><p>For elements for which IDs are optional, specify this attribute with a value of "default" to get IDs using the default generator. Specify a different generator name to use that generator.</p></dd>
       </dlentry>
+        <dlentry>
+          <dt><xmlatt>langAttValue</xmlatt></dt>
+          <dd>Specifies the value to use for the <xmlatt>xml:lang</xmlatt> attribute on the
+            directly-generated element produced by the style-to-tag mapping.<p>When specified on
+                <xmlelem>mapProperties</xmlelem> or <xmlelem>topicProperties</xmlelem> the value of
+                <xmlatt>langAttValue</xmlatt> overrides the value of the
+                <parmname>w2d.language</parmname> Ant parameter to set the language for the
+              generated root or topic.</p></dd>
+        </dlentry>
       </dl></p>
   </conbody>
 </concept>

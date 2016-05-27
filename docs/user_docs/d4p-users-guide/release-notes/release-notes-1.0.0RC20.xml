@@ -30,7 +30,7 @@
             allow a new attribute, <xmlatt>langAttValue</xmlatt>, that specifies the value to use
             for the <xmlatt>xml:lang</xmlatt> attribute on the elements directly generated for those
             styles. For maps and topics, the value specified on <xmlatt>langAttValue</xmlatt>
-            overrides the language specified by the <parmname>language</parmname> runtime parameter
+            overrides the language specified by the <parmname>w2d.language</parmname> Ant parameter
             (which defaults to "en-US").</p></li>
       </ul>
     </section>
