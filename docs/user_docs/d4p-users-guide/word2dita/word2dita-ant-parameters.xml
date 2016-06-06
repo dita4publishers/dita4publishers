@@ -74,6 +74,10 @@
             for Publishers formatting vocabulary domain module.</pd>
         </plentry>
         <plentry>
+          <pt>w2d.generate.navtitles</pt>
+          <pd>When set to "true", use topic titles as navigation titles in generated topicrefs.</pd>
+        </plentry>
+        <plentry>
           <pt>w2d.include.word.backpointers</pt>
           <pd>Set to "false" to turn off inclusion of <xmlatt>xtrc</xmlatt>
             attributes in the generated DITA files that point back to the
@@ -85,6 +89,15 @@
           <pd>Set to "true" to turn inclusion of <xmlelem>data</xmlelem>
             elements reflecting any Word bookmark start and end markers. Default
             is "false".</pd>
+        </plentry>
+        <plentry>
+          <pt>w2d.language</pt>
+          <pd>Specifies the value of the <xmlatt>xml:lang</xmlatt> atribute for generated maps and
+            topics. If not specified, the <xmlatt>xml:lang</xmlatt> attribute is set to "en-US" by
+            default. If you specify <xmlatt>langAttValue</xmlatt> for
+              <xmlelem>mapProperties</xmlelem> or <xmlelem>topicProperties</xmlelem> in a
+            style-to-tag map, that value will override the <parmname>w2d.language</parmname>
+            value.</pd>
         </plentry>
         <plentry>
           <pt>w2d.root.map.name</pt>
@@ -135,15 +148,6 @@
         <plentry>
           <pt>w2d.word2dita.xslt</pt>
           <pd>Specifies the name of the XSLT transform to use to convert the DOCX file to DITA. Default is the <filepath>docx2dita.xsl</filepath> transform in the word2dita Toolkit plugin.</pd>
-        </plentry>
-        <plentry>
-          <pt>w2d.language</pt>
-          <pd>Specifies the value of the <xmlatt>xml:lang</xmlatt> atribute for generated maps and
-            topics. If not specified, the <xmlatt>xml:lang</xmlatt> attribute is set to "en-US" by
-            default. If you specify <xmlatt>langAttValue</xmlatt> for
-              <xmlelem>mapProperties</xmlelem> or <xmlelem>topicProperties</xmlelem> in a
-            style-to-tag map, that value will override the <parmname>w2d.language</parmname>
-            value.</pd>
         </plentry>
       </parml>
     </section>
