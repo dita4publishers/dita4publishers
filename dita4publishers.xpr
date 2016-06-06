@@ -18,6 +18,36 @@
                         <scenarioAssociation-array>
                             <scenarioAssociation>
                                 <field name="url">
+                                    <String>sample_data/epub-test/epub-test.ditamap</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>DITA Map EPUB EPUB3 Only</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>DITAMAP</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>docs/user_docs/d4p-users-guide.ditamap</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>DITA Map EPUB DUAL</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>DITAMAP</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
                                     <String>../temp/mekon/hebrew-test-doc/extract/word/document.xml</String>
                                 </field>
                                 <field name="scenarioIds">
@@ -58,36 +88,6 @@
                                 <field name="scenarioTypes">
                                     <list>
                                         <String>XSL</String>
-                                    </list>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="url">
-                                    <String>docs/user_docs/d4p-users-guide.ditamap</String>
-                                </field>
-                                <field name="scenarioIds">
-                                    <list>
-                                        <String>DITA Map EPUB DUAL</String>
-                                    </list>
-                                </field>
-                                <field name="scenarioTypes">
-                                    <list>
-                                        <String>DITAMAP</String>
-                                    </list>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="url">
-                                    <String>sample_data/epub-test/epub-test.ditamap</String>
-                                </field>
-                                <field name="scenarioIds">
-                                    <list>
-                                        <String>DITA Map EPUB EPUB3 Only</String>
-                                    </list>
-                                </field>
-                                <field name="scenarioTypes">
-                                    <list>
-                                        <String>DITAMAP</String>
                                     </list>
                                 </field>
                             </scenarioAssociation>
