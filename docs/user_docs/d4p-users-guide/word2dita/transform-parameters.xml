@@ -103,6 +103,12 @@
           <pd>The prefix to use for the filenames of generated submaps. Default is "map".</pd>
         </plentry>
         <plentry>
+          <pt>tableWidthsProportional</pt>
+          <pd>When set to "true" generates tables with proportional column widths rather than
+            absolute measurements. The default is "false", which uses the actual column width
+            measurements from the Word table.</pd>
+        </plentry>
+        <plentry>
           <pt>topicExtension</pt>
           <pd>The filename extension to use for topics. Default is ".dita".</pd>
         </plentry>

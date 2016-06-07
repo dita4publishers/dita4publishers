@@ -136,6 +136,12 @@
             "map".</pd>
         </plentry>
         <plentry>
+          <pt>w2d.table.widths.proportional</pt>
+          <pd>When set to "true" generates tables with proportional column widths rather than
+            absolute measurements. The default is "false", which uses the actual column width
+            measurements from the Word table.</pd>
+        </plentry>
+        <plentry>
           <pt>w2d.temp.dir</pt>
           <pd>The temporary directory to use for word2dita process. Default is
             ${basedir}/temp.</pd>
