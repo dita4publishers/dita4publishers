@@ -10,27 +10,8 @@
                         <Boolean>true</Boolean>
                     </entry>
                     <entry>
-                        <String>keys.context</String>
-                        <String>${pdu}/docs/user_docs/d4p-users-guide.ditamap</String>
-                    </entry>
-                    <entry>
                         <String>scenario.associations</String>
                         <scenarioAssociation-array>
-                            <scenarioAssociation>
-                                <field name="url">
-                                    <String>sample_data/epub-test/epub-test.ditamap</String>
-                                </field>
-                                <field name="scenarioIds">
-                                    <list>
-                                        <String>DITA Map EPUB EPUB3 Only</String>
-                                    </list>
-                                </field>
-                                <field name="scenarioTypes">
-                                    <list>
-                                        <String>DITAMAP</String>
-                                    </list>
-                                </field>
-                            </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="url">
                                     <String>docs/user_docs/d4p-users-guide.ditamap</String>
@@ -88,6 +69,21 @@
                                 <field name="scenarioTypes">
                                     <list>
                                         <String>XSL</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>sample_data/epub-test/epub-test.ditamap</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>DITA Map EPUB EPUB3 Only</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>DITAMAP</String>
                                     </list>
                                 </field>
                             </scenarioAssociation>
@@ -1495,8 +1491,10 @@
     <projectTree name="dita4publishers.xpr">
         <folder masterFiles="true" name="Master Files">
             <file name="toolkit_plugins/org.dita4publishers.word2dita/xsl/docx2dita.xsl"/>
+            <file name="toolkit_plugins/org.dita4publishers.html2/xsl/map2html2Impl.xsl"/>
         </folder>
         <folder path="../../dita-ot/"/>
+        <folder path="../../temp/"/>
         <folder path="../"/>
         <folder path="../dita4publishers-dist/"/>
         <folder path="."/>
