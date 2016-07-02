@@ -7,13 +7,18 @@
 
   <property name="args.logdir" value="log"/>
   <property name="dita.dir" location="${user.home}/dita4publishers/dita4publishers/${dita.dirname}"/>
+  <property environment="env" />
 
   <import file="sample_d4p-html5.xml"/>
   <import file="sample_epub.xml"/>
 
+  <target name="echo-properties">
+  	<echo>${env.CWD}</echo>
+  </target>
+
   <target name="all" depends="samples"/>
 
-  <target name="samples" description="build the sample output" depends="samples.html5, samples.epub"/>
+  <target name="samples" description="build the sample output" depends="echo-properties, samples.html5, samples.epub"/>
 
 
 </project>
