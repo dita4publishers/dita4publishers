@@ -6,7 +6,7 @@
 <project name="test_all" default="all" basedir=".">
 
   <property name="args.logdir" value="log"/>
-  <property name="dita.dir" location="${basedir}/../../.."/>
+
 
   <import file="sample_d4p-html5.xml"/>
   <import file="sample_epub.xml"/>
