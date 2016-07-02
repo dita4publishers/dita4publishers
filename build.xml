@@ -76,7 +76,11 @@
   <property name="target.home"         value="target"/>
   <property name="target.jar"          value="${rsuite-plugin.name}-plugin.jar"/>
 	
-	
+  <condition property="plugin-deploy-clean" value="true">
+  	<not>
+      <isset property="plugin-deploy-clean"/>
+  	</not>
+  </condition>
 
 	<path id="dita-classpath"
 		>
@@ -436,7 +440,7 @@
 	
 	<target name="deploy-toolkit-plugins" depends="dist-toolkit-plugins"
 	  description="Deploy plugins to local DITA Open Toolkit">
-		<delete failonerror="true" includeemptydirs="true">
+		<delete failonerror="${plugin-deploy-clean}" includeemptydirs="true">
 			<fileset dir="${plugin-deploy_target}" includes="org.dita4publishers.*/**"/>
 			<fileset dir="${plugin-deploy_target}" includes="org.dita-community.*/**"/>			
 		</delete>

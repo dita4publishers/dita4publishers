@@ -10,7 +10,7 @@ echo ls .:
 ls .
 
 # install dp4 plugins (note, this runs the integrator script)
-ant deploy-toolkit-plugins -Ddita-ot-dir=$DITA_DIR
+ant deploy-toolkit-plugins -Ddita-ot-dir=$DITA_DIR -Dplugin-deploy-clean=false
 
 # install tests
 cp -r test $DITA_DIR/
