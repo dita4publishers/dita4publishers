@@ -12,8 +12,8 @@
   <import file="sample_d4p-html5.xml"/>
   <import file="sample_epub.xml"/>
 
-  <target name="echoproperties">
-  	<echo-properties/>
+  <target name="echo-properties">
+  	<echoproperties/>
   </target>
 
   <target name="all" depends="samples"/>
