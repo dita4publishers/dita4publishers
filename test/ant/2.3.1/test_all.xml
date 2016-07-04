@@ -6,14 +6,14 @@
 <project name="test_all" default="all" basedir=".">
 
   <property name="args.logdir" value="log"/>
-  <property name="dita.dir" location="${user.home}/dita4publishers/dita4publishers/${dita.dirname}"/>
+  <property name="dita.dir" location="${user.home}/build/dita4publishers/dita4publishers/${dita.dirname}"/>
   <property environment="env" />
 
   <import file="sample_d4p-html5.xml"/>
   <import file="sample_epub.xml"/>
 
   <target name="echo-properties">
-  	<echo>${env.CWD}</echo>
+  	<echo-properties/>
   </target>
 
   <target name="all" depends="samples"/>
