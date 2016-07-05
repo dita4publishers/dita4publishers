@@ -29,6 +29,7 @@ CLONEPATH=$1
 # clone
 git submodule add -f https://github.com/dita-community/org.dita-community.common.xslt.git ${CLONEPATH}/org.dita-community.common.xslt
 git submodule add -f https://github.com/dita-community/org.dita-community.adjust-copy-to.git ${CLONEPATH}/org.dita-community.adjust-copy-to
+git submodule add -f https://github.com/dita-community/org.dita-community.common.mapdriven.git ${CLONEPATH}/org.dita-community.common.mapdriven
 git submodule add -f https://github.com/dita-community/org.dita-community.preprocess-extensions.git ${CLONEPATH}/org.dita-community.preprocess-extensions
 git submodule add -f https://github.com/dita4publishers/org.dita4publishers.common.xslt.git ${CLONEPATH}/org.dita4publishers.common.xslt
 git submodule add -f https://github.com/dita4publishers/org.dita4publishers.common.html.git ${CLONEPATH}/org.dita4publishers.common.html
