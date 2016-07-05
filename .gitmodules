@@ -45,7 +45,7 @@
 [submodule "toolkit_plugins/org.dita4publishers.html5"]
 	path = toolkit_plugins/org.dita4publishers.html5
 	url = https://github.com/dita4publishers/org.dita4publishers.html5.git
-	branch=9e77ea30eae3ca916cde7155b15ecc14c7b4808a
+	branch=develop
 [submodule "toolkit_plugins/org.dita4publishers.kindle"]
 	path = toolkit_plugins/org.dita4publishers.kindle
 	url = https://github.com/dita4publishers/org.dita4publishers.kindle
@@ -133,7 +133,7 @@
 [submodule "toolkit_plugins/org.dita4publishers.common.html"]
 	path = toolkit_plugins/org.dita4publishers.common.html
 	url = https://github.com/dita4publishers/org.dita4publishers.common.html.git
-	branch=aa4a6572dc2f01ae828a316b460b9731c16c2c57
+	branch=develop
 [submodule "toolkit_plugins/org.dita4publishers.word2dita"]
 	path = toolkit_plugins/org.dita4publishers.word2dita
 	url = https://github.com/dita4publishers/org.dita4publishers.word2dita.git
