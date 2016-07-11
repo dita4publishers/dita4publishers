@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- This file is part of the DITA Open Toolkit project hosted on
+     Sourceforge.net. See the accompanying license.txt file for
+     applicable licenses.-->
+<!-- (c) Copyright IBM Corp. 20011 All Rights Reserved. -->
+<project name="test_all" default="all" basedir=".">
+
+  <property name="args.logdir" value="log"/>
+  <property name="dita.dir" location="${user.home}/build/dita4publishers/dita4publishers/${dita.dirname}"/>
+  <property environment="env" />
+
+  <import file="sample_d4p-html5.xml"/>
+  <import file="sample_epub.xml"/>
+
+  <target name="echo-properties">
+  	<echoproperties/>
+  </target>
+
+  <target name="all" depends="samples"/>
+
+  <target name="samples" description="build the sample output" depends="echo-properties, samples.html5, samples.epub"/>
+
+
+</project>
