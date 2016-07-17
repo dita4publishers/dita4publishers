@@ -37,7 +37,7 @@ before_install:
   - ./travis/travis-before-install.sh
 
 script: "./travis/run-tests.sh"
-# Handle git submodules yourself
 
+# Handle git submodules yourself
 git:
   submodules: false
