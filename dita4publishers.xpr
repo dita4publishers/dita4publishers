@@ -6,12 +6,43 @@
             <serialized version="18.0" xml:space="preserve">
                 <serializableOrderedMap>
                     <entry>
+                        <String>ask.open.ditamap.in.dita.manager</String>
+                        <Integer>0</Integer>
+                    </entry>
+                    <entry>
+                        <String>dita.ot.directory</String>
+                        <String>${frameworksDir}/dita/DITA-OT</String>
+                    </entry>
+                    <entry>
+                        <String>dita.show.console.output</String>
+                        <Integer>0</Integer>
+                    </entry>
+                    <entry>
                         <String>enable.project.master.files.support</String>
+                        <Boolean>true</Boolean>
+                    </entry>
+                    <entry>
+                        <String>key.dita.option.pane</String>
                         <Boolean>true</Boolean>
                     </entry>
                     <entry>
                         <String>scenario.associations</String>
                         <scenarioAssociation-array>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>../../temp/replace-test.xsl</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>replace-test</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XML</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="url">
                                     <String>docs/user_docs/d4p-users-guide.ditamap</String>
@@ -1482,6 +1513,92 @@
                                     <String-array/>
                                 </field>
                             </ditaScenario>
+                            <scenario>
+                                <field name="advancedOptionsMap">
+                                    <null/>
+                                </field>
+                                <field name="name">
+                                    <String>replace-test</String>
+                                </field>
+                                <field name="baseURL">
+                                    <String></String>
+                                </field>
+                                <field name="footerURL">
+                                    <String></String>
+                                </field>
+                                <field name="fOPMethod">
+                                    <String>pdf</String>
+                                </field>
+                                <field name="fOProcessorName">
+                                    <String>Apache FOP</String>
+                                </field>
+                                <field name="headerURL">
+                                    <String></String>
+                                </field>
+                                <field name="inputXSLURL">
+                                    <String>${currentFileURL}</String>
+                                </field>
+                                <field name="inputXMLURL">
+                                    <String>${currentFileURL}</String>
+                                </field>
+                                <field name="defaultScenario">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="isFOPPerforming">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="type">
+                                    <String>XML</String>
+                                </field>
+                                <field name="saveAs">
+                                    <Boolean>true</Boolean>
+                                </field>
+                                <field name="openInBrowser">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="outputFile">
+                                    <null/>
+                                </field>
+                                <field name="outputResource">
+                                    <null/>
+                                </field>
+                                <field name="openOtherLocationInBrowser">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="locationToOpenInBrowserURL">
+                                    <null/>
+                                </field>
+                                <field name="openInEditor">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="showInHTMLPane">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="showInXMLPane">
+                                    <Boolean>true</Boolean>
+                                </field>
+                                <field name="showInSVGPane">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="showInResultSetPane">
+                                    <Boolean>false</Boolean>
+                                </field>
+                                <field name="useXSLTInput">
+                                    <Boolean>true</Boolean>
+                                </field>
+                                <field name="xsltParams">
+                                    <list/>
+                                </field>
+                                <field name="cascadingStylesheets">
+                                    <String-array/>
+                                </field>
+                                <field name="xslTransformer">
+                                    <String>Saxon-PE</String>
+                                </field>
+                                <field name="extensionURLs">
+                                    <String-array/>
+                                </field>
+                            </scenario>
                         </scenario-array>
                     </entry>
                 </serializableOrderedMap>
@@ -1491,6 +1608,8 @@
     <projectTree name="dita4publishers.xpr">
         <folder masterFiles="true" name="Master Files">
             <file name="toolkit_plugins/org.dita4publishers.word2dita/xsl/docx2dita.xsl"/>
+            <file name="../../workspace/dita-12-spec-errata/doctypes/src/1.3/schema/learning/xsd/learningGroupMap.xsd"/>
+            <file name="../../workspace/dita-12-spec-errata/doctypes/src/1.3/schema-url/learning/xsd/learningObjectMap.xsd"/>
             <file name="toolkit_plugins/org.dita4publishers.html2/xsl/map2html2Impl.xsl"/>
         </folder>
         <folder path="../../dita-ot/"/>
@@ -1503,12 +1622,16 @@
         <folder path="toolkit_plugins/"/>
         <folder path="../dita4publishers_io/"/>
         <folder path="../epub-font-obfuscator/"/>
+        <folder path="../../workspace-dita-community/"/>
         <folder path="../../workspace-dita-community/dita-test-cases/"/>
         <folder path="../../workspace-ditaot/"/>
+        <folder path="../../workspace-oasis/dita-rng-converter/"/>
+        <folder path="../../workspace/conference_papers/"/>
+        <folder path="../../workspace/dita-12-spec-dev/"/>
+        <folder path="../../workspace/dita-12-spec-errata/"/>
         <folder path="../../workspace/dita-12-spec/"/>
         <folder path="../../workspace/mekon/"/>
         <file name="docs/user_docs/d4p-users-guide.ditamap"/>
-        <file name="../../Downloads/DH0416.docx"/>
         <file name="docs/website/dita4publishers.ditamap"/>
         <file name="sample_data/epub-test/epub-test.ditamap"/>
         <file name="test/dita/image_scaling/imageSample/flowers.ditamap"/>
