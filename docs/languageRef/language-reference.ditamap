@@ -5,17 +5,15 @@
         <mainpubtitle>DITA4Publishers Language Reference</mainpubtitle>
     </pubtitle>
   <keydefs>
-    <keydef keys="language-reference-topic-type-specializations" format="ditamap" 
-      href="language-reference-topic-type-specializations.ditamap" />
-    <keydef keys="language-reference-domains" format="ditamap" 
-      href="language-reference-domains.ditamap" />
-    <keydef keys="language-reference-map-type-specializations" format="ditamap" 
-      href="language-reference-map-type-specializations.ditamap" />
   </keydefs>
     <publication>
-<!--        <topicref href="language-reference.dita" navtitle="Language reference" />-->
-      <mapref keyref="language-reference-topic-type-specializations" />
-      <mapref keyref="language-reference-domains" />
-      <mapref keyref="language-reference-map-type-specializations" />
+      <topicref keys="language-reference" href="language-reference.dita">
+        <mapref keys="language-reference-topic-type-specializations" 
+          href="language-reference-topic-type-specializations.ditamap" />
+        <mapref keys="language-reference-domains" 
+          href="language-reference-domains.ditamap" />
+        <mapref keys="language-reference-map-type-specializations" 
+          href="language-reference-map-type-specializations.ditamap" />
+      </topicref>
     </publication>
 </pubmap>

@@ -3,12 +3,13 @@
   PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
 <reference id="language-reference">
     <title>DITA4Publishers Language Reference</title>
-    <shortdesc><!-- For future use --></shortdesc>
+    <shortdesc>The language reference provides information about each element in the DITA4Publishers vocabulary modules.</shortdesc>
     <refbody>
         <refbodydiv outputclass="summary">
-            <section id="summary">
-                The language reference provides information about each element in the DITA4Publishers vocabulary modules. This is a work in progress. If there are specific aspects you would like fleshed out sooner rather than later, please email Steven Calderwood at stevenc@hkusa.com.
-            </section>
+            <section
+                id="summary"> This is a work in progress. If there are specific aspects you would
+                like fleshed out sooner rather than later, please email Steven Calderwood at
+                scalderwood@rsicms.com. </section>
         </refbodydiv>
     </refbody>
 </reference>

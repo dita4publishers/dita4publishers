@@ -35,8 +35,6 @@
     <topicmeta>
       <navtitle>Key Definitions</navtitle>
     </topicmeta>
-    <keydef keys="language-reference" href="../languageRef/language-reference.ditamap"
-      format="ditamap"/>
     <mapref href="keydefs-web-sites.ditamap"/>
   </keydefs>
   <publication>
@@ -240,7 +238,7 @@
         </chapter>
         <chapter
           href="d4p-users-guide/vocabulary-part/d4p-vocabulary-reference.xml">
-          <mapref keyref="language-reference"/>
+          <mapref href="../languageRef/language-reference.ditamap"/>          
         </chapter>
       </part>
       <part-mapref
