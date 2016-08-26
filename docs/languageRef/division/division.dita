@@ -3,7 +3,7 @@
   PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
 <reference id="division">
     <title>division</title>
-    <shortdesc><!-- For future use --></shortdesc>
+    <shortdesc>Titled division in a publication.</shortdesc>
     <prolog>
         <metadata>
             <keywords>
@@ -16,7 +16,14 @@
     </prolog>
     <refbody>
         <refbodydiv outputclass="summary">
-         <section id="summary">A division is a topic type for representing a title division in a publication or a chapter. So it can be a top-level topic in a publication. It can contain nested division, subsection, and sidebar topics.</section>
+         <section
+        id="summary">
+        <p>A division is a topic type for representing a titled division in a publication or a
+          chapter. So it can be a top-level topic in a publication. It can contain nested division,
+          subsection, and sidebar topics.</p>
+      </section>
+      <section
+        id="section_nhy_fh1_cx"/>
       </refbodydiv>
         <refbodydiv outputclass="d4p">
          <section id="d4p">This is a specialization of topic.</section>

@@ -1,69 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:dtd:pubmap" "urn:pubid:dita4publishers.org:doctypes:dita:dtd:pubmap">
 <pubmap>
-    <pubtitle>
-      <mainpubtitle>Topic Type Specializations</mainpubtitle>
-    </pubtitle>
-    <publication>
-      <topichead navtitle="Topic Type Specializations"> 
-      <topichead navtitle="article">
-                <topicref href="article/article.dita" navtitle="article" />
-                <topicref href="article/deck.dita" navtitle="deck" />
-            </topichead>
-            <topichead navtitle="chapter">
-                <topicref href="chapter/chapter.dita" navtitle="chapter" />
-            </topichead>
-            <topichead navtitle="conversion_configuration">
-                <topicref href="conversion_configuration/conversion_configuration.dita" navtitle="conversion_configuration" />
-            </topichead>
-            <topichead navtitle="concept">
-                <topicref href="concept/concept.dita" navtitle="concept" />
-            </topichead>
-            <topichead navtitle="d4pCover">
-                <topicref href="d4pCover/d4pCover.dita" navtitle="d4pCover" />
-            </topichead>
-            <topichead navtitle="d4pExercise">
-                <topicref href="d4pExercise/d4pExercise.dita" navtitle="d4pExercise" />
-                <topicref href="d4pExercise/d4pExerciseBody.dita" navtitle="d4pExerciseBody" />
-                <topicref href="d4pExercise/d4pInstructorNotes.dita" navtitle="d4pInstructorNotes" />
-                <topicref href="d4pExercise/d4pStudentNotes.dita" navtitle="d4pStudentNotes" />
-            </topichead>
-            <topichead navtitle="d4pSlide">
-                <topicref href="d4pSlide/d4pInstructorNotes.dita" navtitle="d4pInstructorNotes" />
-                <topicref href="d4pSlide/d4pSlide.dita" navtitle="d4pSlide" />
-                <topicref href="d4pSlide/d4pSlideBody.dita" navtitle="d4pSlideBody" />
-                <topicref href="d4pSlide/d4pStudentNotes.dita" navtitle="d4pStudentNotes" />
-            </topichead>
-            <topichead navtitle="division">
-                <topicref href="division/division.dita" navtitle="division" />
-            </topichead>
-            <topichead navtitle="part">
-                <topicref href="part/part.dita" navtitle="part" />
-            </topichead>
-            <topichead navtitle="reference">
-                <topicref href="reference/reference.dita" navtitle="reference" />
-            </topichead>
-            <topichead navtitle="report">
-                <topicref href="report/report.dita" navtitle="report" />
-            </topichead>
-            <topichead navtitle="sidebar">
-                <topicref href="sidebar/sidebar.dita" navtitle="sidebar" />
-            </topichead>
-            <topichead navtitle="style2tagmap">
-                <topicref href="style2tagmap/style2tagmap.dita" navtitle="style2tagmap" />
-            </topichead>
-            <topichead navtitle="subsection">
-                <topicref href="subsection/subsection.dita" navtitle="subsection" />
-            </topichead>
-            <topichead navtitle="task">
-                <topicref href="task/task.dita" navtitle="task" />
-            </topichead>
-            <topichead navtitle="topic">
-                <topicref href="topic/topic.dita" navtitle="topic" />
-            </topichead>
-            <topichead navtitle="topic_mathonly">
-                <topicref href="topic_mathonly/topic_mathonly.dita" navtitle="topic_mathonly" />
-            </topichead>
-      </topichead>           
-    </publication>
+  <topicref
+    href="topic-type-specializations.dita"
+    keys="langref.topic-type-specializations">
+    <topicref
+      href="article/article.dita">
+      <topicref
+        href="article/deck.dita"
+        keys="langref.elem.deck"/>
+    </topicref>
+    <topicref
+      href="chapter/chapter.dita"
+      keys="langref.elem.chapter langref.topictype.chapter"/>
+    <topicref
+      href="conversion_configuration/conversion_configuration.dita"
+      keys="langref.elem.conversion_configuration langref.topictype.conversion_configuration"/>
+    <topicref
+      href="concept/concept.dita"
+      keys="langref.elem.concept langref.topictype.concept"/>
+    <topicref
+      href="d4pCover/d4pCover.dita"
+      keys="langref.elem.d4pCover langref.topictype.d4pCover">
+      <topicref
+        href="d4pCover/d4pCoverTitle.dita"
+        keys="langref.elem.d4pCoverTitle"/>
+    </topicref>
+    <topicref
+      href="d4pExercise/d4pExercise.dita"
+      keys="langref.elem.d4pExercise langref.topictype.d4pExercise">
+      <topicref
+        href="d4pExercise/d4pExerciseBody.dita"
+        keys="langref.elem.d4pExerciseBody"/>
+    </topicref>
+    <topicref
+      href="d4pSlide/d4pSlide.dita"
+      keys="langref.elem.d4pSlide langref.topictype.d4pSlide">
+      <topicref
+        href="d4pExercise/d4pInstructorNotes.dita"
+        keys="langref.elem.d4pInstructorNotes "/>
+      <topicref
+        href="d4pSlide/d4pSlideBody.dita"
+        keys="langref.elem.d4pSlideBody"/>
+      <topicref
+        href="d4pExercise/d4pStudentNotes.dita"
+        keys="langref.elem.d4pStudentNotes"/>
+    </topicref>
+    <topicref
+      href="division/division.dita"
+      keys="langref.elem.division langref.topictype.division"/>
+    <topicref
+      href="part/part.dita"
+      keys="langref.elem.part langref.topictype.part"/>
+    <topicref
+      href="reference/reference.dita"
+      keys="langref.elem.reference langref.topictype.reference"/>
+    <topicref
+      href="sidebar/sidebar.dita"
+      keys="langref.elem.sidebar langref.topictype.sidebar"/>
+    <topicref
+      href="style2tagmap/style2tagmap.dita"
+      keys="langref.elem.style2tagmap langref.topictype.style2tagmap"/>
+    <topicref
+      href="subsection/subsection.dita"
+      keys="langref.elem.subsection langref.topictype.subsection"/>
+    <topicref
+      href="task/task.dita"
+      keys="langref.elem.task langref.topictype.task"/>
+    <topicref
+      href="topic/topic.dita"
+      keys="langref.elem.topic langref.topictype.topic"/>
+    <topicref
+      href="topic_mathonly/topic_mathonly.dita"
+      keys="langref.elem.topic_mathonly langref.topictype.topic_mathonly"/>
+  </topicref>
 </pubmap>

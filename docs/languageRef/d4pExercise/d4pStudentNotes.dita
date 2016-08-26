@@ -16,10 +16,12 @@
     </prolog>
     <refbody>
         <refbodydiv outputclass="summary">
-         <section id="summary">d4pStudentNotes represents an excerise's notes for a student.</section>
+         <section
+        id="summary">d4pStudentNotes represents a slides notes for a student.</section>
       </refbodydiv>
         <refbodydiv outputclass="d4p">
-         <section id="d4p">d4pStudentNotes is a specialization of learningContent.</section>
+         <section
+        id="d4p">d4pStudentNotes is a specialization of <xmlelem>section</xmlelem>.</section>
       </refbodydiv>    	    
         <refbodydiv outputclass="contains">
          <section id="contains"/>
@@ -30,7 +32,8 @@
       <refbodydiv outputclass="inheritance">
         <section id="inheritance">
           <title>Inheritance</title>
-          <p>- topic/body  learningBase/section learningContent/section d4pExercise/d4pStudentNotes </p>
+          <p>- topic/section learningBase/section learningContent/section
+          d4pExercise/d4pStudentNotes </p>
         </section>
       </refbodydiv>
         <refbodydiv outputclass="example1">

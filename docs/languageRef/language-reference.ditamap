@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:dtd:pubmap" "urn:pubid:dita4publishers.org:doctypes:dita:dtd:pubmap">
 <pubmap>
-    <pubtitle>
-        <mainpubtitle>DITA4Publishers Language Reference</mainpubtitle>
-    </pubtitle>
-  <keydefs>
-  </keydefs>
-    <publication>
-      <topicref keys="language-reference" href="language-reference.dita">
-        <mapref keys="language-reference-topic-type-specializations" 
-          href="language-reference-topic-type-specializations.ditamap" />
-        <mapref keys="language-reference-domains" 
-          href="language-reference-domains.ditamap" />
-        <mapref keys="language-reference-map-type-specializations" 
-          href="language-reference-map-type-specializations.ditamap" />
-      </topicref>
-    </publication>
+  <mapref  
+    href="language-reference-topic-type-specializations.ditamap" />
+  <mapref  
+    href="language-reference-domains.ditamap" />
+  <mapref  
+    href="language-reference-map-type-specializations.ditamap" />
 </pubmap>

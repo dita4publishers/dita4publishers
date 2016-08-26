@@ -35,7 +35,8 @@
     <topicmeta>
       <navtitle>Key Definitions</navtitle>
     </topicmeta>
-    <mapref href="keydefs-web-sites.ditamap"/>
+    <mapref
+      href="keydefs-web-sites.ditamap"/>
   </keydefs>
   <publication>
     <covers>
@@ -187,7 +188,9 @@
               href="d4p-users-guide/html2-plugin/reference/ant-parm-generateStaticToc.xml"/>
           </subsection>
         </chapter>
-        <topicref href="d4p-users-guide/html5-plugin/html5-plugin.ditamap" format="ditamap"/>
+        <topicref
+          format="ditamap"
+          href="d4p-users-guide/html5-plugin/html5-plugin.ditamap"/>
         <chapter href="d4p-users-guide/word2dita/word-to-dita-plugin.xml"
           keys="generating-dita-from-documents"/>
         <chapter
@@ -237,8 +240,10 @@
             href="d4p-users-guide/vocabulary-part/integrating-attribute-domains.xml"/>
         </chapter>
         <chapter
-          href="d4p-users-guide/vocabulary-part/d4p-vocabulary-reference.xml">
-          <mapref href="../languageRef/language-reference.ditamap"/>          
+          href="d4p-users-guide/vocabulary-part/d4p-vocabulary-reference.xml"
+          keys="langref.language-reference">
+          <mapref
+            href="../languageRef/language-reference.ditamap"/>
         </chapter>
       </part>
       <part-mapref

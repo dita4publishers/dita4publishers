@@ -3,7 +3,7 @@
   PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
 <reference id="report">
     <title>report</title>
-    <shortdesc><!-- For future use --></shortdesc>
+    <shortdesc>Report publication map.</shortdesc>
     <prolog>
         <metadata>
             <keywords>
@@ -16,10 +16,15 @@
     </prolog>
     <refbody>
         <refbodydiv outputclass="summary">
-         <section id="summary">A report is a map type for representing a report. Reports will have components, such as articles or other topic types.</section>
+         <section
+        id="summary">
+        <p>The report map type represents an entire report. It mainly serves to signal report-type
+          formatting.</p>
+      </section>
       </refbodydiv>
         <refbodydiv outputclass="d4p">
-         <section id="d4p">This is a specialization of the base map type.</section>
+         <section
+        id="d4p"/>
       </refbodydiv>    	    
         <refbodydiv outputclass="contains">
          <section id="contains"/>
@@ -28,7 +33,8 @@
          <section id="contains-by"/>
       </refbodydiv>    
         <refbodydiv outputclass="inheritance">
-          <section id="inheritance">- map/map report/report </section>
+          <section
+        id="inheritance">- map/map report/report </section>
       </refbodydiv>
         <refbodydiv outputclass="example1">
          <section id="example1"/>

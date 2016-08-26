@@ -16,7 +16,13 @@
     </prolog>
     <refbody>
         <refbodydiv outputclass="summary">
-         <section id="summary">epigraph represents a brief quotation used to introduce a piece of writing or the inscription on a statue or building.</section>
+         <section
+        id="summary">
+        <p>An epigraph represents a brief quotation used to introduce a piece of writing or the
+          inscription on a statue or building.</p>
+        <p>Compare with <xmlelem
+            keyref="langref.elem.epigram">epigram</xmlelem>.</p>
+      </section>
       </refbodydiv>
         <refbodydiv outputclass="d4p">
          <section id="d4p">epigraph is a specialization of bodydiv.</section>
