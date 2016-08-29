@@ -750,8 +750,6 @@
       <property name="args.outext" value="html"/>
       <property name="args.copycss" value="yes"/>
     	<property name="args.css" location="/${basedir}/src/css/d4p-docs-html5.css"/>
-    	<property name="args.csspath" value="css"/>
-    	<property name="args.cssroot" value="css"/>
     	<property name="args.hide.parent.link" value="yes"/>
     	<property name="d4p.html5.json.vars.file" location="${output.dir}/json.vars"/>
       <property name="generate.copy.outer" value="2"/>
@@ -884,7 +882,8 @@
     </replace>
 
 
-    <antcall target="epub-d4p-user-guide"/>
+	  <antcall target="html5-d4p-user-guide"/>
+	  <antcall target="epub-d4p-user-guide"/>
 		<antcall target="kindle-d4p-user-guide"/>
 		<!-- <antcall target="indesign-d4p-user-guide"/> -->
     <antcall target="pdf-d4p-user-guide"/>
