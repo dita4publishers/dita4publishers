@@ -24,9 +24,9 @@
       href="epub-transtype-parameters-ref.xml">
       <topicref
         href="reference/ant-parm-coverGraphicFile.xml"
-        keys="ant-param_cover.graphic.file"/>
+        keys="ant-param_cover.graphic.file paramref-cover-graphic-file"/>
       <topicref href="reference/ant-parm-epubtype.xml"
-        keys="parmref-d4p-epubtype"/>
+        keys="parmref-d4p-epubtype ant-param-d4p-epubtype"/>
       <topicref
         href="reference/ant-parm-d4pMaxNavDepth.xml"
         keys="ant-param_d4p.max.nav.depth"/>
@@ -41,6 +41,9 @@
         keys="paramref-epub-font-manifest"/>
       <topicref href="reference/ant-parm-epub-font-output-dir.xml"
         keys="paramref-epub-fonts-output-dir"/>
+      <topicref
+        href="reference/ant-parm-epub-javascript-dir.xml"
+        keys="ant-param_epub-javascript-dir paramref-epub-javascript-dir"/>
       <topicref
         href="reference/ant-parm-epub-javascript-file.xml"
         keys="paramref-epub-javascript-file"/>

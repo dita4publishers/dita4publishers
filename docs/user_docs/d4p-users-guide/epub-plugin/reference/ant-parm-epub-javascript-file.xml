@@ -6,6 +6,11 @@
     and referenced from every generated HTML file.</shortdesc>
   <refbody>
     <section
+      id="section_uzg_5rc_dx">
+      <p>The JavaScript file will be put in the EPUB package in the directory specified for the <xref
+          keyref="paramref-epub-javascript-dir"/>.</p>
+    </section>
+    <section
       spectitle="Value">
       <p>The source location as a URI or system-specific path of a JavaScript file.</p>
     </section>
