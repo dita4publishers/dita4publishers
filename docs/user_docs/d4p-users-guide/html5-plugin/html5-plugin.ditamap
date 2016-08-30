@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:dtd:pubmap" "urn:pubid:dita4publishers.org:doctypes:dita:dtd:pubmap">
-<pubmap>
-  <pubtitle>
-    <mainpubtitle>DITA for Publishers HTML5 Plugin</mainpubtitle>
-  </pubtitle>
+<!DOCTYPE pub-component-map PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:dtd:pub-component-map" "pub-component-map.dtd">
+<pub-component-map>
+  <title>DITA for Publishers HTML5 Plugin</title>
   <pubmeta>
     <data name="version" value="Alpha"></data>
   </pubmeta>
-  <mapref href="keys.ditamap"/>
-  <mapref href="keys-external.ditamap"/>
+  <keydefs>
+    <keydef-group-mapref href="keys.ditamap"/>
+    <keydef-group-mapref href="keys-external.ditamap"/>
+  </keydefs>
   
   <chapter keys="chapter-html5-intro" keyref="html5-intro" collection-type="sequence">
     <topicref keys="html5-gs" keyref="html5-getting-started-topic">
@@ -49,4 +49,4 @@
       <topicref keys="html5-reference-ant-properties" keyref="html5-plugin-ant-properties"/>
     </topicref>
   </chapter>
-</pubmap>
+</pub-component-map>

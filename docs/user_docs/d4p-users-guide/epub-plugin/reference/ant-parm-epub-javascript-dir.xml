@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference id="ref-epub.fonts.output.dir">
+  <title>epub.javascript.dir Ant parameter</title>
+  <shortdesc>Specifies the directory, within the EPUB package, to put any JavaScript file included
+    using the <ph><xref
+        keyref="paramref-epub-javascript-file"/></ph>. </shortdesc>
+  <refbody>
+    <section
+      spectitle="Value">
+      <p>A relative directory path using URL syntax, e.g. "<filepath>src/javascript</filepath>".</p>
+    </section>
+    <section
+      spectitle="Default">
+      <p>"<filepath>js</filepath>"</p>
+    </section>
+  </refbody>
+</reference>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pub-component-map PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:dtd:pub-component-map" "pub-component-map.dtd">
+<pub-component-map>
+  <title>Map-Driven Processing Chapter</title>
+  <keydefs>
+  </keydefs>
+  <chapter
+    href="map-driven-processing.xml">
+    <subsection
+      href="data-collection.xml"/>
+    <subsection
+      href="enumeration.xml"/>
+    <subsection
+      href="index-generation.xml"/>
+    <subsection
+      href="graphic-map-generation.xml"/>
+  </chapter>  
+</pub-component-map>
