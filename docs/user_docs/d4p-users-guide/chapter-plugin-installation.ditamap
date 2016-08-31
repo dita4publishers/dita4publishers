@@ -5,7 +5,8 @@
   </keydefs>
   <chapter href="tasks/plugin-installation.xml"
     keys="installing-toolkit-plugins">
-    <subsection keys="setting-up-kindlegen" 
-      href="epub-plugin/setting-up-kindlegen.xml"/>
+    <subsection
+      href="epub-plugin/setting-up-kindlegen.xml"
+      keys="setting-up-kindlegen epub.setting-up-kindlegen"/>
   </chapter>
 </pub-component-map>

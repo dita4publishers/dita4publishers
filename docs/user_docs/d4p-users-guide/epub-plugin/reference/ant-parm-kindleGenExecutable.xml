@@ -26,9 +26,7 @@
     </section>
     <section
       spectitle="Notes">
-      <p>See <xref
-        href="../setting-up-kindlegen.xml#conceptId"
-        format="dita"/>.</p>
+      <p>See <xref keyref="epub.setting-up-kindlegen"/>.</p>
     </section>
   </refbody>
 </reference>

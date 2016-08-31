@@ -17,9 +17,8 @@
       may be used any Kindle reader or published through Amazon. The Kindle books have been tested
       with several different Kindle emulators and Mobipocket readers, as well as by publishing a
       sample book through Amazon's Kindle publishing process.</p>
-    <p>See <xref
-      href="../tasks/plugin-installation.xml#taskId"
-      format="dita"/> for instructions on how to install the EPUB and Kindle plugins to the DITA Open Toolkit.</p>
+    <p>See <xref keyref="installing-toolkit-plugins"
+/> for instructions on how to install the EPUB and Kindle plugins to the DITA Open Toolkit.</p>
     <p>The plugins do not require any specific markup in order to get a usable EPUB or Kindle book. However, the plugin does take advantage of specific markup in order to generate EPUB- and Kindle-specific features such as cover graphics, book identifiers, and so on.</p>
     <p>The EPUB plugin defines the transformation type "epub" (Ant target "dita2epub"). It is based on the standard HTML transformation type and therefore takes all the same parameters as the HTML transformation type. All EPUB-specific parameters are optional.</p>
     <p>The Kindle plugin defines the transformation type "kindle" (Ant target "dita2kindle"). It is

@@ -12,8 +12,7 @@
       </dlentry>
       <dlentry>
         <dt><xmlelem>epigraph</xmlelem></dt>
-        <dd>A brief quotation used to introduce a piece of writing. See <xref href="http://www.wsu.edu/%7Ebrians/errors/epigram.html" format="html" scope="external"
-          >http://www.wsu.edu/~brians/errors/epigram.html</xref>.</dd>
+        <dd>A brief quotation used to introduce a piece of writing. See <xref keyref="website-epigram-definition"/>.</dd>
       </dlentry>
       <dlentry>
         <dt><xmlelem>section-pullquote</xmlelem></dt>

@@ -53,9 +53,7 @@
       <p>The scenario should be ready to use. You can test it by applying it to any DITA map. The Kindle file is generated in whatever you've configured as the output directory using the normal output location configuration (as specified in the Output tab of the transformation scenario configuration dialog.</p>
       <p>If you select the "Open in browser" option in the transformation scenario's Output panel and you have an application associated with .mobi files, such as the Kindle Previewer or the Kindle book reader application, then the newly-generated book should open in that application. </p>
       <p>The Kindle generation process and resulting data is almost identical to the EPUB output, so all the EPUB parameters are also relevant for Kindle output. </p>
-      <p>You can edit the scenario to add additional EPUB or Kindle parameters as necessary. Simply open the scenario in the Scenario Editor, select the "add parameter" button, and create the parameter. The EPUB-specific parameters are documented in <xref
-        href="epub-transtype-parameters-ref.xml#conceptId"
-        format="dita"/>.</p>
+      <p>You can edit the scenario to add additional EPUB or Kindle parameters as necessary. Simply open the scenario in the Scenario Editor, select the "add parameter" button, and create the parameter. The EPUB-specific parameters are documented in <xref keyref="epub-transformation-parameters"/>.</p>
     </result>
   </taskbody>
 </task>

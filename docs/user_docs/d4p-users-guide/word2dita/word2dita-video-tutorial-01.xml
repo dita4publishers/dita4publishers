@@ -18,17 +18,13 @@
     <note>
       <p>The video is served from the Screencast.com site.</p>
     </note>
-    <p d4p_renditionTarget="pdf epub">The video tutorial is at <xref
-      href="http://www.screencast.com/t/5NQQRhO1mXC"
-      format="html"
-      scope="external">http://www.screencast.com/t/5NQQRhO1mXC</xref> on the Screencast site.</p>
+    <p d4p_renditionTarget="pdf epub">The video tutorial is at <xref keyref="website-word2dita-video-tutorial"
+/> on the Screencast site.</p>
     <fig d4p_renditionTarget="html"
       id="word2dita-video-tutorial-01">
       <title>Word-to-DITA Video Tutorial: Technical Document Style to Tag Mapping</title>
-      <p>External video link: <xref
-        href="http://www.screencast.com/t/5NQQRhO1mXC"
-        format="html"
-        scope="external">http://www.screencast.com/t/5NQQRhO1mXC</xref></p>
+      <p>External video link: <xref keyref="website-word2dita-video-tutorial"
+/></p>
       <object d4p_renditionTarget="html"
         id="scPlayer"
         outputclass="embeddedObject"

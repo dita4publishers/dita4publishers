@@ -28,9 +28,7 @@
     </section>
     <section
       spectitle="Notes">
-      <p>See <xref
-        href="../creating-cover-graphics.xml#conceptId"
-        format="dita"/> for more information about EPUB-specific cover graphics and alternative ways of specifying the graphic to use.</p>
+      <p>See <xref keyref="epub.creating-cover-graphics"/> for more information about EPUB-specific cover graphics and alternative ways of specifying the graphic to use.</p>
     </section>
   </refbody>
 </reference>

@@ -18,7 +18,8 @@
     <subsection
       href="troubleshooting-word2dita.xml"/>
     <subsection
-      href="word2dita-video-tutorial-01.xml"/>
+      href="word2dita-video-tutorial-01.xml"
+      keys="word2dita.style-to-tag-mapping-video-tutorial"/>
     <subsection href="customizing-the-transform.xml" keys="w2d-extending-and-overridding">
       <subsection href="sample-customization-transform.xml"/>
     </subsection>

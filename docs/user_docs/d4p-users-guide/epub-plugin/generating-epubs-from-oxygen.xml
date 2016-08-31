@@ -52,9 +52,8 @@
     <result>
       <p>The scenario should be ready to use. You can test it by applying it to any DITA map. The EPUB file is generated in whatever you've configured as the output directory using the normal output location configuration (as specified in the Output tab of the transformation scenario configuration dialog. </p>
       <p>If you select the "Open in browser" option in the transformation scenario's output options and you have an application associated with .epub files, such as Adobe Digital Editions, the newly-generated EPUB should open in that application. Note that in OxygenXML 12 you have the option of associating EPUB files with OxygenXML, which can open them in its Archive Browser. If you have that association, then doing "Open in browser" will open the EPUB in OxygenXML, not in an EPUB viewer.</p>
-      <p>You can edit the scenario to add additional EPUB parameters as necessary. Simply open the scenario in the Scenario Editor, select the "add parameter" button, and create the parameter. The EPUB-specific parameters are documented in <xref
-        href="epub-transtype-parameters-ref.xml#conceptId"
-        format="dita"/>.</p>
+      <p>You can edit the scenario to add additional EPUB parameters as necessary. Simply open the scenario in the Scenario Editor, select the "add parameter" button, and create the parameter. The EPUB-specific parameters are documented in <xref keyref="epub-transformation-parameters"
+/>.</p>
     </result>
   </taskbody>
 </task>

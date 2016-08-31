@@ -20,14 +20,8 @@
     <p>The DITA-to-InDesign transformation is configured through a simple-to-modify XSLT module that maps DITA elements in context to InDesign style names.</p>
     <p>When requirements are not too extreme it is possible to get a demonstrable end-to-end-with-DITA-in-the-middle system going in less than a day, including defining custom vocabulary modules.</p>
     <p>These frameworks don't do everything you may want to have and are not intended to compete with or replace commercial tools. They are intended primarily to get you started and to provide a starting point for further development and extension.</p>
-    <p>For example, Word-based authoring can be made more effective and reliable by using Word macros to guide authors in styling. Likewise, InDesign scripting can go a long way toward automating some repetitive layout tasks by taking advantage of the additional structure provided by base markup. There are a number of commercial products that offer support for authoring XML in Word or generating XML from styled word, such as the Inera eXstyles product (<xref
-      href="http://www.inera.com/"
-      format="html"
-      scope="external">www.inera.com</xref>).</p>
+    <p>For example, Word-based authoring can be made more effective and reliable by using Word macros to guide authors in styling. Likewise, InDesign scripting can go a long way toward automating some repetitive layout tasks by taking advantage of the additional structure provided by base markup. There are a number of commercial products that offer support for authoring XML in Word or generating XML from styled word, such as the Inera eXstyles product (<xref keyref="website-inera"/>).</p>
     <p>Finally, the production of complete, print-ready publications from XML through InDesign is an inherently challenging process. The DITA For Publishers DITA-to-InDesign framework does not attempt to solve that problem. It is intended primarily to support processes where designers must be directly involved in the layout, such as magazine production, or where there is no attempt to completely automate composition, but simply to provide the input to an more traditional manual layout process.</p>
-    <p>To fully automate production from XML the Typefi product is the best solution (<xref
-      href="http://www.typefi.com"
-      format="html"
-      scope="external">www.typefi.com</xref>). Typefi enables up to 100% automation of InDesign-based production where book design is consistent across titles, e.g., for series publications like travel guides, journals, and so on. Typefi provides a level of sophistication that would be impossible (and pointless) to replicate. Typefi is a for-cost product but it offers a tremendous value when automated composition is a requirement. </p>
+    <p>To fully automate production from XML the Typefi product is the best solution (<xref keyref="website-typefi-com"/>). Typefi enables up to 100% automation of InDesign-based production where book design is consistent across titles, e.g., for series publications like travel guides, journals, and so on. Typefi provides a level of sophistication that would be impossible (and pointless) to replicate. Typefi is a for-cost product but it offers a tremendous value when automated composition is a requirement. </p>
   </body>
 </part>

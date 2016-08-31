@@ -38,9 +38,8 @@
       <ul
         id="ul_604ba75a-0970-4473-ac8b-9c1e8b36a1bc">
         <li>Added more how-to and troubleshooting information for Word-to-DITA transform.</li>
-        <li>Recorded video tutorial for Word-to-DITA style-to-tag mapping development. See <xref
-          href="../word2dita/word2dita-video-tutorial-01.xml#conceptId"
-          format="dita"/>.</li>
+        <li>Recorded video tutorial for Word-to-DITA style-to-tag mapping development. See <xref keyref="word2dita.style-to-tag-mapping-video-tutorial"
+/>.</li>
       </ul>
     </section>
   </conbody>

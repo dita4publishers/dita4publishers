@@ -16,8 +16,7 @@
     <p>For example, with iBooks, if you put the metadata entry <codeph>&lt;meta name="cover" content="coverimage"/></codeph> in your EPUB's OPF file (the main manifest), where "coverimage" is the manifest ID of an included graphic, then iBooks will use that graphic in the iBooks bookshelf in iTunes and in iBooks, rather than the default cover graphic. Other readers and EPUB libraries have similar features.</p>
     <p>The EPUB transform provides several ways to specify the cover graphic:<ul>
       <li>You can specify the graphic as a parameter to the generation process (<xref
-         keyref="ant-param_cover.graphic.file"
-        format="dita"/>)</li>
+         keyref="ant-param_cover.graphic.file"/>)</li>
       <li>You can include a <codeph>&lt;data></codeph> element with a @name value of "covergraphic" in the root map's <xmlelem>topicmeta</xmlelem> element, where the value or content of the <xmlelem>data</xmlelem> element is the absolute or relative path (from the map) of the graphic to use.</li>
       <li>You can use the DITA for Publishers
         <xmlelem>epub-cover-graphic</xmlelem> element within the

@@ -14,5 +14,85 @@
         <linktext>https://github.com/dita4publishers/d4p-word2dita/issues</linktext>
       </topicmeta>
     </keydef>
+    <keydef keys="website-d4p-org"
+      scope="external"
+      format="html"
+      href="http://dita4publishers.org">
+      <topicmeta>
+        <linktext>dita4publishers.org</linktext>
+      </topicmeta>
+    </keydef>
+    <keydef keys="website-typefi-com"
+      scope="external"
+      format="html"
+      href="http://typefi.com">
+      <topicmeta>
+        <linktext>typefi.com</linktext>
+      </topicmeta>
+    </keydef>
+    <keydef keys="website-d4p-github"
+      scope="external"
+      format="html"
+      href="http://github.com/dita4publishers">
+      <topicmeta>
+        <linktext>github.com/dita4publishers</linktext>
+      </topicmeta>
+    </keydef>
+    <keydef keys="website-d4p-github-project"
+      scope="external"
+      format="html"
+      href="http://github.com/dita4publishers/dita4publishers">
+      <topicmeta>
+        <linktext>github.com/dita4publishers/dita4publishers</linktext>
+      </topicmeta>
+    </keydef>
+    <keydef keys="website-dita-community-github"
+      scope="external"
+      format="html"
+      href="http://github.com/dita-community">
+      <topicmeta>
+        <linktext>github.com/dita-community</linktext>
+      </topicmeta>
+    </keydef>
+    <keydef keys="website-apache-org"
+      scope="external"
+      format="html"
+      href="http://ant.apache.org">
+      <topicmeta>
+        <linktext>http://ant.apache.org</linktext>
+      </topicmeta>
+    </keydef>
+    <keydef keys="website-inera"
+      scope="external"
+      format="html"
+      href="http://www.inera.com/">
+      <topicmeta>
+        <linktext>http://www.inera.com/</linktext>
+      </topicmeta>
+    </keydef>
+    <keydef keys="website-epigram-definition"
+      scope="external"
+      format="html"
+      href="http://www.wsu.edu/%7Ebrians/errors/epigram.html">
+      <topicmeta>
+        <linktext>http://www.wsu.edu/%7Ebrians/errors/epigram.html</linktext>
+      </topicmeta>
+    </keydef>
+    <keydef keys="website-slidinator-project"
+      scope="external"
+      format="html"
+      href="https://github.com/drmacro/slidinator">
+      <topicmeta>
+        <linktext>github.com/drmacro/slidinator</linktext>
+      </topicmeta>
+    </keydef>
+    <keydef keys="website-word2dita-video-tutorial"
+      scope="external"
+      format="html"
+      href="http://www.screencast.com/t/5NQQRhO1mXC">
+      <topicmeta>
+        <linktext>http://www.screencast.com/t/5NQQRhO1mXC</linktext>
+      </topicmeta>
+    </keydef>
   </keydefs>
 </pub-component-map>

@@ -80,8 +80,7 @@
       </dlentry>
       <dlentry>
         <dt>d4pSlide</dt>
-        <dd>Represents a single slide within a presentation. Designed for use with the separate Slidinator tool (<xref href="https://github.com/drmacro/slidinator" format="html" scope="external"
-          >https://github.com/drmacro/slidinator</xref>), which can generate PowerPoint slide decks (and other forms of slide presentation) from DITA documents.</dd>
+        <dd>Represents a single slide within a presentation. Designed for use with the separate Slidinator tool (<xref keyref="website-slidinator-project"/>), which can generate PowerPoint slide decks (and other forms of slide presentation) from DITA documents.</dd>
       </dlentry>
       </dl></p>
     <p>The topic domain specializations are:<dl>
