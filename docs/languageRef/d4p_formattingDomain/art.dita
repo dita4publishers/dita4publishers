@@ -3,7 +3,7 @@
   PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
 <reference id="art">
     <title>art</title>
-    <shortdesc><!-- For future use --></shortdesc>
+    <shortdesc>Art container.</shortdesc>
     <prolog>
         <metadata>
             <keywords>
@@ -16,10 +16,28 @@
     </prolog>
     <refbody>
         <refbodydiv outputclass="summary">
-         <section id="summary">art is like a figure and often has a title (using art_title). It holds images, objects, or foreign elements. Unlike figure it is not usually automatically numbered by processors. So if you need an unnumbered figure, then art is an option.</section>
+         <section
+        id="summary">
+        <p>The <xmlelem>art</xmlelem> element enables associating metadata and a descriptive title
+          with references to images or other media objects. It's primary purpose is to serve as a
+          "managed object" in a re-use or content management context.</p>
+        <p>Because the base <xmlelem>image</xmlelem> element doesn't allow <xmlelem>data</xmlelem>
+          elements in its content there's no direct way to associate classifying or descriptive
+          metadata with <xmlelem>image</xmlelem> elements. Thus the <xmlelem>art</xmlelem> element
+          provides a way to do it.</p>
+        <p>The <xmlelem>art</xmlelem> element is for use in block contexts (anywhere
+            <xmlelem>p</xmlelem> is allowed). The <xmlelem
+            keyref="langref.elem.art-ph">art-ph</xmlelem> element is for use in phrase contexts
+          (anywhere <xmlelem>ph</xmlelem> is allowed).</p>
+        <p>With DITA 1.3 the <xmlelem>art</xmlelem> element could be specialized from
+            <xmlelem>div</xmlelem>, which would remove the need for separate <xmlelem>art</xmlelem>
+          and <xmlelem
+            keyref="langref.elem.art-ph">art-ph</xmlelem> element types.</p>
+      </section>
       </refbodydiv>
         <refbodydiv outputclass="d4p">
-         <section id="d4p">art is specialized from p.</section>
+         <section
+        id="d4p"><xmlelem>art</xmlelem> is specialized from <xmlelem>p</xmlelem>.</section>
       </refbodydiv>    	    
         <refbodydiv outputclass="contains">
          <section id="contains"/>
