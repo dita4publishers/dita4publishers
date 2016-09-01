@@ -55,7 +55,12 @@
         href="d4p-users-guide/topics/about-this-book.xml"/>
       <topicref
         href="d4p-users-guide/release-notes/release-notes.xml">
-        <topicref href="d4p-users-guide/release-notes/release-notes-1.0.0RC20.xml"/>
+        <topicref
+          href="d4p-users-guide/release-notes/release-notes-1.0.0RC25.xml"
+          keys="relnotes-1_0_0RC25"/>
+        <topicref
+          href="d4p-users-guide/release-notes/release-notes-1.0.0RC20.xml"
+          keys="relnotes-1_0_0RC20"/>
         <topicref href="d4p-users-guide/release-notes/release-notes-1.0.0RC19.xml"
           keys="relnotes-1_0_0RC19"/>
         <topicref href="d4p-users-guide/release-notes/release-notes-1.0.0RC17.xml"
@@ -92,7 +97,8 @@
       <part keys="part-toolkit-plugins"
         href="d4p-users-guide/introduction-chapter.xml">
         <chapter-mapref href="d4p-users-guide/chapter-plugin-installation.ditamap"/>
-        <chapter-mapref href="d4p-users-guide/epub-plugin/chapter-epub-generation.ditamap"/>
+        <chapter-mapref
+          href="d4p-users-guide/epub-plugin/chapter-epub-generation.ditamap"/>
         <chapter-mapref href="d4p-users-guide/map-driven-processing/chapter-map-driven-processing.ditamap"/>
         <chapter-mapref href="d4p-users-guide/html2-plugin/chapter-html2-plugin.ditamap"/>        
         <chapter-mapref
