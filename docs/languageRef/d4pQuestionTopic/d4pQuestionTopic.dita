@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference
+  id="d4pCover">
+  <title>d4pQuestionTopic</title>
+  <shortdesc>Single-question topic</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>d4pQuestionTopic</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <refbodydiv
+      outputclass="summary">
+      <section
+        id="summary">
+        <p>The <xmlelem>d4pQuestionTopic</xmlelem> topic type is intended to hold a single
+          assessment question (e.g., using the DITA Learning and Training interaction element
+          types).</p>
+        <p>Question topics can be used simply to organize questions for reuse via content reference.
+          This is particularly useful in content management systems, where the question topic can
+          provide a descriptive title and additional metadata associated with the question.</p>
+        <p>You can also use question topics from maps in order to construct tests at the map level,
+          something you cannot do with Learning and Training interaction elements directly (because
+          maps can only directly refer to topics and interaction elements are not topics). When used
+          in this way the processing intent is that the title of the question topic is suppressed in
+          the output.</p>
+        <p>The title you use for the topic should be descriptive of the question in some way. One
+          useful default is the first part of the question statement if no better title suggests
+          itself.</p>
+      </section>
+    </refbodydiv>
+    <refbodydiv
+      outputclass="contains"/>
+    <refbodydiv
+      outputclass="contains-by"/>
+    <refbodydiv
+      outputclass="inheritance">
+      <section
+        id="inheritance">
+        <title>Inheritance</title>
+        <p>- topic/topic d4pQuestionTopic/d4pQuestionTopic</p>
+      </section>
+    </refbodydiv>
+    <example
+      id="example1">
+      <codeblock>&lt;d4pQuestionTopic
+  id="question-01">
+  &lt;d4pQuestionTopicTitle>Title of the question&lt;/d4pQuestionTopicTitle>
+  &lt;d4pQuestionTopicBody>
+    &lt;lcTrueFalse id="q1">
+      &lt;lcQuestion>This is a legitimate topic design.&lt;/lcQuestion>
+      &lt;lcAnswerOptionGroup>
+        &lt;lcAnswerOption>
+          &lt;lcAnswerContent>True&lt;/lcAnswerContent>
+          &lt;lcCorrectResponse/>
+          &lt;lcFeedback>It may be a little unorthodox but 
+it's a perfectly cromulent topic type.&lt;/lcFeedback>
+        &lt;/lcAnswerOption>
+        &lt;lcAnswerOption>
+          &lt;lcAnswerContent>False&lt;/lcAnswerContent>
+        &lt;/lcAnswerOption>
+      &lt;/lcAnswerOptionGroup>
+    &lt;/lcTrueFalse>
+  &lt;/d4pQuestionTopicBody>
+&lt;/d4pQuestionTopic></codeblock>
+    </example>
+  </refbody>
+</reference>

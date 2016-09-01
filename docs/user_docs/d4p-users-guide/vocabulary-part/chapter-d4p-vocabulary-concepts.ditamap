@@ -19,7 +19,8 @@
         <subsection
           href="topic-domains-overview.xml"/>
         <topicref
-          keys="classification-domain" href="topics/classification-domain.xml"/>
+          href="topics/classification-domain.xml"
+          keys="classification-domain"/>
         <topicref
           keys="enumeration-domains" href="topics/enumeration-domains.xml"/>
         <topicref

@@ -34,6 +34,9 @@
         keys="langref.elem.d4pExerciseBody"/>
     </topicref>
     <topicref
+      href="d4pQuestionTopic/d4pQuestionTopic.dita"
+      keys="langref.elem.d4pQuestionTopic langref.topictype.d4pQuestionTopic"/>
+    <topicref
       href="d4pSlide/d4pSlide.dita"
       keys="langref.elem.d4pSlide langref.topictype.d4pSlide">
       <topicref

@@ -12,6 +12,8 @@
       href="generating-kindle-books-from-oxygen.xml"/>
     <topicref
       href="using-custom-css.xml"/>
+    <topicref
+      href="using_custom_javascript.dita"/>
     <subsection
       href="creating-cover-graphics.xml"
       keys="epub.creating-cover-graphics"/>
@@ -52,7 +54,7 @@
         keys="ant-param_epub-javascript-dir paramref-epub-javascript-dir"/>
       <topicref
         href="reference/ant-parm-epub-javascript-file.xml"
-        keys="paramref-epub-javascript-file"/>
+        keys="paramref-epub-javascript-file ant-param_epub-javascript-file"/>
       <topicref
         href="reference/ant-parm-epubPubidUriStub.xml"/>
       <topicref

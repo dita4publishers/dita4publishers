@@ -49,12 +49,12 @@
       <section
         id="inheritance">
         <title>Inheritance</title>
-        <p>- topic/title d4pCover/d4pCoverTitle</p>
+        <p>- topic/topic d4pCover/d4pCover</p>
       </section>
     </refbodydiv>
     <example
       id="example1">
-      <codeblock>&lt;d4pCover id="cover">
+      <codeblock>&lt;d4pCover id="cover">&lt;d4pCoverTitle/>
   &lt;titlealts>
     &lt;searchtitle>Front cover for Some Publication&lt;/searchtitle>
   &lt;/titlealts>
