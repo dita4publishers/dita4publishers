@@ -583,7 +583,9 @@
     </zip>
   </target>
 	
-	<target name="package-toolkit-plugins" depends="dist-init, dist-toolkit-plugins"
+	<target name="package-toolkit-plugins" 
+	  depends="dist-init, 
+	           dist-toolkit-plugins"
 		description="Create distributable Zip package of the Toolkit plugins, including the vocabulary modules."
 		>
     <zip destfile="${release.dir}/dita4publishers-toolkit-plugins-${package_version}.zip">
@@ -612,6 +614,12 @@
         <include name="*/**"/>
       </fileset>
     </zip>
+  </target>
+  
+  <target name="package-all-plugins" depends="make-plugin-packages"
+    description="Make all the plugin packages for release on GitHub"
+    >
+    <!-- Defining a better name for older make-plugin-packages target -->
   </target>
   
   <target name="make-plugin-packages"
