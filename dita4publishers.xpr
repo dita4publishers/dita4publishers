@@ -11,7 +11,7 @@
                     </entry>
                     <entry>
                         <String>dita.ot.directory</String>
-                        <String>/Users/ekimber/dita-ot/DITA-OT1.8.5-d4p</String>
+                        <String>/Users/ekimber/dita-ot/dita-ot-2.4-d4p</String>
                     </entry>
                     <entry>
                         <String>dita.show.console.output</String>
@@ -28,6 +28,36 @@
                     <entry>
                         <String>scenario.associations</String>
                         <scenarioAssociation-array>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>sample_data/20000_leagues/20000_leagues.ditamap</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>DITA Map EPUB EPUB3 Only</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>DITAMAP</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>sample_data/epub-test/epub-test.ditamap</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>DITA Map EPUB EPUB3 Only</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>DITAMAP</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="url">
                                     <String>docs/user_docs/d4p-users-guide.ditamap</String>
@@ -56,21 +86,6 @@
                                 <field name="scenarioTypes">
                                     <list>
                                         <String>DITAMAP</String>
-                                        <String>DITAMAP</String>
-                                    </list>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="url">
-                                    <String>sample_data/epub-test/epub-test.ditamap</String>
-                                </field>
-                                <field name="scenarioIds">
-                                    <list>
-                                        <String>DITA Map EPUB EPUB3 Only</String>
-                                    </list>
-                                </field>
-                                <field name="scenarioTypes">
-                                    <list>
                                         <String>DITAMAP</String>
                                     </list>
                                 </field>
@@ -1287,10 +1302,10 @@
                                                 <String>args.css.output.dir</String>
                                             </field>
                                             <field name="description">
-                                                <null/>
+                                                <String></String>
                                             </field>
                                             <field name="value">
-                                                <String>css</String>
+                                                <String>css/</String>
                                             </field>
                                             <field name="defaultValue">
                                                 <null/>
@@ -1316,7 +1331,7 @@
                                                 <String>all</String>
                                             </field>
                                             <field name="defaultValue">
-                                                <String>all</String>
+                                                <null/>
                                             </field>
                                             <field name="type">
                                                 <Integer>4</Integer>
@@ -1325,14 +1340,16 @@
                                                 <String-array>
                                                     <String>none</String>
                                                     <String>all</String>
+                                                    <String>noparent</String>
                                                     <String>nofamily</String>
                                                     <null/>
                                                 </String-array>
                                             </field>
                                             <field name="possibleValuesDescriptions">
                                                 <String-array>
-                                                    <String>No links are included</String>
-                                                    <String>All links are included</String>
+                                                    <String>No links are included.</String>
+                                                    <String>All links are included.</String>
+                                                    <String>Parent links are not included.</String>
                                                     <String>Parent, child, next, and previous links are not included.</String>
                                                 </String-array>
                                             </field>
