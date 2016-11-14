@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project version="18.0">
+<project version="18.1">
     <meta>
         <filters directoryPatterns="" filePatterns="" positiveFilePatterns="" showHiddenFiles="false"/>
         <options>
-            <serialized version="18.0" xml:space="preserve">
+            <serialized version="18.1" xml:space="preserve">
                 <serializableOrderedMap>
                     <entry>
                         <String>ask.open.ditamap.in.dita.manager</String>
@@ -11,7 +11,7 @@
                     </entry>
                     <entry>
                         <String>dita.ot.directory</String>
-                        <String>${frameworksDir}/dita/DITA-OT</String>
+                        <String>/Users/ekimber/dita-ot/DITA-OT1.8.5-d4p</String>
                     </entry>
                     <entry>
                         <String>dita.show.console.output</String>
@@ -26,19 +26,15 @@
                         <Boolean>true</Boolean>
                     </entry>
                     <entry>
-                        <String>keys.context</String>
-                        <String>${pdu}/docs/user_docs/d4p-users-guide.ditamap</String>
-                    </entry>
-                    <entry>
                         <String>scenario.associations</String>
                         <scenarioAssociation-array>
                             <scenarioAssociation>
                                 <field name="url">
-                                    <String>sample_data/epub-test/epub-test.ditamap</String>
+                                    <String>docs/user_docs/d4p-users-guide.ditamap</String>
                                 </field>
                                 <field name="scenarioIds">
                                     <list>
-                                        <String>DITA Map EPUB</String>
+                                        <String>DITA Map XHTML - keep temp</String>
                                     </list>
                                 </field>
                                 <field name="scenarioTypes">
@@ -49,11 +45,28 @@
                             </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="url">
-                                    <String>docs/user_docs/d4p-users-guide.ditamap</String>
+                                    <String>../../workspace-dfst/dita-for-small-teams/dfst-docker/docs/dfst-docker-guide.ditamap</String>
                                 </field>
                                 <field name="scenarioIds">
                                     <list>
                                         <String>D4P HTML5 - Keep Temp</String>
+                                        <String>DITA Map PDF - keep temp</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>DITAMAP</String>
+                                        <String>DITAMAP</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>sample_data/epub-test/epub-test.ditamap</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>DITA Map EPUB EPUB3 Only</String>
                                     </list>
                                 </field>
                                 <field name="scenarioTypes">
@@ -344,7 +357,7 @@
                                             <null/>
                                         </field>
                                         <field name="ditavalFilePath">
-                                            <String></String>
+                                            <null/>
                                         </field>
                                         <field name="simpleFiltersList">
                                             <list/>
@@ -406,6 +419,29 @@
                                         </ditaParameter>
                                         <ditaParameter>
                                             <field name="name">
+                                                <String>repo.url</String>
+                                            </field>
+                                            <field name="description">
+                                                <String></String>
+                                            </field>
+                                            <field name="value">
+                                                <String>/dita4publishers/dita4publishers/tree/develop/docs/user_docs/d4p-users-guide</String>
+                                            </field>
+                                            <field name="defaultValue">
+                                                <null/>
+                                            </field>
+                                            <field name="type">
+                                                <Integer>5</Integer>
+                                            </field>
+                                            <field name="possibleValues">
+                                                <null/>
+                                            </field>
+                                            <field name="possibleValuesDescriptions">
+                                                <null/>
+                                            </field>
+                                        </ditaParameter>
+                                        <ditaParameter>
+                                            <field name="name">
                                                 <String>transtype</String>
                                             </field>
                                             <field name="description">
@@ -449,6 +485,29 @@
                                                     <String></String>
                                                     <String></String>
                                                 </String-array>
+                                            </field>
+                                        </ditaParameter>
+                                        <ditaParameter>
+                                            <field name="name">
+                                                <String>webapp.url</String>
+                                            </field>
+                                            <field name="description">
+                                                <String></String>
+                                            </field>
+                                            <field name="value">
+                                                <String>https://www.oxygenxml.com/webapp-demo-aws/app/oxygen.html</String>
+                                            </field>
+                                            <field name="defaultValue">
+                                                <null/>
+                                            </field>
+                                            <field name="type">
+                                                <Integer>5</Integer>
+                                            </field>
+                                            <field name="possibleValues">
+                                                <null/>
+                                            </field>
+                                            <field name="possibleValuesDescriptions">
+                                                <null/>
                                             </field>
                                         </ditaParameter>
                                     </list>
@@ -1170,7 +1229,7 @@
                                             <null/>
                                         </field>
                                         <field name="ditavalFilePath">
-                                            <String></String>
+                                            <null/>
                                         </field>
                                         <field name="simpleFiltersList">
                                             <list/>
@@ -1205,7 +1264,7 @@
                                                 <String>args.css</String>
                                             </field>
                                             <field name="description">
-                                                <String></String>
+                                                <null/>
                                             </field>
                                             <field name="value">
                                                 <String>${cfd}/css/epub-test.css</String>
@@ -1214,7 +1273,7 @@
                                                 <null/>
                                             </field>
                                             <field name="type">
-                                                <Integer>5</Integer>
+                                                <Integer>2</Integer>
                                             </field>
                                             <field name="possibleValues">
                                                 <null/>
@@ -1248,29 +1307,6 @@
                                         </ditaParameter>
                                         <ditaParameter>
                                             <field name="name">
-                                                <String>args.input</String>
-                                            </field>
-                                            <field name="description">
-                                                <String></String>
-                                            </field>
-                                            <field name="value">
-                                                <String>${cf}</String>
-                                            </field>
-                                            <field name="defaultValue">
-                                                <null/>
-                                            </field>
-                                            <field name="type">
-                                                <Integer>5</Integer>
-                                            </field>
-                                            <field name="possibleValues">
-                                                <null/>
-                                            </field>
-                                            <field name="possibleValuesDescriptions">
-                                                <null/>
-                                            </field>
-                                        </ditaParameter>
-                                        <ditaParameter>
-                                            <field name="name">
                                                 <String>args.rellinks</String>
                                             </field>
                                             <field name="description">
@@ -1280,7 +1316,7 @@
                                                 <String>all</String>
                                             </field>
                                             <field name="defaultValue">
-                                                <null/>
+                                                <String>all</String>
                                             </field>
                                             <field name="type">
                                                 <Integer>4</Integer>
@@ -1289,13 +1325,16 @@
                                                 <String-array>
                                                     <String>none</String>
                                                     <String>all</String>
-                                                    <String>noparent</String>
                                                     <String>nofamily</String>
                                                     <null/>
                                                 </String-array>
                                             </field>
                                             <field name="possibleValuesDescriptions">
-                                                <null/>
+                                                <String-array>
+                                                    <String>No links are included</String>
+                                                    <String>All links are included</String>
+                                                    <String>Parent, child, next, and previous links are not included.</String>
+                                                </String-array>
                                             </field>
                                         </ditaParameter>
                                         <ditaParameter>
@@ -1303,22 +1342,29 @@
                                                 <String>clean.temp</String>
                                             </field>
                                             <field name="description">
-                                                <String></String>
+                                                <null/>
                                             </field>
                                             <field name="value">
                                                 <String>no</String>
                                             </field>
                                             <field name="defaultValue">
-                                                <null/>
+                                                <String>yes</String>
                                             </field>
                                             <field name="type">
-                                                <Integer>5</Integer>
+                                                <Integer>4</Integer>
                                             </field>
                                             <field name="possibleValues">
-                                                <null/>
+                                                <String-array>
+                                                    <String>yes</String>
+                                                    <String>no</String>
+                                                    <null/>
+                                                </String-array>
                                             </field>
                                             <field name="possibleValuesDescriptions">
-                                                <null/>
+                                                <String-array>
+                                                    <String></String>
+                                                    <String></String>
+                                                </String-array>
                                             </field>
                                         </ditaParameter>
                                         <ditaParameter>
@@ -1351,29 +1397,6 @@
                                                     <String></String>
                                                     <String></String>
                                                 </String-array>
-                                            </field>
-                                        </ditaParameter>
-                                        <ditaParameter>
-                                            <field name="name">
-                                                <String>dita.dir</String>
-                                            </field>
-                                            <field name="description">
-                                                <String></String>
-                                            </field>
-                                            <field name="value">
-                                                <String>${configured.ditaot.dir}</String>
-                                            </field>
-                                            <field name="defaultValue">
-                                                <null/>
-                                            </field>
-                                            <field name="type">
-                                                <Integer>5</Integer>
-                                            </field>
-                                            <field name="possibleValues">
-                                                <null/>
-                                            </field>
-                                            <field name="possibleValuesDescriptions">
-                                                <null/>
                                             </field>
                                         </ditaParameter>
                                         <ditaParameter>
@@ -2070,7 +2093,7 @@
                                             <null/>
                                         </field>
                                         <field name="ditavalFilePath">
-                                            <String></String>
+                                            <null/>
                                         </field>
                                         <field name="simpleFiltersList">
                                             <list/>
@@ -2128,6 +2151,52 @@
                                                     <String></String>
                                                     <String></String>
                                                 </String-array>
+                                            </field>
+                                        </ditaParameter>
+                                        <ditaParameter>
+                                            <field name="name">
+                                                <String>editlink.remote.ditamap.url</String>
+                                            </field>
+                                            <field name="description">
+                                                <String></String>
+                                            </field>
+                                            <field name="value">
+                                                <String>github://getFileContent/dita4publishers/dita4publishers/develop/docs/user_docs/d4p-users-guide</String>
+                                            </field>
+                                            <field name="defaultValue">
+                                                <null/>
+                                            </field>
+                                            <field name="type">
+                                                <Integer>5</Integer>
+                                            </field>
+                                            <field name="possibleValues">
+                                                <null/>
+                                            </field>
+                                            <field name="possibleValuesDescriptions">
+                                                <null/>
+                                            </field>
+                                        </ditaParameter>
+                                        <ditaParameter>
+                                            <field name="name">
+                                                <String>editlink.web.author.url</String>
+                                            </field>
+                                            <field name="description">
+                                                <String>https://www.oxygenxml.com/webapp-demo-aws/app/oxygen.html</String>
+                                            </field>
+                                            <field name="value">
+                                                <String>https://www.oxygenxml.com/webapp-demo-aws/</String>
+                                            </field>
+                                            <field name="defaultValue">
+                                                <null/>
+                                            </field>
+                                            <field name="type">
+                                                <Integer>5</Integer>
+                                            </field>
+                                            <field name="possibleValues">
+                                                <null/>
+                                            </field>
+                                            <field name="possibleValuesDescriptions">
+                                                <null/>
                                             </field>
                                         </ditaParameter>
                                     </list>
@@ -2349,6 +2418,8 @@
         <folder path="toolkit_plugins/"/>
         <folder path="../dita4publishers_io/"/>
         <folder path="../epub-font-obfuscator/"/>
+        <folder path="../oxygen-userguide/"/>
+        <folder path="../../workspace-dfst/dita-for-small-teams/"/>
         <folder path="../../workspace-dita-community/"/>
         <folder path="../../workspace-dita-community/dita-test-cases/"/>
         <folder path="../../workspace-ditaot/"/>
