@@ -409,7 +409,7 @@
   <target name="package-dita2indesign-toolkit-plugins" 
       description="Creates a standalone delivery package of the DITA2InDesign Open Toolkit plugins" 
       depends="dist-dita2indesign-toolkit-plugins">
-      <zip destfile="${plugin.dist}/dita2indesign-toolkit-plugins-${dita2indesign_version}.zip">
+    <zip destfile="${plugin.dist}/dita2indesign-toolkit-plugins-${dita2indesign_version}-ot-${ot-version}.zip">
         <fileset dir="${plugin.dist}">
           <include name="org.dita4publishers.*/**"/>
         </fileset>
@@ -507,7 +507,7 @@
 	
   <target name="dist-api-and-tools" description="Create distribution package for API and tools materials."
   	depends="package-api-and-tools">
-    <zip destfile="${dist}/${api-and-tools.dirname}-${package.date}.zip">
+    <zip destfile="${dist}/${api-and-tools.dirname}-${package.date}-ot-${ot-version}.zip">
       <fileset dir="${api-and-tools.target}">
       	<include name="**/*"/>
       </fileset>
@@ -574,7 +574,7 @@
 	<target name="package-word2dita-plugins" depends="dist-init, dist-word2dita-toolkit-plugins"
 		description="Create distributable Zip package for the Word2DITA transform plugin with its dependencies"
 		>
-    <zip destfile="${release.dir}/dita4publishers-word2dita-plugins-${package_version}.zip">
+	  <zip destfile="${release.dir}/dita4publishers-word2dita-plugins-${package_version}-ot-${ot-version}.zip">
       <fileset dir="${plugin.dist}">
         <include name="org.dita-community.common.xslt/**"/>
         <include name="org.dita4publishers.doctypes/**"/>
@@ -590,7 +590,7 @@
 	           dist-toolkit-plugins"
 		description="Create distributable Zip package of the Toolkit plugins, including the vocabulary modules."
 		>
-    <zip destfile="${release.dir}/dita4publishers-toolkit-plugins-${package_version}.zip">
+	  <zip destfile="${release.dir}/dita4publishers-toolkit-plugins-${package_version}-ot-${ot-version}.zip">
       <fileset dir="${plugin.dist}">
         <include name="*.txt"/>
       	<include name="*/**"/>
@@ -601,7 +601,7 @@
   
   <target name="package-html5-plugins" depends="dist-init, dist-html5-toolkit-plugins"
      description="Creates an HTML5-only distribution package">
-    <zip destfile="${release.dir}/dita4publishers-html5-toolkit-plugins-${package_version}.zip">
+    <zip destfile="${release.dir}/dita4publishers-html5-toolkit-plugins-${package_version}-ot-${ot-version}.zip">
       <fileset dir="${plugin.dist}">
         <include name="*.txt"/>
         <include name="*/**"/>
@@ -611,7 +611,7 @@
 	
   <target name="package-epub-plugins" depends="dist-init, dist-epub-toolkit-plugins"
      description="Creates an EPUB-only distribution package">
-    <zip destfile="${release.dir}/dita4publishers-epub-toolkit-plugins-${package_version}.zip">
+    <zip destfile="${release.dir}/dita4publishers-epub-toolkit-plugins-${package_version}-ot-${ot-version}.zip">
       <fileset dir="${plugin.dist}">
         <include name="*/**"/>
       </fileset>
@@ -668,7 +668,7 @@
       </fileset>
     </copy>
     -->
-		<zip destfile="${release.dir}/${package.zip.base}-${package_version}.zip">
+		<zip destfile="${release.dir}/${package.zip.base}-${package_version}-ot-${ot-version}.zip">
 			<fileset dir="${package.dist}" >
 			</fileset>
       <fileset dir="${dist}" >
