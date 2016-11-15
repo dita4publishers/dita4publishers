@@ -451,7 +451,9 @@
 			</fileset>
 		</copy>
     <!-- Integrate the deployed plugins: -->
-    <ant target="integrate" antfile="${dita-ot-dir}/integrator.xml"/>
+	  <exec executable="${dita-ot-dir}/bin/dita">
+	    <arg line="-install"/>
+	  </exec>
 
 	</target>
 	
