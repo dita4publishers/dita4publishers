@@ -16,7 +16,7 @@
     <prodinfo>
       <prodname>DITA For Publishers</prodname>
       <vrmlist>
-        <vrm version="1" release="0" modification="0RC25"/>
+        <vrm version="1" release="0" modification="0RC27"/>
       </vrmlist>
     </prodinfo>
     <pubrights>
@@ -55,6 +55,8 @@
         href="d4p-users-guide/topics/about-this-book.xml"/>
       <topicref
         href="d4p-users-guide/release-notes/release-notes.xml">
+        <topicref href="d4p-users-guide/release-notes/release-notes-1.0.0RC27.xml"
+          keys="relnotes-1_0_0RC27"/>
         <topicref
           href="d4p-users-guide/release-notes/release-notes-1.0.0RC25.xml"
           keys="relnotes-1_0_0RC25"/>

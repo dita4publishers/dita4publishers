@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="conceptId">
+  <title>Release Notes: Version 1.0.0RC27</title>
+  <shortdesc>Version 1.0.0RC27</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>
+          <indexterm>release notes<indexterm>Version 1.0.0RC27</indexterm></indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <section>
+      <title>Theme for the Release</title>
+      <p>This release focuses on implementing support for both Open Toolkit 1.8.5 and 2.4+. It
+        reflects some refactorings to the EPUB plugin provided by Jarno Elovirta that make it easier
+        to extend.</p>
+      <p>With this release there are now two sets of packages, one for OT 1.8.5 and one for
+        2.4+.</p>
+      <p>Note that release 1.0.0RC26 was just an initial experimental 2.4 version of the EPUB
+        transform.</p>
+    </section>
+    <section id="section_ggg_vf4_tv">
+      <title>EPUB Changes</title>
+      <p>The main change Jarno made to the EPUB plugin was to move the import of the base
+          <filepath>org.dita.xhtml/xsl/dita2xhtml.xsl</filepath>file from
+          <filepath>dita2epubImpl.xsl</filepath> to <filepath>dita2epub_template.xsl</filepath>.</p>
+      <p>This allows custom EPUB transforms to only have to override or duplicate the top-level
+        transform file in order to change the set of module imports and override things more
+        easily.</p>
+      <p>Jarno also added a new initialization Ant target for the EPUB transform to make it easier
+        to override properties or add new ones.</p>
+      <p>The sample org.example.d4p.epub-custom plugin has been updated to replace the direct import
+        of <filepath>dita2epubImpl.xsl</filepath> with import of the base
+          <filepath>dita2epub.xsl</filepath> transform and also removing the direct include of the
+          <filepath>dita.xhtml/xsl/dita2xhtml.xsl</filepath> file, which is now done by the
+          <filepath>dita2epub.xsl</filepath> module.</p>
+      <p>This change will likely require this same type of update to existing EPUB
+        customizations.</p>
+    </section>
+  </conbody>
+</concept>
