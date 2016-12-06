@@ -146,11 +146,24 @@
     <xsl:param name="dtdLines" as="xs:string*"/>
     <xsl:param name="moduleName" as="xs:string" tunnel="yes"/>
     
+    <xsl:variable name="lines" as="xs:string*"
+      select="d2r:getLinesUntilMatch(d2r:scanToSection($dtdLines, 'ELEMENT NAME ENTITIES'),
+      '==========')"
+    />
+    
+    
     <div><xsl:text>&#x0a;</xsl:text>
       <a:documentation>DOMAIN EXTENSION PATTERNS</a:documentation><xsl:text>&#x0a;</xsl:text>
       
       <define name="{$moduleName}-d-xxx">
-        <xsl:text>&#x0a;        </xsl:text><xsl:comment> put references to .element patterns here. </xsl:comment>
+        <xsl:for-each select="$lines[starts-with(., '&lt;!ENTITY % ')]">
+          <xsl:analyze-string select="." regex="% (\c+) ">
+            <xsl:matching-substring>
+              <ref name="{regex-group(1)}.element"/>
+            </xsl:matching-substring>
+          </xsl:analyze-string>
+        </xsl:for-each>
+        
         <xsl:text>&#x0a;      </xsl:text></define>
       
     <xsl:text>&#x0a;   </xsl:text></div>
@@ -172,7 +185,6 @@
     <div><xsl:text>&#x0a;</xsl:text>
       <a:documentation>ELEMENT TYPE NAME PATTERNS</a:documentation><xsl:text>&#x0a;</xsl:text>
       <xsl:for-each select="$lines[starts-with(., '&lt;!ENTITY % ')]">
-        <xsl:message> + [DEBUG] makeElementNamePatterns: line="<xsl:value-of select="."/>"</xsl:message>
         <xsl:analyze-string select="." regex="% (\c+) ">
           <xsl:matching-substring>
             <define name="{regex-group(1)}">
