@@ -166,7 +166,7 @@
         <xsl:for-each select="$lines[starts-with(., '&lt;!ENTITY % ')]">
           <xsl:analyze-string select="." regex="% (\c+) ">
             <xsl:matching-substring>
-              <ref name="{regex-group(1)}.element"/>
+              <ref name="{regex-group(1)}.element" xmlns="http://relaxng.org/ns/structure/1.0"/>
             </xsl:matching-substring>
           </xsl:analyze-string>
         </xsl:for-each>
@@ -323,42 +323,76 @@
   </xsl:template>
   
   <xsl:template mode="convertGroup" match="rng:*">
+    <xsl:copy copy-namespaces="no">
+      <xsl:apply-templates select="@*, node()" mode="#current"/>
+    </xsl:copy>
+  </xsl:template>
+  
+  <xsl:template mode="convertGroup" match="@* | text()">
     <xsl:sequence select="."/>
   </xsl:template>
   
   <xsl:template mode="convertGroup" match="d2r:elementToken">
     <xsl:choose>
       <xsl:when test="@occurrence = '*'">
-        <zeroOrMore>
+        <zeroOrMore xmlns="http://relaxng.org/ns/structure/1.0">
           <ref name="{@name}"/>
         </zeroOrMore>
       </xsl:when>
       <xsl:when test="@occurrence = '+'">
-        <oneOrMore>
+        <oneOrMore xmlns="http://relaxng.org/ns/structure/1.0">
           <ref name="{@name}"/>
         </oneOrMore>
       </xsl:when>
       <xsl:when test="@occurrence = '?'">
-        <optional>
+        <optional xmlns="http://relaxng.org/ns/structure/1.0">
           <ref name="{@name}"/>
         </optional>
       </xsl:when>
       <xsl:otherwise>
-        <ref name="{@name}"/>
+        <ref name="{@name}" xmlns="http://relaxng.org/ns/structure/1.0"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
   
   <xsl:template mode="convertGroup" match="d2r:group">
-    <xsl:choose>
-      <xsl:when test="*[1]/@separator = ('|')">
-        <choice>
+    <xsl:variable name="occurrence" as="xs:string?"
+      select="d2r:groupend/@occurrence"
+    />
+    <xsl:variable name="separator" as="xs:string?"
+      select="*[1]/@separator"
+    />
+    <xsl:variable name="group" as="element()*">
+      <xsl:choose>
+        <xsl:when test="$separator = ('|')">
+          <choice>
+            <xsl:apply-templates mode="#current"/>
+          </choice>
+        </xsl:when>
+        <xsl:otherwise>
+          <!-- No group for sequences -->
           <xsl:apply-templates mode="#current"/>
-        </choice>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:choose>
+      <xsl:when test="$occurrence = ('*')">
+        <zeroOrMore>
+          <xsl:sequence select="$group"/>
+        </zeroOrMore>
+      </xsl:when>
+      <xsl:when test="$occurrence = ('+')">
+        <oneOrMore>
+          <xsl:sequence select="$group"/>
+        </oneOrMore>
+      </xsl:when>
+      <xsl:when test="$occurrence = ('?')">
+        <optional>
+          <xsl:sequence select="$group"/>
+        </optional>
       </xsl:when>
       <xsl:otherwise>
-        <!-- No group for sequences -->
-        <xsl:apply-templates mode="#current"/>
+        <xsl:sequence select="$group"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -606,7 +640,7 @@
         <xsl:when test="starts-with($token, ')')">
           <d2r:groupend>
             <xsl:if test="string-length($token) gt 1">
-              <xsl:attribute name="repeat" select="substring($token, 2)"/>
+              <xsl:attribute name="occurrence" select="substring($token, 2)"/>
             </xsl:if>
           </d2r:groupend>
         </xsl:when>
@@ -638,10 +672,10 @@
           <xsl:message> + [DEBUG] d2r:processContentToken(): tagname="<xsl:value-of select="$tagname"/>"</xsl:message>
           <xsl:choose>
             <xsl:when test="starts-with($tagname, '%')">
-              <ref name="{translate($tagname, ';%', '')}"/>
+              <rng:ref name="{translate($tagname, ';%', '')}"/>
             </xsl:when>
             <xsl:when test="$tagname = ('#PCDATA')">
-              <text/>
+              <rng:text/>
             </xsl:when>
             <xsl:otherwise>
               <d2r:elementToken name="{$tagname}">
@@ -669,10 +703,24 @@
     <xsl:param name="inString" as="xs:string"/>
     
 <!--    <xsl:message> + [DEBUG] d2r:parseContentToken(): inString=/<xsl:value-of select="$inString"/>/ </xsl:message>-->
-    
-    <xsl:variable name="tokenString" as="xs:string?"
-      select="d2r:getTokenCharacters($inString, ())"
-    />
+    <xsl:variable name="tokenString" as="xs:string?">
+      <xsl:choose>
+        <xsl:when test="starts-with($inString, ')')">
+          <!-- Treat ")" as a token start rather than a non-token character so
+             we can get the group-end occurence indicator.
+          -->
+          <xsl:sequence 
+            select="concat(')',
+                          if (matches($inString, '.[\*\+\?]'))
+                             then substring($inString, 2,1)
+                             else '')"
+          />
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:sequence select="d2r:getTokenCharacters($inString, ())"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
 <!--    <xsl:message> + [DEBUG] d2r:parseContentToken(): returning=/<xsl:value-of select="$tokenString"/>/ </xsl:message>-->
     
     <xsl:sequence select="$tokenString"/>
@@ -696,7 +744,7 @@
     <xsl:variable name="result" as="xs:string?"
       select="if ($c = (',', '|'))
                   then concat($resultString, $c)
-               else if (not(matches($c, '[\)\c\?\*\+#%;]')))
+               else if (not(matches($c, '[\c\?\*\+#%;]')))
                   then $resultString  
                   else d2r:getTokenCharacters($rest, concat($resultString, $c))
     "/>
