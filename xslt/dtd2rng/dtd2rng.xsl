@@ -300,7 +300,7 @@
     />
     <!-- First character will always be a '"' and we want to start with the group open. -->
     <xsl:variable name="groupString" as="xs:string*"
-      select='substring(string-join(for $l in $lines[position() gt 1] return normalize-space($l), ""), 2)' 
+      select='substring(string-join(for $l in $lines[position() gt 1] return replace($l, "\s+",""), ""), 2)' 
       />
     
     <define name="{$entityName}">
@@ -579,7 +579,7 @@
             </xsl:analyze-string>
           </xsl:variable>
           <xsl:variable name="tagname" as="xs:string?">
-            <xsl:analyze-string select="$token" regex="\c+">
+            <xsl:analyze-string select="$token" regex="[\c#%;]+">
               <xsl:matching-substring>
                 <xsl:sequence select="."/>
               </xsl:matching-substring>
@@ -598,7 +598,9 @@
       </xsl:choose>
     </xsl:variable>
     <xsl:variable name="result" as="element()*"
-      select="d2r:processGroupTokens(substring($inString, string-length($token) + 2), ($resultTokens, $tokenElem))"
+      select="if (not($tokenElem))
+                 then $resultTokens
+                 else d2r:processGroupTokens(substring($inString, string-length($token) + 1), ($resultTokens, $tokenElem))"
     />
     <xsl:sequence select="$result"/>
   </xsl:function>
@@ -606,12 +608,12 @@
   <xsl:function name="d2r:parseContentToken" as="xs:string?">
     <xsl:param name="inString" as="xs:string"/>
     
-    <xsl:message> + [DEBUG] d2r:parseContentToken(): inString=/<xsl:value-of select="$inString"/>/ </xsl:message>
+<!--    <xsl:message> + [DEBUG] d2r:parseContentToken(): inString=/<xsl:value-of select="$inString"/>/ </xsl:message>-->
     
     <xsl:variable name="tokenString" as="xs:string?"
       select="d2r:getTokenCharacters($inString, ())"
     />
-    <xsl:message> + [DEBUG] d2r:parseContentToken(): returning=/<xsl:value-of select="$tokenString"/>/ </xsl:message>
+<!--    <xsl:message> + [DEBUG] d2r:parseContentToken(): returning=/<xsl:value-of select="$tokenString"/>/ </xsl:message>-->
     
     <xsl:sequence select="$tokenString"/>
   </xsl:function>
@@ -634,7 +636,7 @@
     <xsl:variable name="result" as="xs:string?"
       select="if ($c = (',', '|'))
                   then concat($resultString, $c)
-               else if (not(matches($c, '[\c\?\*\+]')))
+               else if (not(matches($c, '[\)\c\?\*\+#%;]')))
                   then $resultString  
                   else d2r:getTokenCharacters($rest, concat($resultString, $c))
     "/>
