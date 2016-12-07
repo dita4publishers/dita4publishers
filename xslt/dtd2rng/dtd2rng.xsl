@@ -543,14 +543,11 @@
     <xsl:param name="resultTokens" as="element()*"/>
     
     <xsl:message> + [DEBUG] d2r:processContentToken(): inString=/<xsl:value-of select="$inString"/>/</xsl:message>
-    <xsl:message> + [DEBUG] d2r:processContentToken(): resultTokens=
-====
-<xsl:sequence select="$resultTokens"/>
-====</xsl:message>
     
     <xsl:variable name="token" as="xs:string?"
        select="d2r:parseContentToken($inString)"
     />
+    <xsl:message> + [DEBUG] d2r:processContentToken(): token=/<xsl:value-of select="$token"/>/</xsl:message>
     <xsl:variable name="tokenElem" as="element()?">
       <xsl:choose>
         <xsl:when test="not($token)">
@@ -566,15 +563,35 @@
         <xsl:when test="$token = ('EMPTY')">
           <empty/>
         </xsl:when>
-        <xsl:otherwise>
-          <xsl:variable name="occurrence" as="xs:string?"
-            select="if (matches($token, '[\?\*\+]$'))
-                       then substring($token, string-length($token))
-                       else ()"
-           />
-          <d2r:elementToken name="{tokenize($token, '[\?\*\+]')[1]}">
+        <xsl:otherwise>          
+          <xsl:variable name="occurrence" as="xs:string?">
+            <xsl:analyze-string select="$token" regex="[\?\*\+]">
+              <xsl:matching-substring>
+                <xsl:sequence select="."/>
+              </xsl:matching-substring>
+            </xsl:analyze-string>
+          </xsl:variable>
+          <xsl:variable name="separator" as="xs:string?">
+            <xsl:analyze-string select="$token" regex="[\|,]">
+              <xsl:matching-substring>
+                <xsl:sequence select="."/>
+              </xsl:matching-substring>
+            </xsl:analyze-string>
+          </xsl:variable>
+          <xsl:variable name="tagname" as="xs:string?">
+            <xsl:analyze-string select="$token" regex="\c+">
+              <xsl:matching-substring>
+                <xsl:sequence select="."/>
+              </xsl:matching-substring>
+            </xsl:analyze-string>
+          </xsl:variable>
+          <xsl:message> + [DEBUG] d2r:processContentToken(): tagname="<xsl:value-of select="$tagname"/>"</xsl:message>
+          <d2r:elementToken name="{$tagname}">
             <xsl:if test="$occurrence">
-              <xsl:attribute name="occurrence" select="$occurrence"/>
+              <xsl:attribute name="occurrence" select="$occurrence"/>              
+            </xsl:if>
+            <xsl:if test="$separator">
+              <xsl:attribute name="separator" select="$separator"/>
             </xsl:if>
           </d2r:elementToken>
         </xsl:otherwise>
@@ -615,11 +632,13 @@
     <xsl:variable name="rest" as="xs:string?" select="substring($inString, 2)"/>
     
     <xsl:variable name="result" as="xs:string?"
-      select='if (not(matches($c, "[\c\?\*\+]"))) 
-                 then $resultString
-                 else d2r:getTokenCharacters($rest, concat($resultString, $c))
-                 '
-    />
+      select="if ($c = (',', '|'))
+                  then concat($resultString, $c)
+               else if (not(matches($c, '[\c\?\*\+]')))
+                  then $resultString  
+                  else d2r:getTokenCharacters($rest, concat($resultString, $c))
+    "/>
+    
     <xsl:sequence select="$result"/>
   </xsl:function>
 </xsl:stylesheet>
