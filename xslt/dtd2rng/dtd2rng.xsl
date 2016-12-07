@@ -107,6 +107,12 @@
             <xsl:with-param name="dtdLines" as="xs:string*" select="$dtdLines"/>
             <xsl:with-param name="moduleName" as="xs:string" tunnel="yes" select="$moduleName"/>
           </xsl:call-template>
+          <xsl:call-template name="makeSpecializationAttributeDeclarations">
+            <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+            <xsl:with-param name="dtdText" as="xs:string" select="$dtdText"/>
+            <xsl:with-param name="dtdLines" as="xs:string*" select="$dtdLines"/>
+            <xsl:with-param name="moduleName" as="xs:string" tunnel="yes" select="$moduleName"/>
+          </xsl:call-template>
         </grammar>
       </xsl:result-document>
     </d2r:include>
@@ -453,6 +459,54 @@
   <xsl:template name="handleCommentDecl">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>          
     <xsl:param name="lines" as="element()+"/>
+  </xsl:template>
+
+  <xsl:template name="makeSpecializationAttributeDeclarations">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <xsl:param name="dtdText" as="xs:string"/>
+    <xsl:param name="dtdLines" as="xs:string*"/>
+    <xsl:param name="moduleName" as="xs:string" tunnel="yes"/>
+    
+    <xsl:variable name="lines" as="element()*">
+      <xsl:for-each select="
+        d2r:getLinesUntilMatch(d2r:scanToSection($dtdLines, 'SPECIALIZATION ATTRIBUTE DECLARATIONS'),
+        '==========')">
+        <line><xsl:value-of select="."/></line>
+      </xsl:for-each>
+      
+    </xsl:variable>
+    
+    
+    
+    <div><xsl:text>&#x0a;</xsl:text>
+      <a:documentation>Specialization attributes. Global attributes and class defaults</a:documentation><xsl:text>&#x0a;</xsl:text>
+      
+      <xsl:for-each-group select="$lines" group-starting-with="*[matches(., '&lt;!ATTLIST')]">
+        <!-- Ignore leading or trailing blank lines. -->
+        <xsl:if test="matches(., '&lt;!')">
+          <xsl:variable name="text" as="xs:string"
+            select="string-join(for $l in current-group() return string($l), ' ')"
+          />
+          <xsl:variable name="tagname" as="xs:string"
+            select="tokenize(., ' ')[2]"/>
+          <xsl:variable name="classAttValue" as="xs:string">
+            <xsl:analyze-string select="$text" regex='class CDATA "([^"]+)"'>
+              <xsl:matching-substring>
+                <xsl:sequence select="regex-group(1)"/>
+              </xsl:matching-substring>
+            </xsl:analyze-string>
+          </xsl:variable>
+          <define name="{$tagname}.attlist" combine="interleave">
+            <ref name="global-atts"/>
+            <optional>
+              <attribute name="class" a:defaultValue="{$classAttValue}"/>
+            </optional>
+          </define>
+        </xsl:if>
+      </xsl:for-each-group>
+      
+    </div>
+    
   </xsl:template>
   
   <xsl:template match="*">
