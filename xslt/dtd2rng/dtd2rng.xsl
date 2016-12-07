@@ -4,6 +4,7 @@
   xmlns:relpath="http://dita2indesign/functions/relpath"
   xmlns:d2r="urn:names:dtd2rng"
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  xmlns:rng="http://relaxng.org/ns/structure/1.0"
   xmlns="http://relaxng.org/ns/structure/1.0"
   exclude-result-prefixes="xs relpath d2r"
   version="2.0">
@@ -312,10 +313,59 @@
           <any/>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:sequence select="d2r:processContentGroup($groupString, ())"/>    
+          <xsl:variable name="group" select="d2r:processContentGroup($groupString, ())"/>
+          <xsl:apply-templates mode="convertGroup" select="$group">
+            <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+          </xsl:apply-templates>
         </xsl:otherwise>
       </xsl:choose>
     </define>
+  </xsl:template>
+  
+  <xsl:template mode="convertGroup" match="rng:*">
+    <xsl:sequence select="."/>
+  </xsl:template>
+  
+  <xsl:template mode="convertGroup" match="d2r:elementToken">
+    <xsl:choose>
+      <xsl:when test="@occurrence = '*'">
+        <zeroOrMore>
+          <ref name="{@name}"/>
+        </zeroOrMore>
+      </xsl:when>
+      <xsl:when test="@occurrence = '+'">
+        <oneOrMore>
+          <ref name="{@name}"/>
+        </oneOrMore>
+      </xsl:when>
+      <xsl:when test="@occurrence = '?'">
+        <optional>
+          <ref name="{@name}"/>
+        </optional>
+      </xsl:when>
+      <xsl:otherwise>
+        <ref name="{@name}"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  
+  <xsl:template mode="convertGroup" match="d2r:group">
+    <xsl:choose>
+      <xsl:when test="*[1]/@separator = ('|')">
+        <choice>
+          <xsl:apply-templates mode="#current"/>
+        </choice>
+      </xsl:when>
+      <xsl:otherwise>
+        <!-- No group for sequences -->
+        <xsl:apply-templates mode="#current"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  
+  <xsl:template mode="convertGroup" match="d2r:*" priority="-1">
+    <xsl:message> + [WARN] convertGroup: Unhandled element <xsl:value-of select="concat(name(..), '/', name(.))"/></xsl:message>
+    <xsl:apply-templates mode="#current"/>
   </xsl:template>
   
   <xsl:template name="handleAttlistParmEnt">
@@ -586,14 +636,24 @@
             </xsl:analyze-string>
           </xsl:variable>
           <xsl:message> + [DEBUG] d2r:processContentToken(): tagname="<xsl:value-of select="$tagname"/>"</xsl:message>
-          <d2r:elementToken name="{$tagname}">
-            <xsl:if test="$occurrence">
-              <xsl:attribute name="occurrence" select="$occurrence"/>              
-            </xsl:if>
-            <xsl:if test="$separator">
-              <xsl:attribute name="separator" select="$separator"/>
-            </xsl:if>
-          </d2r:elementToken>
+          <xsl:choose>
+            <xsl:when test="starts-with($tagname, '%')">
+              <ref name="{translate($tagname, ';%', '')}"/>
+            </xsl:when>
+            <xsl:when test="$tagname = ('#PCDATA')">
+              <text/>
+            </xsl:when>
+            <xsl:otherwise>
+              <d2r:elementToken name="{$tagname}">
+                <xsl:if test="$occurrence">
+                  <xsl:attribute name="occurrence" select="$occurrence"/>              
+                </xsl:if>
+                <xsl:if test="$separator">
+                  <xsl:attribute name="separator" select="$separator"/>
+                </xsl:if>
+              </d2r:elementToken>              
+            </xsl:otherwise>
+          </xsl:choose>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
