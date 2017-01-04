@@ -5,6 +5,7 @@
   xmlns:d2r="urn:names:dtd2rng"
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
   xmlns:rng="http://relaxng.org/ns/structure/1.0"
+  xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
   xmlns="http://relaxng.org/ns/structure/1.0"
   exclude-result-prefixes="xs relpath d2r"
   version="2.0">
@@ -24,6 +25,9 @@
         </modules>
         
         The root element type does not matter.
+        
+        The direct output is a generation log file that lists
+        the RNG files generated.
        
        ======================================================= -->
   
@@ -449,11 +453,31 @@
   <xsl:template name="handleElementDecl">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>          
     <xsl:param name="lines" as="element()+"/>
+    
+    <xsl:variable name="tagname" as="xs:string"
+      select="substring-before(substring-after(., '&lt;!ELEMENT '), ' %')"
+    />
+    
+    <define name="{$tagname}.element">
+      <element name="{$tagname}" dita:longName="{$tagname}">
+        <a:documentation>docs go here.</a:documentation>
+        <ref name="{$tagname}.attlist"/>
+        <ref name="{$tagname}.content"/>
+      </element>
+    </define>
   </xsl:template>
   
   <xsl:template name="handleAttlistDecl">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>          
     <xsl:param name="lines" as="element()+"/>
+
+    <xsl:variable name="tagname" as="xs:string"
+      select="substring-before(substring-after(., '&lt;!ATTLIST '), ' %')"
+    />
+    
+    <define name="{$tagname}.attlist" combine="interleave">
+      <ref name="{$tagname}.attributes"/>
+    </define>
   </xsl:template>
   
   <xsl:template name="handleCommentDecl">
