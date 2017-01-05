@@ -557,7 +557,7 @@
     <xsl:param name="lines" as="element()+"/>
     
     <xsl:variable name="tagname" as="xs:string"
-      select="normalize-space(substring-before(substring-after(., '&lt;!ELEMENT '), ' %'))"
+      select="tokenize(., ' ')[2]"
     />
     
     <define name="{$tagname}.element">
@@ -574,7 +574,7 @@
     <xsl:param name="lines" as="element()+"/>
 
     <xsl:variable name="tagname" as="xs:string"
-      select="normalize-space(substring-before(substring-after(., '&lt;!ATTLIST '), ' %'))"
+      select="tokenize(., ' ')[2]"
     />
     
     <define name="{$tagname}.attlist" combine="interleave">
