@@ -323,12 +323,7 @@
           <any/>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:variable name="group" select="d2r:processContentGroup($groupString)"/>
-          <xsl:message> + [DEBUG] group:
-==========================
-<xsl:sequence select="$group"/>
-==========================            
-          </xsl:message>
+          <xsl:variable name="group" select="d2r:processContentGroup($groupString, $doDebug)" as="element()"/>
           <xsl:apply-templates mode="convertGroup" select="$group">
             <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
           </xsl:apply-templates>
@@ -337,17 +332,95 @@
     </define>
   </xsl:template>
   
-  <xsl:template mode="convertGroup" match="rng:*">
+  <xsl:template mode="convertGroup" match="d2r:groupdef">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>          
+    
+    <!-- Construct the groups as a hierarchy of groups.
+         
+      -->
+    <xsl:variable name="grouped" as="element()*">
+      <xsl:call-template name="processGroup">
+        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+        <xsl:with-param name="items" as="element()*" select="*"/>
+        <xsl:with-param name="groupLevel" as="xs:integer" select="1"/>
+      </xsl:call-template>
+    </xsl:variable>
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] grouped:
+        ============
+        <xsl:sequence select="$grouped"/>
+        ============            
+      </xsl:message>
+    </xsl:if>
+    <xsl:apply-templates select="$grouped" mode="groupedToRNG">
+      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    </xsl:apply-templates>
+    
+  </xsl:template>
+  
+  <xsl:template name="processGroup">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>              
+    <xsl:param name="items" as="node()*"/>
+    <xsl:param name="groupLevel" as="xs:integer"/>
+        
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] processGroup: groupLevel="<xsl:value-of select="$groupLevel"/>", items:
+===
+<xsl:sequence select="$items"/>
+===
+      </xsl:message>
+    </xsl:if>
+    
+    <xsl:for-each-group select="$items" group-starting-with="d2r:startGroup[@level = $groupLevel]">
+      <xsl:if test="$doDebug">
+        <xsl:message> + [DEBUG] processGroup: group <xsl:value-of select="position()"/>:
+          ===
+          <xsl:sequence select="current-group()"/>
+          ===
+        </xsl:message>
+      </xsl:if>
+      
+      <xsl:choose>
+        <xsl:when test="self::d2r:startGroup">
+          <xsl:if test="$doDebug">
+            <xsl:message> + [DEBUG] processGroup: Group</xsl:message>
+          </xsl:if>
+          <xsl:variable name="groupItems" as="element()*" 
+            select="current-group()[position() gt 1][position() lt last()]"
+          />
+          <d2r:group>
+            <xsl:sequence select="current-group()[last()]/@separator"/>
+            <xsl:sequence select="current-group()[last()]/@occurrence"/>
+            <xsl:call-template name="processGroup">
+              <xsl:with-param name="items" as="node()*" select="$groupItems"/>
+              <xsl:with-param name="groupLevel" as="xs:integer" select="$groupLevel + 1"/>
+            </xsl:call-template>
+          </d2r:group>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:if test="$doDebug">
+            <xsl:message> + [DEBUG] processGroup: Not a group</xsl:message>
+          </xsl:if>
+          
+          <!-- Not a group, just put out the parts. -->
+          <xsl:sequence select="current-group()"/>
+        </xsl:otherwise>
+      </xsl:choose>          
+    </xsl:for-each-group>
+  </xsl:template>
+  
+    
+  <xsl:template mode="groupedToRNG" match="rng:*">
     <xsl:copy copy-namespaces="no">
-      <xsl:apply-templates select="@*, node()" mode="#current"/>
+      <xsl:apply-templates select="@* except (@separator, @occurrence), node()" mode="#current"/>
     </xsl:copy>
   </xsl:template>
   
-  <xsl:template mode="convertGroup" match="@* | text()">
+  <xsl:template mode="groupedToRNG" match="@* | text()">
     <xsl:sequence select="."/>
   </xsl:template>
   
-  <xsl:template mode="convertGroup" match="d2r:elementToken">
+  <xsl:template mode="groupedToRNG" match="d2r:elementToken">
     <xsl:choose>
       <xsl:when test="@occurrence = '*'">
         <zeroOrMore xmlns="http://relaxng.org/ns/structure/1.0">
@@ -370,12 +443,19 @@
     </xsl:choose>
   </xsl:template>
   
-  <xsl:template mode="convertGroup" match="d2r:group">
-    <xsl:variable name="occurrence" as="xs:string?"
-      select="d2r:groupend/@occurrence"
-    />
+  <xsl:template mode="groupedToRNG" match="d2r:group">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    
+    <xsl:message> + [DEBUG] groupedToRNG: d2r:group:
+====
+<xsl:sequence select="."/>
+====
+    </xsl:message>
     <xsl:variable name="separator" as="xs:string?"
       select="*[1]/@separator"
+    />
+    <xsl:variable name="occurrence" as="xs:string?"
+      select="@occurrence"
     />
     <xsl:variable name="group" as="element()*">
       <xsl:choose>
@@ -391,6 +471,11 @@
       </xsl:choose>
     </xsl:variable>
     <xsl:choose>
+      <xsl:when test="$occurrence = ('?')">
+        <optional>
+          <xsl:sequence select="$group"/>
+        </optional>
+      </xsl:when>
       <xsl:when test="$occurrence = ('*')">
         <zeroOrMore>
           <xsl:sequence select="$group"/>
@@ -401,11 +486,6 @@
           <xsl:sequence select="$group"/>
         </oneOrMore>
       </xsl:when>
-      <xsl:when test="$occurrence = ('?')">
-        <optional>
-          <xsl:sequence select="$group"/>
-        </optional>
-      </xsl:when>
       <xsl:otherwise>
         <xsl:sequence select="$group"/>
       </xsl:otherwise>
@@ -414,6 +494,11 @@
   
   <xsl:template mode="convertGroup" match="d2r:*" priority="-1">
     <xsl:message> + [WARN] convertGroup: Unhandled element <xsl:value-of select="concat(name(..), '/', name(.))"/></xsl:message>
+    <xsl:apply-templates mode="#current"/>
+  </xsl:template>
+  
+  <xsl:template mode="groupedToRNG" match="d2r:*" priority="-1">
+    <xsl:message> + [WARN] groupedToRNG: Unhandled element <xsl:value-of select="concat(name(..), '/', name(.))"/></xsl:message>
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
   
@@ -668,12 +753,16 @@
   
   <xsl:function name="d2r:processContentGroup" as="node()*">
     <xsl:param name="groupString" as="xs:string"/>
+    <xsl:param name="doDebug" as="xs:boolean"/>
     
-    <xsl:sequence select="d2r:processContentGroup($groupString, 0, ())"/>
+    
+    <d2r:groupdef>
+      <xsl:sequence select="d2r:processContentGroup($groupString, 0, (), $doDebug)"/>
+    </d2r:groupdef>
   </xsl:function>
   
   <!-- Parse a DTD group into d2r group markup (from which the RNG groups are
-       then constructed. This two-phase approach handles the fact that DTD
+       then constructed). This two-phase approach handles the fact that DTD
        occurrence indicators are postfix but RNG groups are prefix (via
        wrappers that indicate occurrence).
        
@@ -684,8 +773,11 @@
     <xsl:param name="groupString" as="xs:string"/>
     <xsl:param name="groupLevel" as="xs:integer"/>
     <xsl:param name="resultTokens" as="element()*"/>
+    <xsl:param name="doDebug" as="xs:boolean"/>
     
-    <xsl:message> + [DEBUG] d2r:processContentGroup(): groupString=/<xsl:value-of select="$groupString"/>/</xsl:message>
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] d2r:processContentGroup(): groupString=/<xsl:value-of select="$groupString"/>/</xsl:message>
+    </xsl:if>
 
     <xsl:choose>
       <xsl:when test="string-length($groupString) = 0">
@@ -698,12 +790,12 @@
         <xsl:sequence 
           select="
             if ($nextChar = '(')
-               then d2r:startGroup($groupString, $groupLevel, $resultTokens)
+               then d2r:startGroup($groupString, $groupLevel, $resultTokens, $doDebug)
             else if ($nextChar = ')')
-            then d2r:endGroup($groupString, $groupLevel, $resultTokens)
+            then d2r:endGroup($groupString, $groupLevel, $resultTokens, $doDebug)
             else if ($nextChar = ',')
-            then d2r:processContentGroup(substring($groupString, 2), $groupLevel, $resultTokens)
-            else d2r:processContentToken($groupString, $groupLevel, $resultTokens)
+            then d2r:processContentGroup(substring($groupString, 2), $groupLevel, $resultTokens, $doDebug)
+            else d2r:processContentToken($groupString, $groupLevel, $resultTokens, $doDebug)
           "  
         />
       </xsl:otherwise>
@@ -715,12 +807,17 @@
     <xsl:param name="inString" as="xs:string?"/>
     <xsl:param name="groupLevel" as="xs:integer"/>    
     <xsl:param name="resultTokens" as="element()*"/>
+    <xsl:param name="doDebug" as="xs:boolean"/>
+    
     
     <xsl:variable name="newTokens" as="element()*">
       <d2r:startGroup level="{$groupLevel + 1}"/>
     </xsl:variable>
     
-    <xsl:sequence select="d2r:processContentGroup(substring($inString, 2), $groupLevel + 1, ($resultTokens, $newTokens))"/>
+    <xsl:sequence select="d2r:processContentGroup(substring($inString, 2), 
+                                                  $groupLevel + 1, 
+                                                  ($resultTokens, $newTokens),
+                                                  $doDebug)"/>
     
   </xsl:function>
   
@@ -728,6 +825,8 @@
     <xsl:param name="inString" as="xs:string?"/>
     <xsl:param name="groupLevel" as="xs:integer"/>
     <xsl:param name="resultTokens" as="element()*"/>
+    <xsl:param name="doDebug" as="xs:boolean"/>
+    
     
     <!-- inString includes the group end indicator (')'), so
          any occurrence indicator will be 2nd character of
@@ -739,8 +838,21 @@
     <xsl:variable name="occurrenceIndicator" as="xs:string?"
       select="if ($cand = ('*', '+', '?')) then $cand else ()"
     />
+    <xsl:variable name="candSep" as="xs:string?"
+      select="if ($cand = (',', '|')) 
+                 then $cand 
+                 else substring($inString, 3, 1)"
+    />
+    <xsl:variable name="separator" as="xs:string?"
+      select="if ($candSep = (',', '|')) 
+                 then $candSep 
+                 else ()"
+    />
     <xsl:variable name="newTokens" as="element()*">
       <d2r:endGroup level="{$groupLevel}">
+        <xsl:if test="$separator">
+          <xsl:attribute name="separator" separator="$separator"/>
+        </xsl:if>
         <xsl:if test="boolean($occurrenceIndicator)">
           <xsl:attribute name="occurrence" select="$occurrenceIndicator"/>
         </xsl:if>
@@ -752,7 +864,12 @@
                  then substring($inString, 3) 
                  else substring($inString, 2)"
     />
-    <xsl:sequence select="d2r:processContentGroup($rest, $groupLevel - 1, ($resultTokens, $newTokens))"/>
+    <xsl:sequence 
+      select="d2r:processContentGroup($rest, 
+                                      $groupLevel - 1, 
+                                      ($resultTokens, $newTokens), 
+                                      $doDebug)"
+    />
     
   </xsl:function>
   
@@ -760,13 +877,18 @@
     <xsl:param name="inString" as="xs:string"/>
     <xsl:param name="groupLevel" as="xs:integer"/>
     <xsl:param name="resultTokens" as="element()*"/>
+    <xsl:param name="doDebug" as="xs:boolean"/>
     
-<!--    <xsl:message> + [DEBUG] d2r:processContentToken(): inString=/<xsl:value-of select="$inString"/>/</xsl:message>-->
+    <xsl:if test="$doDebug"> 
+       <xsl:message> + [DEBUG] d2r:processContentToken(): inString=/<xsl:value-of select="$inString"/>/</xsl:message>
+    </xsl:if>
     
     <xsl:variable name="token" as="xs:string?"
        select="d2r:parseContentToken($inString)"
     />
-<!--    <xsl:message> + [DEBUG] d2r:processContentToken(): token=/<xsl:value-of select="$token"/>/</xsl:message>-->
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] d2r:processContentToken(): token=/<xsl:value-of select="$token"/>/</xsl:message>
+    </xsl:if>
     <xsl:variable name="tokenElem" as="element()?">
       <xsl:choose>
         <xsl:when test="not($token)">
@@ -783,6 +905,9 @@
               </xsl:matching-substring>
             </xsl:analyze-string>
           </xsl:variable>
+          <xsl:if test="$doDebug">
+            <xsl:message> + [DEBUG] d2r:processContentToken(): occurrence="<xsl:value-of select="$occurrence"/>"</xsl:message>
+          </xsl:if>
           <xsl:variable name="separator" as="xs:string?">
             <xsl:analyze-string select="$token" regex="[\|,]">
               <xsl:matching-substring>
@@ -790,6 +915,10 @@
               </xsl:matching-substring>
             </xsl:analyze-string>
           </xsl:variable>
+          <xsl:if test="$doDebug">
+            <xsl:message> + [DEBUG] d2r:processContentToken(): separator="<xsl:value-of select="$separator"/>"</xsl:message>
+          </xsl:if>
+          
           <xsl:variable name="tagname" as="xs:string?">
             <xsl:analyze-string select="$token" regex="[\c#%;]+">
               <xsl:matching-substring>
@@ -800,10 +929,24 @@
 <!--          <xsl:message> + [DEBUG] d2r:processContentToken(): tagname="<xsl:value-of select="$tagname"/>"</xsl:message>-->
           <xsl:choose>
             <xsl:when test="starts-with($tagname, '%')">
-              <rng:ref name="{translate($tagname, ';%', '')}"/>
+              <rng:ref name="{translate($tagname, ';%', '')}">
+                <xsl:if test="$occurrence">
+                  <xsl:attribute name="occurrence" select="$occurrence"/>              
+                </xsl:if>
+                <xsl:if test="$separator">
+                  <xsl:attribute name="separator" select="$separator"/>
+                </xsl:if>
+              </rng:ref>
             </xsl:when>
             <xsl:when test="$tagname = ('#PCDATA')">
-              <rng:text/>
+              <rng:text>
+                <xsl:if test="$occurrence">
+                  <xsl:attribute name="occurrence" select="$occurrence"/>              
+                </xsl:if>
+                <xsl:if test="$separator">
+                  <xsl:attribute name="separator" select="$separator"/>
+                </xsl:if>
+              </rng:text>
             </xsl:when>
             <xsl:otherwise>
               <d2r:elementToken name="{$tagname}">
@@ -824,7 +967,8 @@
                  then $resultTokens
                  else d2r:processContentGroup(substring($inString, string-length($token) + 1), 
                                               $groupLevel, 
-                                              ($resultTokens, $tokenElem))"
+                                              ($resultTokens, $tokenElem), 
+                                              $doDebug)"
     />
     <xsl:sequence select="$result"/>
   </xsl:function>
@@ -881,4 +1025,5 @@
     
     <xsl:sequence select="$result"/>
   </xsl:function>
+  
 </xsl:stylesheet>
