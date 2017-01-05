@@ -515,39 +515,48 @@
     <xsl:variable name="entityName" as="xs:string"
       select="tokenize($lines[1], ' ')[3]"
     />
+
     <define name="{$entityName}">
-      <xsl:for-each-group select="$lines[position() gt 1]" 
-        group-starting-with="*[matches(., '^\s{1,16}&quot;?[a-zA-Z\-\._%;]+')]
-        [not(matches(., '(CDATA|NMTOKEN|#IMPLIED|#REQUIRED|&quot;)\s*$'))]">
-        
-        <xsl:choose>
-          <xsl:when test='matches(., """$")'>
-            <!-- Ignore -->
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:variable name="attname" as="xs:string" select="normalize-space(replace(., '&quot;', ''))"/>
-            <xsl:variable name="default" as="xs:string" select="replace(normalize-space(current-group()[3]), '&quot;', '')"/>
+      <xsl:choose>
+        <xsl:when test="matches($lines[2], '&quot;%[a-zA-Z\.\-_]+;&quot;')">
+          <xsl:variable name="entityName" as="xs:string" select="translate($lines[2], '&quot;%;', '')"/>
+          <ref name="{$entityName}"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:for-each-group select="$lines[position() gt 1]" 
+            group-starting-with="*[matches(., '^\s{1,16}&quot;?[a-zA-Z\-\._%;]+')]
+            [not(matches(., '(CDATA|NMTOKEN|#IMPLIED|#REQUIRED|&quot;)\s*$'))]">
+            
             <xsl:choose>
-              <xsl:when test="starts-with($attname, '%')">
-                <ref name="{substring($attname, 2, string-length($attname) - 2)}"/>
-              </xsl:when>
-              <xsl:when test="$default = ('#IMPLIED')">
-                <optional>
-                  <attribute name="{$attname}"/>
-                </optional>                  
+              <xsl:when test='matches(., """$")'>
+                <!-- Ignore -->
               </xsl:when>
               <xsl:otherwise>
-                <attribute name="{$attname}">
-                  <xsl:if test="not($default = ('#REQUIRED'))">
-                    <xsl:attribute name="a:defaultValue" select="$default"/>
-                  </xsl:if>
-                </attribute>
+                <xsl:variable name="attname" as="xs:string" select="normalize-space(replace(., '&quot;', ''))"/>
+                <xsl:variable name="default" as="xs:string" select="replace(normalize-space(current-group()[3]), '&quot;', '')"/>
+                <xsl:choose>
+                  <xsl:when test="starts-with($attname, '%')">
+                    <ref name="{substring($attname, 2, string-length($attname) - 2)}"/>
+                  </xsl:when>
+                  <xsl:when test="$default = ('#IMPLIED')">
+                    <optional>
+                      <attribute name="{$attname}"/>
+                    </optional>                  
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <attribute name="{$attname}">
+                      <xsl:if test="not($default = ('#REQUIRED'))">
+                        <xsl:attribute name="a:defaultValue" select="$default"/>
+                      </xsl:if>
+                    </attribute>
+                  </xsl:otherwise>
+                </xsl:choose>
               </xsl:otherwise>
             </xsl:choose>
-          </xsl:otherwise>
-        </xsl:choose>
-        
-      </xsl:for-each-group>
+            
+          </xsl:for-each-group>
+        </xsl:otherwise>
+      </xsl:choose>
     </define>
     
   </xsl:template>
