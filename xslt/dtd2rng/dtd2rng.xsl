@@ -174,7 +174,7 @@
       
       <define name="{$moduleName}-d-xxx">
         <xsl:for-each select="$lines[starts-with(., '&lt;!ENTITY % ')]">
-          <xsl:analyze-string select="." regex="% (\c+) ">
+          <xsl:analyze-string select="." regex="% ([a-zA-Z\-\._]+) ">
             <xsl:matching-substring>
               <ref name="{regex-group(1)}.element" xmlns="http://relaxng.org/ns/structure/1.0"/>
             </xsl:matching-substring>
@@ -512,7 +512,7 @@
       select="tokenize($lines[1], ' ')[3]"
     />
     <define name="{$entityName}">
-      <xsl:for-each-group select="$lines[position() gt 1]" group-starting-with="*[matches(., '^  \c+')]">
+      <xsl:for-each-group select="$lines[position() gt 1]" group-starting-with="*[matches(., '^  [a-zA-Z\-\._]+')]">
         <xsl:choose>
           <xsl:when test='contains(., """")'>
             <!-- Ignore -->
@@ -547,7 +547,7 @@
     <xsl:param name="lines" as="element()+"/>
     
     <xsl:variable name="tagname" as="xs:string"
-      select="substring-before(substring-after(., '&lt;!ELEMENT '), ' %')"
+      select="normalize-space(substring-before(substring-after(., '&lt;!ELEMENT '), ' %'))"
     />
     
     <define name="{$tagname}.element">
@@ -564,7 +564,7 @@
     <xsl:param name="lines" as="element()+"/>
 
     <xsl:variable name="tagname" as="xs:string"
-      select="substring-before(substring-after(., '&lt;!ATTLIST '), ' %')"
+      select="normalize-space(substring-before(substring-after(., '&lt;!ATTLIST '), ' %'))"
     />
     
     <define name="{$tagname}.attlist" combine="interleave">
@@ -921,7 +921,7 @@
           </xsl:if>
           
           <xsl:variable name="tagname" as="xs:string?">
-            <xsl:analyze-string select="$token" regex="[\c#%;]+">
+            <xsl:analyze-string select="$token" regex="[a-zA-Z\-\._#%;]+">
               <xsl:matching-substring>
                 <xsl:sequence select="."/>
               </xsl:matching-substring>
@@ -1019,8 +1019,8 @@
     <xsl:variable name="result" as="xs:string?"
       select="if ($c = (',', '|'))
                   then concat($resultString, $c)
-               else if (not(matches($c, '[\c\?\*\+#%;]')))
-                  then $resultString  
+                  else if (not(matches($c, '[a-zA-Z\-\._#%;]')))
+                       then $resultString  
                   else d2r:getTokenCharacters($rest, concat($resultString, $c))
     "/>
     
