@@ -173,7 +173,7 @@
       <a:documentation>DOMAIN EXTENSION PATTERNS</a:documentation><xsl:text>&#x0a;</xsl:text>
       
       <define name="{$moduleName}-d-xxx">
-        <xsl:for-each select="$lines[starts-with(., '&lt;!ENTITY % ')]">
+        <xsl:for-each select="$lines[matches(., '\s*&lt;!ENTITY % ')]">
           <xsl:analyze-string select="." regex="% ([a-zA-Z\-\._]+) ">
             <xsl:matching-substring>
               <ref name="{regex-group(1)}.element" xmlns="http://relaxng.org/ns/structure/1.0"/>
