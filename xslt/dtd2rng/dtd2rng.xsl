@@ -512,7 +512,9 @@
       select="tokenize($lines[1], ' ')[3]"
     />
     <define name="{$entityName}">
-      <xsl:for-each-group select="$lines[position() gt 1]" group-starting-with="*[matches(., '^\s{1,16}&quot;?[a-zA-Z\-\._%;]+')]">
+      <xsl:for-each-group select="$lines[position() gt 1]" 
+        group-starting-with="*[matches(., '^\s{1,16}&quot;?[a-zA-Z\-\._%;]+')]
+        [not(matches(., '(CDATA|NMTOKEN|#IMPLIED|#REQUIRED|&quot;)\s*$'))]">
         
         <xsl:choose>
           <xsl:when test='matches(., """$")'>
