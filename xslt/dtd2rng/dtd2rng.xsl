@@ -494,6 +494,10 @@
     </xsl:choose>
   </xsl:template>
   
+  <xsl:template mode="groupedToRNG" match="d2r:endGroup">
+    <!-- Nothing to do -->
+  </xsl:template>
+  
   <xsl:template mode="convertGroup" match="d2r:*" priority="-1">
     <xsl:message> + [WARN] convertGroup: Unhandled element <xsl:value-of select="concat(name(..), '/', name(.))"/></xsl:message>
     <xsl:apply-templates mode="#current"/>
@@ -605,14 +609,14 @@
       
       <xsl:for-each-group select="$lines" group-starting-with="*[matches(., '&lt;!ATTLIST')]">
         <!-- Ignore leading or trailing blank lines. -->
-        <xsl:if test="matches(., '&lt;!')">
+        <xsl:if test="matches(., '&lt;!ATT')">
           <xsl:variable name="text" as="xs:string"
             select="string-join(for $l in current-group() return string($l), ' ')"
           />
           <xsl:variable name="tagname" as="xs:string"
             select="tokenize(., ' ')[2]"/>
           <xsl:variable name="classAttValue" as="xs:string">
-            <xsl:analyze-string select="$text" regex='class CDATA "([^"]+)"'>
+            <xsl:analyze-string select="$text" regex='class\s+CDATA\s+"([^"]+)"'>
               <xsl:matching-substring>
                 <xsl:sequence select="regex-group(1)"/>
               </xsl:matching-substring>
