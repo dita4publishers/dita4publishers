@@ -100,7 +100,7 @@
             <xsl:with-param name="moduleName" as="xs:string" tunnel="yes" select="$moduleName"/>
           </xsl:call-template>
           <xsl:call-template name="makeElementNamePatterns">
-            <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+            <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug or true()"/>
             <xsl:with-param name="dtdText" as="xs:string" select="$dtdText"/>
             <xsl:with-param name="dtdLines" as="xs:string*" select="$dtdLines"/>
             <xsl:with-param name="moduleName" as="xs:string" tunnel="yes" select="$moduleName"/>
@@ -197,12 +197,12 @@
       select="d2r:getLinesUntilMatch(d2r:scanToSection($dtdLines, 'ELEMENT NAME ENTITIES'),
                                      '==========')"
     />
-    
+        
     
     <div><xsl:text>&#x0a;</xsl:text>
       <a:documentation>ELEMENT TYPE NAME PATTERNS</a:documentation><xsl:text>&#x0a;</xsl:text>
-      <xsl:for-each select="$lines[starts-with(., '&lt;!ENTITY % ')]">
-        <xsl:analyze-string select="." regex="% (\c+) ">
+      <xsl:for-each select="$lines[matches(., '\s*&lt;!ENTITY % ')]">
+        <xsl:analyze-string select="." regex="% ([a-zA-z\-\._]+) ">
           <xsl:matching-substring>
             <define name="{regex-group(1)}">
               <ref name="{regex-group(1)}.element"/>
@@ -446,11 +446,13 @@
   <xsl:template mode="groupedToRNG" match="d2r:group">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     
-    <xsl:message> + [DEBUG] groupedToRNG: d2r:group:
-====
-<xsl:sequence select="."/>
-====
-    </xsl:message>
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] groupedToRNG: d2r:group:
+        ====
+        <xsl:sequence select="."/>
+        ====
+      </xsl:message>
+    </xsl:if>
     <xsl:variable name="separator" as="xs:string?"
       select="*[1]/@separator"
     />
@@ -728,7 +730,6 @@
     <xsl:variable name="result" as="xs:string*"
       select="d2r:scanToMatchingLine($lines, $sectionText)[position() gt 1]"
     />
-    
     <xsl:sequence select="$result"/>
   </xsl:function>
   
