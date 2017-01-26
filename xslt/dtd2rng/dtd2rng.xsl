@@ -623,7 +623,8 @@
             select="string-join(for $l in current-group() return string($l), ' ')"
           />
           <xsl:variable name="tagname" as="xs:string"
-            select="tokenize(., ' ')[2]"/>
+            select="tokenize(normalize-space(.), ' ')[2]"/>
+          <xsl:message> + [DEBUG] tagname="<xsl:value-of select="$tagname"/>"</xsl:message>
           <xsl:variable name="classAttValue" as="xs:string">
             <xsl:analyze-string select="$text" regex='class\s+CDATA\s+"([^"]+)"'>
               <xsl:matching-substring>
