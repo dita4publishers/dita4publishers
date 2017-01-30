@@ -173,15 +173,21 @@
       <a:documentation>DOMAIN EXTENSION PATTERNS</a:documentation><xsl:text>&#x0a;</xsl:text>
       
       <define name="{$moduleName}-d-xxx">
-        <xsl:for-each select="$lines[matches(., '\s*&lt;!ENTITY % ')]">
-          <xsl:analyze-string select="." regex="% ([a-zA-Z\-\._]+) ">
-            <xsl:matching-substring>
-              <ref name="{regex-group(1)}.element" xmlns="http://relaxng.org/ns/structure/1.0"/>
-            </xsl:matching-substring>
-          </xsl:analyze-string>
-        </xsl:for-each>
+        <choice><xsl:text>&#x0a;</xsl:text>
+          <xsl:for-each select="$lines[matches(., '\s*&lt;!ENTITY % ')]">
+            <xsl:analyze-string select="." regex="% ([a-zA-Z\-\._]+) ">
+              <xsl:matching-substring>
+                <ref name="{regex-group(1)}.element" xmlns="http://relaxng.org/ns/structure/1.0"/>
+              </xsl:matching-substring>
+            </xsl:analyze-string>
+          </xsl:for-each>
+        </choice><xsl:text>&#x0a;</xsl:text>
         
         <xsl:text>&#x0a;      </xsl:text></define>
+      <a:documentation> Extend the patterns with the domain contribution </a:documentation><xsl:text>&#x0a;</xsl:text>
+      <define name="xxx" combine="choice"><xsl:text>&#x0a;</xsl:text>
+        <ref name="{$moduleName}-d-xxx"/><xsl:text>&#x0a;</xsl:text>
+      </define><xsl:text>&#x0a;</xsl:text>
       
     <xsl:text>&#x0a;   </xsl:text></div>
     
@@ -222,6 +228,7 @@
     <xsl:param name="moduleName" as="xs:string" tunnel="yes"/>
     
     <xsl:variable name="lines" as="element()*">
+      <!-- NOTE: This logic will be thrown off by block comments within the ELEMENT DECLARATIONS block. -->
       <xsl:for-each select="
         d2r:getLinesUntilMatch(d2r:scanToSection($dtdLines, 'ELEMENT DECLARATIONS'),
                 '==========')">
@@ -234,6 +241,7 @@
     
     <div><xsl:text>&#x0a;</xsl:text>
       <a:documentation>ELEMENT TYPE DECLARATIONS</a:documentation><xsl:text>&#x0a;</xsl:text>
+      
 
       <xsl:for-each-group select="$lines" group-starting-with="*[matches(., '&lt;!ENTITY.+\.content')]">
         <!-- Ignore leading or trailing blank lines. -->
@@ -543,12 +551,13 @@
                       <attribute name="{$attname}"/>
                     </optional>                  
                   </xsl:when>
+                  <xsl:when test="not($default = ('#REQUIRED'))">
+                    <optional>
+                      <attribute name="{$attname}" a:defaultValue="{$default}"/>
+                    </optional>
+                  </xsl:when>                    
                   <xsl:otherwise>
-                    <attribute name="{$attname}">
-                      <xsl:if test="not($default = ('#REQUIRED'))">
-                        <xsl:attribute name="a:defaultValue" select="$default"/>
-                      </xsl:if>
-                    </attribute>
+                    <attribute name="{$attname}"/>                    
                   </xsl:otherwise>
                 </xsl:choose>
               </xsl:otherwise>
@@ -624,7 +633,9 @@
           />
           <xsl:variable name="tagname" as="xs:string"
             select="tokenize(normalize-space(.), ' ')[2]"/>
-          <xsl:message> + [DEBUG] tagname="<xsl:value-of select="$tagname"/>"</xsl:message>
+          <xsl:if test="$doDebug">
+            <xsl:message> + [DEBUG] tagname="<xsl:value-of select="$tagname"/>"</xsl:message>
+          </xsl:if>
           <xsl:variable name="classAttValue" as="xs:string">
             <xsl:analyze-string select="$text" regex='class\s+CDATA\s+"([^"]+)"'>
               <xsl:matching-substring>
@@ -950,24 +961,24 @@
 <!--          <xsl:message> + [DEBUG] d2r:processContentToken(): tagname="<xsl:value-of select="$tagname"/>"</xsl:message>-->
           <xsl:choose>
             <xsl:when test="starts-with($tagname, '%')">
-              <rng:ref name="{translate($tagname, ';%', '')}">
+              <ref name="{translate($tagname, ';%', '')}">
                 <xsl:if test="$occurrence">
                   <xsl:attribute name="occurrence" select="$occurrence"/>              
                 </xsl:if>
                 <xsl:if test="$separator">
                   <xsl:attribute name="separator" select="$separator"/>
                 </xsl:if>
-              </rng:ref>
+              </ref>
             </xsl:when>
             <xsl:when test="$tagname = ('#PCDATA')">
-              <rng:text>
+              <text>
                 <xsl:if test="$occurrence">
                   <xsl:attribute name="occurrence" select="$occurrence"/>              
                 </xsl:if>
                 <xsl:if test="$separator">
                   <xsl:attribute name="separator" select="$separator"/>
                 </xsl:if>
-              </rng:text>
+              </text>
             </xsl:when>
             <xsl:otherwise>
               <d2r:elementToken name="{$tagname}">
