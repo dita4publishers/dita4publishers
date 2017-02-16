@@ -86,6 +86,7 @@
         <grammar 
           xmlns="http://relaxng.org/ns/structure/1.0"
           xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+          xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
           datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
           <xsl:call-template name="makeModuleDesc">
             <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
