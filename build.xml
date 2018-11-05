@@ -60,7 +60,6 @@
   <property name="api-and-tools.dist" location="${dist}/${api-and-tools.dirname}"/>
   <property name="release.dir" location="${basedir}/release"/>
 	
-	<import file="${dita-ot-dir}${file.separator}integrator.xml" optional="yes"/>
   <import file="install-ivy.xml"/>
   
 
@@ -479,7 +478,7 @@
 		</copy>
     <!-- Integrate the deployed plugins: -->
 	  <exec executable="${dita-ot-dir}/bin/dita">
-	    <arg line="-install"/>
+	    <arg line="--install"/>
 	  </exec>
 	  
 	</target>
