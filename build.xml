@@ -529,6 +529,7 @@
       </fileset>
       <fileset dir="${plugin.src}/org.dita4publishers.epub">
         <include name="**/*"/>
+        <exclude name="test/**"/>
       </fileset>
       <fileset dir="${plugin.src}/org.dita4publishers.common.xslt">
         <include name="**/*"/>
