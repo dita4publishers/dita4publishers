@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:dtd:pubmap" "urn:pubid:dita4publishers.org:doctypes:dita:dtd:pubmap">
+<pubmap>
+  <pubtitle>
+    <mainpubtitle>DITA For Publishers User Guide</mainpubtitle>
+  </pubtitle>
+  <pubmeta>
+    <author>W. Eliot Kimber</author>
+    <keywords>
+      <keyword>Computers &amp; Internet</keyword>
+      <keyword>DITA</keyword>
+      <keyword>DITA for Publishers</keyword>
+      <keyword>Publishing</keyword>
+      <indexterm>Word<index-see>MS Word</index-see></indexterm>
+    </keywords>
+    <prodinfo>
+      <prodname>DITA For Publishers</prodname>
+      <vrmlist>
+        <vrm version="1" release="0" modification="0RC28"/>
+      </vrmlist>
+    </prodinfo>
+    <pubrights>
+      <copyrfirst>
+        <year>2010</year>
+      </copyrfirst>
+      <copyrlast>
+        <year>2021</year>
+      </copyrlast>
+      <pubowner>
+        <organization>DITA For Publishers</organization>
+      </pubowner>
+    </pubrights>
+  </pubmeta>
+  <keydefs>
+    <topicmeta>
+      <navtitle>Key Definitions</navtitle>
+    </topicmeta>
+    <mapref
+      href="user_docs/keydefs-web-sites.ditamap"/>    
+  </keydefs>
+  <publication>
+    <covers>
+      <epub-cover-graphic
+        href="user_docs/d4p-users-guide/images/epub-cover-graphic.png"
+        format="png">
+        <topicmeta>
+          <navtitle>Cover Graphic</navtitle>
+        </topicmeta>
+      </epub-cover-graphic>
+      <front-cover
+        href="user_docs/d4p-users-guide/frontmatter/coverpage.xml"/>
+    </covers>
+    <frontmatter>
+      <topicref
+        href="user_docs/d4p-users-guide/topics/about-this-book.xml"/>
+      <topicref
+        href="user_docs/d4p-users-guide/release-notes/release-notes.xml">
+        <topicref href="user_docs/d4p-users-guide/release-notes/release-notes-1.0.0RC27.xml"
+          keys="relnotes-1_0_0RC27"/>
+        <topicref
+          href="user_docs/d4p-users-guide/release-notes/release-notes-1.0.0RC25.xml"
+          keys="relnotes-1_0_0RC25"/>
+        <topicref
+          href="user_docs/d4p-users-guide/release-notes/release-notes-1.0.0RC20.xml"
+          keys="relnotes-1_0_0RC20"/>
+        <topicref href="user_docs/d4p-users-guide/release-notes/release-notes-1.0.0RC19.xml"
+          keys="relnotes-1_0_0RC19"/>
+        <topicref href="user_docs/d4p-users-guide/release-notes/release-notes-1.0.0RC17.xml"
+          keys="relnotes-1_0_0RC17"/>
+        <topicref href="user_docs/d4p-users-guide/release-notes/release-notes-1.0.0.xml"/>
+        <topicref
+          href="user_docs/d4p-users-guide/release-notes/release-notes-0.9.19.xml"/>
+        <topicref
+          href="user_docs/d4p-users-guide/release-notes/release-notes-0.9.18.xml"/>
+        <subsection
+          href="user_docs/d4p-users-guide/release-notes/release-notes-0.9.16.xml"/>
+        <subsection
+          href="user_docs/d4p-users-guide/release-notes/release-notes-0.9.15.xml"/>
+        <subsection
+          href="user_docs/d4p-users-guide/release-notes/release-notes-0.9.14.xml"/>
+        <subsection
+          href="user_docs/d4p-users-guide/release-notes/release-notes-0.9.13.xml"
+          collection-type="sequence"/>
+        <subsection
+          href="user_docs/d4p-users-guide/release-notes/release-notes-0.9.12.xml"
+          collection-type="sequence"/>
+        <subsection
+          href="user_docs/d4p-users-guide/release-notes/release-notes-0.9.11.xml"/>
+        <subsection
+          href="user_docs/d4p-users-guide/release-notes/release-notes-0.9.10.xml"/>
+        <subsection
+          href="user_docs/d4p-users-guide/release-notes/release-notes-0.9.9.xml"/>
+      </topicref>
+    </frontmatter>
+    <pubbody
+      class="+ map/topicref pubmap-d/pubbody ">
+      <chapter
+        href="user_docs/d4p-users-guide/topics/intro-to-d4p.xml"/>      
+      <part keys="part-toolkit-plugins"
+        href="user_docs/d4p-users-guide/introduction-chapter.xml">
+        <chapter-mapref href="user_docs/d4p-users-guide/chapter-plugin-installation.ditamap"/>
+        <chapter-mapref
+          href="user_docs/d4p-users-guide/epub-plugin/chapter-epub-generation.ditamap"/>
+        <chapter-mapref href="user_docs/d4p-users-guide/map-driven-processing/chapter-map-driven-processing.ditamap"/>
+        <chapter-mapref href="user_docs/d4p-users-guide/html2-plugin/chapter-html2-plugin.ditamap"/>        
+        <chapter-mapref href="user_docs/d4p-users-guide/html5-plugin/html5-plugin.ditamap"/>
+        <chapter 
+          keys="generating-dita-from-documents"
+          href="user_docs/d4p-users-guide/word2dita/word-to-dita-plugin.xml"
+        />
+        <chapter 
+          keys="extending-d4p-plugins"
+          href="user_docs/d4p-users-guide/topics/extending-d4p-plugins.xml"
+        />
+      </part>
+      <part keys="part-vocabulary"
+        href="user_docs/d4p-users-guide/vocabulary-part/vocabulary-part.xml">
+        <chapter-mapref href="user_docs/d4p-users-guide/vocabulary-part/chapter-d4p-vocabulary-concepts.ditamap"/>
+        <chapter keys="integrating-modules"
+          href="user_docs/d4p-users-guide/vocabulary-part/integrating-modules.xml">
+          <subsection keys="integrating-attribute-domains"
+            href="user_docs/d4p-users-guide/vocabulary-part/integrating-attribute-domains.xml"/>
+        </chapter>
+        <chapter
+          href="user_docs/d4p-users-guide/vocabulary-part/d4p-vocabulary-reference.xml"
+          keys="langref.language-reference">
+          <mapref
+            href="languageRef/language-reference.ditamap"/>
+        </chapter>
+      </part>
+      <part-mapref
+        href="user_docs/d4p-users-guide/transform-frameworks-part/transform-frameworks-part.ditamap"/>
+    </pubbody>
+    <backmatter>
+      <indexlist/>
+      <topicref
+        href="user_docs/d4p-users-guide/backmatter/colophon.xml"/>
+    </backmatter>
+  </publication>
+</pubmap>
