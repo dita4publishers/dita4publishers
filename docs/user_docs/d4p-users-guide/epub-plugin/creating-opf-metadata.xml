@@ -13,7 +13,7 @@
   </prolog>
   <conbody>
     <p>The OPF package manifest within an EPUB document can contain metadata entries. The entries required for EPUB validation are created automatically by the EPUB generation process. However, you may want or need to add additional metadata, for example to support the conventions of a particular EPUB reader.</p>
-    <p>You can create arbitrary OPF metadata entries by creating a <xmlelem>data</xmlelem> element in your map's metadata with the name "opf-metadata". Use child <xmlelem>data</xmlelem> elements to define specific metadata items, where the <xmlatt>name</xmlatt> value is is used as the <xmlatt>name</xmlatt> attribute on the OPF <xmlelem>meta</xmlelem> and the <xmlatt>@value</xmlatt> or content of the <xmlelem>data</xmlelem> element is used as the <xmlatt>content</xmlatt> attribute on the OPF <xmlelem>meta</xmlelem> element.</p>
+    <p>You can create arbitrary OPF metadata entries by creating a <xmlelement>data</xmlelement> element in your map's metadata with the name "opf-metadata". Use child <xmlelement>data</xmlelement> elements to define specific metadata items, where the <xmlatt>name</xmlatt> value is is used as the <xmlatt>name</xmlatt> attribute on the OPF <xmlelement>meta</xmlelement> and the <xmlatt>@value</xmlatt> or content of the <xmlelement>data</xmlelement> element is used as the <xmlatt>content</xmlatt> attribute on the OPF <xmlelement>meta</xmlelement> element.</p>
     <p>For example, this markup in a DITA map:<codeblock>&lt;map>
  &lt;topicmeta>
   &lt;data name="opf-metadata">

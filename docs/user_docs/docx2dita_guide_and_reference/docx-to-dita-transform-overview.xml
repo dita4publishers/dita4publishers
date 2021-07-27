@@ -2,19 +2,19 @@
 <!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
 <concept
   id="concept-id">
-  <title>DOCX to DITA Transform Overview</title>
-  <shortdesc>The DOCX-to-DITA transformation provides a configuration-driven transformation from
-    styled Microsoft Word DOCX (Office 2007) documents to DITA-based XML. The Word templates and
-    corresponding style-to-tag mappings are of course specific to a particular use but the transform
-    itself is completely generic. In addition, the base transform can be extended or overridden
-    using normal XSLT override and extension mechanisms to add any needed use-case-specific
-    processing. The transform can generate DITA map and topic documents using any
-    specialization.</shortdesc>
+  <title>Word to DITA Transform Overview</title>
+  <shortdesc>The Word-to-DITA transformation provides a configuration-driven transformation from
+    styled Microsoft Word DOCX (Office 2007) documents to DITA-based XML. </shortdesc>
   <conbody>
-    <p>The DOCX-to-DITA processor has been designed to minimize the effort required to set up and
+    <p>The Word templates and corresponding style-to-tag mappings are of course specific to a
+      particular use but the transform itself is completely generic. In addition, the base transform
+      can be extended or overridden using normal XSLT override and extension mechanisms to add any
+      needed use-case-specific processing. The transform can generate DITA map and topic documents
+      using any specialization.</p>
+    <p>The Word-to-DITA processor has been designed to minimize the effort required to set up and
       maintain transformations from Word documents to DITA XML. While setting up the
       style-to-mapping requires knowledge of the target DITA XML structures to be generated, it does
-      not require any programming knowledge. The general design goal for the DOCX-to-DITA process is
+      not require any programming knowledge. The general design goal for the Word-to-DITA process is
       to be entirely configuration driven for as many use cases as possible so that no programming
       is required.</p>
     <p>The transform uses a configuration file, the "style to tag mapping" document, to determine
@@ -24,27 +24,30 @@
       document.</p>
     <p>In order for the transform to work, the Word document must follow a few rules:<ul
         id="ul_b9c9e14f-8bb8-470d-80e3-a35e3e68399e">
-        <li>The transform only recognizes named styles. Manual formatting is not recognized. This
-          means, for example, that you must use character styles for things like bold, italic, and
-          so on, as well as for more semantic items, such as person names, emails, etc.<fn>This
-            restriction may be removed in a future release.</fn></li>
+        <li>The transform only recognizes named styles and the basic inline formats (as of version
+          1.0.0R28). Manual formatting is only recognized for the inline formats bold, italic,
+          underline, subscript, superscript, and strike out.<fn>As an XSLT extension it is possible
+            to automatically style the Word based on properties of the Word data (including content
+            of a run or paragraph or other Word-provided information) but normally that would not be
+            necessary. It is also possible to do global search and replace styling in Word if
+            necessary and practical with your Word document set.</fn></li>
         <li>Nested structures within topic bodies and sections require unique style names for each
           distinct level. This means you need different styles for first and second-level list
           items. For things like list items this is usually the case, but some structures may nest
           in the DITA but have no visual distinction in the Word document.</li>
         <li>All the content for a given topic body needs to be contiguous. For example, if you have
           content that will result in a subordinate topic in the DITA result, it must come after any
-          body content for the parent topic. </li>
+          body content for the parent topic.</li>
       </ul></p>
     <p>These rules mean that you won't be able to take just any Word document, code up a style
       mapping, and get good DITA out. You will likely need to do a little work to define any
       necessary styles and apply them consistently. However, that effort shouldn't be too hard. If
-      you create document templates and then use them consistently thing should work. For documents
+      you create document templates and then use them consistently things should work. For documents
       that are mostly paragraphs, lists, and so on, the styling requirements are pretty simple.
       Documents that need to result in more sophisticated structures, such as learning and training
       assessments or complex reference structures obviously require more effort to style and more
       care in authoring.</p>
-    <p>The DOCX-to-DITA transform is intended primarily to handle the use case of getting materials
+    <p>The Word-to-DITA transform is intended primarily to handle the use case of getting materials
       from subject matter experts that is then converted to DITA as part of a one-time conversion
       activity. Because of the inherently fragile nature of this type of conversion (because of the
       lack of structural controls in word processing systems), the conversion is necessarily a
@@ -53,5 +56,16 @@
       batch process provides good error reporting and feedback when things go wrong. Fortunately,
       it's easy to validate the DITA result using, for example, the DITA Open Toolkit to try to
       generate HTML.</p>
+    <p>If you are looking for a general Word to DITA solution, as of 2021 there are a number of
+      solutions of varying cost and complexity. The Word-to-DITA framework was developed more than
+      10 years ago to be a low-cost solution to the specific problem of getting manuscripts for
+      books and magazines into DITA in the context of a CMS-managed workflow. It's proven to be a
+      useful and robust tool and it is free but it's not necessarily the best solution depending on
+      your needs.</p>
+    <p>The Word2DITA transform is packaged as a DITA Open Toolkit plug-in for convenience but it
+      does not require Open Toolkit. You can run the transform directly against the
+        <filepath>document.xml</filepath> file within a DOCX file, either by first unzipping the
+      DOCX (DOCX, like all of the MS Office .*X formats, is just a Zip file) or by using something
+      like OxygenXML's Archive Browser (which is how I usually do it for development purposes).</p>
   </conbody>
 </concept>

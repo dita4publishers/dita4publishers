@@ -25,7 +25,7 @@
         </info>
       </step>
       <step>
-        <cmd>Add the domain's parameter entity the <parment>props-attribute-extensions</parment> parameter entity.</cmd>
+        <cmd>Add the domain's parameter entity the <parameterentity>props-attribute-extensions</parameterentity> parameter entity.</cmd>
         <info>
           <p>Find a comment that looks like this:<codeblock>&lt;!-- ============================================================= -->
 &lt;!--                    DOMAIN ATTRIBUTE EXTENSIONS                -->

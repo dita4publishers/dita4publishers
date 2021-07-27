@@ -30,7 +30,7 @@
         <li>Numbering of topics and within-topic elements in terms of the topicref hierarchy in the
           map ("enumeration").</li>
         <li>Processing of topics in terms of semantics imposed by topicrefs (e.g., processing a
-          generic topic as a "chapter" because it is referenced by a <xmlelem>chapter</xmlelem>
+          generic topic as a "chapter" because it is referenced by a <xmlelement>chapter</xmlelement>
           topicref.</li>
         <li>Distinguishing separate uses of the same topic within a map in order to do automatic
           chunking and link rewriting.</li>

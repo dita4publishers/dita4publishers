@@ -18,26 +18,26 @@
         <refbodydiv outputclass="summary">
          <section
         id="summary">
-        <p>The <xmlelem>art</xmlelem> element enables associating metadata and a descriptive title
+        <p>The <xmlelement>art</xmlelement> element enables associating metadata and a descriptive title
           with references to images or other media objects. It's primary purpose is to serve as a
           "managed object" in a re-use or content management context.</p>
-        <p>Because the base <xmlelem>image</xmlelem> element doesn't allow <xmlelem>data</xmlelem>
+        <p>Because the base <xmlelement>image</xmlelement> element doesn't allow <xmlelement>data</xmlelement>
           elements in its content there's no direct way to associate classifying or descriptive
-          metadata with <xmlelem>image</xmlelem> elements. Thus the <xmlelem>art</xmlelem> element
+          metadata with <xmlelement>image</xmlelement> elements. Thus the <xmlelement>art</xmlelement> element
           provides a way to do it.</p>
-        <p>The <xmlelem>art</xmlelem> element is for use in block contexts (anywhere
-            <xmlelem>p</xmlelem> is allowed). The <xmlelem
-            keyref="langref.elem.art-ph">art-ph</xmlelem> element is for use in phrase contexts
-          (anywhere <xmlelem>ph</xmlelem> is allowed).</p>
-        <p>With DITA 1.3 the <xmlelem>art</xmlelem> element could be specialized from
-            <xmlelem>div</xmlelem>, which would remove the need for separate <xmlelem>art</xmlelem>
-          and <xmlelem
-            keyref="langref.elem.art-ph">art-ph</xmlelem> element types.</p>
+        <p>The <xmlelement>art</xmlelement> element is for use in block contexts (anywhere
+            <xmlelement>p</xmlelement> is allowed). The <keyword
+            keyref="langref.elem.art-ph" class="+ topic/keyword markup-d/markupname xml-d/xmlelement ">art-ph</keyword> element is for use in phrase contexts
+          (anywhere <xmlelement>ph</xmlelement> is allowed).</p>
+        <p>With DITA 1.3 the <xmlelement>art</xmlelement> element could be specialized from
+            <xmlelement>div</xmlelement>, which would remove the need for separate <xmlelement>art</xmlelement>
+          and <keyword
+            keyref="langref.elem.art-ph" class="+ topic/keyword markup-d/markupname xml-d/xmlelement ">art-ph</keyword> element types.</p>
       </section>
       </refbodydiv>
         <refbodydiv outputclass="d4p">
          <section
-        id="d4p"><xmlelem>art</xmlelem> is specialized from <xmlelem>p</xmlelem>.</section>
+        id="d4p"><xmlelement>art</xmlelement> is specialized from <xmlelement>p</xmlelement>.</section>
       </refbodydiv>    	    
         <refbodydiv outputclass="contains">
          <section id="contains"/>

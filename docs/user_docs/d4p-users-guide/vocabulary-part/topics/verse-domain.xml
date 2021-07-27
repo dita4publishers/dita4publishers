@@ -5,8 +5,8 @@
   <title>Verse Domain</title>
   <shortdesc>The verse domain provides markup for representing poetry, songs, and other line-oriented content organized into stanzas.</shortdesc>
   <body>
-    <p>The <xmlelem>verse</xmlelem> element contains any combination of <xmlelem>verse-line</xmlelem> and <xmlelem>stanza</xmlelem> elements. The <xmlelem>verse</xmlelem> element specializes from <xmlelem>lines</xmlelem>, so all white space within the <xmlelem>verse</xmlelem> element is significant by default. </p>
-    <p>A <xmlelem>verse-line</xmlelem> represents a single line of verse and a <xmlelem>stanza</xmlelem> represents a set of lines:<pre>&lt;verse>&lt;stanza
+    <p>The <xmlelement>verse</xmlelement> element contains any combination of <xmlelement>verse-line</xmlelement> and <xmlelement>stanza</xmlelement> elements. The <xmlelement>verse</xmlelement> element specializes from <xmlelement>lines</xmlelement>, so all white space within the <xmlelement>verse</xmlelement> element is significant by default. </p>
+    <p>A <xmlelement>verse-line</xmlelement> represents a single line of verse and a <xmlelement>stanza</xmlelement> represents a set of lines:<pre>&lt;verse>&lt;stanza
 >&lt;verse-line>'Twas brillig and the slithy tothes&lt;/verse-line>
 &lt;verse-line>Did gyre and gymbal in the wabe&lt;/verse-line>
 &lt;verse-line>All mimsy were the borogroves&lt;/verse-line>

@@ -20,16 +20,16 @@
       outputclass="summary">
       <section
         id="summary">
-        <p>The <xmlelem>d4pCover</xmlelem> topic type holds the contents of a cover of a
+        <p>The <xmlelement>d4pCover</xmlelement> topic type holds the contents of a cover of a
           publication. While the contents could be anything normal usage is to have the body contain
           a single image that is the cover.</p>
       </section>
       <section
         id="section_edz_gf1_cx">
-        <p>Because <xmlelem>d4pCover</xmlelem> is a topic it must have a title. However, covers
-          don't really have titles so <xmlelem>d4pCover</xmlelem> uses the specialized
-            <xmlelem>d4pCoverTitle</xmlelem> element, which is empty. You can use the regular
-            <xmlelem>searchtitle</xmlelem> or <xmlelem>navtitle</xmlelem> elements to provide a
+        <p>Because <xmlelement>d4pCover</xmlelement> is a topic it must have a title. However, covers
+          don't really have titles so <xmlelement>d4pCover</xmlelement> uses the specialized
+            <xmlelement>d4pCoverTitle</xmlelement> element, which is empty. You can use the regular
+            <xmlelement>searchtitle</xmlelement> or <xmlelement>navtitle</xmlelement> elements to provide a
           non-empty title for use in contexts where a title is useful, such as in content management
           systems. For exmple, you might use a search title like "Front cover for Some
           Publication".</p>

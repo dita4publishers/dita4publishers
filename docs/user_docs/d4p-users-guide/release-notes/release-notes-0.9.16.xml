@@ -23,7 +23,7 @@
     <section>
       <title>Word to DITA</title>
       <ul>
-        <li>Added new attribute, <xmlatt>styleName</xmlatt> to <xmlelem>style</xmlelem> in style-to-tag-map documents. This allows you to define mappings in terms of Word style display names rather than style IDs. The <xmlatt>styleId</xmlatt> attribute continues to be supported.<p>This change addresses an issue seen with documents modified or created in Japanese versions of Word, where all the style IDs got changed from what they were originally.</p><p>The documentation and samples have been updated to reflect the <xmlatt>styleName</xmlatt> attribute.</p></li>
+        <li>Added new attribute, <xmlatt>styleName</xmlatt> to <xmlelement>style</xmlelement> in style-to-tag-map documents. This allows you to define mappings in terms of Word style display names rather than style IDs. The <xmlatt>styleId</xmlatt> attribute continues to be supported.<p>This change addresses an issue seen with documents modified or created in Japanese versions of Word, where all the style IDs got changed from what they were originally.</p><p>The documentation and samples have been updated to reflect the <xmlatt>styleName</xmlatt> attribute.</p></li>
       </ul>
     </section>
   </conbody>

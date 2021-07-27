@@ -17,13 +17,13 @@
     <refbody>
         <refbodydiv outputclass="summary">
          <section
-        id="summary"><xmlelem>art-ph</xmlelem> is similar to <xmlelem
-          keyref="langref.elem.art">art</xmlelem>, but it can be used inline in block
+        id="summary"><xmlelement>art-ph</xmlelement> is similar to <keyword
+          keyref="langref.elem.art" class="+ topic/keyword markup-d/markupname xml-d/xmlelement ">art</keyword>, but it can be used inline in block
         elements.</section>
       </refbodydiv>
         <refbodydiv outputclass="d4p">
          <section
-        id="d4p"><xmlelem>art-ph</xmlelem> is specialized from <xmlelem>ph</xmlelem>.</section>
+        id="d4p"><xmlelement>art-ph</xmlelement> is specialized from <xmlelement>ph</xmlelement>.</section>
       </refbodydiv>    	    
         <refbodydiv outputclass="contains">
          <section id="contains"/>

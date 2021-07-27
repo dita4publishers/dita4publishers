@@ -6,7 +6,7 @@
     older style-to-tag map (pre-0.9.19RC12Feature30), then you must migrate the older map to the newer markup.</shortdesc>
   <taskbody>
     <context>In the latest Word2DITA code, there is an XSLT transform under the
-      <xmlelem>utils/</xmlelem> directory in the plugin. Apply it to your old style-to-tag map. In
+      <xmlelement>utils/</xmlelement> directory in the plugin. Apply it to your old style-to-tag map. In
       many cases the migrated file will work as is, in a few cases it may need a
       small amount of tweaking.</context>
     <steps>

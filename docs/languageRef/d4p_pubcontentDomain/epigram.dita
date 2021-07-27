@@ -19,8 +19,8 @@
          <section
         id="summary">
         <p>epigram is a pithy saying, which is often humorous.</p>
-        <p>Compare with <xmlelem
-            keyref="langref.elem.epigraph">epigraph</xmlelem>.</p>
+        <p>Compare with <keyword
+            keyref="langref.elem.epigraph" class="+ topic/keyword markup-d/markupname xml-d/xmlelement ">epigraph</keyword>.</p>
       </section>
       </refbodydiv>
         <refbodydiv outputclass="d4p">

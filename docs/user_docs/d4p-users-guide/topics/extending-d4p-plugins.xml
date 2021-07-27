@@ -18,7 +18,7 @@
       <dl>
         <dlentry>
           <dt>d4p.html2.xslt.param</dt>
-          <dd>Extension point for adding addition Ant <xmlelem>param</xmlelem> elements to the XSLT transformation process. Works the same way as the XHTML dita.conductor.xhtml.param extension point.<p>To use the extension point you create an XML file in your plugin with the <xmlelem>param</xmlelem> elements you want to add, e.g., <filepath>insertParameters.xml</filepath>:<codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
+          <dd>Extension point for adding addition Ant <xmlelement>param</xmlelement> elements to the XSLT transformation process. Works the same way as the XHTML dita.conductor.xhtml.param extension point.<p>To use the extension point you create an XML file in your plugin with the <xmlelement>param</xmlelement> elements you want to add, e.g., <filepath>insertParameters.xml</filepath>:<codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
 &lt;dummy>
   &lt;param name="paramNameinXSLT" expression="'some-param-value'"/>
 &lt;/dummy></codeblock></p><p>In your plugin.xml file you bind the <filepath>insertParameters.xml</filepath> file to the <parmname>d4p.html2.xslt.param</parmname> parameter:<codeblock>&lt;plugin ...>
@@ -50,7 +50,7 @@
       <dl>
         <dlentry>
           <dt>d4p.epub.xslt.param</dt>
-          <dd>Extension point for adding addition Ant <xmlelem>param</xmlelem> elements to the XSLT transformation process. Works the same way as the XHTML dita.conductor.xhtml.param extension point. See the description of <parmname>d4p.html2.xslt.param</parmname> for usage details.</dd>
+          <dd>Extension point for adding addition Ant <xmlelement>param</xmlelement> elements to the XSLT transformation process. Works the same way as the XHTML dita.conductor.xhtml.param extension point. See the description of <parmname>d4p.html2.xslt.param</parmname> for usage details.</dd>
         </dlentry>
       </dl>
     </section>
@@ -59,7 +59,7 @@
       <dl>
         <dlentry>
           <dt>d4p.html5.xslt.param</dt>
-          <dd>Extension point for adding addition Ant <xmlelem>param</xmlelem> elements to the XSLT transformation process. Works the same way as the XHTML dita.conductor.xhtml.param extension point. See the description of <parmname>d4p.html2.xslt.param</parmname> for usage details.</dd>
+          <dd>Extension point for adding addition Ant <xmlelement>param</xmlelement> elements to the XSLT transformation process. Works the same way as the XHTML dita.conductor.xhtml.param extension point. See the description of <parmname>d4p.html2.xslt.param</parmname> for usage details.</dd>
         </dlentry>
       </dl>
     </section>

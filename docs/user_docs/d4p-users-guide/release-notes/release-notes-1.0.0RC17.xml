@@ -38,7 +38,7 @@
       <ul id="ul_gdd_xf4_tv">
         <li>EPUB issue #57: Items for audio and video files do not produce correct MIME
             types.<p>Video and audio embedding should now work correctly using the DITA Community
-              <xmlelem>audio</xmlelem> and <xmlelem>video</xmlelem> markup. </p></li>
+              <xmlelement>audio</xmlelement> and <xmlelement>video</xmlelement> markup. </p></li>
         <li>EPUB issue #57: Is `application/svg` the correct media-type for SVG images?<p>Embeded
             SVGs should reflect the correct MIME type.</p></li>
       </ul>

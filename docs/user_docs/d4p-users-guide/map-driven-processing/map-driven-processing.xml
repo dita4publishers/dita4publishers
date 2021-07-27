@@ -26,7 +26,7 @@
         hierarchy in the map ("enumeration").</li>
       <li>Processing of topics in terms of semantics imposed by topicrefs (e.g.,
         processing a generic topic as a "chapter" because it is referenced by a
-        <xmlelem>chapter</xmlelem> topicref).</li>
+        <xmlelement>chapter</xmlelement> topicref).</li>
       <li>Distinguishing separate uses of the same topic within a map in order
         to do automatic chunking and link rewriting.</li>
       <li>Generating output files in a structure different from the source file
@@ -53,7 +53,7 @@
       a single XML structure that contains the information needed to do the following:<ul
       id="ul_zgw_l2d_rh">
       <li>Number things using normal XSLT numbering facilities (e.g.,
-        <xmlelem>xsl:number</xmlelem>) (enumeration
+        <xmlelement>xsl:number</xmlelement>) (enumeration
         support).<indexterm>enumeration<indexterm>data collection
         for</indexterm></indexterm><indexterm>numbering<indexterm>of things with
         titles</indexterm></indexterm></li>
@@ -66,7 +66,7 @@
     <p>The output generation phase produces whatever the final result is, e.g.,
       HTML. All output generation phase processing is provided the collected
       data as a tunnel parameter named "collected-data". You can access this
-      variable by adding the following <xmlelem>xsl:param</xmlelem> to any
+      variable by adding the following <xmlelement>xsl:param</xmlelement> to any
       template:<codeblock>&lt;xsl:template ...>
   <b>&lt;xsl:param name="collected-data" as="element()" tunnel="yes"/></b>
   ...

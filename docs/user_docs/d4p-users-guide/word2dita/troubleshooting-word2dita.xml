@@ -24,7 +24,15 @@
       </ul></p>
     <p>If you have eliminated the first two causes then the issue is likely a bug. Do not hesitate to report bugs or suspected bugs. If this documentation didn't give you the information you needed to clearly distinguish user error from code bugs then that's a bug too and needs to be reported.</p>
     <p>Your main debugging tools are:<ul>
-      <li>The Word-to-DITA transformation log.<p>If you run the transform through the Toolkit then the Word-to-DITA transformation messages should be in the larger Toolkit log. They will be at the end of the log since the transform is the last thing run.</p><p>If you run the transform directly then the log will be wherever XSLT messages go, which is a function of how you run the transform. I almost always run it from within Oxygen, which captures the messages in a separate window.</p><p>If you are using the command line in Windows, be sure to set a large window buffer size in the propery settings for your command window. By default, you may only see the last 100 lines or so, which is usually not enough.</p></li>
+      <li>The Word-to-DITA transformation log.<p>If you run the transform through the Toolkit then
+            the Word-to-DITA transformation messages should be in the larger Toolkit log. They will
+            be at the end of the log since the transform is the last thing run.</p><p>If you run the
+            transform directly then the log will be wherever XSLT messages go, which is a function
+            of how you run the transform. I almost always run it from within Oxygen, which captures
+            the messages in a separate window.</p><p>If you are using the command line in Windows,
+            be sure to set a large window buffer size in the property settings for your command
+            window. By default, you may only see the last 100 lines or so, which is usually not
+            enough.</p></li>
       <li>Validation of the generated XML, either with the Tookit or in an XML-aware editor that is configured with the doctypes you're converting to. <p>When invalid XML is generated it's usually pretty obvious what the issue is because it's a direct result of an error in the style-to-tag mapping specification and a validating editor should take you right to the point of error. </p></li>
       <li>Draft mode with the style names exposed in Word.<p>In Word's draft mode view you can expose the style names along one edge of the editing pane. The exact way to turn it on differs from version to version. In Word 2007 for Mac it is the "style area width" setting within the View settings. Being able to see the style names makes it easier to spot places where the Word is not styled correctly or the mapping didn't account for something it should have.</p></li>
       </ul></p>
@@ -44,7 +52,7 @@
     id="missing-content">
     <title>The Markup is Not Valid Against the DTD</title>
     <conbody>
-      <p>The first thing to check is that the map or topic is getting generated with the correct DOCTYPE declaration. This is determined by the value of the <xmlatt>format</xmlatt> attribute on the <xmlelem>style</xmlelem> element that generates the map or topic and the corresponding <xmlelem>output</xmlelem> element that specifies the public and system identifiers to use in the DOCTYPE declaration.</p>
+      <p>The first thing to check is that the map or topic is getting generated with the correct DOCTYPE declaration. This is determined by the value of the <xmlatt>format</xmlatt> attribute on the <xmlelement>style</xmlelement> element that generates the map or topic and the corresponding <xmlelement>output</xmlelement> element that specifies the public and system identifiers to use in the DOCTYPE declaration.</p>
       <p>If that is correct, then you have to examine the generated XML and see what didn't get generated correctly. Typical errors result from not generating container elements correctly, such as for list items.</p>
       <p>If the mapping looks correct then the problem must be in the Word data. Verify that the Word document is styled correctly.</p>
       <p>Also verify that your assumption about what the markup should be is correct. Create the markup you want to generate in an editor and verify that your understanding of what it should be is correct.</p>

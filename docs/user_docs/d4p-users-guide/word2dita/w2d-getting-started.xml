@@ -67,7 +67,7 @@
       </ol></p>
     <p>The Toolkit log will include messages from the Word-to-DITA transform, which will report
       unmapped paragraph and character styles. By default, any unmapped paragraph style is mapped to
-        <xmlelem>p</xmlelem>, so you will usually get valid, if not ideal, output from the default
+        <xmlelement>p</xmlelement>, so you will usually get valid, if not ideal, output from the default
       mapping.</p>
     <p>Once you have verified that you can get <i>something</i> from the transform you are ready to
       start configuring the style-to-tag mapping to reflect your specific requirements and Word

@@ -39,11 +39,11 @@
         </plentry>
         <plentry>
           <pt>filterBr</pt>
-          <pd>When set to "true" filters out all literal break characters. If not specified, all literal breaks in the word document are preserved in the intermediate transform and, by default, in the resulting DITA XML (using the DITA4Publishers <xmlelem>br</xmlelem> element from the formatting domain).</pd>
+          <pd>When set to "true" filters out all literal break characters. If not specified, all literal breaks in the word document are preserved in the intermediate transform and, by default, in the resulting DITA XML (using the DITA4Publishers <xmlelement>br</xmlelement> element from the formatting domain).</pd>
         </plentry>
         <plentry>
           <pt>filterTabs</pt>
-          <pd>When set to "true" filters out all literal tab characters. If not specified, all literal tabs in the word document are preserved in the intermediate transform and, by default, in the resulting DITA XML (using the DITA4Publishers <xmlelem>tab</xmlelem> element from the formatting domain).</pd>
+          <pd>When set to "true" filters out all literal tab characters. If not specified, all literal tabs in the word document are preserved in the intermediate transform and, by default, in the resulting DITA XML (using the DITA4Publishers <xmlelement>tab</xmlelement> element from the formatting domain).</pd>
         </plentry>
         <plentry>
           <pt>generateNavtitles</pt>
@@ -60,7 +60,7 @@
         <plentry>
           <pt>includeWordBookmarks</pt>
           <pd>When set to "true", the resulting DITA files include
-            <xmlelem>data</xmlelem> elements that reflect the bookmark start and
+            <xmlelement>data</xmlelement> elements that reflect the bookmark start and
             end markers. This can be useful in debugging cross reference
             processing or other uses of bookmarks. The default is "false".</pd>
         </plentry>
@@ -72,7 +72,7 @@
         </plentry>
         <plentry>
           <pt>mapNumberFormat</pt>
-          <pd>The number formatting string, as for the <xmlelem>xsl:number</xmlelem> instruction, to use when generating map filenames. The default is "_1_1", which produces names like "map_1_1.ditamap". Use a value of "_01_01" to get filenames like "map_01_02.ditamap". Used by the default map URL construction logic.</pd>
+          <pd>The number formatting string, as for the <xmlelement>xsl:number</xmlelement> instruction, to use when generating map filenames. The default is "_1_1", which produces names like "map_1_1.ditamap". Use a value of "_01_01" to get filenames like "map_01_02.ditamap". Used by the default map URL construction logic.</pd>
         </plentry>
         <plentry>
           <pt>mediaDirUri</pt>
@@ -114,7 +114,7 @@
         </plentry>
         <plentry>
           <pt>topicNumberFormat</pt>
-          <pd>The number formatting string, as for the <xmlelem>xsl:number</xmlelem> instruction, to use when generating topic filenames. The default is "_1_1", which produces names like "topic_1_1.dita". Use a value of "_01_01" to get filenames like "topic_01_02.dita". Used by the default topic URL construction logic.</pd>
+          <pd>The number formatting string, as for the <xmlelement>xsl:number</xmlelement> instruction, to use when generating topic filenames. The default is "_1_1", which produces names like "topic_1_1.dita". Use a value of "_01_01" to get filenames like "topic_01_02.dita". Used by the default topic URL construction logic.</pd>
         </plentry>
         <plentry>
           <pt>useLinkedGraphicNames</pt>
@@ -122,7 +122,7 @@
         </plentry>
         <plentry>
           <pt>warnOnUnstyledParas</pt>
-          <pd>Issue warnings for Word paragraphs that do not have any associated style. Default is "false". Unstyled paragraphs will map to DITA <xmlelem>p</xmlelem> by default so it is not strictly necessary to style all paragraphs in the Word document.</pd>
+          <pd>Issue warnings for Word paragraphs that do not have any associated style. Default is "false". Unstyled paragraphs will map to DITA <xmlelement>p</xmlelement> by default so it is not strictly necessary to style all paragraphs in the Word document.</pd>
         </plentry>
       </parml>
     </section>

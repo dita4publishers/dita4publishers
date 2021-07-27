@@ -7,27 +7,27 @@
   <body>
     <p>The publication content domain currently defines the following elements: <dl>
       <dlentry>
-        <dt><xmlelem>epigram</xmlelem></dt>
+        <dt><xmlelement>epigram</xmlelement></dt>
         <dd>A pithy saying, usually humorous.</dd>
       </dlentry>
       <dlentry>
-        <dt><xmlelem>epigraph</xmlelem></dt>
+        <dt><xmlelement>epigraph</xmlelement></dt>
         <dd>A brief quotation used to introduce a piece of writing. See <xref keyref="website-epigram-definition"/>.</dd>
       </dlentry>
       <dlentry>
-        <dt><xmlelem>section-pullquote</xmlelem></dt>
-        <dd>Contains a pull quote. Pull quotes often quote text within the main body of the topic and are presented out of line with the main presentation. The contents of the <xmlelem>section-pullquote</xmlelem> element should not be presented inline as it may be different from the text it quotes (for example, it might ellide part of the original or change the text to make more sense as a pull quote).</dd>
+        <dt><xmlelement>section-pullquote</xmlelement></dt>
+        <dd>Contains a pull quote. Pull quotes often quote text within the main body of the topic and are presented out of line with the main presentation. The contents of the <xmlelement>section-pullquote</xmlelement> element should not be presented inline as it may be different from the text it quotes (for example, it might ellide part of the original or change the text to make more sense as a pull quote).</dd>
       </dlentry>
       <dlentry>
-        <dt><xmlelem>d4pAttributedQuote</xmlelem></dt>
-        <dd>A quoted phrase that is attributed to a specific source. Uses the <xmlelem>d4pQuoteAttribution</xmlelem> element to identify the source of the quote.</dd>
+        <dt><xmlelement>d4pAttributedQuote</xmlelement></dt>
+        <dd>A quoted phrase that is attributed to a specific source. Uses the <xmlelement>d4pQuoteAttribution</xmlelement> element to identify the source of the quote.</dd>
       </dlentry>
       <dlentry>
-        <dt><xmlelem>d4pAssetSource</xmlelem></dt>
-        <dd>Identifies the source of an asset, such as an image or media object. Normally used within figures or <xmlelem>art</xmlelem> elements.</dd>
+        <dt><xmlelement>d4pAssetSource</xmlelement></dt>
+        <dd>Identifies the source of an asset, such as an image or media object. Normally used within figures or <xmlelement>art</xmlelement> elements.</dd>
       </dlentry>
       </dl></p>
-    <p>The <xmlelem>epigraph</xmlelem> element holds one or more paragraphs or other block-level elements followed by an optional <xmlelem>epigraph-attribution</xmlelem> element:<pre>...
+    <p>The <xmlelement>epigraph</xmlelement> element holds one or more paragraphs or other block-level elements followed by an optional <xmlelement>epigraph-attribution</xmlelement> element:<pre>...
 &lt;body>
 &lt;epigraph>
  &lt;p>&lt;q>Hokey religions and ancient weapons are no 

@@ -40,7 +40,7 @@
     <section>
       <title>Vocabulary</title>
       <ul>
-        <li>Added <xmlelem>body-pullquote</xmlelem> and <xmlelem>section-pullquote</xmlelem> to publication content domain. These elements specialize <xmlelem>bodydiv</xmlelem> and <xmlelem>sectiondiv</xmlelem> respectively.</li>
+        <li>Added <xmlelement>body-pullquote</xmlelement> and <xmlelement>section-pullquote</xmlelement> to publication content domain. These elements specialize <xmlelement>bodydiv</xmlelement> and <xmlelement>sectiondiv</xmlelement> respectively.</li>
       </ul>
     </section>
   </conbody>
