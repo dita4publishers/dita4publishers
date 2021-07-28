@@ -755,26 +755,44 @@
     <property name="root.map" location="${docs.dir}/${pub.name}.ditamap"/>
     <property name="output.dir" location="${build}/docs/html5/${pub.name}"/>
 
-    <exec executable="${dita-ot-dir}/bin/dita">
-<!--      <arg line="-f d4p-html5"/>-->
-      <arg line="-f html5"/>
-      <arg line="-i ${root.map}"/>
-      <arg line="-t ${basedir}/temp/${pub.name}/html5"/>
-      <arg line="-o ${output.dir}"/>
-      <arg line="-Dargs.outext html"/>
-      <arg line="-Dargs.copycss yes"/>
-      <arg line="-Dargs.css /${basedir}/src/css/d4p-docs-html5.css"/>
-      <arg line="-Dargs.hide.parent.link yes"/>
-      <arg line="-Dd4p.html5.json.vars.file ${output.dir}/json.vars"/>
-      <arg line="-Dgenerate.copy.outer 2"/>
-      <arg line="-Douter.control quiet"/>
-      <arg line="-Ddita.dir ${dita-ot-dir}"/>
-      <arg line="-Dargs.xhtml.toc index"/>
-      <arg line="-Dargs.hdf ${docs.dir}/user_docs/${pub.name}/static-html/topic-header-html.html"/>
-      <arg line="-Dargs.ftr ${docs.dir}/user_docs/${pub.name}/static-html/topic-footer-html.html"/>
-      <arg line="-Dclean.temp true"/><!-- Unset to preserve the temp directory -->
-      <arg line="-Dhtml2.generate.dynamic.toc true"/>
-      <arg line="-Dhtml2.generate.index true"/>
+    <exec taskname="dita-cmd" executable="${dita-ot-dir}/bin/dita" osfamily="unix" failonerror="true">
+      <arg value="--format"/>
+      <arg value="d4p-html5"/>
+      <arg value="--input"/>
+      <arg value="${root.map}"/>
+      <arg value="--temp"/>
+      <arg value="${basedir}/temp/${pub.name}/html5"/>
+      <arg value="-output"/>
+      <arg value="${output.dir}"/>
+      <arg value="--verbose"/>
+      <arg value="--clean.temp"/>
+      <arg value="yes"/>
+      <arg value="-Dargs.outext"/>
+      <arg value="html"/>
+      <arg value="-Dargs.copycss"/>
+      <arg value="yes"/>
+      <arg value="-Dargs.css"/>
+      <arg value="/${basedir}/src/css/d4p-docs-html5.css"/>
+      <arg value="-Dargs.hide.parent.link"/>
+      <arg value="yes"/>
+      <arg value="-Dd4p.html5.json.vars.file"/>
+      <arg value="${output.dir}/json.vars"/>
+      <arg value="-Douter.control"/>
+      <arg value="quiet"/>
+      <arg value="-Ddita.dir"/>
+      <arg value="${dita-ot-dir}"/>
+      <arg value="-Dargs.xhtml.toc"/>
+      <arg value="index"/>
+      <arg value="-Dargs.hdf"/>
+      <arg value="${docs.dir}/user_docs/${pub.name}/static-html/topic-header-html.html"/>
+      <arg value="-Dargs.ftr"/>
+      <arg value="${docs.dir}/user_docs/${pub.name}/static-html/topic-footer-html.html"/>
+      <arg value="-Dclean.temp"/>
+      <arg value="true"/>
+      <arg value="-Dhtml2.generate.dynamic.toc"/>
+      <arg value="true"/>
+      <arg value="-Dhtml2.generate.index"/>
+      <arg value="true"/>
     </exec>    
   	
   </target>
