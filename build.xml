@@ -752,32 +752,30 @@
   
   <target name="html5-d4p-user-guide" description="Generate HTML5 for D4P User's Guide">
     <property name="pub.name" value="d4p-users-guide"/>
-    <property name="root.map" location="${docs.dir}/user_docs/${pub.name}.ditamap"/>
+    <property name="root.map" location="${docs.dir}/${pub.name}.ditamap"/>
     <property name="output.dir" location="${build}/docs/html5/${pub.name}"/>
 
-    <ant antfile="${dita-ot-dir}/build.xml" 
-          dir="${dita-ot-dir}"
-          target="dita2d4p-html5"
-          
-          >
-      <property name="args.input" location="${root.map}"/>
-      <property name="args.outext" value="html"/>
-      <property name="args.copycss" value="yes"/>
-    	<property name="args.css" location="/${basedir}/src/css/d4p-docs-html5.css"/>
-    	<property name="args.hide.parent.link" value="yes"/>
-    	<property name="d4p.html5.json.vars.file" location="${output.dir}/json.vars"/>
-      <property name="generate.copy.outer" value="2"/>
-      <property name="outer.control" value="quiet"/>
-      <property name="dita.dir" location="${dita-ot-dir}"/>
-      <property name="args.xhtml.toc" value="index"/>
-      <property name="args.hdf" value="${docs.dir}/user_docs/${pub.name}/static-html/topic-header-html.html"/>
-      <property name="args.ftr" value="${docs.dir}/user_docs/${pub.name}/static-html/topic-footer-html.html"/>
-      <property name="dita.temp.dir" location="${basedir}/temp/${pub.name}/html5"/>
-      <property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
-      <property name="output.dir" location="${output.dir}"/>
-    	<property name="html2.generate.dynamic.toc" value="true"/>
-      <property name="html2.generate.index" value="true"/>
-    </ant>    
+    <exec executable="${dita-ot-dir}/bin/dita">
+<!--      <arg line="-f d4p-html5"/>-->
+      <arg line="-f html5"/>
+      <arg line="-i ${root.map}"/>
+      <arg line="-t ${basedir}/temp/${pub.name}/html5"/>
+      <arg line="-o ${output.dir}"/>
+      <arg line="-Dargs.outext html"/>
+      <arg line="-Dargs.copycss yes"/>
+      <arg line="-Dargs.css /${basedir}/src/css/d4p-docs-html5.css"/>
+      <arg line="-Dargs.hide.parent.link yes"/>
+      <arg line="-Dd4p.html5.json.vars.file ${output.dir}/json.vars"/>
+      <arg line="-Dgenerate.copy.outer 2"/>
+      <arg line="-Douter.control quiet"/>
+      <arg line="-Ddita.dir ${dita-ot-dir}"/>
+      <arg line="-Dargs.xhtml.toc index"/>
+      <arg line="-Dargs.hdf ${docs.dir}/user_docs/${pub.name}/static-html/topic-header-html.html"/>
+      <arg line="-Dargs.ftr ${docs.dir}/user_docs/${pub.name}/static-html/topic-footer-html.html"/>
+      <arg line="-Dclean.temp true"/><!-- Unset to preserve the temp directory -->
+      <arg line="-Dhtml2.generate.dynamic.toc true"/>
+      <arg line="-Dhtml2.generate.index true"/>
+    </exec>    
   	
   </target>
   
@@ -894,7 +892,6 @@
         value="${package_version}"
       />
     </replace>
-
 
 	  <antcall target="html5-d4p-user-guide"/>
 	  <antcall target="epub-d4p-user-guide"/>
