@@ -50,7 +50,47 @@
     <section id="section_ggg_vf4_tv">
       <title>Word2DITA Changes</title>
       <p>This release resolves a number of lingering issues:<ul id="ul_e33_tjv_kqb">
-          <li/>
+          <li>Issue 46: <b>Enable styling of direct character formatting</b>. Manual inline formats
+            (bold, italic, underline, strikeout, subscript, and superscript) are now automatically
+            styled by default. The style names reflect the DITA tag names for the natural target
+            elements ("b", "i", "u", "line-through", "sub", and "sup"). Where multiple formats are
+            applied to the same run, the style name reflects each style name separated by "-", i.e.,
+            "b-i", "b-i-u", etc. These styles can then be mapped using normal
+              <xmlelement>characterStyle</xmlelement> entries in the style-to-tag map. The built-in
+            style2tagmap.xml file has a set of such mappings.<p>The built-in final-fixup mode
+              includes processing to convert runs that reflect multiple styles into the
+              corresponding nested elements. I.e., a run with the style "b-i" becomes
+                <codeph>&lt;b>&lt;i>...&lt;/i>&lt;/b></codeph> in the final DITA.</p><p>The
+              auto-styling is handled by a new mode defined in the
+                <filepath>office-open-utils.xsl</filepath> module. Converting multi-format
+                <xmlelement>ph</xmlelement> elements to nested elements is handled in the built-in
+                <filepath>final-fixup.xsl</filepath> module.</p></li>
+          <li>Issue 49: <b>Table cell namest/nameend values not correctly calculated in the face of
+              row spans</b>. The calculation of <xmlatt>namest</xmlatt> and <xmlatt>nameend</xmlatt>
+            is now correct when horizontal spans occur to the right of a vertical span into the
+            horizontal cells' row.</li>
+          <li>Issue 50: <b>Capture table cell shading</b>. Table cell shading in Word tables is now
+            captured using values in the <xmlatt>base</xmlatt> attribute of the generated
+              <xmlelement>entry</xmlelement> element. Will capture either or both of the shading
+            color (as the value specified in the Word data, normally a hex RGB value) and the
+            shading pattern (as the pattern keyword specified in the Word data):
+            <codeblock id="codeblock_nfk_b4v_kqb">&lt;entry <b>base="shade(#FFFF00)"</b>>&lt;p>&lt;b>Yellow shade header&lt;/b>&lt;/p>&lt;/entry>
+&lt;entry <b>base="shade(#4BACC6) shadePattern(diagCross)"</b>>&lt;p>&lt;b>Pattern
+  cell&lt;/b>&lt;/p>&lt;/entry></codeblock></li>
+          <li>Issue 51: <b>topicZone for titlealts seems to be ignored</b>. Corrected generation of
+            title alts to put them in the appropriate titlealts element. Added new processing in
+            built-in final-fixup mode to handle correct output of title alts. Added new option
+            "generateTitleAlts" on paragraphs that generate titles. When
+              <xmlatt>generateTitleAlts</xmlatt>  is specified, the title content will be used to
+            generate the specified elements within the configured <xmlelement>titlealts</xmlelement>
+            element. Title alts will only be generated when the same-named title alt is not
+            generated from a separate paragraph using a <xmlatt>topicZone</xmlatt> of
+            "titlealts".</li>
+          <li>Issue 52: <b>Runs between fnrefs/endnote refs in same para may be lost</b>. Refined
+            how runs are handled to correct this behavior.</li>
+          <li>Issue 53: <b>cross-references lost in DITA files</b>. Implemented general support for
+            complex fields. REF fields to targets in the same document now result in working cross
+            references.</li>
         </ul></p>
     </section>
     <section id="section_kw2_43v_kqb">
