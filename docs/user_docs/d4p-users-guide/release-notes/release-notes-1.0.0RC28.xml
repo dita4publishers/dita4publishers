@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="conceptId">
+  <title>Release Notes: Version 1.0.0RC28</title>
+  <shortdesc>Version 1.0.0RC28</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>
+          <indexterm>release notes<indexterm>Version 1.0.0RC28</indexterm></indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <section>
+      <title>Theme for the Release</title>
+      <ul id="ul_avq_kjv_kqb">
+        <li>Resolve a number of lingering issues with the Word2DITA framework.</li>
+        <li>Update the D4P document type shells to use DITA 1.3 modules, including the new MathML,
+          SVG, and equation domains.</li>
+        <li>Update all D4P Open Toolkit plug-ins to work with OT 3.x (3.6.1 is the latest version as
+          of this release).</li>
+      </ul>
+    </section>
+    <section id="section_yd2_p3v_kqb">
+      <title>Document Type Changes</title>
+      <p>The D4P shells have been updated to reflect DITA 1.3:<ul id="ul_alt_q3v_kqb">
+          <li>All references to specific DITA versions in references to standard DITA modules have
+            been removed from shells.</li>
+          <li>Use of the D4P Math domain has been replaced by use of the DITA 1.3 math domain. The
+            main change to documents is to replace the <xmlelement>d4p_math</xmlelement> element
+            with the DITA 1.3 <xmlelement>math</xmlelement> element. Existing MathML markup should
+            continue to be valid as is.</li>
+          <li>Use of the D4P SVG domain has been replaced by the use of the DITA 1.3 SVG
+            domain.</li>
+          <li>Use of the D4P equation domain has been replaced by use of the DITA 1.3 equation
+            domain. Documents will need to replace the D4P elements for equations with the
+            equivalent DITA 1.3 elements.</li>
+          <li>Use of the D4P <xmlatt>renditionTarget</xmlatt> attribute domains has been replaced by
+            use of the DITA 1.3 <xmlatt>deliveryTarget</xmlatt> attribute domain. </li>
+        </ul></p>
+      <p>These changes are only to the D4P-provided document type shells. Custom shells are not
+        affected. If you do not want to adopt these changes and you have been using the D4P-provided
+        shells you will need to create your own shells by copying the pre-RC28 shells to your
+        environment and associating them with public IDs or URNs that reflect your ownership (i.e.,
+        create a new DITA Open Toolkit plug-in that provides your shells with your public IDs) and
+        update your documents to use the new shells.</p>
+    </section>
+    <section id="section_ggg_vf4_tv">
+      <title>Word2DITA Changes</title>
+      <p>This release resolves a number of lingering issues:<ul id="ul_e33_tjv_kqb">
+          <li/>
+        </ul></p>
+    </section>
+    <section id="section_kw2_43v_kqb">
+      <title>Kindle Generation Changes</title>
+      <p>Amazon has replaced the older <cmdname>kindlegen</cmdname> tool with the
+          <cmdname>kindlepreviewer</cmdname> tool, which provides both a command-line EPUB-to-MOBI
+        conversion facility as well as an interactive tool for working with and previewing Kindle
+        books.</p>
+      <p>The D4P org.dita4publishers.kindle Open Toolkit plug-in has been updated to support the new
+          <cmdname>kindlepreviewer</cmdname> tool as well as the older <cmdname>kindlegen</cmdname>
+        tool.</p>
+    </section>
+  </conbody>
+</concept>

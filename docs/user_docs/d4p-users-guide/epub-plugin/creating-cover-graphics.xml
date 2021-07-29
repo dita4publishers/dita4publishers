@@ -17,14 +17,16 @@
     <p>The EPUB transform provides several ways to specify the cover graphic:<ul>
       <li>You can specify the graphic as a parameter to the generation process (<xref
          keyref="ant-param_cover.graphic.file"/>)</li>
-      <li>You can include a <codeph>&lt;data></codeph> element with a @name value of "covergraphic" in the root map's <xmlelement>topicmeta</xmlelement> element, where the value or content of the <xmlelement>data</xmlelement> element is the absolute or relative path (from the map) of the graphic to use.</li>
-      <li>You can use the DITA for Publishers
-        <xmlelement>epub-cover-graphic</xmlelement> element within the
-        <xmlelement>covers</xmlelement> section of a publication map to point to the
-        cover graphic. The <xmlelement>epub-cover-graphic</xmlelement> element must
-        have an <xmlatt>id</xmlatt> value of "coverimage" at least for iBooks.
-        This ensures that it matches the corresponding <xmlelement>meta</xmlelement>
-        element in the generated OPF file.</li>
+      <li>You can include a <xmlelement>data</xmlelement> element with a <xmlatt>name</xmlatt> value
+          of "covergraphic" in the root map's <xmlelement>topicmeta</xmlelement> element, where the
+          value or content of the <xmlelement>data</xmlelement> element is the absolute or relative
+          path (from the map) of the graphic to use.</li>
+      <li>You can use the DITA for Publishers <xmlelement>epub-cover-graphic</xmlelement> element
+          within the <xmlelement>covers</xmlelement> section of a publication map to point to the
+          cover graphic. The <xmlelement>epub-cover-graphic</xmlelement> element must have an
+            <xmlatt>id</xmlatt> value of "coverimage" at least for iBooks. This ensures that it
+          matches the corresponding <xmlelement>meta</xmlelement> element in the generated OPF
+          file.</li>
       <li>You can implement a Toolkit plugin that extends the base EPUB generation transform and override the template for <xmlelement>map</xmlelement> in the mode "get-cover-graphic-uri". For example, you may have an existing convention for representing cover graphics in your publications.</li>
       </ul></p>
     <note>The cover graphic used for the EPUB cover must (and should) be different from any other graphic representation of the cover. For example, if you reference the same graphic as the EPUB cover graphic and as an image from a "cover" topic, the EPUB OPF metadata entry will probably not be correct.<p>As a general practice, the EPUB cover graphic should be a fairly low-resolution image sized according to the guidelines for the target EPUB reader or library.</p></note>
