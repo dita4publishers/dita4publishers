@@ -65,6 +65,9 @@
                 <filepath>office-open-utils.xsl</filepath> module. Converting multi-format
                 <xmlelement>ph</xmlelement> elements to nested elements is handled in the built-in
                 <filepath>final-fixup.xsl</filepath> module.</p></li>
+          <li>Issue 48: <b>Hyperlink @outputclass value not preserved</b>. Use any
+              <xmlatt>outputclass</xmlatt> value specified for xref in style-to-tag map that maps to
+            cross reference created from a complex ref field.</li>
           <li>Issue 49: <b>Table cell namest/nameend values not correctly calculated in the face of
               row spans</b>. The calculation of <xmlatt>namest</xmlatt> and <xmlatt>nameend</xmlatt>
             is now correct when horizontal spans occur to the right of a vertical span into the
@@ -93,6 +96,12 @@
             references.</li>
         </ul></p>
     </section>
+    <section id="section_ulz_hhh_mqb">
+      <title>EPUB Generation Changes</title>
+      <ul id="ul_urn_3hh_mqb">
+        <li/>
+      </ul>
+    </section>
     <section id="section_kw2_43v_kqb">
       <title>Kindle Generation Changes</title>
       <p>Amazon has replaced the older <cmdname>kindlegen</cmdname> tool with the
@@ -102,6 +111,10 @@
       <p>The D4P org.dita4publishers.kindle Open Toolkit plug-in has been updated to support the new
           <cmdname>kindlepreviewer</cmdname> tool as well as the older <cmdname>kindlegen</cmdname>
         tool.</p>
+    </section>
+    <section id="section_x55_bkh_mqb">
+      <title>Other Plugin Changes</title>
+      <p/>
     </section>
   </conbody>
 </concept>

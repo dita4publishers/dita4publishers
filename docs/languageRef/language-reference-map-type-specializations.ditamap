@@ -11,9 +11,7 @@
       <topicref
         keys="langref.elem.learningMap langref.maptype.learningMap"
         href="learningMap/learningMap.dita"/>
-      <topicref
-        href="map/map.dita"
-        keys="langref.elem.map langref.maptype.map"/>
+      <topicref href="map/map.dita" keys="langref.maptype.map"/>
       <topicref
         href="pub-component-map/pub-component-map.dita"
         keys="langref.elem.pub-component-map langref.maptype.pub-component-map"/>

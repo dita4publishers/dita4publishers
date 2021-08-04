@@ -16,10 +16,13 @@
     </prolog>
     <refbody>
         <refbodydiv outputclass="summary">
-          <section id="summary">d4p_renditionTargetDomain defines a single attribute:
-        d4p_renditionTarget. This global attribute is intended to allow filtering and flagging based
-        on the rendition type, e.g., PDF, EPUB, HTML, etc.<note id="note_bff_srg_kqb">This domain is
-          made obsolete by the DITA 1.3 <xmlatt>deliveryTarget</xmlatt> attribute.</note></section>
+          <section id="summary">
+        <p>The d4p_renditionTargetDomain defines a single attribute: d4p_renditionTarget. This
+          global attribute is intended to allow filtering and flagging based on the rendition type,
+          e.g., PDF, EPUB, HTML, etc.</p>
+        <note id="note_bff_srg_kqb">This domain is made obsolete by the DITA 1.3
+            <xmlatt>deliveryTarget</xmlatt> attribute.</note>
+      </section>
       </refbodydiv>
         <refbodydiv outputclass="d4p">
          <section id="d4p"> </section>

@@ -16,7 +16,16 @@
     </prolog>
     <refbody>
         <refbodydiv outputclass="summary">
-          <section id="summary">The xmlDomain provides inline elements for identifying mentions of XML constructs: element types, attributes, text entities, parameter entities, and numeric character references. It is convenient for documents that discuss XML markup (such as D4P User Guide). NOTE: This domain will be replaced by its equivalent with DITA 1.3.</section>
+          <section id="summary">
+                <p><note id="note_ezg_vcw_kqb">The D4P XML domain is made obsolete by the DITA 1.3
+                        markup and XML domains. As of D4P 1.0.0RC28, the built-in shells use the
+                        DITA 1.3 markup and XML domains instead of the D4P XML domain.</note>The
+                    xmlDomain provides inline elements for identifying mentions of XML constructs:
+                    element types, attributes, text entities, parameter entities, and numeric
+                    character references. It is convenient for documents that discuss XML markup
+                    (such as D4P User Guide). NOTE: This domain will be replaced by its equivalent
+                    with DITA 1.3.</p>
+            </section>
       </refbodydiv>
         <refbodydiv outputclass="d4p">
          <section id="d4p">Everything is a specialization of keyword.</section>

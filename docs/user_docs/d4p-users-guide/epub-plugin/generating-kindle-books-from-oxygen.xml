@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE task PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:task" "urn:pubid:dita4publishers.org:doctypes:dita:task">
-<task id="taskId">
+<task id="generating-kindle-books-from-oxygenxml">
  <title>Generating Kindle Books From OxygenXML</title>
  <shortdesc>You can configure a DITA transformation scenario in OxygenXML to generate Kindle books.</shortdesc>
   <prolog>
@@ -19,8 +19,7 @@
       <p>These instructions reflect Oxygen versions 11.2 and 12.0.</p>
       <p>To set up a Kindle book transformation scenario in OxygenXML, do the following.</p>
     </context>
-    <steps
-      id="steps_bd2ab97b-2b84-4975-b881-a037eff4c6dd">
+    <steps>
       <step>
         <cmd>From either the main editing window or the DITA Maps Manager, open the "Configure Transformation Scenario" dialog (the little wrench and red arrow button in the toolbar).</cmd>
       </step>
