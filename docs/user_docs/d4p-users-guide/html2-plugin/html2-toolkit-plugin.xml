@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
 <concept id="conceptId">
- <title>HTML2 Plugin</title>
+ <title>HTML2 Plug-in</title>
  <shortdesc>Generating old-style HTML using map-driven processing</shortdesc>
   <prolog>
     <metadata>
       <keywords>
         <indexterm>HTML<indexterm>generating</indexterm></indexterm>
         <indexterm>map-driven processing<indexterm>generating HTML</indexterm></indexterm>
-        <indexterm>HTML2 Toolkit plugin</indexterm>
-        <indexterm></indexterm>
+        <indexterm>HTML2 Toolkit plug-in</indexterm>
       </keywords>
     </metadata>
   </prolog>
