@@ -694,7 +694,8 @@
 		<property name="pub.name" value="d4p-users-guide"/>
 		<property name="root.map" location="${docs.dir}/${pub.name}.ditamap"/>
 		<property name="output.dir" location="${build}/docs"/>
-
+	  <property name="temp.dir" location="${basedir}/temp/${pub.name}/epub" />
+	  
 		<delete dir="${output.dir}" failonerror="false">
 			<include name="${pub.name}.epub"/>
 		</delete>
@@ -704,13 +705,15 @@
 	    <arg value="epub"/>
 	    <arg value="--input"/>
 	    <arg value="${root.map}"/>
+	    <arg value="--filter"/>
+	    <arg value="${docs.dir}/ditaval/epub-only.ditaval"/>
 	    <arg value="--temp"/>
-	    <arg value="${basedir}/temp/${pub.name}/epub"/>
+	    <arg value="${temp.dir}"/>
 	    <arg value="-output"/>
 	    <arg value="${output.dir}"/>
 	    <arg value="--verbose"/>
 	    <arg value="--clean.temp"/>
-	    <arg value="yes"/>
+	    <arg value="no"/>
 	    <arg value="-Dargs.copycss"/>
 	    <arg value="yes"/>
 	    <arg value="-Depub.exclude.auto.rellinks"/>
@@ -721,13 +724,15 @@
 	    <arg value="true"/>
 	    <arg value="-Dimages.output.dir"/>
 	    <arg value="images"/>
+	    <arg value="-Depub.pubid.uri.stub"/>
+	    <arg value="https://dita4publishers.org"/>
 	  </exec>
 		
-		<antcall target="post-transform-cleanup-d4p-user-guide">
+<!--		<antcall target="post-transform-cleanup-d4p-user-guide">
 			<param name="pub.name" value="${pub.name}"/>
 			<param name="output.dir" location="${output.dir}"/>
     </antcall>
-	</target>
+-->	</target>
 	
   <target name="html5-d4p-user-guide" description="Generate HTML5 for D4P User's Guide">
     <property name="pub.name" value="d4p-users-guide"/>
