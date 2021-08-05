@@ -254,6 +254,22 @@
 		</copy>
 	</target>
   
+  <target name="dist-shakespear-toolkit-plugins"
+    description="Packages the plugins needed for the Shakespear play content samples"
+    >
+    <copy todir="${plugin.dist}">
+      <fileset dir="${plugin-shakespear-samples-src}">
+        <include name="*/**"/>
+      </fileset>
+    </copy>
+    <copy todir="${plugin.dist}/org.dita4publishers.shakespear.doctypes">
+      <fileset dir="${shakespear-sample}">
+        <include name="doctypes/**"/>
+        <include name="templates/**"/>
+      </fileset>
+    </copy>
+  </target>
+  
   <target name="dist-doctype-plugins" 
      description="Packages just the doctype plugins"
      depends="dist-init, dist-license"
@@ -357,7 +373,8 @@
 		 dist-kindle-toolkit-plugins, 
 		 dist-html5-toolkit-plugins, 
 		 dist-html2-toolkit-plugins, 
-		 dist-word2dita-toolkit-plugins
+		 dist-word2dita-toolkit-plugins,
+		 dist-shakespear-toolkit-plugins
 		 "
 		>
 		<copy todir="${plugin.dist}">
@@ -367,10 +384,6 @@
 				<include name="org.dita4publishers.*.html/**"/> 
 			</fileset>
 		</copy>
-    <copy todir="${doctypes.plugin-shakespear-dist}/doctypes">
-      <fileset dir="${doctypes-skakespear-samples.src}">
-      </fileset>
-    </copy>
 		
 		<!-- FIXME: Make this work again -->
 <!--    <antcall target="add-version-info-to-files"/>-->
