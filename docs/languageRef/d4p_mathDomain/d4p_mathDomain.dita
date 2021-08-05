@@ -16,7 +16,13 @@
     </prolog>
     <refbody>
         <refbodydiv outputclass="summary">
-         <section id="summary">The d4p_mathDomain defines specializations for the use of MathML. Whether you choose to use MathML will depend in part on your tools and the kinds of equations you have. If your tools don't support MathML (e.g., cannot generate appropriate renditions for a needed output), then you may not want to use MathML. In lieu of MathML, you can use the eqn_inline and eqn_block elements from the d4p_formattingDomain. If you have simple equations, then you may decide using the basic equation elements from the formatting domain is a better option.</section>
+         <section id="summary">
+                <note id="note_rx1_sbw_kqb">The D4P math domain is obsolete as of DITA 1.3. As of
+                    D4P 1.0.0RC28, the built-in shells use the DITA 1.3 math domain rather than the
+                    D4P math domain.</note><p>The d4p_mathDomain defines specializations for the use of MathML. Whether you choose to use MathML will depend in part on your tools and the kinds of equations you have. If your tools don't support MathML (e.g., cannot generate appropriate renditions for a needed output), then you may not want to use MathML. In lieu of MathML, you can use the eqn_inline and eqn_block elements from the d4p_formattingDomain. If you have simple equations, then you may decide using the basic equation elements from the formatting domain is a better option.</p>
+                <note id="note_svt_wbw_kqb">The D4P equation elements are obsolete. You should use
+                    the DITA 1.3 equation elements instead. As of D4P 1.0.0RC28, the built-in shells
+                    include the DITA 1.3 equation domain.</note></section>
       </refbodydiv>
         <refbodydiv outputclass="d4p">
          <section id="d4p"> </section>

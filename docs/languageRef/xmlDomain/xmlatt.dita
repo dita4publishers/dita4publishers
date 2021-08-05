@@ -19,7 +19,8 @@
          <section id="summary">An xmlelem is an inline element for identifying an attribute of an XML element.</section>
       </refbodydiv>
         <refbodydiv outputclass="d4p">
-         <section id="d4p">This is a specialization of keyword. The markup &lt;xmlatt&gt;outputclass&lt;/xmlatt&gt; should produce the output: @outputclass.</section>
+         <section id="d4p">This is a specialization of keyword. The markup
+        &lt;xmlatt&gt;outputclass&lt;/xmlatt&gt; should produce the output: @outputclass.</section>
       </refbodydiv>    	    
         <refbodydiv outputclass="contains">
          <section id="contains"/>

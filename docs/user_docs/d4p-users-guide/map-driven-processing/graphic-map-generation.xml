@@ -44,22 +44,22 @@
    href="{absoluteUrl of source graphic}" 
    filename="{filename of the graphic}"
  /></codeblock></p>
-    <p>One <xmlelem>graphic-ref</xmlelem> element should be generated for each
+    <p>One <xmlelement>graphic-ref</xmlelement> element should be generated for each
       graphic reference in the source.</p>
     <p>You can add additional graphic map items using the mode "additional-graphic-refs", which is
       applied to the root map. Templates in this mode must produce
-        <xmlelem>gmap:graphic-ref</xmlelem> elements that point to the source location of the item
+        <xmlelement>gmap:graphic-ref</xmlelement> elements that point to the source location of the item
       to be included. See the templates in the <filepath>map2epubEmbedFonts.xsl</filepath> in the
       org.dita4publishers.epub plugin for example code.</p>
     <p>You can override or extend the <filepath>image.list</filepath> processing using the mode
       "map2graphicmap:handleImageListFile". The context items for the templates in this mode are
       text nodes, one for each line of the <filepath>image.list</filepath> file. The result of a
-      match on an image list item must be a <xmlelem>gmap:graphic-map-item</xmlelem> element that
+      match on an image list item must be a <xmlelement>gmap:graphic-map-item</xmlelement> element that
       specifies the input and output URIs for the image. See the base template in
         <filepath>map2graphicMap.xsl</filepath>. You can use this mode to map source graphic
       filenames to some other name or to otherwise augment the set of graphics to copy based on
       details of the image list.</p>
-    <p>The second phase processes all the <xmlelem>graphic-ref</xmlelem>
+    <p>The second phase processes all the <xmlelement>graphic-ref</xmlelement>
       elements to determine the set of unique graphics used. This process
       results in the graphic map, which looks like
       this:<codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>

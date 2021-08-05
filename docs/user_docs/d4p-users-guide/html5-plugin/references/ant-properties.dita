@@ -4,35 +4,40 @@
   <title>Availaible ant properties </title>
   <shortdesc>This properties allows to customize the output.</shortdesc>
   <refbody>
-    <properties>
-      
+    <properties>      
       <property>
         <proptype>html5.class.body</proptype>
+        <propvalue></propvalue>
         <propdesc>Allows to control the @class of the body element.</propdesc>
       </property>
       
       <property>
         <proptype>html5.class.home.page</proptype>
+        <propvalue></propvalue>
         <propdesc>The class of the body element for the home page (Table of contents).</propdesc>
       </property>
          
       <property>
         <proptype>html5.class.icon.left</proptype>
+        <propvalue></propvalue>
         <propdesc>The class of the icon used to represents the previous link.</propdesc>
       </property>
       
       <property>
         <proptype>html5.class.icon.right</proptype>
+        <propvalue></propvalue>
         <propdesc>The class of the icon used to represents the next link.</propdesc>
       </property>
       
       <property>
         <proptype>html5.class.icon.parent</proptype>
+        <propvalue></propvalue>
         <propdesc>The class of the icon used to represents the parent link.</propdesc>
       </property>
       
       <property>
         <proptype>html5.class.main.content</proptype>
+        <propvalue></propvalue>
         <propdesc>The @class of the main-content element. Default value is: <option>prefix_1 grid_16</option>, which
           means: add an empty column on the left, then add 16 columns for the content. Changing this value allows you to
           set a different size for the content. You should change it with the class.navigation property. </propdesc>
@@ -40,11 +45,13 @@
       
       <property>
         <proptype>html5.class.main.container</proptype>
+        <propvalue></propvalue>
         <propdesc>The @class of the main container element. Default value is an empty string.</propdesc>
       </property>
       
       <property>
         <proptype>html5.class.navigation</proptype>
+        <propvalue></propvalue>
         <propdesc>The @class of the navigation element. Default value is: <option>nav-left grid_7</option>, which
           means: the navigation is on the left and span 7 columns for the content. Changing this value allows you to set
           a different size for the navigation. You should change it with the class.main.content property. </propdesc>
@@ -52,6 +59,7 @@
       
       <property>
         <proptype>html5.class.section.container</proptype>
+        <propvalue></propvalue>
         <propdesc>The @class of the section container element. Default value is: <option>container_24</option>, which
           activate the 960 Grid for this element and its children.</propdesc>
       </property>
@@ -71,12 +79,14 @@
       
       <property>
         <proptype>html5.id.main.content</proptype>
+        <propvalue></propvalue>
         <propdesc>The @id of the main content element. The main content is the regions where the AJAX content is
           output. Default value is: <option>d4h5-main-content</option>.</propdesc>
       </property>
       
       <property>
         <proptype>html5.id.main.container</proptype>
+        <propvalue></propvalue>
         <propdesc>The @id of the main container element. This element is the first element after the body element.
           Default value is: <option>d4h5-main-container</option>.</propdesc>
       </property>
@@ -85,6 +95,7 @@
       
       <property>
         <proptype>html5.id.section.container</proptype>
+        <propvalue></propvalue>
         <propdesc>The @id of the section container element. is the first element after the body element. Default value
           is: <option>d4h5-section-container</option>.</propdesc>
       </property>
@@ -105,6 +116,7 @@
       
       <property>
         <proptype>html5.theme.file</proptype>
+        <propvalue></propvalue>
         <propdesc>Refers to the final relative path to the compressed CSS. By convention, style.css is the
           none-compressed file whereas style-min.css is the compressed one. Default is
           <filepath>themes/${site.theme}/css/style-min.css</filepath></propdesc>

@@ -16,13 +16,14 @@
     </prolog>
     <refbody>
         <refbodydiv outputclass="summary">
-         <section id="summary">The d4p_media_source element specifies the file to be played in a 
-           d4p_video or d4p_audio element. The file is specified by the @value attribute. You should
-           also specify the MIME type for the file specified in @value; specify the MIME type with 
-           the @type attribute.</section>
+         <section id="summary">The d4p_media_source element specifies the file to be played in a
+        d4p_video or d4p_audio element. The file is specified by the <xmlatt>value</xmlatt>
+        attribute. You should also specify the MIME type for the file specified in
+          <xmlatt>value</xmlatt>; specify the MIME type with the <xmlatt>type</xmlatt>
+        attribute.</section>
       </refbodydiv>
         <refbodydiv outputclass="d4p">
-         <section id="d4p">This is a specialization of param.</section>
+         <section id="d4p">This is a specialization of <xmlelement>param</xmlelement>.</section>
       </refbodydiv>    	    
         <refbodydiv outputclass="contains">
          <section id="contains"/>

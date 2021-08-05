@@ -2,4 +2,6 @@
 <val>
   <prop action="exclude" att="d4p_renditionTarget"/>
   <prop action="include" att="d4p_renditionTarget" val="epub"/>
+  <prop action="exclude" att="deliveryTarget"/>
+  <prop action="include" att="deliveryTarget" val="epub"/>
 </val>

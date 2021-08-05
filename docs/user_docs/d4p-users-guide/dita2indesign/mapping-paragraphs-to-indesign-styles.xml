@@ -91,11 +91,11 @@
       attribute when you need to have templates for more-specialized elements
       that would otherwise match on a template for the specialization's ancestor
       types. In that case, you must specify a <xmlatt>priority</xmlatt>
-      attribute on the <xmlelem>xsl:template</xmlelem> element with a value
+      attribute on the <xmlelement>xsl:template</xmlelement> element with a value
       greater than 1, e.g., <codeph>&lt;xsl:template priority="10" ...</codeph>
       or whatever number ensures the template will match before other templates
       the element might have matched on.</p>
-    <p>For example, say your vocabulary includes a specialization of <xmlelem>ph</xmlelem> named "foo" and a specialization of "foo" named "bar". You want <xmlelem>foo</xmlelem> to map to the paragraph style "Foo" but <xmlelem>bar</xmlelem> to map to the paragraph style "Bar". You start by creating these two match templates:<codeblock>  &lt;xsl:template match="*[df:class(., 'foodomain-d/foo')]" 
+    <p>For example, say your vocabulary includes a specialization of <xmlelement>ph</xmlelement> named "foo" and a specialization of "foo" named "bar". You want <xmlelement>foo</xmlelement> to map to the paragraph style "Foo" but <xmlelement>bar</xmlelement> to map to the paragraph style "Bar". You start by creating these two match templates:<codeblock>  &lt;xsl:template match="*[df:class(., 'foodomain-d/foo')]" 
     mode="style-map-pstyle">
     &lt;xsl:sequence select="'Foo'"/>
   &lt;/xsl:template>
@@ -104,14 +104,14 @@
     mode="style-map-pstyle">
     &lt;xsl:sequence select="'Bar'"/>
   &lt;/xsl:template></codeblock></p>
-    <p>If you used these templates as is you would get "ambiguous rule match" messages for <xmlelem>bar</xmlelem> elements because <xmlelem>bar</xmlelem> is a specialization of <xmlelem>foo</xmlelem> and thus matches both on a check for foo as well as bar (that is, the <xmlatt>class</xmlatt> value for <xmlelem>bar</xmlelem> would be something like "<codeph>+ topic/ph foodomain-d/foo bardomain-d/bar </codeph>").</p>
-    <p>To remove the ambiguity you would add a <xmlatt>priority</xmlatt> attribute to the template for <xmlelem>bar</xmlelem>, forcing it to match first:<codeblock>  &lt;xsl:template match="*[df:class(., 'bardomain-d/bar')]" 
+    <p>If you used these templates as is you would get "ambiguous rule match" messages for <xmlelement>bar</xmlelement> elements because <xmlelement>bar</xmlelement> is a specialization of <xmlelement>foo</xmlelement> and thus matches both on a check for foo as well as bar (that is, the <xmlatt>class</xmlatt> value for <xmlelement>bar</xmlelement> would be something like "<codeph>+ topic/ph foodomain-d/foo bardomain-d/bar </codeph>").</p>
+    <p>To remove the ambiguity you would add a <xmlatt>priority</xmlatt> attribute to the template for <xmlelement>bar</xmlelement>, forcing it to match first:<codeblock>  &lt;xsl:template match="*[df:class(., 'bardomain-d/bar')]" 
     <b>priority="10"</b>
     mode="style-map-pstyle">
     &lt;xsl:sequence select="'Bar'"/>
   &lt;/xsl:template></codeblock></p>
-    <p>Now when you run the transform all the <xmlelem>bar</xmlelem> elements will map to the style 'Bar' as you intended.</p>
-    <p>The <xmlatt>priority</xmlatt> value of "0.75" for the template for the <xmlelem>ph</xmlelem> element in the example above puts it's priority <i>below</i> the default priority of "1", ensuring that the template for <xmlelem>ph</xmlelem> will not interfere with any templates for specializations of <xmlelem>ph</xmlelem>.</p>
+    <p>Now when you run the transform all the <xmlelement>bar</xmlelement> elements will map to the style 'Bar' as you intended.</p>
+    <p>The <xmlatt>priority</xmlatt> value of "0.75" for the template for the <xmlelement>ph</xmlelement> element in the example above puts it's priority <i>below</i> the default priority of "1", ensuring that the template for <xmlelement>ph</xmlelement> will not interfere with any templates for specializations of <xmlelement>ph</xmlelement>.</p>
     <p>To create your own mapping module, simply copy the base <filepath>elem2styleMap.xsl</filepath> file to a new location, normally a Toolkit plugin for your extensions, remove all the templates you don't want to override, modify the ones you do, and add any additional mappings you need.</p>
     <p>If these mappings should be global to all InCopy generations in your
       environment you can use the module as a Toolkit-provided extension to the

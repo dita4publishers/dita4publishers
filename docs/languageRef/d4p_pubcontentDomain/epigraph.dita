@@ -20,8 +20,8 @@
         id="summary">
         <p>An epigraph represents a brief quotation used to introduce a piece of writing or the
           inscription on a statue or building.</p>
-        <p>Compare with <xmlelem
-            keyref="langref.elem.epigram">epigram</xmlelem>.</p>
+        <p>Compare with <keyword
+            keyref="langref.elem.epigram" class="+ topic/keyword markup-d/markupname xml-d/xmlelement ">epigram</keyword>.</p>
       </section>
       </refbodydiv>
         <refbodydiv outputclass="d4p">

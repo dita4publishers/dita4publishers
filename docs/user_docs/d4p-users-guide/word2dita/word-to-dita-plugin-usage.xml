@@ -6,12 +6,15 @@
   <prolog>
     <metadata>
       <keywords>
-        <indexterm></indexterm>
+        <indexterm>Word-to-DITA Toolkit plug-in<indexterm>generating DITA
+          from</indexterm></indexterm>
       </keywords>
     </metadata>
   </prolog>
  <conbody>
-    <p>To use the transformation as a Toolkit plugin simply deploy the DITA for Publishers Toolkit plugins to your Open Toolkit directory. The Word-to-DITA transformation type is "word2dita".</p>
+    <p>To use the transformation as a Toolkit plugin simply deploy the DITA for Publishers Toolkit
+      plugins to your Open Toolkit directory or using the <cmdname>dita install</cmdname> command.
+      The Word-to-DITA transformation type is "word2dita".</p>
     <section>
       <title>Required Parameters</title>
       <parml>
@@ -38,11 +41,15 @@
         </plentry>
         <plentry>
           <pt><parmname>w2d.filter.br</parmname></pt>
-          <pd>When set to any value (e.g., "true"), filters out literal break characters, which are otherwise preserved in the DITA output as <xmlelem>br</xmlelem> elements.</pd>
+          <pd>When set to any value (e.g., "true"), filters out literal break characters, which are
+            otherwise preserved in the DITA output as DITA for Publishers formatting domain
+              <xmlelement>br</xmlelement> elements.</pd>
         </plentry>
         <plentry>
           <pt><parmname>w2d.filter.tabs</parmname></pt>
-          <pd>When set to any value (e.g. "true"), filters out literal tab characters, which are otherwise preserved in the DITA output as <xmlelem>tab</xmlelem> elements.</pd>
+          <pd>When set to any value (e.g. "true"), filters out literal tab characters, which are
+            otherwise preserved in the DITA output as DITA for Publishers formatting domain
+              <xmlelement>tab</xmlelement> elements.</pd>
         </plentry>
         <plentry>
           <pt><parmname>w2d.root.output.filename</parmname></pt>
@@ -74,7 +81,8 @@
         </plentry>
         <plentry>
           <pt><parmname>w2d.include.word.backpointers</parmname></pt>
-          <pd>When set to "true", include @xtrf and @xtrc attributes with the locations of the Word paragraphs that generated each element. Default is "true".</pd>
+          <pd>When set to "true", include @xtrf and @xtrc attributes with the locations of the Word
+            paragraphs that generated each element. Default is "false".</pd>
         </plentry>
         <plentry>
           <pt><parmname>w2d.include.word.bookmarks</parmname></pt>

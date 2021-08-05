@@ -70,19 +70,19 @@
       &lt;font uri="Papyrus.ttc"/>
     &lt;/font-set>
 &lt;/font-manifest></codeblock></p>
-      <p>You use the <xmlelem>font</xmlelem> element to specify the relative URI of a font to embed.
+      <p>You use the <xmlelement>font</xmlelement> element to specify the relative URI of a font to embed.
         The URI is relative to the location of the font manifest file itself. In this example, the
         font manifest document must be in the same directory as the referenced font
         ("Papyrus.ttc").</p>
-      <p>You group the <xmlelem>font</xmlelem> elements into one or more <xmlelem>font-set</xmlelem>
+      <p>You group the <xmlelement>font</xmlelement> elements into one or more <xmlelement>font-set</xmlelement>
         elements. For now there is no special functionality associated with font sets but they may
         be used in the future to enable conditional selection of fonts at runtime if anyone needs
         that level of control or convenience.</p>
-      <p>The <xmlelem>title</xmlelem> and <xmlelem>desc</xmlelem> elements are just for
+      <p>The <xmlelement>title</xmlelement> and <xmlelement>desc</xmlelement> elements are just for
         documentation purposes.</p>
       <p>If you need to obfuscate a font when it is embedded you can specify the
-          <xmlatt>obfuscate</xmlatt> attribute on <xmlelem>font</xmlelem> or
-          <xmlelem>font-set</xmlelem> with the value "obfuscate". Fonts marked "obfuscate" will be
+          <xmlatt>obfuscate</xmlatt> attribute on <xmlelement>font</xmlelement> or
+          <xmlelement>font-set</xmlelement> with the value "obfuscate". Fonts marked "obfuscate" will be
         obfuscated when obfuscation is turned on at EPUB generation time (obfuscation is off by
         default).</p>
       <p>For
@@ -138,7 +138,7 @@
         add an @import rule to the main CSS file you want to use the fonts from, e.g.
           <codeph>@import "../fonts/fonts.css";</codeph>.</p>
       <p>By default you get one @font-face rule for each font in the font manifest. However, you can
-        add <xmlelem>font-face</xmlelem> elements within a <xmlelem>font</xmlelem> element to
+        add <xmlelement>font-face</xmlelement> elements within a <xmlelement>font</xmlelement> element to
         produce multiple result @font-face rules for the same physical font
         file:<codeblock>&lt;font-manifest>
     &lt;title>Fonts for My EPUB&lt;/title>
@@ -156,17 +156,17 @@
       &lt;/font>
   ...
 &lt;/font-set></codeblock></p>
-      <p>The <xmlatt>css-filename</xmlatt> attribute on <xmlelem>font-set</xmlelem> specifies the
+      <p>The <xmlatt>css-filename</xmlatt> attribute on <xmlelement>font-set</xmlelement> specifies the
         filename to use for the generated CSS file. The default is "fonts.css". The location of the
         file is relative to the configured fonts directory.</p>
-      <p>On the <xmlelem>font</xmlelem> element you specify the
+      <p>On the <xmlelement>font</xmlelement> element you specify the
           <xmlatt>css-font-family-name</xmlatt> to set the value of the "font-family" property in
         the @font-face rule. The default is the filename of the physical font with the extension
         removed.</p>
-      <p>The <xmlelem>css-rules</xmlelem> element contains zero or more <xmlelem>font-face</xmlelem>
+      <p>The <xmlelement>css-rules</xmlelement> element contains zero or more <xmlelement>font-face</xmlelement>
         elements.</p>
-      <p>Each <xmlelem>font-face</xmlelem> element represents a separate @font-face rule. The
-          <xmlelem>font-face</xmlelem> element takes attributes corresponding to the properties
+      <p>Each <xmlelement>font-face</xmlelement> element represents a separate @font-face rule. The
+          <xmlelement>font-face</xmlelement> element takes attributes corresponding to the properties
         allowed (or expected) on @font-face rules. Each attribute will be used to generate the
         corresponding property in the @font-face rule. Because CSS is inherently extensible and
         constantly being updated, there is no checking on the actual attributes you use (although

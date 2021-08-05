@@ -7,10 +7,10 @@
   <conbody>
     <p>Variables are declared in map metadata, topicref metadata, topic prologs,
       and topic content. Variable definitions are specializations of
-      <xmlelem>data</xmlelem> and may occur wherever <xmlelem>data</xmlelem> is
+      <xmlelement>data</xmlelement> and may occur wherever <xmlelement>data</xmlelement> is
       allowed.</p>
-    <p>References may occur anywhere that <xmlelem>keyword</xmlelem> or
-      <xmlelem>text</xmlelem> is allowed.</p>
+    <p>References may occur anywhere that <xmlelement>keyword</xmlelement> or
+      <xmlelement>text</xmlelement> is allowed.</p>
     <p>Variable resolution is done at output processing time, meaning the last
       step in a normal DITA process. This means that all content references and
       all filtering should have been applied by the time variable references and
@@ -26,12 +26,12 @@
   </conbody>
   <concept
     id="topic_yyg_twl_y3">
-    <title>Variable Definitions: <xmlelem>d4p-variable-definition</xmlelem> and
-      <xmlelem>d4p-variable-definitions</xmlelem></title>
+    <title>Variable Definitions: <xmlelement>d4p-variable-definition</xmlelement> and
+      <xmlelement>d4p-variable-definitions</xmlelement></title>
     <conbody>
       <p>Variable definitions are defined using the
-        <xmlelem>d4p-variable-definition</xmlelem> element and always contained
-        by the <xmlelem>d4p-variable-definitions</xmlelem>
+        <xmlelement>d4p-variable-definition</xmlelement> element and always contained
+        by the <xmlelement>d4p-variable-definitions</xmlelement>
         element:<codeblock>  &lt;topicmeta>
     <b>&lt;d4p-variable-definitions></b>
       <b>&lt;d4p-variable-definition</b> name="prodname"
@@ -39,8 +39,8 @@
     &lt;/d4p-variable-definitions>
   &lt;/topicmeta></codeblock></p>
       <p>The <xmlatt>name</xmlatt> attribute is the name of the variable, by
-        which it is referenced using <xmlelem>d4p-variableref-keyword</xmlelem>
-        or <xmlelem>d4p-variableref-text</xmlelem>. The name may be any string.
+        which it is referenced using <xmlelement>d4p-variableref-keyword</xmlelement>
+        or <xmlelement>d4p-variableref-text</xmlelement>. The name may be any string.
         Because it is defined in an XML attribute, any whitespace in the value
         will be normalized to single space characters. This allows you to use
         normal content as a variable name if appropriate, e.g.
@@ -51,7 +51,7 @@
         variable in the referencing scope.</p>
       <p>The variable value may be specified either using the
         <xmlatt>value</xmlatt> attribute or in the content of the
-        <xmlelem>d4p-variable-definition</xmlelem> element. If
+        <xmlelement>d4p-variable-definition</xmlelement> element. If
         <xmlatt>value</xmlatt> is specified then the content of the element is
         ignored. This allows you to use the content of the variable definition
         as documentation for the variable if you choose.</p>
@@ -69,10 +69,10 @@
         constraints on what is allowed in variable definitions, you can use
         constraint modules or further specialization to do so. The base markup
         as defined by the D4P project errs on the side of generality.</p>
-      <p>The <xmlelem>d4p-variable-definitions</xmlelem> element serves to group
+      <p>The <xmlelement>d4p-variable-definitions</xmlelement> element serves to group
         and label sets of variable definitions. The element may have an initial
-        <xmlelem>title</xmlelem> element, which serves as a descriptive label
-        for the group, and <xmlelem>d4p-variable-definitions</xmlelem> may be
+        <xmlelement>title</xmlelement> element, which serves as a descriptive label
+        for the group, and <xmlelement>d4p-variable-definitions</xmlelement> may be
         nested:<codeblock>  ...
   &lt;prolog>
     <b>&lt;d4p-variable-definitions></b>
@@ -88,7 +88,7 @@
   ...</codeblock></p>
       <p>When resolving variables, the first definition within a given scope
         (containing element) in document order wins, so in the case of nested
-        <xmlelem>d4p-variable-definitions</xmlelem> elements, the nesting is not
+        <xmlelement>d4p-variable-definitions</xmlelement> elements, the nesting is not
         significant, only the order of the definitions in normal depth-first
         tree order. This means that a definition contained by the top-level
         variable definitions group but occurring after all nested variable
@@ -100,7 +100,7 @@
   <concept
     id="concept_yrk_b4s_y3">
     <title>Fallback values:
-      <xmlelem>d4p-variable-definition-fallback</xmlelem></title>
+      <xmlelement>d4p-variable-definition-fallback</xmlelement></title>
     <conbody>
       <p>For topics that may used in many contexts, you often want to have
         fallback values for the variables referenced from those topics so that
@@ -110,7 +110,7 @@
         in-scope declaration of the variable. That is, you don't want the
         fallback value to override attempts to set the variable. </p>
       <p>Fallback values are declared using the
-        <xmlelem>d4p-variable-definition-fallback</xmlelem> element, normally
+        <xmlelement>d4p-variable-definition-fallback</xmlelement> element, normally
         within topic prologs, although you can declare fallback values within
         any scope, just as for other variables.</p>
       <p>Fallback values are used only when there is no other in-scope
@@ -126,21 +126,21 @@
   </concept>
   <concept
     id="concept_k13_zzl_y3">
-    <title>Variable References: <xmlelem>d4p-variableref_keyword</xmlelem> and
-      <xmlelem>d4p-variableref_text</xmlelem></title>
+    <title>Variable References: <xmlelement>d4p-variableref_keyword</xmlelement> and
+      <xmlelement>d4p-variableref_text</xmlelement></title>
     <conbody>
       <p>Variables may be referenced in any context where
-        <xmlelem>keyword</xmlelem> or <xmlelem>text</xmlelem> are allowed, using
+        <xmlelement>keyword</xmlelement> or <xmlelement>text</xmlelement> are allowed, using
         the corresponding specialization,
-        <xmlelem>d4p-variableref_keyword</xmlelem> or
-        <xmlelem>d4p-variableref_text</xmlelem>.</p>
+        <xmlelement>d4p-variableref_keyword</xmlelement> or
+        <xmlelement>d4p-variableref_text</xmlelement>.</p>
       <p>The content of the reference element is the variable
         name:<codeblock>&lt;p>The <b>&lt;d4p-variableref_keyword>prodname&lt;/d4p-variableref_keyword></b> 
 product...&lt;/p></codeblock></p>
       <p>If the variable cannot be resolved (or you don't have processing
         support for D4P variables installed), then the content of the reference
-        element is used, just as for normal <xmlelem>keyword</xmlelem> or
-        <xmlelem>text</xmlelem> processing. If the variable can be resolved,
+        element is used, just as for normal <xmlelement>keyword</xmlelement> or
+        <xmlelement>text</xmlelement> processing. If the variable can be resolved,
         then the nearest variable definition is used to determine the effective
         value.</p>
       <p>The effective binding for a variable is determined as follows:<ol
@@ -172,9 +172,9 @@ product...&lt;/p></codeblock></p>
         </ol></p>
       <note>Because submap metadata is not always maintained or necessarily even
         available in all processing contexts, variables defined in the
-        <xmlelem>topicmeta</xmlelem> child of submap elements will be ignored.
+        <xmlelement>topicmeta</xmlelement> child of submap elements will be ignored.
         If you want to define variables in submaps, use a wrapper topicref
-        element around the topicrefs, either <xmlelem>topicgroup</xmlelem> or
+        element around the topicrefs, either <xmlelement>topicgroup</xmlelement> or
         another allowed topicref type.</note>
       <p>Stated more informally, the intent of these rules is that elements
         define variable scopes within topics and topicrefs define scopes within

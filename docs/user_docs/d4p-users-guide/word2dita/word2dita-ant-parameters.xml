@@ -6,7 +6,7 @@
   <prolog>
     <metadata>
       <keywords>
-        <indexterm></indexterm>
+        <indexterm>Word-to-DITA transform<indexterm>Ant parameters</indexterm></indexterm>
       </keywords>
     </metadata>
   </prolog>
@@ -57,20 +57,20 @@
         </plentry>
         <plentry>
           <pt>w2d.filter.br</pt>
-          <pd>Control whether or not <xmlelem>br</xmlelem> elements generated
+          <pd>Control whether or not <xmlelement>br</xmlelement> elements generated
             from the Word data will be filtered out of the result DITA. Set to
-            "true" to filter out <xmlelem>br</xmlelem> elements. The default is
-            "false" (<xmlelem>br</xmlelem> elements are included in the result
-            DITA). The <xmlelem>br</xmlelem> element is provided by the DITA for
+            "true" to filter out <xmlelement>br</xmlelement> elements. The default is
+            "false" (<xmlelement>br</xmlelement> elements are included in the result
+            DITA). The <xmlelement>br</xmlelement> element is provided by the DITA for
             Publishers formatting vocabulary domain module.</pd>
         </plentry>
         <plentry>
           <pt>w2d.filter.tabs</pt>
-          <pd>Control whether or not <xmlelem>tab</xmlelem> elements generated
+          <pd>Control whether or not <xmlelement>tab</xmlelement> elements generated
             from the Word data will be filtered out of the result DITA. Set to
-            "true" to filter out <xmlelem>tab</xmlelem> elements. The default is
-            "false" (<xmlelem>tab</xmlelem> elements are included in the result
-            DITA). The <xmlelem>tab</xmlelem> element is provided by the DITA
+            "true" to filter out <xmlelement>tab</xmlelement> elements. The default is
+            "false" (<xmlelement>tab</xmlelement> elements are included in the result
+            DITA). The <xmlelement>tab</xmlelement> element is provided by the DITA
             for Publishers formatting vocabulary domain module.</pd>
         </plentry>
         <plentry>
@@ -86,7 +86,7 @@
         </plentry>
         <plentry>
           <pt>w2d.include.word.bookmarks</pt>
-          <pd>Set to "true" to turn inclusion of <xmlelem>data</xmlelem>
+          <pd>Set to "true" to turn inclusion of <xmlelement>data</xmlelement>
             elements reflecting any Word bookmark start and end markers. Default
             is "false".</pd>
         </plentry>
@@ -95,7 +95,7 @@
           <pd>Specifies the value of the <xmlatt>xml:lang</xmlatt> atribute for generated maps and
             topics. If not specified, the <xmlatt>xml:lang</xmlatt> attribute is set to "en-US" by
             default. If you specify <xmlatt>langAttValue</xmlatt> for
-              <xmlelem>mapProperties</xmlelem> or <xmlelem>topicProperties</xmlelem> in a
+              <xmlelement>mapProperties</xmlelement> or <xmlelement>topicProperties</xmlelement> in a
             style-to-tag map, that value will override the <parmname>w2d.language</parmname>
             value.</pd>
         </plentry>

@@ -52,9 +52,7 @@
     <topicref
       href="division/division.dita"
       keys="langref.elem.division langref.topictype.division"/>
-    <topicref
-      href="part/part.dita"
-      keys="langref.elem.part langref.topictype.part"/>
+    <topicref href="part/part.dita" keys="langref.topictype.part"/>
     <topicref
       href="reference/reference.dita"
       keys="langref.elem.reference langref.topictype.reference"/>

@@ -8,7 +8,6 @@
     <metadata>
       <keywords>
         <indexterm>index<indexterm>generation of</indexterm></indexterm>
-        <indexterm></indexterm>
       </keywords>
     </metadata>
   </prolog>
@@ -63,16 +62,16 @@
     &lt;/index-terms:index-terms>
     ...
 &lt;/mapdriven:collected-data></codeblock></p>
-    <p>The <xmlelem>index-terms:ungrouped</xmlelem> element contains the raw
+    <p>The <xmlelement>index-terms:ungrouped</xmlelement> element contains the raw
       index entries in the order they occur in the source. You can normally
       ignore it.</p>
-    <p>The <xmlelem>index-terms:grouped-and-sorted</xmlelem> structure contains
+    <p>The <xmlelement>index-terms:grouped-and-sorted</xmlelement> structure contains
       the grouped-and-sorted index entries. The structure is pretty
       self-explanatory. Each group and term has a grouping key and a sorting
       key. For groups the two will usually be the same, but for entries, they
-      will usually be different. Each <xmlelem>index-terms:index-term</xmlelem>
+      will usually be different. Each <xmlelement>index-terms:index-term</xmlelement>
       element contains the term's label, the original DITA
-      <xmlelem>indexterm</xmlelem> markup, the targets to which the entry links
+      <xmlelement>indexterm</xmlelement> markup, the targets to which the entry links
       (meaning all the places the original term occurred in the source), and any
       subordinate terms.</p>
     <p>The index grouping and sorting is implemented in the file

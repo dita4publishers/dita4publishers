@@ -6,7 +6,7 @@
   <prolog>
     <metadata>
       <keywords>
-        <indexterm/>
+        <indexterm>style-to-map<indexterm>common cases</indexterm></indexterm>
       </keywords>
     </metadata>
   </prolog>
@@ -37,7 +37,7 @@
           of spaces, e.g., "Heading 1" and "Heading1", then the style ID of the second style defined
           will be something like "Heading10" so that the style ID is unique within the Word
           document. If you're not sure what the style ID is you can open the document.xml file from
-          the DOCX Zip package and look for <xmlelem>w:pStyle</xmlelem> elements—the value of the
+          the DOCX Zip package and look for <xmlelement>w:pStyle</xmlelement> elements—the value of the
             <xmlatt>w:val</xmlatt> attribute is the style ID.</li>
         <li>The <xmlatt>tagName</xmlatt> attribute always specifies the name of the <i>primary</i>
           (most deeply nested) result element. The primary result may be surrounded by other
@@ -70,7 +70,7 @@
       <p>Where the parts in italics are what you would change to match a specific Word paragraph
         style to a specific DITA output element.</p>
       <p>This example maps a paragraph with the style name "Normal" to the DITA element
-          <xmlelem>p</xmlelem>.</p>
+          <xmlelement>p</xmlelement>.</p>
       <p>Likewise, for character runs, you specify the style name and tag
         name:<codeblock>&lt;characterStyle
   styleName="<i>Heading 1 Char</i>"
@@ -78,12 +78,32 @@
   topicZone="body"
   level="1"
 /></codeblock></p>
-      <p>You can specify <xmlatt>containerType</xmlatt> on <xmlelem>characterStyle</xmlelem> in order to generate two levels of 
-        containment, e.g., <xmlelem>i</xmlelem> within <xmlelem>b</xmlelem>. 
-        You can also use the transform's "final fixup" mode to convert single elements like <xmlelem>bi</xmlelem> 
+      <p>You can specify <xmlatt>containerType</xmlatt> on <xmlelement>characterStyle</xmlelement> in order to generate two levels of 
+        containment, e.g., <xmlelement>i</xmlelement> within <xmlelement>b</xmlelement>. 
+        You can also use the transform's "final fixup" mode to convert single elements like <xmlelement>bi</xmlelement> 
         into nested elements if you want. Note that the DITA for Publishers formatting domain
         includes elements for common combinations of bold, italic, and smallcaps, as well as other
         elements you might need.</p>
+      <p>Starting with release 1.0.0RC28, the Word manual formats bold, italic, underline, strike,
+        subscript, and superscript are "autostyled" with style names that are the same as the DITA
+        elements they naturally map to: b, i, u, line-through, sub, and sup. To map these elements,
+        simply include these style-to-tag-map
+        entries:<codeblock id="codeblock_hgt_png_kqb">&lt;characterStyle styleName="b" tagName="b"/>
+&lt;characterStyle styleName="i" tagName="i"/>
+&lt;characterStyle styleName="b-i" tagName="ph" outputclass="b-i"/>
+&lt;characterStyle styleName="linethrough" tagName="line-through"/>
+&lt;characterStyle styleName="u" tagName="u"/>
+&lt;characterStyle styleName="sub" tagName="sub"/>
+&lt;characterStyle styleName="sup" tagName="sup"/>
+&lt;characterStyle styleName="b-i" tagName="ph" outputclass="b-i"/>
+&lt;characterStyle styleName="b-i-u" tagName="ph" outputclass="b-i-u"/>
+&lt;characterStyle styleName="i-u" tagName="ph" outputclass="i-u"/></codeblock></p>
+      <p>Built-in final-fixup processing for <xmlelement>ph</xmlelement> with outputclasses like
+        "b-i" and "b-i-u" convert the phrase elements to nested elements, i.e., <codeph>&lt;ph
+          outputclass="b-i"></codeph> becomes <codeph>&lt;b>&lt;i></codeph> in the resulting
+        DITA.</p>
+      <p>You can use custom XSLT code to override both the default auto-styling behavior and the
+        built-in final-fixup behavior.</p>
     </conbody>
   </concept>
   <concept id="headings">
@@ -123,7 +143,7 @@
         default is "no" so you must specify <xmlatt>topicDoc</xmlatt> with a value of "yes" if you
         want the topic chunked out to a new file.</p>
       <p>If you specify "yes" for <xmlatt>topicDoc</xmlatt> then you must specify
-          <xmlatt>format</xmlatt>, which names an <xmlelem>output</xmlelem> element defined in the
+          <xmlatt>format</xmlatt>, which names an <xmlelement>output</xmlelement> element defined in the
         style-to-tag mapping document. The format value determines the public and system IDs to use
         for the generated topic document. You must also specify the <xmlatt>topicrefType</xmlatt>
         attribute if process is generating a map in addition to topics.</p>
@@ -140,9 +160,9 @@
     <title>Mapping List Paragraphs (Generating Container Elements)</title>
     <conbody>
       <p>Lists are typical of elements that must be generated within the context of container
-        elements, e.g. <xmlelem>li</xmlelem> within <xmlelem>ol</xmlelem> or
-        <xmlelem>ul</xmlelem>.</p>
-      <p>To map list item paragraphs to DITA lists you map the paragraph to the appropriate list item element, e.g., <xmlelem>li</xmlelem> and then specify the name of the container element to wrap all adjacent list items in, specified using the <xmlatt>containerType</xmlatt> attribute, like so:<codeblock>&lt;paragraphStyle
+        elements, e.g. <xmlelement>li</xmlelement> within <xmlelement>ol</xmlelement> or
+        <xmlelement>ul</xmlelement>.</p>
+      <p>To map list item paragraphs to DITA lists you map the paragraph to the appropriate list item element, e.g., <xmlelement>li</xmlelement> and then specify the name of the container element to wrap all adjacent list items in, specified using the <xmlatt>containerType</xmlatt> attribute, like so:<codeblock>&lt;paragraphStyle
   styleName="List Bullet"
   tagName="li"
   containerType="ul"
@@ -150,18 +170,18 @@
   topicZone="body"
 /></codeblock></p>
       <p>Here the tag name is "li", indicating that the paragraph content will be output in a
-          <xmlelem>li</xmlelem> element. The <xmlatt>containerType</xmlatt> attribute names the
-        tagname of the container element for the list item, <xmlelem>ul</xmlelem> in this case. The
+          <xmlelement>li</xmlelement> element. The <xmlatt>containerType</xmlatt> attribute names the
+        tagname of the container element for the list item, <xmlelement>ul</xmlelement> in this case. The
         value "1" for the <xmlatt>level</xmlatt> attribute means that this is the first level of
         thing within the topic zone (body). Any elements to be nested inside the list item would
         need to specify level "2" (for example, paragraphs for 2nd-level list items).</p>
       <p>The implication of <xmlatt>containerType</xmlatt> is that all adjacent Word paragraphs with
         the same container type will be output into a single instance of the specified container.
         This is how you can get a sequence of ListBullet paragraphs to output as a single DITA
-          <xmlelem>ul</xmlelem> element.</p>
+          <xmlelement>ul</xmlelement> element.</p>
       <p>This pattern of <xmlatt>tagName</xmlatt> and <xmlatt>containerType</xmlatt> can be used for
         any paragraphs that need to be output inside a common container that are not creating DITA
-          <xmlelem>section</xmlelem> elements (which have special mapping support).</p>
+          <xmlelement>section</xmlelement> elements (which have special mapping support).</p>
     </conbody>
   </concept>
   <concept id="mapping-dl">
@@ -194,7 +214,7 @@
   containerType="dl"
   topicZone="body"
 /></codeblock></p>
-      <p>Note that the resulting markup doesn't have to be a specialization of <xmlelem>dl</xmlelem>
+      <p>Note that the resulting markup doesn't have to be a specialization of <xmlelement>dl</xmlelement>
         it just has to have the same structural pattern of two levels of containment with the
         lowest-level elements in common containers. You could use this mapping pattern to generate
         simple tables, for example.</p>
@@ -204,9 +224,9 @@
     <title>Mapping Procedure Steps</title>
     <conbody>
       <p>Steps in procedures are similar to definition lists in that there are two layers of markup
-        that wrap the paragraphs for a step: the <xmlelem>steps</xmlelem> element that contains each
-          <xmlelem>step</xmlelem> and the <xmlelem>cmd</xmlelem> element that is the required first
-        subelement of <xmlelem>step</xmlelem>.</p>
+        that wrap the paragraphs for a step: the <xmlelement>steps</xmlelement> element that contains each
+          <xmlelement>step</xmlelement> and the <xmlelement>cmd</xmlelement> element that is the required first
+        subelement of <xmlelement>step</xmlelement>.</p>
       <p>Given a paragraph that is the first or only paragraph of a step, you can map it by treating
         it like a definition list, using a <xmlatt>structureType</xmlatt> of
         "dt":<codeblock>&lt;paragraphStyle styleName="List 1"
@@ -216,9 +236,9 @@
   tagName="cmd"
   level="1"
 /></codeblock></p>
-      <p>Here the paragraph style "List1" is mapped to <xmlelem>cmd</xmlelem> within
-          <xmlelem>step</xmlelem> within <xmlelem>steps</xmlelem>.</p>
-      <p>If you have follow-on paragraphs for the step they should go in an <xmlelem>info</xmlelem>
+      <p>Here the paragraph style "List1" is mapped to <xmlelement>cmd</xmlelement> within
+          <xmlelement>step</xmlelement> within <xmlelement>steps</xmlelement>.</p>
+      <p>If you have follow-on paragraphs for the step they should go in an <xmlelement>info</xmlelement>
         element. For this case you would use normal mapping and specify level
         2:<codeblock>&lt;paragraphStyle styleName="BodyText Step"
   containerType="info"
@@ -227,7 +247,7 @@
   structureType="block"
   topicZone="body"
 /></codeblock></p>
-      <p>If you have list items that need to go in the <xmlelem>info</xmlelem> element then you use
+      <p>If you have list items that need to go in the <xmlelement>info</xmlelement> element then you use
         a definition list mapping like
         so:<codeblock>&lt;paragraphStyle styleName="Bullet 2 Step"
   containerType="info"
@@ -323,7 +343,7 @@
   &lt;/learningContentbody>
 &lt;/learningContent></codeblock></p>
       <p>All paragraphs up to the first paragraph that maps to section would go within the
-          <xmlelem>lcIntro</xmlelem> element in this example.</p>
+          <xmlelement>lcIntro</xmlelement> element in this example.</p>
       <p>In some cases paragraphs should map to a section, provide the title or spectitle, and then
         be the first paragraph of the section. For example, a paragraph like
         this:<codeblock>Usage: Controls the construction of the section title.</codeblock></p>
@@ -352,14 +372,14 @@
     <conbody>
       <p>The simplest mapping is one in which a single Word document maps to a single result topic
         document. However, you can generate systems of maps in addition to topics from a single
-        input Word file. However, this gets a little complex because there's a lot going on.</p>
-      <p>When you are generating a map and topics you must map the first non-skipped paragraph in
-        the Word document to a map element, which will generate the root map of the output
+        input Word file. This gets a little complex because there's a lot going on.</p>
+      <p>When you are generating a map and topics <b>you must map the first non-skipped paragraph in
+          the Word document to a map element</b>, which will generate the root map of the output
         structure. It can also map to a topic (and by implication, a topicref to that topic) but it
         need not.</p>
       <p>For example, if your first paragraph has the style "Publication Title" and you want to
         generate a bookmap map but not a topic you would use this
-        mapping:<codeblock>&lt;paragraphStyle styleName="Title"
+        mapping:<codeblock>&lt;paragraphStyle styleName="Publication Title"
   level="0"
   structureType="mapTitle"
   tagName="title">
@@ -375,11 +395,10 @@
         one level up in the mapping hierarchy). In this case you must specify the
           <xmlatt>maprefType</xmlatt> attribute in order to get a topicref generated in the parent
         map.</p>
-      <p>When a paragraph maps to a map and a topic you specify a structure type of "mapTitle" and
+      <p>When a paragraph maps to a map and a topic, you specify a structure type of "mapTitle" and
         specify the topic type using the <xmlatt>secondStructureType</xmlatt> attribute. You can
         then specify the other attributes used to generate a result topic as you would for a
-        structure type of
-        "mapTitle":<codeblock>&lt;paragraphStyle styleName="Topic Title"
+        structure type of "mapTitle":<codeblock>&lt;paragraphStyle styleName="Topic Title"
      level="1"
      secondStructureType="topicTitle"
      structureType="mapTitle"
@@ -402,7 +421,7 @@
       <p>This example maps a paragraph named "Topic Title" to a generic map
           (<xmlatt>mapType</xmlatt> of "map") and a learningContent topic referenced from the map.
         The value of "1" for the <xmlatt>level</xmlatt> attribute means this map will be a submap to
-        the root map.</p>
+        the root map. </p>
       <p>There are attributes for specifying the element types for each different kind of element
         that might result from generating both a map and topic.</p>
       <p>When a new document should be referenced from the current map simply specify the
@@ -412,18 +431,18 @@
   <concept id="mapping-metadata">
     <title>Mapping Metadata</title>
     <conbody>
-      <p>To map paragraphs to <xmlelem>data</xmlelem> elements within the root topic prolog, you
+      <p>To map paragraphs to <xmlelement>data</xmlelement> elements within the root topic prolog, you
         must specify:<ul id="ul_egh_k3v_3h">
           <li><xmlatt>topicZone</xmlatt> as "prolog"</li>
           <li><xmlatt>baseClass</xmlatt> as "- topic/data " (note the trailing blank) </li>
           <li><xmlatt>containingTopic</xmlatt> as "root" </li>
           <li><xmlatt>level</xmlatt> as "0"</li>
         </ul></p>
-      <p>To map to unspecialized <xmlelem>data</xmlelem> you would specify <xmlatt>tagName</xmlatt>
+      <p>To map to unspecialized <xmlelement>data</xmlelement> you would specify <xmlatt>tagName</xmlatt>
         as "data". You can put the paragraph content either into the content of the
-          <xmlelem>data</xmlelem> element or into the <xmlatt>value</xmlatt> attribute. To put it in
+          <xmlelement>data</xmlelement> element or into the <xmlatt>value</xmlatt> attribute. To put it in
         content, set <xmlatt>putValueIn</xmlatt> to "content", otherwise set it to "value".</p>
-      <p>Because the DITA content model for <xmlelem>prolog</xmlelem> is a bit fiddly, with a
+      <p>Because the DITA content model for <xmlelement>prolog</xmlelement> is a bit fiddly, with a
         required sequence of element types, you may need to apply post-processing in the
         "final-fixup" mode to make sure the resulting prolog content is valid.</p>
     </conbody>

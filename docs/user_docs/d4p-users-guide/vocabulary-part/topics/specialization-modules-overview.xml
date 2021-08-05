@@ -95,8 +95,8 @@
               keyref="langref.elem.sidebar">sidebar</xref></dt>
           <dd>Generic out-of-line topic. May contain nested subsections in the default shell
             configuration. Base for more specialized sidebar types. Can be anchored to specific
-            points within topics using the <xmlelem
-              keyref="langref.elem.d4pSidebarAnchor">d4pSidebarAnchor</xmlelem> element.</dd>
+            points within topics using the <keyword class="+ topic/keyword markup-d/markupname xml-d/xmlelement "
+              keyref="langref.elem.d4pSidebarAnchor">d4pSidebarAnchor</keyword> element.</dd>
         </dlentry>
       <dlentry>
         <dt><xref
@@ -124,13 +124,13 @@
         <dt>bibbase (<xref
               keyref="langref.domain.bibbaseDomain">d4p_bibbaseDomain</xref>)</dt>
         <dd>Provides the base for more sophisticated bibliographic entries.
-          Modeled on the DocBook <xmlelem>biblioentry</xmlelem> and
-          <xmlelem>bibliomixed</xmlelem> element types.</dd>
+          Modeled on the DocBook <xmlelement>biblioentry</xmlelement> and
+          <xmlelement>bibliomixed</xmlelement> element types.</dd>
       </dlentry>
       <dlentry>
         <dt>classification (<xref
               keyref="langref.domain.d4p_classificationDomain">d4p_classificationDomain</xref>)</dt>
-        <dd>Provides a generic <xmlelem>classification</xmlelem> element (specialized from <xmlelem>data</xmlelem>) that clearly identifies the metadata elements it contains as being classifying as opposed to any other type of metadata (such as identifying metadata). Classifying metadata normally relates its container to items in defined classification taxonomies.</dd>
+        <dd>Provides a generic <xmlelement>classification</xmlelement> element (specialized from <xmlelement>data</xmlelement>) that clearly identifies the metadata elements it contains as being classifying as opposed to any other type of metadata (such as identifying metadata). Classifying metadata normally relates its container to items in defined classification taxonomies.</dd>
       </dlentry>
       <dlentry>
         <dt>enumeration (several domains)</dt>
@@ -144,7 +144,11 @@
       <dlentry>
         <dt>math (<xref
               keyref="langref.domain.d4p_mathDomain">d4p_mathDomain</xref>)</dt>
-        <dd>Provides markup for representing equations in various ways, including using MathML. It currently integrates MathML as a foreign vocabulary. However, that integration will be replaced in DITA 1.3 with a standard integration and the DITA 1.3 equation domain. </dd>
+        <dd>Provides markup for representing equations in various ways, including using MathML. It
+            currently integrates MathML as a foreign vocabulary. <note id="note_blm_mqg_kqb">This
+              domain is made obsolete by the DITA 1.3 math domain and integration of MathML as a
+              foreign vocabulary. As of release 1.0.0RC28, the D4P shells include the DITA 1.3 math
+              domain in place of the D4P math domain.</note></dd>
       </dlentry>
       <dlentry>
         <dt>media (<xref
@@ -167,7 +171,7 @@
       <dlentry>
         <dt>ruby (<xref
               keyref="langref.domain.d4p_rubyDomain">d4p_rubyDomain</xref>)</dt>
-        <dd>Provides markup identical to the HTML 5 <xmlelem>ruby</xmlelem> markup for annotating ideographic characters with their pronounciation, as is required for Japanese-language documents. Note that the HTML5 ruby design appears to be in flux.</dd>
+        <dd>Provides markup identical to the HTML 5 <xmlelement>ruby</xmlelement> markup for annotating ideographic characters with their pronounciation, as is required for Japanese-language documents. Note that the HTML5 ruby design appears to be in flux.</dd>
       </dlentry>
       <dlentry>
         <dt>simple bibliography (<xref
@@ -179,7 +183,7 @@
               keyref="langref.domain.d4p_textbookDomain">d4p_textbookDomain</xref>)</dt>
         <dd>Intended to provide elements specific to textbooks. Currently only
           provides the "display map" specialization of
-          <xmlelem>fig</xmlelem>.</dd>
+          <xmlelement>fig</xmlelement>.</dd>
       </dlentry>
       <dlentry>
         <dt>training map domain (<xref
@@ -189,7 +193,7 @@
       <dlentry>
         <dt>variables (<xref
               keyref="langref.domain.d4p_variablesDomain">d4p_variablesDomain</xref>)</dt>
-        <dd>A simple (for now) facility for creating variables that are scoped hierarchically through the map and topic hierarchy. The variables facility lets you have variables scoped in a way that is analogous to programming languages, where lower scopes (closer to the reference) take precedence over higher scopes. Likewise, a given topic or map used in two different contexts can reflect different variable values. Variable definitions may be in maps, topicrefs, topic prologs, or topic bodies. Variable definitions are specializations of <xmlelem>data</xmlelem>, variable references are specializations of <xmlelem>keyword</xmlelem> or <xmlelem>text</xmlelem> as appropriate.<note>DITA 1.3 provides a new scoped key facility. However, the order of precedence of scoped keys is still "highest definition wins", so there is still a need for the variables facility, where the nearest binding of a variable always wins.</note></dd>
+        <dd>A simple (for now) facility for creating variables that are scoped hierarchically through the map and topic hierarchy. The variables facility lets you have variables scoped in a way that is analogous to programming languages, where lower scopes (closer to the reference) take precedence over higher scopes. Likewise, a given topic or map used in two different contexts can reflect different variable values. Variable definitions may be in maps, topicrefs, topic prologs, or topic bodies. Variable definitions are specializations of <xmlelement>data</xmlelement>, variable references are specializations of <xmlelement>keyword</xmlelement> or <xmlelement>text</xmlelement> as appropriate.<note>DITA 1.3 provides a new scoped key facility. However, the order of precedence of scoped keys is still "highest definition wins", so there is still a need for the variables facility, where the nearest binding of a variable always wins.</note></dd>
       </dlentry>
       <dlentry>
         <dt>verse (<xref
@@ -199,9 +203,9 @@
       <dlentry>
         <dt>XML (<xref
               keyref="langref.domain.xmlDomain">xmlDomain</xref>)</dt>
-        <dd>Provides elements for identifying mentions of XML constructs. (Note: this domain is made
-            obsolete by XML domain in DITA 1.3. However, the markup details between the two domains
-            are slightly different).</dd>
+        <dd>Provides elements for identifying mentions of XML constructs.<note id="note_z5s_3qg_kqb"
+              >This domain is made obsolete by XML domain in DITA 1.3. As of release 1.0.0RC28 the
+              D4P XML domain is no longer included in the D4P-defined shells.</note></dd>
       </dlentry>
       </dl></p>
     <p>The project's vocabulary modules also include configurations of the standard OASIS-defined topic types that integrate the various DITA for Publishers domain modules.</p>

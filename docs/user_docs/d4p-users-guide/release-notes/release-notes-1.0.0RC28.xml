@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="conceptId">
+  <title>Release Notes: Version 1.0.0RC28</title>
+  <shortdesc>Version 1.0.0RC28</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>release notes<indexterm>Version 1.0.0RC28</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <section>
+      <title>Theme for the Release</title>
+      <ul id="ul_avq_kjv_kqb">
+        <li>Resolve a number of lingering issues with the Word2DITA framework.</li>
+        <li>Update the D4P document type shells to use DITA 1.3 modules, including the new MathML,
+          SVG, and equation domains.</li>
+        <li>Update all D4P Open Toolkit plug-ins to work with OT 3.x (3.6.1 is the latest version as
+          of this release).</li>
+        <li>Update all XSLT modules to use XSLT 3. This mostly means that you must use Saxon 9.9 or
+          newer to run the transforms and that you can use XSLT 3 features in the transforms. Except
+          where a transform was already being modified, the transforms have not otherwise been
+          updated to take advantage of XSLT 3 features (i.e., contains-token() in place of
+          contains() for checking DITA @class values, <xmlelement>xsl:mode</xmlelement>, text value
+          templates, etc.).</li>
+      </ul>
+    </section>
+    <section id="section_yd2_p3v_kqb">
+      <title>Document Type Changes</title>
+      <p>The D4P shells have been updated to reflect DITA 1.3:<ul id="ul_alt_q3v_kqb">
+          <li>All references to specific DITA versions in references to standard DITA modules have
+            been removed from shells.</li>
+          <li>Use of the D4P Math domain has been replaced by use of the DITA 1.3 math domain. The
+            main change to documents is to replace the <xmlelement>d4p_math</xmlelement> element
+            with the DITA 1.3 <xmlelement>math</xmlelement> element. Existing MathML markup should
+            continue to be valid as is.</li>
+          <li>Use of the D4P SVG domain has been replaced by the use of the DITA 1.3 SVG
+            domain.</li>
+          <li>Use of the D4P equation domain has been replaced by use of the DITA 1.3 equation
+            domain. Documents will need to replace the D4P elements for equations with the
+            equivalent DITA 1.3 elements.</li>
+          <li>Use of the D4P <xmlatt>renditionTarget</xmlatt> attribute domains has been replaced by
+            use of the DITA 1.3 <xmlatt>deliveryTarget</xmlatt> attribute domain. </li>
+        </ul></p>
+      <p>These changes are only to the D4P-provided document type shells. Custom shells are not
+        affected. If you do not want to adopt these changes and you have been using the D4P-provided
+        shells you will need to create your own shells by copying the pre-RC28 shells to your
+        environment and associating them with public IDs or URNs that reflect your ownership (i.e.,
+        create a new DITA Open Toolkit plug-in that provides your shells with your public IDs) and
+        update your documents to use the new shells.</p>
+    </section>
+    <section id="section_ggg_vf4_tv">
+      <title>Word2DITA Changes</title>
+      <p>This release resolves a number of lingering issues:<ul id="ul_e33_tjv_kqb">
+          <li>Issue 46: <b>Enable styling of direct character formatting</b>. Manual inline formats
+            (bold, italic, underline, strikeout, subscript, and superscript) are now automatically
+            styled by default. The style names reflect the DITA tag names for the natural target
+            elements ("b", "i", "u", "line-through", "sub", and "sup"). Where multiple formats are
+            applied to the same run, the style name reflects each style name separated by "-", i.e.,
+            "b-i", "b-i-u", etc. These styles can then be mapped using normal
+              <xmlelement>characterStyle</xmlelement> entries in the style-to-tag map. The built-in
+            style2tagmap.xml file has a set of such mappings.<p>The built-in final-fixup mode
+              includes processing to convert runs that reflect multiple styles into the
+              corresponding nested elements. I.e., a run with the style "b-i" becomes
+                <codeph>&lt;b>&lt;i>...&lt;/i>&lt;/b></codeph> in the final DITA.</p><p>The
+              auto-styling is handled by a new mode defined in the
+                <filepath>office-open-utils.xsl</filepath> module. Converting multi-format
+                <xmlelement>ph</xmlelement> elements to nested elements is handled in the built-in
+                <filepath>final-fixup.xsl</filepath> module.</p></li>
+          <li>Issue 48: <b>Hyperlink @outputclass value not preserved</b>. Use any
+              <xmlatt>outputclass</xmlatt> value specified for xref in style-to-tag map that maps to
+            cross reference created from a complex ref field.</li>
+          <li>Issue 49: <b>Table cell namest/nameend values not correctly calculated in the face of
+              row spans</b>. The calculation of <xmlatt>namest</xmlatt> and <xmlatt>nameend</xmlatt>
+            is now correct when horizontal spans occur to the right of a vertical span into the
+            horizontal cells' row.</li>
+          <li>Issue 50: <b>Capture table cell shading</b>. Table cell shading in Word tables is now
+            captured using values in the <xmlatt>base</xmlatt> attribute of the generated
+              <xmlelement>entry</xmlelement> element. Will capture either or both of the shading
+            color (as the value specified in the Word data, normally a hex RGB value) and the
+            shading pattern (as the pattern keyword specified in the Word data):
+            <codeblock id="codeblock_nfk_b4v_kqb">&lt;entry <b>base="shade(#FFFF00)"</b>>&lt;p>&lt;b>Yellow shade header&lt;/b>&lt;/p>&lt;/entry>
+&lt;entry <b>base="shade(#4BACC6) shadePattern(diagCross)"</b>>&lt;p>&lt;b>Pattern
+  cell&lt;/b>&lt;/p>&lt;/entry></codeblock></li>
+          <li>Issue 51: <b>topicZone for titlealts seems to be ignored</b>. Corrected generation of
+            title alts to put them in the appropriate titlealts element. Added new processing in
+            built-in final-fixup mode to handle correct output of title alts. Added new option
+            "generateTitleAlts" on paragraphs that generate titles. When
+              <xmlatt>generateTitleAlts</xmlatt>  is specified, the title content will be used to
+            generate the specified elements within the configured <xmlelement>titlealts</xmlelement>
+            element. Title alts will only be generated when the same-named title alt is not
+            generated from a separate paragraph using a <xmlatt>topicZone</xmlatt> of
+            "titlealts".</li>
+          <li>Issue 52: <b>Runs between fnrefs/endnote refs in same para may be lost</b>. Refined
+            how runs are handled to correct this behavior.</li>
+          <li>Issue 53: <b>cross-references lost in DITA files</b>. Implemented general support for
+            complex fields. REF fields to targets in the same document now result in working cross
+            references.</li>
+        </ul></p>
+    </section>
+    <section id="section_ulz_hhh_mqb">
+      <title>EPUB Generation Changes</title>
+      <ul id="ul_urn_3hh_mqb">
+        <li>Issue 80: <b>SVG documents must not have DOCTYPE declarations</b>,
+            <b>org.dita4publishers.common.xslt issue 19</b>: Remove DOCTYPE declarations from SVG
+          graphics copied by the graphic copy mechanism. This resolves a potential EPUB conformance
+          issue as the EPUB specification does not allow DOCTYPE declarations for embedded SVG
+          documents.</li>
+        <li>Issue 89: <b>Update for OT 3.6+</b>: A number of small changes to various supporting
+          modules, including restoring copying of graphic files and correcting generation of the NDX
+          file ID so that <cmdname>epubcheck</cmdname> passes (or can pass). The D4P User Guide EPUB
+          passes latest <cmdname>epubcheck</cmdname> with no errors or warnings and
+            <cmdname>kindlepreviewer</cmdname> generates a good Kindle book from the EPUB.</li>
+        <li>Issue 87: <b>Errors reported with latest Epub Checker</b>: Added missing
+            <xmlelement>title</xmlelement> element to <xmlelement>head</xmlelement> in
+            <filepath>nav.xhtml</filepath>.</li>
+        <li/>
+      </ul>
+    </section>
+    <section id="section_kw2_43v_kqb">
+      <title>Kindle Generation Changes</title>
+      <p>Amazon has replaced the older <cmdname>kindlegen</cmdname> tool with the
+          <cmdname>kindlepreviewer</cmdname> tool, which provides both a command-line EPUB-to-MOBI
+        conversion facility as well as an interactive tool for working with and previewing Kindle
+        books.</p>
+      <p>The D4P org.dita4publishers.kindle Open Toolkit plug-in has been updated to support the new
+          <cmdname>kindlepreviewer</cmdname> tool as well as the older <cmdname>kindlegen</cmdname>
+        tool.</p>
+      <note id="note_qfp_csr_mqb">The <cmdname>kindlepreviewer</cmdname> tool cannot generate .mobi
+        files directly (as of August 2021). Instead it generates a .kpf file, which you can then
+        manually export to .mobi using the interactive <cmdname>kindlepreviewer</cmdname>
+        tool.</note>
+    </section>
+    <section id="section_x55_bkh_mqb">
+      <title>Other Plugin Changes</title>
+      <ul id="ul_bqh_bxt_mqb">
+        <li>Updated all XSLT modules to XSLT 3. For most modules this is just a change the
+            <xmlatt>version</xmlatt> value on <xmlelement>xsl:stylesheet</xmlelement> with no
+          further change to the module. Where modules were modified in the course of addressing
+          other issues XSLT 3-specific features may have been used (i.e., using
+            <codeph>contains-token()</codeph> in place of <codeph>df:isClass()</codeph> or
+            <codeph>contains(@class, '…')</codeph>, <xmlelement>xsl:mode</xmlelement> elements, text
+          value templates, etc.). There should be no functional change as a result of specifying
+          XSLT version 3 <i>as long as</i> you are using an appropriately-modern version of Saxon,
+          i.e., 9.9+.</li>
+        <li>org.dita4publishers.common.xslt Issue 13: <b>map-to-graphic-map does not ignore
+            topicrefs within chunking topicrefs</b>. Added check for being within a chunk.</li>
+        <li>org.dita4publishers.common.mapdriven pull request 4,
+          org.dita-community.common.mapdriven: <b>Removed use of Java Date object to capture timing
+            for debugging</b>. Removed use of Java Date object, which fails using Saxon HE as HE
+          does not support Java reflection-based XSLT extensions. This time capturing was dubious at
+          best and data collection now appears to run quite quickly, probably due to improvements in
+          Saxon.</li>
+      </ul>
+    </section>
+    <section id="section_td2_ng5_mqb">
+      <title>Repository Organization Changes</title>
+      <ul id="ul_zcy_ng5_mqb">
+        <li>Renamed the dita4publishers repository "master" branch to "main" to reflect current best
+          practice. If you have a local clone or fork of the repository you will need to do the same
+          rename locally:<codeblock id="codeblock_cqn_qg5_mqb">git branch -m master main
+git fetch origin
+git branch -u origin/main main</codeblock></li>
+      </ul>
+    </section>
+  </conbody>
+</concept>

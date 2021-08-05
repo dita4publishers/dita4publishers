@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE task PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:task" "urn:pubid:dita4publishers.org:doctypes:dita:task">
 <task
-  id="subsection-id">
+  id="integrating-attribute-domains">
   <title>Integrating Attribute Domains</title>
   <shortdesc>Attribute domains are defined in a single .ent file that defines a single parameter entity with the entity declaration and a single general text entity that provides the <xmlatt>domains</xmlatt> attribute contribution for the module.</shortdesc>
   <taskbody>
     <context>
       <p>To integrate an attribute domain into a DTD document type shell, follow the steps shown here. If you do not already have your own document type shell for the topic or map type you want to integrate with, copy the closest starting point (e.g., one of the D4P .dtd files) and then modify that. [Add reference to specialization tutorial once it is updated to DITA 1.2.]</p>  
     </context>
-    <steps
-      id="steps_5c8fd631-3a1f-4025-ac8f-2b93150b867f">
+    <steps>
       <step>
         <cmd>Insert a declaration for and reference to the attribute domain's .ent file.</cmd>
         <info>
@@ -25,7 +24,7 @@
         </info>
       </step>
       <step>
-        <cmd>Add the domain's parameter entity the <parment>props-attribute-extensions</parment> parameter entity.</cmd>
+        <cmd>Add the domain's parameter entity the <parameterentity>props-attribute-extensions</parameterentity> parameter entity.</cmd>
         <info>
           <p>Find a comment that looks like this:<codeblock>&lt;!-- ============================================================= -->
 &lt;!--                    DOMAIN ATTRIBUTE EXTENSIONS                -->

@@ -6,10 +6,8 @@
   <prolog>
     <metadata>
       <keywords>
-        <indexterm>
           <indexterm>release notes<indexterm>Version
             0.9.18</indexterm></indexterm>
-        </indexterm>
       </keywords>
     </metadata>
   </prolog>
@@ -76,7 +74,7 @@
           <li>Use configured topic extension for root topic output.</li>
           <li>Use style name "Normal" for unmapped paragraphs. This lets you
             explicitly map unstyled paragraphs rather than depending on the
-            built-in default mapping to <xmlelem>p</xmlelem>.</li>
+            built-in default mapping to <xmlelement>p</xmlelement>.</li>
           <li>Updated built-in default style-to-tag map to include Heading 2,
             Heading 3, and Normal.</li>
           <li>Refined the Ant script to make properties appropriately
@@ -95,14 +93,14 @@
         <li>Fixed the following logged bugs:<dl>
           <dlentry>
             <dt>3434065: Empty sequence not allowed for $graphicPath </dt>
-            <dd>Fixed the bug so <xmlelem>image</xmlelem> with no
+            <dd>Fixed the bug so <xmlelement>image</xmlelement> with no
               <xmlatt>href</xmlatt> or <xmlatt>keyref</xmlatt> is ignored when
               building the graphic map but is reported as a warning.</dd>
           </dlentry>
           <dlentry>
             <dt>3433937: Include keywords as dc:subject in EPUB/Kindle books </dt>
             <dd>Keywords within metadata/keywords become
-              <xmlelem>dc:subject</xmlelem> elements in the EPUB and Kindle
+              <xmlelement>dc:subject</xmlelement> elements in the EPUB and Kindle
               metadata.</dd>
           </dlentry>
           <dlentry>
@@ -177,9 +175,9 @@
           </dl></li>
         <li>Corrected some configuration errors in doctype shells.</li>
         <li>Upgraded topic types to use DITA 1.2 coding conventions.</li>
-        <li>Added new <xmlelem>art-ph</xmlelem> element. Specialize
-          <xmlelem>art</xmlelem> from topic/p so it can go in
-          <xmlelem>fig</xmlelem> directly.</li>
+        <li>Added new <xmlelement>art-ph</xmlelement> element. Specialize
+          <xmlelement>art</xmlelement> from topic/p so it can go in
+          <xmlelement>fig</xmlelement> directly.</li>
         <li>Added new topic type "conversion_configuration", used to configure
           Word2DITA and DITA2InDesign transforms, especially the
           DITA-to-InDesign Java processing.</li>

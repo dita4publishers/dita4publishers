@@ -17,7 +17,7 @@
       outputclass="summary">
       <section
         id="summary">
-        <p>The <xmlelem>d4pQuestionTopic</xmlelem> topic type is intended to hold a single
+        <p>The <xmlelement>d4pQuestionTopic</xmlelement> topic type is intended to hold a single
           assessment question (e.g., using the DITA Learning and Training interaction element
           types).</p>
         <p>Question topics can be used simply to organize questions for reuse via content reference.
