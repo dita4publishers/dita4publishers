@@ -1021,21 +1021,22 @@
       <fileset dir="${epubTemp}"  includes="*/**"/>
     </delete>
 
-		<ant antfile="${dita-ot-dir}/build.xml"
-			dir="${dita-ot-dir}"
-			target="dita2epub"
-			
-			>
-			<property name="args.input" location="${sampleRootDir}/${mapname}/${mapname}.ditamap"/>
-      <property name="transtype" value="dita2epub"/>
-			<property name="args.outext" value="html"/>
-			<property name="args.xhtml.toc" value="index"/>
-			<property name="dita.dir" location="${dita-ot-dir}"/>
-			<property name="dita.temp.dir" location="${temp}/dita-temp"/>
-			<property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
-			<property name="output.dir" location="${epubBuild}"/>
-	  </ant>
-
+	  <exec taskname="dita-cmd" executable="${dita-ot-dir}/bin/dita" osfamily="unix" failonerror="true">
+	    <arg value="--format"/>
+	    <arg value="epub"/>
+	    <arg value="--input"/>
+	    <arg value="${sampleRootDir}/${mapname}/${mapname}.ditamap"/>
+	    <arg value="--temp"/>
+	    <arg value="${temp}/dita-temp"/>
+	    <arg value="-output"/>
+	    <arg value="${epubBuild}"/>
+	    <arg value="--verbose"/>
+	    <arg value="--clean.temp"/>
+	    <arg value="yes"/>
+	    <arg value="-Dargs.copycss"/>
+	    <arg value="yes"/>
+	  </exec>
+	  
 	</target>
 
 	<target name="kindle-map">
@@ -1048,21 +1049,22 @@
       <fileset dir="${kindleTemp}"  includes="*/**"/>
     </delete>
 
-		<ant antfile="${dita-ot-dir}/build.xml"
-			dir="${dita-ot-dir}"
-			target="dita2kindle"
-			
-			>
-			<property name="args.input" location="${sampleRootDir}/${mapname}/${mapname}.ditamap"/>
-      <property name="transtype" value="dita2kindle"/>
-			<property name="args.outext" value="html"/>
-			<property name="args.xhtml.toc" value="index"/>
-			<property name="dita.dir" location="${dita-ot-dir}"/>
-			<property name="dita.temp.dir" location="${temp}/dita-temp"/>
-			<property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
-			<property name="output.dir" location="${kindleBuild}"/>
-	  </ant>
-
+	  <exec taskname="dita-cmd" executable="${dita-ot-dir}/bin/dita" osfamily="unix" failonerror="true">
+	    <arg value="--format"/>
+	    <arg value="kindle"/>
+	    <arg value="--input"/>
+	    <arg value="${sampleRootDir}/${mapname}/${mapname}.ditamap"/>
+	    <arg value="--temp"/>
+	    <arg value="${temp}/dita-temp"/>
+	    <arg value="-output"/>
+	    <arg value="${kindleBuild}"/>
+	    <arg value="--verbose"/>
+	    <arg value="--clean.temp"/>
+	    <arg value="yes"/>
+	    <arg value="-Dargs.copycss"/>
+	    <arg value="yes"/>
+	  </exec>
+	  
 	</target>
 
 	<target name="init-target" depends="init">
