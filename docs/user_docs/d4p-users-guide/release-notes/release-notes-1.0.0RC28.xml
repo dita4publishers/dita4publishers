@@ -19,6 +19,12 @@
           SVG, and equation domains.</li>
         <li>Update all D4P Open Toolkit plug-ins to work with OT 3.x (3.6.1 is the latest version as
           of this release).</li>
+        <li>Update all XSLT modules to use XSLT 3. This mostly means that you must use Saxon 9.9 or
+          newer to run the transforms and that you can use XSLT 3 features in the transforms. Except
+          where a transform was already being modified, the transforms have not otherwise been
+          updated to take advantage of XSLT 3 features (i.e., contains-token() in place of
+          contains() for checking DITA @class values, <xmlelement>xsl:mode</xmlelement>, text value
+          templates, etc.).</li>
       </ul>
     </section>
     <section id="section_yd2_p3v_kqb">
@@ -97,6 +103,19 @@
     <section id="section_ulz_hhh_mqb">
       <title>EPUB Generation Changes</title>
       <ul id="ul_urn_3hh_mqb">
+        <li>Issue 80: <b>SVG documents must not have DOCTYPE declarations</b>,
+            <b>org.dita4publishers.common.xslt issue 19</b>: Remove DOCTYPE declarations from SVG
+          graphics copied by the graphic copy mechanism. This resolves a potential EPUB conformance
+          issue as the EPUB specification does not allow DOCTYPE declarations for embedded SVG
+          documents.</li>
+        <li>Issue 89: <b>Update for OT 3.6+</b>: A number of small changes to various supporting
+          modules, including restoring copying of graphic files and correcting generation of the NDX
+          file ID so that <cmdname>epubcheck</cmdname> passes (or can pass). The D4P User Guide EPUB
+          passes latest <cmdname>epubcheck</cmdname> with no errors or warnings and
+            <cmdname>kindlepreviewer</cmdname> generates a good Kindle book from the EPUB.</li>
+        <li>Issue 87: <b>Errors reported with latest Epub Checker</b>: Added missing
+            <xmlelement>title</xmlelement> element to <xmlelement>head</xmlelement> in
+            <filepath>nav.xhtml</filepath>.</li>
         <li/>
       </ul>
     </section>
@@ -109,10 +128,32 @@
       <p>The D4P org.dita4publishers.kindle Open Toolkit plug-in has been updated to support the new
           <cmdname>kindlepreviewer</cmdname> tool as well as the older <cmdname>kindlegen</cmdname>
         tool.</p>
+      <note id="note_qfp_csr_mqb">The <cmdname>kindlepreviewer</cmdname> tool cannot generate .mobi
+        files directly (as of August 2021). Instead it generates a .kpf file, which you can then
+        manually export to .mobi using the interactive <cmdname>kindlepreviewer</cmdname>
+        tool.</note>
     </section>
     <section id="section_x55_bkh_mqb">
       <title>Other Plugin Changes</title>
-      <p/>
+      <ul id="ul_bqh_bxt_mqb">
+        <li>Updated all XSLT modules to XSLT 3. For most modules this is just a change the
+            <xmlatt>version</xmlatt> value on <xmlelement>xsl:stylesheet</xmlelement> with no
+          further change to the module. Where modules were modified in the course of addressing
+          other issues XSLT 3-specific features may have been used (i.e., using
+            <codeph>contains-token()</codeph> in place of <codeph>df:isClass()</codeph> or
+            <codeph>contains(@class, '…')</codeph>, <xmlelement>xsl:mode</xmlelement> elements, text
+          value templates, etc.). There should be no functional change as a result of specifying
+          XSLT version 3 <i>as long as</i> you are using an appropriately-modern version of Saxon,
+          i.e., 9.9+.</li>
+        <li>org.dita4publishers.common.xslt Issue 13: <b>map-to-graphic-map does not ignore
+            topicrefs within chunking topicrefs</b>. Added check for being within a chunk.</li>
+        <li>org.dita4publishers.common.mapdriven pull request 4,
+          org.dita-community.common.mapdriven: <b>Removed use of Java Date object to capture timing
+            for debugging</b>. Removed use of Java Date object, which fails using Saxon HE as HE
+          does not support Java reflection-based XSLT extensions. This time capturing was dubious at
+          best and data collection now appears to run quite quickly, probably due to improvements in
+          Saxon.</li>
+      </ul>
     </section>
   </conbody>
 </concept>
