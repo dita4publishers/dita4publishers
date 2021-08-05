@@ -155,5 +155,15 @@
           Saxon.</li>
       </ul>
     </section>
+    <section id="section_td2_ng5_mqb">
+      <title>Repository Organization Changes</title>
+      <ul id="ul_zcy_ng5_mqb">
+        <li>Renamed the dita4publishers repository "master" branch to "main" to reflect current best
+          practice. If you have a local clone or fork of the repository you will need to do the same
+          rename locally:<codeblock id="codeblock_cqn_qg5_mqb">git branch -m master main
+git fetch origin
+git branch -u origin/main main</codeblock></li>
+      </ul>
+    </section>
   </conbody>
 </concept>
