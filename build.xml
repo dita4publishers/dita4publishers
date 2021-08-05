@@ -910,10 +910,10 @@
 		
 	<target name="build-d4p-user-guide" 
 	  description="Generates all the deliverable forms of the D4P User Guide">
-		<property name="pub.name" value="d4p-users-guide.ditamap"/>
-		<property name="root.map" location="${docs.dir}/user_docs/${pub.name}"/>
+		<property name="pub.name" value="d4p-users-guide"/>
+		<property name="root.map" location="${docs.dir}/${pub.name}.ditamap"/>
 		
-    <replace file="${docs.dir}/user_docs/d4p-users-guide.ditamap"
+    <replace file="${root.map}"
       propertyfile="${basedir}/build.number"
       >
       <replacefilter
