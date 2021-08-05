@@ -660,13 +660,13 @@
     <antcall target="package-toolkit-plugins"/>
     <antcall target="package-dita2indesign-toolkit-plugins"/>
   </target>
-		
+
+  <!-- RC28: Removed package-api-and-tools as those are not longer maintained -->
 	<target name="package-delivery" 
 		depends="
 		dist-init, 
 		package-toolkit-plugins, 
     package-editing-templates, 
-		package-api-and-tools,
 	  build-d4p-user-guide,
 		dist-sample-data, 
 		dist-license-info,
@@ -1294,6 +1294,11 @@
     </jar>
   </target>
 	
+	<!-- NOTE: The D4P Java code is obsolete and out of date and not currently supported. The INX 
+	           libraries are not really useful any more.
+	           
+	           Not including this in the main package.
+	  -->
   <target name="package-api-and-tools" depends="init-target, jar-api, jar-tools, javadoc-api-and-tools">
   	<mkdir dir="${target.home}/d4p-api-and-tools"/>
   	<copy todir="${api-and-tools.target}/lib">
