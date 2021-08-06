@@ -9,19 +9,25 @@ See the wiki for details on how to set up new clones of this project.
 
 ## News
 
-** 5 Aug 2021 **
+**5 Aug 2021 Release 1.0.0RC28**
 
 Many updates. Tested against OT 3.6.1 (see release notes in user guide). Many Word2DITA issues resolved.
 
 **24 April 2016**: EPUB3 implementation essentially complete with the addition of font embedding and obfuscation.
+
 **7 Oct 2014**: EPUB3 implementation is under way. See the org.dita4publishers.epub project for details.
 
-### Test on Travis-CI
+## Publishing the User Guide
 
-December 13, 2014: We are starting to use Travis CI to perform test automatically on the project.
+The D4P User Guide is published via GitHub Pages through the separate repo dita4publishers.github.io.
 
-The project is tested against:
-* DITA_OT version 1.8.5
-* DITA_OT version 1.7.5
+To update the user guide do the following:
+
+1. Using InDesign, update the cover graphic to reflect the latest release and copyright date (`docs/D4P Logo and User Guide Cover/D4P_UserGuide_cover Folder/D4P_UserGuide_cover.indd`)
+1. Export new copies of cover-graphic.png (300PPI) and epub-cover-graphic.png (72PPI) to the `user_docs/d4p-users-guide/images` directory
+1. Run the `html5-d4p-user-guide` ant target
+1. Copy the generated HTML (`d4p-users-guide` from the `build/docs/html5` directory) to the dita4publishers.github.io repo on branch `main`. 
+1. Commit updates to dita4publishers.github.io repo and push
+
 
 
