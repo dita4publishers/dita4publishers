@@ -5,22 +5,25 @@
     <mainpubtitle>Map Type Specializations</mainpubtitle>
   </pubtitle>
   <publication>
-    <topichead navtitle="Map Type Specializations">
-      <topichead navtitle="learningMap">
-        <topicref href="learningMap/learningMap.dita" navtitle="learningMap" />
-      </topichead>
-      <topichead navtitle="map">
-        <topicref href="map/map.dita" navtitle="map" />
-      </topichead>
-      <topichead navtitle="pub-component-map">
-        <topicref href="pub-component-map/pub-component-map.dita" navtitle="pub-component-map" />
-      </topichead>
-      <topichead navtitle="pubmap">
-        <topicref href="pubmap/pubmap.dita" navtitle="pubmap" />
-      </topichead>
-      <topichead navtitle="trainingMap">
-        <topicref href="trainingMap/trainingMap.dita" navtitle="trainingMap" />
-      </topichead>
-    </topichead>
+    <topicref
+      href="d4p-map-type-specializations.dita"
+      keys="langref.map-type-specializations">
+      <topicref
+        keys="langref.elem.learningMap langref.maptype.learningMap"
+        href="learningMap/learningMap.dita"/>
+      <topicref href="map/map.dita" keys="langref.maptype.map"/>
+      <topicref
+        href="pub-component-map/pub-component-map.dita"
+        keys="langref.elem.pub-component-map langref.maptype.pub-component-map"/>
+      <topicref
+        href="pubmap/pubmap.dita"
+        keys="langref.elem.pubmap langref.maptype.pubmap"/>
+      <topicref
+        href="report/report.dita"
+        keys="langref.elem.report langref.maptype.report "/>
+      <topicref
+        href="trainingMap/trainingMap.dita"
+        keys="langref.elem.trainingMap langref.maptype.trainingMap "/>
+    </topicref>
   </publication>
 </pubmap>

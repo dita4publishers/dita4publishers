@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="conceptId">
+ <title>Embedding Fonts in Your EPUB</title>
+ <shortdesc>You can embed fonts into your EPUB by providing a manifest that lists the font files to
+    be embedded.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>font<indexterm>embedding in EPUB</indexterm></indexterm>
+        <indexterm>embedding<indexterm>fonts</indexterm></indexterm>
+        <indexterm>font<indexterm>manifest (for embedding)</indexterm></indexterm>
+        <indexterm>manifest</indexterm>
+        <indexterm>font embedding</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+    <p>While embedding fonts in EPUBs is generally not recommended because of interoperation and
+      file size concerns, if you need to embed fonts in your EPUB you can do so.</p>
+    <p>To embed fonts you define a <term>font manifest</term> document that lists the fonts to be
+      embedded and then specify the URI of the manifest as a runtime option to the EPUB transform
+        (<xref keyref="paramref-epub-font-manifest"/>). The fonts listed
+      will be copied to the temporary output location and included in the EPUB file. You can also
+      specify the location within the EPUB package where the fonts will be stored, which by default
+      is the directory named "<filepath>fonts</filepath>" (<xref
+        keyref="paramref-epub-fonts-output-dir"/>).</p>
+    <p>You can optionally obfuscate any fonts by specifying "obfuscate" for the
+        <xmlatt>obfuscate</xmlatt> attribute and setting the runtime Ant property
+        <parmname>epub.obfuscate.fonts</parmname> to true (<xref
+        keyref="paramref-epub-obfuscate-fonts"/>). By default fonts are not obfuscated and fonts
+      marked for obfuscation are not actually obfuscated unless you specifically turn obfuscation on
+      with the <parmname>epub.obfuscate.fonts</parmname> Ant property. This allows you to generate
+      EPUBs with unobfuscated fonts for testing or for use with readers that do not support
+      obfuscation without having to modify the font manifest.</p>
+    <p>You must create the appropriate <xmlatt>font-face</xmlatt> rules in the CSS style sheets used
+      for the HTML content. The @font-face rules must reflect the location of the fonts in the final
+      EPUB package, not their source location. For example, if the fonts are stored in a directory
+      named "<filepath>my-fonts</filepath>" but packaged in the default "<filepath>fonts</filepath>"
+      directory, then your CSS needs to reflect the "<filepath>fonts</filepath>" directory, not
+        "<filepath>my-fonts</filepath>". See examples of <xmlatt>font-face</xmlatt> rules below.</p>
+    <p>You can generate a CSS file containing the @font-face rules for the fonts in the manifest by
+      setting the <xref keyref="paramref-epub-generate-css-font-rules"/> to "true" and including
+      configuration details for the @font-face rules in the font manifest for each font. You must
+      separately create a reference to genenerated CSS file in one of the CSS files included in the
+      EPUB. </p>
+  </conbody>
+  <concept id="concept_tw3_1nc_r5">
+    <title>The Font Manifest File</title>
+    <prolog>
+      <metadata>
+        <keywords>
+          <indexterm>font<indexterm>manifest (for embedding)</indexterm></indexterm>
+          <indexterm>manifest</indexterm>
+        </keywords>
+      </metadata>
+    </prolog>
+    <conbody>
+      <p>The font manifest file is an XML document that lists the fonts to be embedded. The grammar
+        for the document is the font-manifest RELAX NG grammar included in the
+        org.dita4publishers.doctypes plugin. The plugin also includes a template font manifest
+        document.</p>
+      <p>A font manifest file looks like
+        this:<codeblock>&lt;font-manifest>
+    &lt;title>EPUB Font Manifest&lt;/title>
+    &lt;desc/>
+    &lt;font-set>
+      &lt;title>Base font set&lt;/title>
+      &lt;desc/>
+      &lt;font uri="Papyrus.ttc"/>
+    &lt;/font-set>
+&lt;/font-manifest></codeblock></p>
+      <p>You use the <xmlelement>font</xmlelement> element to specify the relative URI of a font to embed.
+        The URI is relative to the location of the font manifest file itself. In this example, the
+        font manifest document must be in the same directory as the referenced font
+        ("Papyrus.ttc").</p>
+      <p>You group the <xmlelement>font</xmlelement> elements into one or more <xmlelement>font-set</xmlelement>
+        elements. For now there is no special functionality associated with font sets but they may
+        be used in the future to enable conditional selection of fonts at runtime if anyone needs
+        that level of control or convenience.</p>
+      <p>The <xmlelement>title</xmlelement> and <xmlelement>desc</xmlelement> elements are just for
+        documentation purposes.</p>
+      <p>If you need to obfuscate a font when it is embedded you can specify the
+          <xmlatt>obfuscate</xmlatt> attribute on <xmlelement>font</xmlelement> or
+          <xmlelement>font-set</xmlelement> with the value "obfuscate". Fonts marked "obfuscate" will be
+        obfuscated when obfuscation is turned on at EPUB generation time (obfuscation is off by
+        default).</p>
+      <p>For
+        example:<codeblock>&lt;font uri="Papyrus.ttc" <b>obfuscate="obfuscate"</b>/></codeblock></p>
+      <p>You can add additional details to the font manifest to configure the generation of CSS
+        @font-face rules.</p>
+    </conbody>
+  </concept>
+  <concept id="epub-embeddig-fonts">
+    <title>Using Fonts from CSS Style Sheets (@font-face)</title>
+    <prolog>
+      <metadata>
+        <keywords>
+          <indexterm>css<indexterm>@font-face instructions</indexterm></indexterm>
+          <indexterm>@font-face CSS instruction</indexterm>
+          <indexterm>font<indexterm>using from CSS</indexterm></indexterm>
+        </keywords>
+      </metadata>
+    </prolog>
+    <conbody>
+      <p>To use embedded fonts you must include @font-face rules in your CSS style sheets in order
+        to associate font family names to the font files in your EPUB. There is no automatic
+        matching of font-family values to font files. The EPUB generation process does not do any
+        manipulation of CSS files for you, although you can generate the @font-face rules at runtime
+        using configuration in the font manifest.</p>
+      <p>A typical @font-face rule looks like
+        this:<codeblock>@font-face {
+  font-family : Arial;
+  font-weight : bold;
+  font-style: normal;
+  src : url(../fonts/Arial-BoldMT.ttf);
+}</codeblock></p>
+      <p>The font-family value is the name that will be used on font-family entries elsewhere in the
+        CSS. The src value is the relative URL of the font file as it is packaged in the EPUB,
+        relative to the location of the CSS style sheet file as packaged in the EPUB.</p>
+      <p>In this example, the style sheet must be in a directory next to the
+          <filepath>fonts</filepath> directory, maybe a directory named
+        <filepath>css</filepath>.</p>
+      <p>You need one @font-face rule for each different combination of font properties (font
+        weight, font style, etc.) for a given font family.</p>
+      <p>See the CSS specification or a good CSS guide for details.</p>
+    </conbody>
+  </concept>
+  <concept id="concept_ogk_cpc_yv">
+    <title>Generating @font-face Rules</title>
+    <shortdesc>You can optionally request the generation of a CSS file containing @font-face rules
+      for the fonts in the font manifest.</shortdesc>
+    <conbody>
+      <p>If you specify "true" for the <xref keyref="paramref-epub-generate-css-font-rules"/> the
+        EPUB transform will generate a CSS file containing @font-face rules for each font in the
+        font manifest. The CSS file is generated in the configured font output directory. The
+        default name of the generated CSS file is "fonts.css". To use this file you must separately
+        add an @import rule to the main CSS file you want to use the fonts from, e.g.
+          <codeph>@import "../fonts/fonts.css";</codeph>.</p>
+      <p>By default you get one @font-face rule for each font in the font manifest. However, you can
+        add <xmlelement>font-face</xmlelement> elements within a <xmlelement>font</xmlelement> element to
+        produce multiple result @font-face rules for the same physical font
+        file:<codeblock>&lt;font-manifest>
+    &lt;title>Fonts for My EPUB&lt;/title>
+    &lt;font-set <b>css-filename="fonts.css"</b>>
+      &lt;title>Base font set&lt;/title>
+      &lt;desc>This is the description.&lt;/desc>
+      &lt;font uri="Avenir-Black.ttf" <b>css-font-family-name="Avenir"</b>>
+        <b>&lt;css-rules></b>
+          <b>&lt;font-face font-weight="bold" font-style="italic"/>
+</b>          &lt;font-face font-style="italic"/>
+           &lt;font-face font-weight="bold" 
+            font-stretch="condensed"            
+          />
+        &lt;/css-rules>
+      &lt;/font>
+  ...
+&lt;/font-set></codeblock></p>
+      <p>The <xmlatt>css-filename</xmlatt> attribute on <xmlelement>font-set</xmlelement> specifies the
+        filename to use for the generated CSS file. The default is "fonts.css". The location of the
+        file is relative to the configured fonts directory.</p>
+      <p>On the <xmlelement>font</xmlelement> element you specify the
+          <xmlatt>css-font-family-name</xmlatt> to set the value of the "font-family" property in
+        the @font-face rule. The default is the filename of the physical font with the extension
+        removed.</p>
+      <p>The <xmlelement>css-rules</xmlelement> element contains zero or more <xmlelement>font-face</xmlelement>
+        elements.</p>
+      <p>Each <xmlelement>font-face</xmlelement> element represents a separate @font-face rule. The
+          <xmlelement>font-face</xmlelement> element takes attributes corresponding to the properties
+        allowed (or expected) on @font-face rules. Each attribute will be used to generate the
+        corresponding property in the @font-face rule. Because CSS is inherently extensible and
+        constantly being updated, there is no checking on the actual attributes you use (although
+        the RELAX NG grammar for the font manifest defines a specific set of attributes reflecting
+        the current set of defined font properties as an aid in authoring font manifest files).</p>
+    </conbody>
+  </concept>
+</concept>

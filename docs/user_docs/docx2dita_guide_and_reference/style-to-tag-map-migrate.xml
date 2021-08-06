@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:task" "urn:pubid:dita4publishers.org:doctypes:dita:task">
+<task id="migrate-old-map">
+  <title>Migrating the Style-to-tag Mapping</title>
+  <shortdesc>If you want to use the latest code of the Word2DITA transform, but you have an 
+    older style-to-tag map (pre-0.9.19RC12Feature30), then you must migrate the older map to the newer markup.</shortdesc>
+  <taskbody>
+    <context>In the latest Word2DITA code, there is an XSLT transform under the
+      <xmlelement>utils/</xmlelement> directory in the plugin. Apply it to your old style-to-tag map. In
+      many cases the migrated file will work as is, in a few cases it may need a
+      small amount of tweaking.</context>
+    <steps>
+      <step>
+        <cmd>Write a transformation scenario with the following parameters:</cmd>
+        <choices>
+          <choice>XML URL: current file URL</choice>
+          <choice>XSL URL: org.dita4publishers.word2dita/utils/style2tagmapMigrator.xsl</choice>
+          <choice>Transformer: Saxon PE9.</choice>
+          <choice>Output file: the name of the new map file (should be .xml)</choice>
+        </choices>
+      </step>
+      <step>
+        <cmd>Store your new map file in the xsl directory of your plugin. For example, 
+          <filepath>DITA-OT/plugins/my-word2dita/xsl/new-style2tagmap.xml</filepath></cmd>
+      </step>
+    </steps>
+    </taskbody>
+</task>

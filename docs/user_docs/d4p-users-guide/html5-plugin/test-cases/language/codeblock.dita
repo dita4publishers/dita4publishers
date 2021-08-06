@@ -4,10 +4,7 @@
  <title>Code example</title>
  <shortdesc></shortdesc>
  <conbody>
-  <codeblock>
-  <data-about>
-   <data name="language" value="php"/>
-  </data-about>
+  <codeblock><data name="language" value="php"/>
 &lt;?php
 
 class ditamap

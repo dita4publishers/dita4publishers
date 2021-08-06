@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# This script clone every repositories into the director of your choice
+# This script clone every repositories into the directory of your choice
 # usage: ./cloneAll.sh <path/to/dir>
 
 # find right location

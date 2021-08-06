@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pub-component-map PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:dtd:pub-component-map" "pub-component-map.dtd">
+<pub-component-map>
+  <chapter keys="usage-word2dita"
+    href="word2dita-intro.xml">
+    <subsection href="w2d-getting-started.xml" keys="w2d-getting-started"/>
+    <subsection
+      href="word-to-dita-plugin-usage.xml">
+      <subsection
+        href="word-to-dita-ant-task.xml"/>
+    </subsection>
+    <subsection
+      href="../../docx2dita_guide_and_reference/word2dita-from-oxygen.xml"/>
+    <subsection href="../../docx2dita_guide_and_reference/style-to-tag-map-overview.xml"
+      format="dita" scope="local" collection-type="sequence" keys="style-to-tag-mapping"/>
+    <subsection
+      href="common-mapping-cases.xml"/>
+    <subsection
+      href="troubleshooting-word2dita.xml"/>
+    <subsection
+      href="word2dita-video-tutorial-01.xml"
+      keys="word2dita.style-to-tag-mapping-video-tutorial"/>
+    <subsection href="customizing-the-transform.xml" keys="w2d-extending-and-overridding">
+      <subsection href="sample-customization-transform.xml"/>
+    </subsection>
+    <subsection
+      href="word-usage-tips.xml"/>
+    <topicref href="../../docx2dita_guide_and_reference/style-to-tag-map-migrate.xml"
+      keys="style-to-tag-map-migration"/>
+    <subsection
+      href="transform-parameters.xml"/>
+    <subsection
+      href="word2dita-ant-parameters.xml"/>
+  </chapter>
+</pub-component-map>

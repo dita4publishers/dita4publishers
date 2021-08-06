@@ -17,8 +17,7 @@
       <li>OxygenXML can run XSLT transforms and, in particular, can run them against files within Zip packages.</li>
       </ul></p>
     <p>In addition, you can use Oxygen's built-in Open Toolkit to manage resolution of the XSD schema for style-to-tag mapping documents simply by deploying the DITA for Publisher's Toolkit plugins to Oxygen's Toolkit instance (see <xref
-      href="../d4p-users-guide/tasks/plugin-installation.xml#taskId"
-      format="dita"/>).</p>
+      keyref="installing-toolkit-plugins"/>).</p>
     <p>You can use Oxygen's normal Toolkit transformation scenario to run transforms against Word documents. Simply set the <parmname>transtype</parmname> Ant parameter to "word2dita" and specify the Word document as the input file.</p>
     <p>You can also transform Word documents directly in Oxygen, which is handy for testing and development of your style-to-tag mapping.</p>
     <p>To run the transform in Oxygen, do the following:<ol>

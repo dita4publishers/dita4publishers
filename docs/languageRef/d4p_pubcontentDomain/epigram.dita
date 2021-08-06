@@ -16,7 +16,12 @@
     </prolog>
     <refbody>
         <refbodydiv outputclass="summary">
-         <section id="summary">epigram is a pithy saying, which is often humorous.</section>
+         <section
+        id="summary">
+        <p>epigram is a pithy saying, which is often humorous.</p>
+        <p>Compare with <keyword
+            keyref="langref.elem.epigraph" class="+ topic/keyword markup-d/markupname xml-d/xmlelement ">epigraph</keyword>.</p>
+      </section>
       </refbodydiv>
         <refbodydiv outputclass="d4p">
          <section id="d4p">epigram is a specialization of bodydiv.</section>

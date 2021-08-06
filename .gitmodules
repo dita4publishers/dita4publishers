@@ -1,114 +1,114 @@
 [submodule "toolkit_plugins/org.dita4publishers.common.xslt"]
 	path = toolkit_plugins/org.dita4publishers.common.xslt
-	url = https://github.com/dita4publishers/org.dita4publishers.common.xslt.git
+	url = git@github.com:dita4publishers/org.dita4publishers.common.xslt.git
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.common.mapdriven"]
 	path = toolkit_plugins/org.dita4publishers.common.mapdriven
-	url = https://github.com/dita4publishers/org.dita4publishers.common.mapdriven
+	url = git@github.com:dita4publishers/org.dita4publishers.common.mapdriven
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.common.xslfo"]
 	path = toolkit_plugins/org.dita4publishers.common.xslfo
-	url = https://github.com/dita4publishers/org.dita4publishers.common.xslfo
+	url = git@github.com:dita4publishers/org.dita4publishers.common.xslfo
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.dita2indesign"]
 	path = toolkit_plugins/org.dita4publishers.dita2indesign
-	url = https://github.com/dita4publishers/org.dita4publishers.dita2indesign
+	url = git@github.com:dita4publishers/org.dita4publishers.dita2indesign
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.doctypes"]
 	path = toolkit_plugins/org.dita4publishers.doctypes
-	url = https://github.com/dita4publishers/org.dita4publishers.doctypes
+	url = git@github.com:dita4publishers/org.dita4publishers.doctypes
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.enumeration-d.fo"]
 	path = toolkit_plugins/org.dita4publishers.enumeration-d.fo
-	url = https://github.com/dita4publishers/org.dita4publishers.enumeration-d.fo
+	url = git@github.com:dita4publishers/org.dita4publishers.enumeration-d.fo
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.enumeration-d.html"]
 	path = toolkit_plugins/org.dita4publishers.enumeration-d.html
-	url = https://github.com/dita4publishers/org.dita4publishers.enumeration-d.html
+	url = git@github.com:dita4publishers/org.dita4publishers.enumeration-d.html
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.formatting-d.fo"]
 	path = toolkit_plugins/org.dita4publishers.formatting-d.fo
-	url = https://github.com/dita4publishers/org.dita4publishers.formatting-d.fo
+	url = git@github.com:dita4publishers/org.dita4publishers.formatting-d.fo
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.formatting-d.html"]
 	path = toolkit_plugins/org.dita4publishers.formatting-d.html
-	url = https://github.com/dita4publishers/org.dita4publishers.formatting-d.html
+	url = git@github.com:dita4publishers/org.dita4publishers.formatting-d.html
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.graphviz"]
 	path = toolkit_plugins/org.dita4publishers.graphviz
-	url = git@github.com:dita4publishers/org.dita4publishers.graphviz.git
+	url = git@github.com:dita4publishers/org.dita4publishers.graphviz
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.html2"]
 	path = toolkit_plugins/org.dita4publishers.html2
-	url = https://github.com/dita4publishers/org.dita4publishers.html2
+	url = git@github.com:dita4publishers/org.dita4publishers.html2
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.html5"]
 	path = toolkit_plugins/org.dita4publishers.html5
-	url = https://github.com/dita4publishers/org.dita4publishers.html5.git
+	url = git@github.com:dita4publishers/org.dita4publishers.html5.git
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.kindle"]
 	path = toolkit_plugins/org.dita4publishers.kindle
-	url = https://github.com/dita4publishers/org.dita4publishers.kindle
+	url = git@github.com:dita4publishers/org.dita4publishers.kindle
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.math"]
 	path = toolkit_plugins/org.dita4publishers.math
-	url = https://github.com/dita4publishers/org.dita4publishers.math
+	url = git@github.com:dita4publishers/org.dita4publishers.math
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.math-d.html"]
 	path = toolkit_plugins/org.dita4publishers.math-d.html
-	url = https://github.com/dita4publishers/org.dita4publishers.math-d.html
+	url = git@github.com:dita4publishers/org.dita4publishers.math-d.html
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.pubContent-d.fo"]
 	path = toolkit_plugins/org.dita4publishers.pubContent-d.fo
-	url = https://github.com/dita4publishers/org.dita4publishers.pubContent-d.fo
+	url = git@github.com:dita4publishers/org.dita4publishers.pubContent-d.fo
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.pubmap.fo"]
 	path = toolkit_plugins/org.dita4publishers.pubmap.fo
-	url = https://github.com/dita4publishers/org.dita4publishers.pubmap.fo
+	url = git@github.com:dita4publishers/org.dita4publishers.pubmap.fo
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.pubmap.html"]
 	path = toolkit_plugins/org.dita4publishers.pubmap.html
-	url = https://github.com/dita4publishers/org.dita4publishers.pubmap.html
+	url = git@github.com:dita4publishers/org.dita4publishers.pubmap.html
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.rss"]
 	path = toolkit_plugins/org.dita4publishers.rss
-	url = https://github.com/dita4publishers/org.dita4publishers.rss
+	url = git@github.com:dita4publishers/org.dita4publishers.rss
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.ruby.fo"]
 	path = toolkit_plugins/org.dita4publishers.ruby.fo
-	url = https://github.com/dita4publishers/org.dita4publishers.ruby.fo
+	url = git@github.com:dita4publishers/org.dita4publishers.ruby.fo
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.ruby.html"]
 	path = toolkit_plugins/org.dita4publishers.ruby.html
-	url = https://github.com/dita4publishers/org.dita4publishers.ruby.html
+	url = git@github.com:dita4publishers/org.dita4publishers.ruby.html
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.sample.epub_override"]
 	path = toolkit_plugins/org.dita4publishers.sample.epub_override
-	url = https://github.com/dita4publishers/org.dita4publishers.sample.epub_override
+	url = git@github.com:dita4publishers/org.dita4publishers.sample.epub_override
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.xmldomain.doctypes"]
 	path = toolkit_plugins/org.dita4publishers.xmldomain.doctypes
-	url = https://github.com/dita4publishers/org.dita4publishers.xmldomain.doctypes
+	url = git@github.com:dita4publishers/org.dita4publishers.xmldomain.doctypes
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.xmldomain.fo"]
 	path = toolkit_plugins/org.dita4publishers.xmldomain.fo
-	url = https://github.com/dita4publishers/org.dita4publishers.xmldomain.fo
+	url = git@github.com:dita4publishers/org.dita4publishers.xmldomain.fo
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.xmldomain.html"]
 	path = toolkit_plugins/org.dita4publishers.xmldomain.html
-	url = https://github.com/dita4publishers/org.dita4publishers.xmldomain.html
+	url = git@github.com:dita4publishers/org.dita4publishers.xmldomain.html
 	branch=master
 [submodule "toolkit_plugins/org.example.d4p.epub-custom"]
 	path = toolkit_plugins/org.example.d4p.epub-custom
-	url = https://github.com/dita4publishers/org.example.d4p.epub-custom
+	url = git@github.com:dita4publishers/org.example.d4p.epub-custom
 	branch=master
 [submodule "toolkit_plugins/org.example.d4p.html2extensions"]
 	path = toolkit_plugins/org.example.d4p.html2extensions
-	url = https://github.com/dita4publishers/org.example.d4p.html2extensions
+	url = git@github.com:dita4publishers/org.example.d4p.html2extensions
 	branch=master
 [submodule "toolkit_plugins/org.example.d4p.word2ditaextension"]
 	path = toolkit_plugins/org.example.d4p.word2ditaextension
-	url = https://github.com/dita4publishers/org.example.d4p.word2ditaextension
+	url = git@github.com:dita4publishers/org.example.d4p.word2ditaextension
 	branch=master
 [submodule "toolkit_plugins/org.dita-community.common.xslt"]
 	path = toolkit_plugins/org.dita-community.common.xslt
@@ -116,58 +116,50 @@
 	branch=master
 [submodule "d4p-sample-data"]
 	path = d4p-sample-data
-	url = https://github.com/dita4publishers/d4p-sample-data.git
+	url = git@github.com:dita4publishers/d4p-sample-data.git
 	branch=master
 [submodule "sample-data"]
 	path = sample-data
-	url = https://github.com/dita4publishers/d4p-sample-data.git
+	url = git@github.com:dita4publishers/d4p-sample-data.git
 	branch=master
 [submodule "sample_data"]
 	path = sample_data
-	url = https://github.com/dita4publishers/d4p-sample-data.git
+	url = git@github.com:dita4publishers/d4p-sample-data.git
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.epub"]
 	path = toolkit_plugins/org.dita4publishers.epub
-	url = https://github.com/dita4publishers/org.dita4publishers.epub.git
+	url = git@github.com:dita4publishers/org.dita4publishers.epub.git
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.common.html"]
 	path = toolkit_plugins/org.dita4publishers.common.html
-	url = https://github.com/dita4publishers/org.dita4publishers.common.html.git
+	url = git@github.com:dita4publishers/org.dita4publishers.common.html.git
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.word2dita"]
 	path = toolkit_plugins/org.dita4publishers.word2dita
-	url = https://github.com/dita4publishers/org.dita4publishers.word2dita.git
+	url = git@github.com:dita4publishers/org.dita4publishers.word2dita.git
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.json"]
 	path = toolkit_plugins/org.dita4publishers.json
-	url = https://github.com/dita4publishers/org.dita4publishers.json.git
+	url = git@github.com:dita4publishers/org.dita4publishers.json.git
 	branch=master
 [submodule "toolkit_plugins/org.dita4publishers.media-d.html"]
 	path = toolkit_plugins/org.dita4publishers.media-d.html
-	url = https://github.com/dita4publishers/org.dita4publishers.media-d.html.git
+	url = git@github.com:dita4publishers/org.dita4publishers.media-d.html.git
 	branch=master
 [submodule "toolkit_plugins/net.sourceforge.dita4publishers.doctypes"]
 	path = toolkit_plugins/net.sourceforge.dita4publishers.doctypes
-	url = https://github.com/dita4publishers/net.sourceforge.dita4publishers.doctypes.git
+	url = git@github.com:dita4publishers/net.sourceforge.dita4publishers.doctypes.git
 	branch=master
 [submodule "docs/github-websites/dita4publishers.github.io"]
 	path = docs/github-websites/dita4publishers.github.io
-	url = https://github.com/dita4publishers/dita4publishers.github.io.git
-	branch=master
-[submodule "toolkit_plugins/org.dita-community.adjust-copy-to"]
-	path = toolkit_plugins/org.dita-community.adjust-copy-to
-	url = https://github.com/dita-community/org.dita-community.adjust-copy-to.git
-	branch=master
-[submodule "toolkit_plugins/org.dita-community.preprocess-extensions"]
-	path = toolkit_plugins/org.dita-community.preprocess-extensions
-	url = https://github.com/dita-community/org.dita-community.preprocess-extensions.git
+	url = git@github.com:dita4publishers/dita4publishers.github.io.git
 	branch=master
 [submodule "toolkit_plugins/org.dita-community.preprocess-tester"]
 	path = toolkit_plugins/org.dita-community.preprocess-tester
 	url = git@github.com:dita-community/org.dita-community.preprocess-tester.git
-[submodule "toolkit_plugins/org.dita-community.xhtml-adjct"]
-	path = toolkit_plugins/org.dita-community.xhtml-adjct
-	url = git@github.com:dita-community/org.dita-community.xhtml-adjct.git
+[submodule "org.dita-community.common.mapdriven"]
+	path = org.dita-community.common.mapdriven
+	url = git@github.com:dita-community/org.dita-community.common.mapdriven.git
 [submodule "toolkit_plugins/org.dita-community.common.mapdriven"]
 	path = toolkit_plugins/org.dita-community.common.mapdriven
 	url = git@github.com:dita-community/org.dita-community.common.mapdriven.git

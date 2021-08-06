@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pub-component-map PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:dtd:pub-component-map" "pub-component-map.dtd">
+<pub-component-map>
+  <keydefs>
+  </keydefs>
+  <chapter keys="vocabulary-concepts"
+    href="d4p-vocabulary-concepts.xml">
+    <topicref 
+      keys="specialization-modules-overview" href="topics/specialization-modules-overview.xml">
+      <topicref
+        keys="d4p-topic-types" href="topics/d4p-topic-types.xml"/>
+      <topicref
+        keys="pubmap-domain" href="topics/pubmap-domain.xml"/>
+      <topicref
+        href="domain-modules-overview.xml"
+        collection-type="sequence">
+        <subsection
+          href="map-domains-overview.xml"/>
+        <subsection
+          href="topic-domains-overview.xml"/>
+        <topicref
+          href="topics/classification-domain.xml"
+          keys="classification-domain"/>
+        <topicref
+          keys="enumeration-domains" href="topics/enumeration-domains.xml"/>
+        <topicref
+          keys="formatting-domain" href="topics/formatting-domain.xml"/>
+        <topicref
+          keys="pubcontent-domain" href="topics/pubcontent-domain.xml"/>
+        <subsection
+          href="rendition-target-att.xml"/>
+        <topicref
+          keys="ruby-domain" href="topics/ruby-domain.xml"/>
+        <subsection
+          keys="variables-domain" href="topics/variables-domain.xml"/>
+        <topicref
+          keys="verse-domain" href="topics/verse-domain.xml"/>
+        <topicref
+          keys="xml-domain" href="topics/xml-domain.xml"/>
+      </topicref>
+    </topicref>
+  </chapter></pub-component-map>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:topic" "topic.dtd">
+<topic
+  id="topic-id">
+  <title>Topic Type Specializations</title>
+  <shortdesc>The topic type specializations provide topic types expected in Publishing
+    contexts.</shortdesc>
+  <body>
+    <p>The base DITA standard reflects technical communication practice and information types. The
+      concept, task, and reference topic types are fairly standard for technical communication.</p>
+    <p>For Publishing the expectation is to have topic types that reflect traditional book
+      components: chapter, subjection, article, etc.</p>
+  </body>
+</topic>

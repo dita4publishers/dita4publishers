@@ -1,27 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
 <concept id="conceptId">
- <title>HTML2 Plugin</title>
- <shortdesc>Generating HTML using map-drive processing</shortdesc>
+ <title>HTML2 Plug-in</title>
+ <shortdesc>Generating old-style HTML using map-driven processing</shortdesc>
   <prolog>
     <metadata>
       <keywords>
         <indexterm>HTML<indexterm>generating</indexterm></indexterm>
         <indexterm>map-driven processing<indexterm>generating HTML</indexterm></indexterm>
-        <indexterm>HTML2 Toolkit plugin</indexterm>
-        <indexterm></indexterm>
+        <indexterm>HTML2 Toolkit plug-in</indexterm>
       </keywords>
     </metadata>
   </prolog>
  <conbody>
-   <p>The HTMLT2 Toolkit extends the original Toolkit's HTML generation process by adding a map-driven process whereby the HTML generation for each topic is driven by processing of the root input map. This allows each topic to be processed with full knowledge of its use context in the map. This in turn enables a number of important functions:<ul>
-      <li>Numbering of topics and within-topic elements in terms of the topicref hierarchy in the map ("enumeration").</li>
-      <li>Processing of topics in terms of semantics imposed by topicrefs (e.g., processing a generic topic as a "chapter" because it is referenced by a <xmlelem>chapter</xmlelem> topicref.</li>
-      <li>Distinguishing separate uses of the same topic within a map in order to do automatic chunking and link rewriting.</li>
-      <li>Generating HTML files in a structure different from the source file organization structure.</li>
-      <li>Generation of literal HTML files for topic heads as though the topic heads were references to title-only topics.</li>
-      <li>Generation of a back-of-the-book index and other publication-scope lists.</li>
+    <note>The HTML2 plugin is largely made obsolete but the newer DITA for Publishers HTML5 plugin.
+      It is retained in the distribution because there are a number of existing customizations of
+      the HTML2 plugin in use.<p>If you are currently using the HTML2 plugin you are urged to move
+        to the HTML5 plugin, which offers more modern HTML results and includes the ability to
+        integrate complete HTML5 themes.</p><p>If you have an HTML2-based customization you can
+        migrate it to the HTML5 plugin without too much difficulty.</p><p>The HTML2 plugi is not
+        being actively maintained, although because it depends on the same map-driven framework as
+        the EPUB and HTML5 transforms it will usually reflect any bug fixes in the base map-driven
+        processing.</p></note>
+   <p>The HTML2 plugin extends the original Toolkit's HTML generation process by adding a map-driven
+      process whereby the HTML generation for each topic is driven by processing of the root input
+      map. This allows each topic to be processed with full knowledge of its use context in the map.
+      This in turn enables a number of important functions:<ul>
+        <li>Numbering of topics and within-topic elements in terms of the topicref hierarchy in the
+          map ("enumeration").</li>
+        <li>Processing of topics in terms of semantics imposed by topicrefs (e.g., processing a
+          generic topic as a "chapter" because it is referenced by a <xmlelement>chapter</xmlelement>
+          topicref.</li>
+        <li>Distinguishing separate uses of the same topic within a map in order to do automatic
+          chunking and link rewriting.</li>
+        <li>Generating HTML files in a structure different from the source file organization
+          structure.</li>
+        <li>Generation of literal HTML files for topic heads as though the topic heads were
+          references to title-only topics.</li>
+        <li>Generation of a back-of-the-book index and other publication-scope lists.</li>
       </ul></p>
-    <p>The HTML2 transform uses the base HTML transformation type for general topic HTMl generation. It accepts all the parameters for the base HTML transform in addition to the HTML2-specific parameters documented in this section.</p>
+    <p>The HTML2 transform uses the base XHTML transformation type for general topic HTML
+      generation. It accepts all the parameters for the base XHTML transform in addition to the
+      HTML2-specific parameters documented in this section.</p>
  </conbody>
 </concept>

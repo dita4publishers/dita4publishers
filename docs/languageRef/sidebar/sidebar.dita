@@ -3,7 +3,7 @@
   PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
 <reference id="sidebar">
     <title>sidebar</title>
-    <shortdesc><!-- For future use --></shortdesc>
+    <shortdesc>Titled sidebar.</shortdesc>
     <prolog>
         <metadata>
             <keywords>
@@ -16,10 +16,25 @@
     </prolog>
     <refbody>
         <refbodydiv outputclass="summary">
-         <section id="summary">A sidebar represents an out-of-line element in a publication and is part of a chapter, article, or division. A sidebar does not necessarily have a distinct point in the greater hierarchy, in many cases it can appear at any one of several locations depending on the output (e.g., at a typesetter's discretion). Because a sidebar is a topic type, it can only come after another topic's title or (if present) body element. This means that if you need a sidebar to appear in your output in the middle of another topic, then you need to use the d4pSidebarAnchor element. That element allows authors to have sidebars appear in outputs at any arbitrary location without breaking the rules of DITA. Sidebars can only nest sidebar and subsection topics.</section>
+         <section
+        id="summary">
+        <p>A sidebar represents a titled out-of-line element that is not a figure or something based
+          on the <xmlelement>note</xmlelement> element.</p>
+        <p>A sidebar does not necessarily have a distinct point in the greater hierarchy—in many
+          cases it can appear at any one of several locations depending on the output (e.g., at a
+          typesetter's discretion). </p>
+        <p>Because a sidebar is a topic type, it can only come after another topic's title or (if
+          present) body element. This means that if you need a sidebar to appear in your output in
+          the middle of another topic, then you need to use the <keyword
+            keyref="langref.elem.d4pSidebarAnchor" class="+ topic/keyword markup-d/markupname xml-d/xmlelement ">d4pSidebarAnchor</keyword> element. That element
+          allows authors to have sidebars appear in outputs at any arbitrary location without
+          breaking the rules of DITA. </p>
+        <p>Sidebar topics may contain nested <xmlelement>subsection</xmlelement> topics.</p>
+      </section>
       </refbodydiv>
         <refbodydiv outputclass="d4p">
-         <section id="d4p">This is a specialization of the base topic type and is recommended, in part, to be used as a base for further specialization.</section>
+         <section
+        id="d4p"/>
       </refbodydiv>    	    
         <refbodydiv outputclass="contains">
          <section id="contains"/>

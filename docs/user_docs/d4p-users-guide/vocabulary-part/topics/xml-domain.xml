@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:topic" "urn:pubid:dita4publishers.org:doctypes:dita:topic">
+<topic
+  id="topicid">
+  <title>XML Domain</title>
+  <body>
+    <p>The XML domain provides phrase-level elements for identifying mentions of XML components. It
+      is convenient for documents that discuss XML markup (such as this one).</p>
+    <note>This domain is now obsolete with the similar (but not identical) DITA 1.3 XML and markup
+      domains and is not included the D4P shells as of releast 1.0.0RC28.</note>
+    <p>The XML domain provides the following element types:<dl>
+        <dlentry>
+          <dt><xmlelement>xmlelem</xmlelement></dt>
+          <dd>Identifies a mention of an XML element type (tagname): <p>The markup:<pre>&lt;xmlelement>my-tagname&lt;/xmlelement></pre>Produces: <xmlelement>my-tagname</xmlelement></p></dd>
+        </dlentry>
+        <dlentry>
+          <dt><xmlelement>xmlatt</xmlelement></dt>
+          <dd>Identifies a mention of an XML attribute: <p>The markup:<pre>&lt;xmlatt>my-attname&lt;/xmlatt></pre>Produces: <xmlatt>my-attname</xmlatt></p></dd>
+        </dlentry>
+        <dlentry>
+          <dt><xmlelement>textent</xmlelement></dt>
+          <dd>Identifies a mention of an XML text entity: <p>The markup:<pre>&lt;textent>my-text-entity&lt;/textent></pre>Produces: <textentity>my-text-entity</textentity></p></dd>
+        </dlentry>
+        <dlentry>
+          <dt><xmlelement>parment</xmlelement></dt>
+          <dd>Identifies a mention of an XML parameter entity: <p>The markup:<pre>&lt;parameterentity>my-parameter-entity&lt;/parameterentity></pre>Produces: <parameterentity>my-parameter-entity</parameterentity></p></dd>
+        </dlentry>
+        <dlentry>
+          <dt><xmlelement>numcharref</xmlelement></dt>
+          <dd>Identifies a mention of an XML numeric character reference: <p>The markup:<pre>&lt;numcharref>2014&lt;/numcharref> (em-dash)</pre>Produces: <numcharref>2014</numcharref>  (em-dash)</p></dd>
+        </dlentry>
+      </dl></p>
+  </body>
+</topic>

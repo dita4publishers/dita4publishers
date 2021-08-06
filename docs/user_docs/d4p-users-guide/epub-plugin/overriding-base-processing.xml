@@ -7,7 +7,6 @@
     <metadata>
       <keywords>
         <indexterm>overriding base processing</indexterm>
-        <indexterm></indexterm>
       </keywords>
     </metadata>
   </prolog>
@@ -30,7 +29,10 @@
   
 &lt;/xsl:stylesheet></codeblock></p>
     <p>This example is a "local" override that uses an absolute URI to import the base transformation, in this case the EPUB <filepath>map2epub.xsl</filepath> transform. It also includes the local overrides, here in the file <filepath>my-html-overrides.xsl</filepath>. The corresponding transformation for the Kindle transformation type would include the Kindle-specific top-level transform and the same overrides (assuming that you want the EPUB and Kindle outputs to reflect the same overrides, which would normally be the case).</p>
-    <p>The overrides themselves can be anything you need and can override either the base XHTML processing from the dita2xhtml transformation type or can override the EPUB- and Kindle-specific processing from the EPUB or Kindle plugins. For most overrides you would be overriding the base XHTML processing.</p>
+    <p>The overrides themselves can be anything you need and can override either the base XHTML
+      processing from the dita2xhtml transformation type or can override the EPUB-specific
+      processing from the EPUB plugin. For most overrides you would be overriding the base XHTML
+      processing.</p>
     <p>To use the override transformation you simply specify the path and filename of the transformation as the value of the <parmname>args.xml</parmname> Ant parameter for the XHTML, EPUB, or Kindle transformation types. </p>
     <p>To package an override as a Toolkit plugin you create a <filepath>plugin.xml</filepath> file that defines the plugin and use a relative URI to include the base transformation type, relative to the plugin's location as deployed in a Toolkit. You put the <filepath>plugin.xml</filepath> and override transform into their own uniquely-named directory within the Toolkit's <filepath>plugins/</filepath> directory.</p>
     <p>The <filepath>plugin.xml</filepath> file should look like this:<codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>

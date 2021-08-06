@@ -16,10 +16,14 @@
     </prolog>
     <refbody>
         <refbodydiv outputclass="summary">
-         <section id="summary">art-ph is similar to art, but it can be used inline in block elements.</section>
+         <section
+        id="summary"><xmlelement>art-ph</xmlelement> is similar to <keyword
+          keyref="langref.elem.art" class="+ topic/keyword markup-d/markupname xml-d/xmlelement ">art</keyword>, but it can be used inline in block
+        elements.</section>
       </refbodydiv>
         <refbodydiv outputclass="d4p">
-         <section id="d4p">art-ph is specialized from ph.</section>
+         <section
+        id="d4p"><xmlelement>art-ph</xmlelement> is specialized from <xmlelement>ph</xmlelement>.</section>
       </refbodydiv>    	    
         <refbodydiv outputclass="contains">
          <section id="contains"/>

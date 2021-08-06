@@ -1,36 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE reference
   PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
-<reference id="d4pCover">
-    <title>d4pCoverTitle</title>
-    <shortdesc><!-- For future use --></shortdesc>
-    <prolog>
-        <metadata>
-            <keywords>
-                <indexterm>d4pCoverTitle</indexterm>
-            <!-- sample from DITA langref
+<reference
+  id="d4pCover">
+  <title>d4pCover</title>
+  <shortdesc>Cover topic</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>d4pCover</indexterm>
+        <!-- sample from DITA langref
                     <indexterm>Topic elements<indexterm>abstract</indexterm>
 				    </indexterm> -->
-            </keywords>
-        </metadata>
-    </prolog>
-    <refbody>
-        <refbodydiv outputclass="summary">
-         <section id="summary">The d4pCoverTitle is the title element for the d4pCover topic type. It must be empty.</section>
-      </refbodydiv>
-        <refbodydiv outputclass="d4p">
-         <section id="d4p">The d4pCoverTitle is specialized from title.</section>
-      </refbodydiv>    	    
-        <refbodydiv outputclass="contains" />
-        <refbodydiv outputclass="contains-by" />    
-        <refbodydiv outputclass="inheritance">
-            <section id="inheritance">
-                <title>Inheritance</title>
-                <p>- topic/title d4pCover/d4pCoverTitle</p>
-            </section>
-        </refbodydiv>
-        <example id="example1">No example is provided because this is an empty element.</example>    	
-        <refbodydiv outputclass="attributes" />
-        
-    </refbody>
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <refbodydiv
+      outputclass="summary">
+      <section
+        id="summary">
+        <p>The <xmlelement>d4pCover</xmlelement> topic type holds the contents of a cover of a
+          publication. While the contents could be anything normal usage is to have the body contain
+          a single image that is the cover.</p>
+      </section>
+      <section
+        id="section_edz_gf1_cx">
+        <p>Because <xmlelement>d4pCover</xmlelement> is a topic it must have a title. However, covers
+          don't really have titles so <xmlelement>d4pCover</xmlelement> uses the specialized
+            <xmlelement>d4pCoverTitle</xmlelement> element, which is empty. You can use the regular
+            <xmlelement>searchtitle</xmlelement> or <xmlelement>navtitle</xmlelement> elements to provide a
+          non-empty title for use in contexts where a title is useful, such as in content management
+          systems. For exmple, you might use a search title like "Front cover for Some
+          Publication".</p>
+      </section>
+    </refbodydiv>
+    <refbodydiv
+      outputclass="d4p">
+      <section
+        id="d4p"/>
+    </refbodydiv>
+    <refbodydiv
+      outputclass="contains"/>
+    <refbodydiv
+      outputclass="contains-by"/>
+    <refbodydiv
+      outputclass="inheritance">
+      <section
+        id="inheritance">
+        <title>Inheritance</title>
+        <p>- topic/topic d4pCover/d4pCover</p>
+      </section>
+    </refbodydiv>
+    <example
+      id="example1">
+      <codeblock>&lt;d4pCover id="cover">&lt;d4pCoverTitle/>
+  &lt;titlealts>
+    &lt;searchtitle>Front cover for Some Publication&lt;/searchtitle>
+  &lt;/titlealts>
+ &lt;body>
+  &lt;image href="covers/front-cover.tiff">
+    &lt;alt>Front cover for Some Publication&lt;/alt>
+  &lt;/image>
+ &lt;/body>
+&lt;/d4pCover></codeblock>
+    </example>
+    <refbodydiv
+      outputclass="attributes"/>
+  </refbody>
 </reference>

@@ -6,10 +6,7 @@
  <conbody>
   <conbodydiv>
    <section> The following code will generate an accordion.
-    <codeblock>
-    <data-about>
-     <data name="language" value="xml"/>
-    </data-about>
+    <codeblock><data name="language" value="xml"/>
 &lt;conbodydiv outputclass="d4p-ui-accordion"&gt;
   &lt;section&gt;
     &lt;title&gt;Section 1&lt;/title&gt;

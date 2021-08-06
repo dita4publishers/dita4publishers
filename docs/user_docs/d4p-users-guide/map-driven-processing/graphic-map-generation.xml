@@ -2,25 +2,34 @@
 <!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
 <concept id="conceptId">
  <title>Graphic Map Generation</title>
- <shortdesc>The map-driven processing generates an Ant script that copies
-    graphics from their source locations to the output location.</shortdesc>
+ <shortdesc>The map-driven processing generates an Ant script that copies graphics or other
+    resources from their source locations to the output location.</shortdesc>
   <prolog>
     <metadata>
       <keywords>
-        <indexterm></indexterm>
+        <indexterm>graphic map<indexterm>generating</indexterm></indexterm>
+        <indexterm>graphic map<indexterm>extending</indexterm></indexterm>
+        <indexterm>graphics<indexterm>including in output</indexterm></indexterm>
+        <indexterm>XSLT mode<indexterm>additional-graphic-refs</indexterm></indexterm>
+        <indexterm>XSLT mode<indexterm>generate-graphic-map</indexterm></indexterm>
+        <indexterm>XSLT mode<indexterm>gmap:get-output-url</indexterm></indexterm>
+        <indexterm>XSLT mode<indexterm>gmap:get-graphic-refs</indexterm></indexterm>
+        <indexterm>XSLT mode<indexterm>map2graphicmap:handleImageListFile</indexterm></indexterm>
       </keywords>
     </metadata>
   </prolog>
  <conbody>
-   <p>Because the map-driven processing allows you to change the output
-      organization of the generated files, references to graphics in the source
-      DITA XML do not translate directly to graphic references in the output. To
-      address this, the map-driven process finds all graphic references in the
-      input data (including graphics referenced from DITAVAL files), constructs
-      an input-to-output location map, and generates an Ant script that copies
-      the source graphics to their output location. As part of output
-      generation, references to graphics are rewritten to reflect their output
-      location.</p>
+   <p>Because the map-driven processing allows you to change the output organization of the
+      generated files, references to graphics and other resources in the source DITA XML do not
+      translate directly to references in the output. To address this, the map-driven process finds
+      all graphic references in the input data (including graphics referenced from DITAVAL files),
+      constructs an input-to-output location map, and generates an Ant script that copies the source
+      graphics to their output location. As part of output generation, references to graphics are
+      rewritten to reflect their output location. This process can be extended to include any kind
+      of resource, such as Javascript, CSS, static graphics, etc. However, it does not modify
+      references in non-DITA files, such as CSS style sheets. (This is most useful for EPUB output.
+      For HTML5 output there is a separate feature for managing all the Web-specific theme
+      components.)</p>
     <p>The graphic map generation is implemented in the module
       <filepath>org.dita4publishers.common.xslt/xsl/map2graphicMap.xsl</filepath>.
       You can extend the default processing to provide mapping for any graphics
@@ -28,16 +37,29 @@
       by run-time parameters or branding graphics defined separately or
       whatever.</p>
     <p>The map generation is done in two phases. </p>
-    <p>The first phase is mode "get-graphic-refs", which is applied to the map,
-      all topics, and the DITAVAL file, if specified. It results in a set of
-      graphic reference elements of the
+    <p>The first phase is mode "get-graphic-refs", which is applied to the map, all topics, the
+      OT-generated "<filepath>image.list</filepath>" file and the DITAVAL file, if specified. It
+      results in a set of graphic reference elements of the
       form:<codeblock> &lt;gmap:graphic-ref 
    href="{absoluteUrl of source graphic}" 
    filename="{filename of the graphic}"
  /></codeblock></p>
-    <p>One <xmlelem>graphic-ref</xmlelem> element should be generated for each
+    <p>One <xmlelement>graphic-ref</xmlelement> element should be generated for each
       graphic reference in the source.</p>
-    <p>The second phase processes all the <xmlelem>graphic-ref</xmlelem>
+    <p>You can add additional graphic map items using the mode "additional-graphic-refs", which is
+      applied to the root map. Templates in this mode must produce
+        <xmlelement>gmap:graphic-ref</xmlelement> elements that point to the source location of the item
+      to be included. See the templates in the <filepath>map2epubEmbedFonts.xsl</filepath> in the
+      org.dita4publishers.epub plugin for example code.</p>
+    <p>You can override or extend the <filepath>image.list</filepath> processing using the mode
+      "map2graphicmap:handleImageListFile". The context items for the templates in this mode are
+      text nodes, one for each line of the <filepath>image.list</filepath> file. The result of a
+      match on an image list item must be a <xmlelement>gmap:graphic-map-item</xmlelement> element that
+      specifies the input and output URIs for the image. See the base template in
+        <filepath>map2graphicMap.xsl</filepath>. You can use this mode to map source graphic
+      filenames to some other name or to otherwise augment the set of graphics to copy based on
+      details of the image list.</p>
+    <p>The second phase processes all the <xmlelement>graphic-ref</xmlelement>
       elements to determine the set of unique graphics used. This process
       results in the graphic map, which looks like
       this:<codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>

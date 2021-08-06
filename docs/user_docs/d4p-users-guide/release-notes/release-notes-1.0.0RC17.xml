@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="conceptId">
+  <title>Release Notes: Version 1.0.0RC17</title>
+  <shortdesc>Version 1.0.0RC17</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+          <indexterm>release notes<indexterm>Version 1.0.0RC17</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <section>
+      <title>Theme for the Release</title>
+      <p>This release provides significant updates to the EPUB transform with full support for font
+        embedding and obfuscation. This functionality includes some enhancements to the more general
+        map-to-graphic-map processing to make it easier to extend for things other than just
+        graphics.</p>
+      <p>This release also has the start of support for the 2.x Open Toolkit. The EPUB transform
+        should work with both versions 1.8.5 and 2.x, although it has not been tested extensively
+        with 2.x versions later than 2.1 at this time. The 2.x version of the preprocessing does not
+        include the adjust copy-to processing provided in the 1.8.5 version but the 2.x OT includes
+        new functionality to ensure that multiple references to the same topic result in
+        uniquely-named HTML files. This new functionality should be sufficient to satisfy the EPUB
+        requirement that a given HTML file only be used once from the EPUB navigation structure.
+        However, it does not, as far as I know, use @keys values to set the result filename so there
+        may be a difference in how result anchors are generated between the 1.8.5 and 2.x versions
+        in this release.</p>
+      <p>This release also includes a number of  accumulated bug fixes and enhancements in various
+        DITA for Publishers and DITA Community plugins.</p>
+    </section>
+    <section id="section_ggg_vf4_tv">
+      <title>Resolved Issues</title>
+      <p>These are the most significant issues addressed in this release:</p>
+      <ul id="ul_gdd_xf4_tv">
+        <li>EPUB issue #57: Items for audio and video files do not produce correct MIME
+            types.<p>Video and audio embedding should now work correctly using the DITA Community
+              <xmlelement>audio</xmlelement> and <xmlelement>video</xmlelement> markup. </p></li>
+        <li>EPUB issue #57: Is `application/svg` the correct media-type for SVG images?<p>Embeded
+            SVGs should reflect the correct MIME type.</p></li>
+      </ul>
+    </section>
+  </conbody>
+</concept>

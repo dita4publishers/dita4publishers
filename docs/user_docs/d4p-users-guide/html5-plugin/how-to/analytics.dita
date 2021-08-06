@@ -7,10 +7,7 @@
   <note>The tracking code presented here is from Google Analytics from July 28, 2014.
    It may change in time, please consult Google Analytics documentation to ensure you have the latest.</note>
   <p>
-  <codeblock>
-   <data-about>
-    <data name="language" value="xml"/>
-   </data-about>
+  <codeblock><data name="language" value="xml"/>
     &lt;tag&gt;
     &lt;name&gt;script&lt;/name&gt;
       &lt;output&gt;yes&lt;/output&gt;

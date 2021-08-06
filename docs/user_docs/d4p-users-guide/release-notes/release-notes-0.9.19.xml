@@ -6,9 +6,7 @@
   <prolog>
     <metadata>
       <keywords>
-        <indexterm>
           <indexterm>release notes<indexterm>Version 0.9.19</indexterm></indexterm>
-        </indexterm>
       </keywords>
     </metadata>
   </prolog>
@@ -31,8 +29,8 @@
         <li>Feature 32: Capture type for break elements and filter out page and column breaks by default (avoids blank paragraphs caused by manual page breaks).</li>
         <li>Feature 31: Enable generation of nested inlines by supporting <xmlatt>containerType</xmlatt> on inline elements. Lets you generate e.g. <codeph>&lt;sup>&lt;b>A&lt;/b>&lt;/sup></codeph>.</li>
         <li>Feature 30: Completely reworked how maps are generating, making it possible to generate complex systems of maps and topicrefs. Includes ability to specify <xmlatt>containerType</xmlatt> for topicrefs (e.g., "frontmatter" for topicrefs within a book map).</li>
-        <li>Feature 28: Can now specify map and topic generation details on <xmlelem>output</xmlelem> elements since these are usually the same for all instances of a given topic or map type. Values specified on specific style mappings override the values on <xmlelem>output</xmlelem>.</li>
-        <li>Feature 27: Added ability to generate <xmlatt>type</xmlatt> attribute on <xmlelem>data</xmlelem> elements via new <xmlatt>typeAttValue</xmlatt> attribute on style maps.</li>
+        <li>Feature 28: Can now specify map and topic generation details on <xmlelement>output</xmlelement> elements since these are usually the same for all instances of a given topic or map type. Values specified on specific style mappings override the values on <xmlelement>output</xmlelement>.</li>
+        <li>Feature 27: Added ability to generate <xmlatt>type</xmlatt> attribute on <xmlelement>data</xmlelement> elements via new <xmlatt>typeAttValue</xmlatt> attribute on style maps.</li>
         <li>Feature 18, Feature 24: Added handling of Symbols and Wingdings fonts in Word documents. Result is correct Unicode characters in the generated XML.</li>
         <li>Feature 8, Feature 23: Generally improved capturing of Word table details in DITA. DITA result should now reflect the Word table as completely as is possible within the limits of CALS tables.</li>
         <li>Feature 17: Capture literal MathML markup in Word documents as MathML in the generated DITA. Literal MathML is created by the Design Science MathType Word plugin from binary MathType equations.</li>
@@ -84,7 +82,7 @@
       <ul id="ul_oyk_2pt_f4">
         <li>Added XSLT parameter extension points to all transform types</li>
         <li>Issue 165: Correctly include descendants of sections in enumerables.</li>
-        <li>Issue 164: Correct issue with extra vertical space for <xmlelem>br</xmlelem> in PDF.</li>
+        <li>Issue 164: Correct issue with extra vertical space for <xmlelement>br</xmlelement> in PDF.</li>
         <li>Issue 155: Correct generation of EPUB list of tables only process list of tables once.</li>
         <li>Issue 151: Corrected name of parameter extension point for EPUB transformation type.</li>
         <li>Issue 150: Corrected resolveTopicElementRef() to trap and report case where containing document can't be resolved.</li>
@@ -93,7 +91,7 @@
         <li>Issue 146: Correctly handle toc="no" in HTML2 transform.</li>
         <li>Issue 142: Corrected generation of duplicate IDs for enumerables.</li>
         <li>Issue 140: Corrected handling of <xmlatt>locktitle</xmlatt> for navtitles on topicrefs</li>
-        <li>Issue 124: Include <xmlatt>type</xmlatt> attribute on <xmlelem>link</xmlelem> elements in generated HTML for EPUB and Kindle transforms.</li>
+        <li>Issue 124: Include <xmlatt>type</xmlatt> attribute on <xmlelement>link</xmlelement> elements in generated HTML for EPUB and Kindle transforms.</li>
         <li>Issue 123: Include references to OT catalog in all XSLT calls from D4P transforms.</li>
         <li>Issue 112: Corrected duplication of index entries in collected index data.</li>
         <li>Issue 111: Added XSLT parameter extension point to all transforms as for base XHTML transform.</li>
@@ -112,12 +110,12 @@
       <title>Vocabulary</title>
       <p>New features:</p>
       <ul id="ul_h3j_5j2_q4">
-        <li>Feature 7: New specialization domain, d4p_mediaDomain, that provides specializations of <xmlelem>object</xmlelem> that mirror the HTML5 <xmlelem>video</xmlelem> and <xmlelem>audio</xmlelem> elements.</li>
+        <li>Feature 7: New specialization domain, d4p_mediaDomain, that provides specializations of <xmlelement>object</xmlelement> that mirror the HTML5 <xmlelement>video</xmlelement> and <xmlelement>audio</xmlelement> elements.</li>
       </ul>
       <p>Fixed bugs:</p>
       <ul id="ul_vj2_412_q4">
         <li>Issue 72, Issue 168: Use a D4P-specific URN for the reference to the MathML module. This avoids problems where two different DTDs both include MathML.</li>
-        <li>Issue 136: Added missing <xmlatt>class</xmlatt> attribute for <xmlelem>d4pPageRange</xmlelem>.</li>
+        <li>Issue 136: Added missing <xmlatt>class</xmlatt> attribute for <xmlelement>d4pPageRange</xmlelement>.</li>
         <li>Issue 99: Added missing catalog inclusion for xmlDomain.</li>
         <li>Issue 98: Corrected case and spelling of system IDs for d4p_commonDomainIntegrations external parameter entities.</li>
       </ul>

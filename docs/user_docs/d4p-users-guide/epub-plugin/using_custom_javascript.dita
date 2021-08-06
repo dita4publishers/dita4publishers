@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="conceptId">
+  <title>Using Custom JavaScript</title>
+  <conbody>
+    <p>You can include a single JavaScript file in every generated HTML file in the EPUB using the <xref
+        keyref="ant-param_epub-javascript-file"/>. You can specify the directory within the EPUB
+      package to put the JavaScript file in using the <xref
+        keyref="ant-param_epub-javascript-dir"/>.</p>
+    <p>If you need to include more than one JavaScript file then you must using the graphic map
+      extension point to include the additional files in the EPUB package and have them properly
+      listed in the EPUB manifest. See <xref
+        keyref="map-driven.graphic-map-generation"/> for guidance. The XSLT module
+        <filepath>map2epubIncludeJavaScript.xsl</filepath> demonstrates how to extend the graphic
+      map processing and the base JavaScript reference generation processing.</p>
+    <p>If you need multiple JavaScript files it is probably better to use JavaScript management
+      tools to produce a single JavaScript file that is optimized for size and performance.</p>
+    <p>Note that JavaScript support varies widely in EPUB readers. EPUB3 clarifies the requirements
+      for JavaScript support but does not require support for JavaScript. As of September 2016 both
+      iBooks and Adobe Digital Editions seem to have pretty reliable JavaScript support.</p>
+  </conbody>
+</concept>

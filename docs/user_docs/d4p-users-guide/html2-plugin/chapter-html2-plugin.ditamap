@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pub-component-map PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:dtd:pub-component-map" "pub-component-map.dtd">
+<pub-component-map>
+  <title>HTML2 Plugin Chapter</title>
+  <keydefs>
+  </keydefs>
+  <chapter keys="html2-toolkit-plugin"
+    href="html2-toolkit-plugin.xml">
+    <subsection
+      href="understanding-html2-transforms.xml">
+      <subsection
+        href="overall-process-flow.xml"/>
+      <subsection
+        href="customizing-enumeration.xml">
+        <topicref keys="html2-using-collected-data"
+          href="../topics/using-collected-data.dita"/>
+      </subsection>
+    </subsection>
+    <subsection
+      href="html2-transtype-parameters-ref.xml">
+      <subsection keys="ant-parm-fileOrganizationStrategy"
+        href="reference/ant-parm-fileOrganizationStrategy.xml"/>
+      <subsection keys="ant-parm-generateDynamicToc"
+        href="reference/ant-parm-generateDynamicToc.xml"/>
+      <subsection keys="ant-parm-generateFrameset"
+        href="reference/ant-parm-generateFrameset.xml"/>
+      <subsection keys="ant-parm-generateStaticToc"
+        href="reference/ant-parm-generateStaticToc.xml"/>
+    </subsection>
+  </chapter>
+</pub-component-map>

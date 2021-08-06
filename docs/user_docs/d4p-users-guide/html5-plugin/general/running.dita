@@ -25,10 +25,7 @@
    <p>Execute the usual command using HTML5 as the transtype.</p>
     <!-- CW capitalized HTML5 24/03/2014 -->
     <draft-comment author="CW">What is the usual command? Would be better to name it.</draft-comment>
-       <codeblock>
-    <data-about>
-      <data name="language" value="bash"/>
-    </data-about> 
+       <codeblock><data name="language" value="bash"/>
     ant -Dargs.input=samples/hierarchy.ditamap 
     -Doutput.dir=out/garage/html5 
     -Dtranstype=d4p-html5</codeblock>   
@@ -38,10 +35,8 @@
    <title>Running DITA-OT from a Command-Line Tool</title>
     <!-- CW added 'a', capitalized Command-Line and Tool 24/03/2014 -->
     <draft-comment author="CW">Introductory statement needed?</draft-comment>
-   <codeblock>
-        <data-about>
-      <data name="language" value="bash"/>
-    </data-about> 
+   <codeblock><data name="language" value="bash"/>
+
     java -jar lib/dost.jar 
     /i:samples/hierarchy.ditamap 
     /outdir:out/garage/html5 

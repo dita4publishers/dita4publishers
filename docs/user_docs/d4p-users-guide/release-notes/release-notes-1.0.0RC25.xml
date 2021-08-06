@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="conceptId">
+  <title>Release Notes: Version 1.0.0RC25</title>
+  <shortdesc>Version 1.0.0RC25</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+          <indexterm>release notes<indexterm>Version 1.0.0RC25</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <section>
+      <title>Theme for the Release</title>
+      <p>This release focuses on enhancements to the EPUB and HTML5 transforms, various bug fixes,
+        etc.</p>
+    </section>
+    <section id="section_ggg_vf4_tv">
+      <title>Resolved Issues</title>
+      <p>These are the most significant issues addressed in this release.</p>
+      <p>EPUB transform:</p>
+      <ul
+        id="ul_gdd_xf4_tv">
+        <li>Issue 72: Implemented new runtime parameters for including a single JavaScript file in
+          the generated HTML files. See <xref
+            keyref="epub.using-custom-javascript"/>.</li>
+        <li>Issue 74: HTML files generated from topicheads had the wrong extension (resulted in
+          epubcheck warning).</li>
+        <li>Issue 70: Generate correct timestamps in metadata files (was not taking timezone into
+          account).</li>
+        <li>Fixed logic bug in generation of entries in list of tables (resulted in no entries for
+          tables in the LoT).</li>
+      </ul>
+      <p>Also reflects earlier-released enhancements for font embedding and various small bug
+        fixes.</p>
+      <p>org.dita4publishers.common.xslt (used by HTML5 and EPUB transforms):<ul
+          id="ul_lqz_dfq_dx">
+          <li>Fixes for issues related to chunking</li>
+          <li>Fixes for issues related to resource-only topicrefs</li>
+        </ul></p>
+      <p>Word2DITA transformation framework:<ul
+          id="ul_nph_nfq_dx">
+          <li>Issue 29: Failure trying to load incorrect file for footnotes (transform would fail if
+            there were footnote references in the Word document).</li>
+          <li>Issue 26: Ensure that generated IDs are syntactically valid (some source filenames
+            could result in invalid ID values).</li>
+          <li>Issue 25: Fix handling of character \uF0FC (check mark) in Word source. Processing
+            would fail with invalid character when Word source had checkmark characters.</li>
+          <li>Issue 21: Use final-fixup mode for maps as well as topics. </li>
+        </ul></p>
+      <p>D4P vocabulary:<ul
+          id="ul_uhd_bgq_dx">
+          <li>Fixed d4pQuestionTopic DTD so it works with DITA 1.2 DTDs as well as with DITA 1.3
+            DTDs (D4P does not yet officially support DITA 1.3 but some D4P users have been using
+            the DITA 1.3 learning2Domain wiht the d4pQuestionTopic topic type.</li>
+          <li>Various minor fixes that do not affect document validity.</li>
+        </ul></p>
+      <p>Documentation:<ul
+          id="ul_pw5_ggq_dx">
+          <li>Updated the documentation source to use keys for all cross references.</li>
+          <li>Refactored maps into submaps.</li>
+          <li>Added new vocabulary reference topics. These are still a work in progress but they
+            provide useful information on the D4P vocabulary.</li>
+        </ul></p>
+    </section>
+  </conbody>
+</concept>

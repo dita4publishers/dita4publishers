@@ -22,10 +22,13 @@
       very narrow cases. Because the process is a one-way process that is not
       directly connected to InDesign itself it is inherently limited in the
       amount of layout automation it can provide. But it is free.</p>
-    <p>Where full automation through InDesign is required the Typefi product provides up to 100% automation for publications where the number of titles that use a particular layout design is large enough to justify the investment in setup. See <xref
-      href="http://www.typefi.com"
-      format="html"
-      scope="external">www.typefi.com</xref> for more information on the Typefi product.</p>
+    <p>Where full automation through InDesign is required the Typefi product provides up to 100%
+      automation for publications where the number of titles that use a particular layout design is
+      large enough to justify the investment in setup. See <xref
+        format="html"
+        href="http://www.typefi.com"
+        keyref="website-typefi-com"
+        scope="external"/> for more information on the Typefi product.</p>
     <p>The DITA-to-InDesign framework is <i>not</i> intended and does not
       attempt to provide round tripping between XML and InDesign.</p>
     <p> While it is technically possible to do some round tripping when certain

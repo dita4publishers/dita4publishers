@@ -35,9 +35,11 @@
   <property name="epubBuild" location="${build}/epubs"/>
   <property name="kindleTemp" location="${temp}/kindle"/>
   <property name="kindleBuild" location="${build}/kindle"/>
+  <!-- NOTE: The kindle building executable must be in the PATH -->
+  <property name="kindlepreview.executable" value="kindlepreviewer"/>
   <property name="docs.dir" location="${basedir}/docs"/>
   <property name="docs" location="${basedir}/docs"/>
-  <property name="templates.dir" location="${basedir}/templates"/>
+  <property name="templates.dir" location="${toolkit.plugin.src}/org.dita4publishers.doctypes/templates"/>
   <property name="website.source" location="${docs}/website"/>
   <property name="website.build" location="${build}/website"/>
 	<property name="sampledata" location="${basedir}/sample_data"/>
@@ -58,8 +60,8 @@
 	<property name="api-and-tools.dirname" value="d4p-api-and-tools"/>
 	<property name="api-and-tools.target" location="${target.home}/${api-and-tools.dirname}"/>
   <property name="api-and-tools.dist" location="${dist}/${api-and-tools.dirname}"/>
+  <property name="release.dir" location="${basedir}/release"/>
 	
-	<import file="${dita-ot-dir}${file.separator}integrator.xml" optional="yes"/>
   <import file="install-ivy.xml"/>
   
 
@@ -233,6 +235,7 @@
 			  <include name="org.dita-community.adjust-copy-to/**"/>
 			  <include name="org.dita-community.common.mapdriven/**"/>
 			  <include name="org.dita-community.common.xslt/**"/>
+			  <include name="org.dita-community.common.mapdriven/**"/>
 			  <include name="org.dita-community.preprocess-extensions/**"/>
         <include name="org.dita4publishers.common.mapdriven/**"/>
 			  <include name="org.dita4publishers.common.xslt/**"/>
@@ -252,6 +255,22 @@
 		</copy>
 	</target>
   
+  <target name="dist-shakespear-toolkit-plugins"
+    description="Packages the plugins needed for the Shakespear play content samples"
+    >
+    <copy todir="${plugin.dist}">
+      <fileset dir="${plugin-shakespear-samples-src}">
+        <include name="*/**"/>
+      </fileset>
+    </copy>
+    <copy todir="${plugin.dist}/org.dita4publishers.shakespear.doctypes">
+      <fileset dir="${shakespear-sample}">
+        <include name="doctypes/**"/>
+        <include name="templates/**"/>
+      </fileset>
+    </copy>
+  </target>
+  
   <target name="dist-doctype-plugins" 
      description="Packages just the doctype plugins"
      depends="dist-init, dist-license"
@@ -262,7 +281,6 @@
 			  <include name="org.dita4publishers.doctypes/**"/>
 			  <include name="org.dita4publishers.math/**"/>
 			  <include name="org.dita4publishers.xmldomain.doctypes/**"/>
-			  <include name="net.sourceforge.dita4publishers.doctypes/**"/>
 			</fileset>
 		</copy>
     <replace dir="${plugin.dist}/org.dita4publishers.math/doctypes/mathml3/dtd">
@@ -292,6 +310,7 @@
     >
 		<copy todir="${plugin.dist}">
 			<fileset dir="${plugin.src}">
+			  <include name="org.dita4publishers.common.mapdriven/**"/>
 			  <include name="org.dita4publishers.common.html/**"/>
 			  <include name="org.dita4publishers.math-d.html/**"/>
 			  <include name="org.dita4publishers.media-d.html/**"/>
@@ -355,7 +374,8 @@
 		 dist-kindle-toolkit-plugins, 
 		 dist-html5-toolkit-plugins, 
 		 dist-html2-toolkit-plugins, 
-		 dist-word2dita-toolkit-plugins
+		 dist-word2dita-toolkit-plugins,
+		 dist-shakespear-toolkit-plugins
 		 "
 		>
 		<copy todir="${plugin.dist}">
@@ -365,10 +385,6 @@
 				<include name="org.dita4publishers.*.html/**"/> 
 			</fileset>
 		</copy>
-    <copy todir="${doctypes.plugin-shakespear-dist}/doctypes">
-      <fileset dir="${doctypes-skakespear-samples.src}">
-      </fileset>
-    </copy>
 		
 		<!-- FIXME: Make this work again -->
 <!--    <antcall target="add-version-info-to-files"/>-->
@@ -408,7 +424,7 @@
   <target name="package-dita2indesign-toolkit-plugins" 
       description="Creates a standalone delivery package of the DITA2InDesign Open Toolkit plugins" 
       depends="dist-dita2indesign-toolkit-plugins">
-      <zip destfile="${plugin.dist}/dita2indesign-toolkit-plugins-${dita2indesign_version}.zip">
+    <zip destfile="${plugin.dist}/dita2indesign-toolkit-plugins-${dita2indesign_version}-ot-${ot-version}.zip">
         <fileset dir="${plugin.dist}">
           <include name="org.dita4publishers.*/**"/>
         </fileset>
@@ -427,8 +443,10 @@
 		</copy>
 	  <echo> Calling integrator...</echo>
     <!-- Integrate the deployed plugins: -->
-    <ant target="integrate" antfile="${dita-ot-dir}/integrator.xml"/>
-
+	  <exec executable="${dita-ot-dir}/bin/dita">
+	    <arg line="-install"/>
+	  </exec>
+	  
   </target>
 
 
@@ -450,14 +468,21 @@
 			</fileset>
 		</copy>
     <!-- Integrate the deployed plugins: -->
-    <ant target="integrate" antfile="${dita-ot-dir}/integrator.xml"/>
+	  <exec executable="${dita-ot-dir}/bin/dita">
+	    <arg line="-install"/>
+	  </exec>
 
 	</target>
 	
 	<target name="deploy-disted-plugins">
 	  <!-- Deploys whatever have been put in the dist directory -->
 		<delete failonerror="true" includeemptydirs="true">
-			<fileset dir="${plugin-deploy_target}" includes="org.dita4publishers.*/**"/>
+			<fileset dir="${plugin-deploy_target}" includes="org.dita4publishers.*/**">
+			  <exclude name="net.sourceforge.dita4publishers.doctypes/**"/>
+			  <exclude name="org.dita4publishers.doctypes/**"/>
+			  <exclude name="org.dita4publishers.math/**"/>
+			  <exclude name="org.dita4publishers.xmldomain.doctypes/**"/>
+			</fileset>
 			<fileset dir="${plugin-deploy_target}" includes="org.dita-community.*/**"/>			
 		</delete>
 		<mkdir dir="${plugin-deploy_target}"/>
@@ -468,8 +493,10 @@
 			</fileset>
 		</copy>
     <!-- Integrate the deployed plugins: -->
-    <ant target="integrate" antfile="${dita-ot-dir}/integrator.xml"/>
-
+	  <exec executable="${dita-ot-dir}/bin/dita">
+	    <arg line="--install"/>
+	  </exec>
+	  
 	</target>
 	
 	<target name="deploy-html2" depends="dist-html2-toolkit-plugins, deploy-disted-plugins"
@@ -494,11 +521,12 @@
   	</delete>
 		<mkdir dir="${dist}"/>
 		<mkdir dir="${package.dist}"/>
-  </target>
+	  <mkdir dir="${release.dir}"/>
+	</target>
 	
   <target name="dist-api-and-tools" description="Create distribution package for API and tools materials."
   	depends="package-api-and-tools">
-    <zip destfile="${dist}/${api-and-tools.dirname}-${package.date}.zip">
+    <zip destfile="${dist}/${api-and-tools.dirname}-${package.date}-ot-${ot-version}.zip">
       <fileset dir="${api-and-tools.target}">
       	<include name="**/*"/>
       </fileset>
@@ -517,6 +545,7 @@
       </fileset>
       <fileset dir="${plugin.src}/org.dita4publishers.epub">
         <include name="**/*"/>
+        <exclude name="test/**"/>
       </fileset>
       <fileset dir="${plugin.src}/org.dita4publishers.common.xslt">
         <include name="**/*"/>
@@ -540,29 +569,32 @@
     </copy>
 
 	</target>
-	
-	<target name="package-epub-plugin" depends="dist-epub-plugin">
-    <zip destfile="${dist}/dita4publishers-epub-plugin-${epub_version}.zip">
-      <fileset dir="${plugin.dist}">
-        <include name="org.dita4publishers.epub/**"/>
-      </fileset>
-    </zip>		
-	</target>
+  
+  <target name="deploy-doctypes" depends="dist-doctype-plugins, deploy-disted-plugins"
+    description="Deploy only the EPUB plugin and its dependencies to local DITA Open Toolkit">
+  </target>
 	
 	<target name="package-vocabulary-plugins" depends="dist-init, dist-toolkit-plugins"
 		description="Create distributable Zip packages of the different Toolkit plugins"
 		>
-    <zip destfile="${package.dist}/dita4publishers-vocabulary-plugins-${vocab_version}.zip">
+    <zip destfile="${release.dir}/dita4publishers-vocabulary-plugins-${vocab_version}.zip">
       <fileset dir="${plugin.dist}">
+        <!-- net.sourceforge.* provides legacy mapping catalogs for
+             the old net.sourceforge versions of the vocab.
+          -->
+        <include name="net.sourceforge.dita4publishers.doctypes/**"/>
         <include name="org.dita4publishers.doctypes/**"/>
+        <include name="org.dita4publishers.xmldomain.doctypes/**"/>
+        <include name="org.dita4publishers.shakespear.doctypes/**"/>
       </fileset>
     </zip>
+	  
   </target>
 	
 	<target name="package-word2dita-plugins" depends="dist-init, dist-word2dita-toolkit-plugins"
 		description="Create distributable Zip package for the Word2DITA transform plugin with its dependencies"
 		>
-    <zip destfile="${package.dist}/dita4publishers-word2dita-plugins-${package_version}.zip">
+	  <zip destfile="${release.dir}/dita4publishers-word2dita-plugins-${package_version}-ot-${ot-version}.zip">
       <fileset dir="${plugin.dist}">
         <include name="org.dita-community.common.xslt/**"/>
         <include name="org.dita4publishers.doctypes/**"/>
@@ -573,10 +605,12 @@
     </zip>
   </target>
 	
-	<target name="package-toolkit-plugins" depends="dist-init, dist-toolkit-plugins"
+	<target name="package-toolkit-plugins" 
+	  depends="dist-init, 
+	           dist-toolkit-plugins"
 		description="Create distributable Zip package of the Toolkit plugins, including the vocabulary modules."
 		>
-    <zip destfile="${package.dist}/dita4publishers-toolkit-plugins-${package_version}.zip">
+	  <zip destfile="${release.dir}/dita4publishers-toolkit-plugins-${package_version}-ot-${ot-version}.zip">
       <fileset dir="${plugin.dist}">
         <include name="*.txt"/>
       	<include name="*/**"/>
@@ -587,7 +621,7 @@
   
   <target name="package-html5-plugins" depends="dist-init, dist-html5-toolkit-plugins"
      description="Creates an HTML5-only distribution package">
-    <zip destfile="${package.dist}/dita4publishers-html5-toolkit-plugins-${package_version}.zip">
+    <zip destfile="${release.dir}/dita4publishers-html5-toolkit-plugins-${package_version}-ot-${ot-version}.zip">
       <fileset dir="${plugin.dist}">
         <include name="*.txt"/>
         <include name="*/**"/>
@@ -597,19 +631,43 @@
 	
   <target name="package-epub-plugins" depends="dist-init, dist-epub-toolkit-plugins"
      description="Creates an EPUB-only distribution package">
-    <zip destfile="${package.dist}/dita4publishers-epub-toolkit-plugins-${package_version}.zip">
+    <zip destfile="${release.dir}/dita4publishers-epub-toolkit-plugins-${package_version}-ot-${ot-version}.zip">
       <fileset dir="${plugin.dist}">
         <include name="*/**"/>
       </fileset>
     </zip>
   </target>
-		
+  
+  <target name="package-all-plugins" depends="make-plugin-packages"
+    description="Make all the plugin packages for release on GitHub"
+    >
+    <!-- Defining a better name for older make-plugin-packages target -->
+  </target>
+  
+  <target name="make-plugin-packages"
+    description="Make all the plugin packages for release on GitHub"
+    >
+    <delete dir="${release.dir}" includeEmptyDirs="true" failonerror="false">
+      <include name="**/*"/>
+    </delete>
+    
+    <!-- Each target clears and uses the dist directory, so have to call
+         them rather than using depends. 
+      -->
+    <antcall target="package-epub-plugins"/>
+    <antcall target="package-html5-plugins"/>
+    <antcall target="package-word2dita-plugins"/>
+    <antcall target="package-vocabulary-plugins"/>
+    <antcall target="package-toolkit-plugins"/>
+    <antcall target="package-dita2indesign-toolkit-plugins"/>
+  </target>
+
+  <!-- RC28: Removed package-api-and-tools as those are not longer maintained -->
 	<target name="package-delivery" 
 		depends="
 		dist-init, 
 		package-toolkit-plugins, 
     package-editing-templates, 
-		package-api-and-tools,
 	  build-d4p-user-guide,
 		dist-sample-data, 
 		dist-license-info,
@@ -630,7 +688,7 @@
       </fileset>
     </copy>
     -->
-		<zip destfile="${dist}/${package.zip.base}-${package_version}.zip">
+		<zip destfile="${release.dir}/${package.zip.base}-${package_version}-ot-${ot-version}.zip">
 			<fileset dir="${package.dist}" >
 			</fileset>
       <fileset dir="${dist}" >
@@ -648,29 +706,41 @@
 	
 	<target name="epub-d4p-user-guide">
 		<property name="pub.name" value="d4p-users-guide"/>
-		<property name="root.map" location="${docs.dir}/user_docs/${pub.name}.ditamap"/>
+		<property name="root.map" location="${docs.dir}/${pub.name}.ditamap"/>
 		<property name="output.dir" location="${build}/docs"/>
-
+	  <property name="temp.dir" location="${basedir}/temp/${pub.name}/epub" />
+	  
 		<delete dir="${output.dir}" failonerror="false">
 			<include name="${pub.name}.epub"/>
 		</delete>
 
-		<ant antfile="${dita-ot-dir}/build.xml" 
-					dir="${dita-ot-dir}"
-					
-					>
-			<property name="args.input" location="${root.map}"/>
-      <property name="transtype" value="epub"/>
-			<property name="args.outext" value="html"/>
-			<property name="dita.dir" location="${dita-ot-dir}"/>
-			<property name="dita.temp.dir" location="${basedir}/temp/${pub.name}/epub"/>
-			<property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
-			<property name="output.dir" location="${output.dir}"/>
-			<property name="args.copycss" value="yes"/>
-			<property name="epub.exclude.auto.rellinks" value="true"/>
-			<property name="generate.copy.outer" value="2"/>
-			<property name="html2.generate.index" value="true"/>
-		</ant>		
+	  <exec taskname="dita-cmd" executable="${dita-ot-dir}/bin/dita" osfamily="unix" failonerror="true">
+	    <arg value="--format"/>
+	    <arg value="epub"/>
+	    <arg value="--input"/>
+	    <arg value="${root.map}"/>
+	    <arg value="--filter"/>
+	    <arg value="${docs.dir}/ditaval/epub-only.ditaval"/>
+	    <arg value="--temp"/>
+	    <arg value="${temp.dir}"/>
+	    <arg value="-output"/>
+	    <arg value="${output.dir}"/>
+	    <arg value="--verbose"/>
+	    <arg value="--clean.temp"/>
+	    <arg value="no"/>
+	    <arg value="-Dargs.copycss"/>
+	    <arg value="yes"/>
+	    <arg value="-Depub.exclude.auto.rellinks"/>
+	    <arg value="true"/>
+	    <arg value="-Dgenerate.copy.outer"/>
+	    <arg value="3"/>
+	    <arg value="-Dhtml2.generate.index"/>
+	    <arg value="true"/>
+	    <arg value="-Dimages.output.dir"/>
+	    <arg value="images"/>
+	    <arg value="-Depub.pubid.uri.stub"/>
+	    <arg value="https://dita4publishers.org"/>
+	  </exec>
 		
 		<antcall target="post-transform-cleanup-d4p-user-guide">
 			<param name="pub.name" value="${pub.name}"/>
@@ -678,60 +748,99 @@
     </antcall>
 	</target>
 	
-  <target name="html-d4p-user-guide" 
-  	description="Generate HTML for D4P User's Guide">
+  <target name="kindle-d4p-user-guide">
     <property name="pub.name" value="d4p-users-guide"/>
-    <property name="root.map" location="${docs.dir}/user_docs/${pub.name}.ditamap"/>
-    <property name="output.dir" location="${build}/docs/html/${pub.name}"/>
-
-    <ant antfile="${dita-ot-dir}/build.xml" 
-          dir="${dita-ot-dir}"
-          target="dita2html2"
-          
-          >
-      <property name="args.input" location="${root.map}"/>
-      <property name="args.outext" value="html"/>
-      <property name="dita.dir" location="${dita-ot-dir}"/>
-      <property name="args.xhtml.toc" value="index"/>
-      <property name="args.hdf" value="${docs.dir}/user_docs/${pub.name}/static-html/topic-header-html.html"/>
-      <property name="args.ftr" value="${docs.dir}/user_docs/${pub.name}/static-html/topic-footer-html.html"/>
-      <property name="dita.temp.dir" location="${basedir}/temp/${pub.name}/html"/>
-      <property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
-      <property name="output.dir" location="${output.dir}"/>
-    	<property name="html2.generate.dynamic.toc" value="true"/>
-    </ant>    
-  	
+    <property name="root.map" location="${docs.dir}/${pub.name}.ditamap"/>
+    
+    <property name="output.dir" location="${build}/docs"/>
+    
+    <delete failonerror="false">
+      <fileset dir="${output.dir}">
+        <include name="${pub.name}.mobi"/>
+      </fileset>
+    </delete>
+    
+    <exec taskname="dita-cmd" executable="${dita-ot-dir}/bin/dita" osfamily="unix" failonerror="true">
+      <arg value="--format"/>
+      <arg value="kindle"/>
+      <arg value="--input"/>
+      <arg value="${root.map}"/>
+      <arg value="--filter"/>
+      <arg value="${docs.dir}/ditaval/epub-only.ditaval"/>
+      <arg value="--temp"/>
+      <arg value="${basedir}/temp/${pub.name}/kindle"/>
+      <arg value="-output"/>
+      <arg value="${output.dir}"/>
+      <arg value="--verbose"/>
+      <arg value="--clean.temp"/>
+      <arg value="no"/>
+      <arg value="-Dargs.outext"/>
+      <arg value="xhtml"/>
+      <arg value="-Dargs.copycss"/>
+      <arg value="yes"/>
+      <arg value="-Depub.exclude.auto.rellinks"/>
+      <arg value="true"/>
+      <arg value="-Dgenerate.copy.outer"/>
+      <arg value="3"/>
+      <arg value="-Dhtml2.generate.index"/>
+      <arg value="true"/>
+      <arg value="-Dimages.output.dir"/>
+      <arg value="images"/>
+      <arg value="kindlegen.executable"/> 
+      <arg value="${kindlepreview.executable}"/>
+    </exec>
+    
+    <antcall target="post-transform-cleanup-d4p-user-guide">
+      <param name="pub.name" value="${pub.name}"/>
+      <param name="output.dir" location="${output.dir}"/>
+    </antcall>
+    
   </target>
   
   <target name="html5-d4p-user-guide" description="Generate HTML5 for D4P User's Guide">
     <property name="pub.name" value="d4p-users-guide"/>
-    <property name="root.map" location="${docs.dir}/user_docs/${pub.name}.ditamap"/>
+    <property name="root.map" location="${docs.dir}/${pub.name}.ditamap"/>
     <property name="output.dir" location="${build}/docs/html5/${pub.name}"/>
 
-    <ant antfile="${dita-ot-dir}/build.xml" 
-          dir="${dita-ot-dir}"
-          target="dita2html5"
-          
-          >
-      <property name="args.input" location="${root.map}"/>
-      <property name="args.outext" value="html"/>
-      <property name="args.copycss" value="yes"/>
-    	<property name="args.css" location="/${basedir}/src/css/d4p-docs-html5.css"/>
-    	<property name="args.csspath" value="css"/>
-    	<property name="args.cssroot" value="css"/>
-    	<property name="args.hide.parent.link" value="yes"/>
-    	<property name="d4p.html5.json.vars.file" location="${output.dir}/json.vars"/>
-      <property name="generate.copy.outer" value="2"/>
-      <property name="outer.control" value="quiet"/>
-      <property name="dita.dir" location="${dita-ot-dir}"/>
-      <property name="args.xhtml.toc" value="index"/>
-      <property name="args.hdf" value="${docs.dir}/user_docs/${pub.name}/static-html/topic-header-html.html"/>
-      <property name="args.ftr" value="${docs.dir}/user_docs/${pub.name}/static-html/topic-footer-html.html"/>
-      <property name="dita.temp.dir" location="${basedir}/temp/${pub.name}/html5"/>
-      <property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
-      <property name="output.dir" location="${output.dir}"/>
-    	<property name="html2.generate.dynamic.toc" value="true"/>
-    </ant>    
+    <exec taskname="dita-cmd" executable="${dita-ot-dir}/bin/dita" osfamily="unix" failonerror="true">
+      <arg value="--format"/>
+      <arg value="d4p-html5"/>
+      <arg value="--input"/>
+      <arg value="${root.map}"/>
+      <arg value="--temp"/>
+      <arg value="${basedir}/temp/${pub.name}/html5"/>
+      <arg value="-output"/>
+      <arg value="${output.dir}"/>
+      <arg value="--verbose"/>
+      <arg value="--clean.temp"/>
+      <arg value="yes"/>
+      <arg value="-Dargs.outext"/>
+      <arg value="html"/>
+      <arg value="-Dargs.copycss"/>
+      <arg value="yes"/>
+      <arg value="-Dargs.css"/>
+      <arg value="/${basedir}/src/css/d4p-docs-html5.css"/>
+      <arg value="-Dargs.hide.parent.link"/>
+      <arg value="yes"/>
+      <arg value="-Dd4p.html5.json.vars.file"/>
+      <arg value="${output.dir}/json.vars"/>
+      <arg value="-Douter.control"/>
+      <arg value="quiet"/>
+      <arg value="-Ddita.dir"/>
+      <arg value="${dita-ot-dir}"/>
+      <arg value="-Dargs.xhtml.toc"/>
+      <arg value="index"/>
+      <arg value="-Dargs.hdf"/>
+      <arg value="${docs.dir}/user_docs/${pub.name}/static-html/topic-header-html.html"/>
+      <arg value="-Dargs.ftr"/>
+      <arg value="${docs.dir}/user_docs/${pub.name}/static-html/topic-footer-html.html"/>
+      <arg value="-Dclean.temp"/>
+      <arg value="true"/>
+      <arg value="-Dhtml2.generate.dynamic.toc"/>
+      <arg value="true"/>
+      <arg value="-Dhtml2.generate.index"/>
+      <arg value="true"/>
+    </exec>    
   	
   </target>
   
@@ -747,47 +856,9 @@
 		</delete>
 	</target>
 	
-	<target name="kindle-d4p-user-guide">
-		<property name="pub.name" value="d4p-users-guide.ditamap"/>
-		<property name="root.map" location="${docs.dir}/user_docs/${pub.name}"/>
-
-		<property name="output.dir" location="${build}/docs"/>
-
-		<delete failonerror="false">
-			<fileset dir="${output.dir}">
-				<include name="${pub.name}.mobi"/>
-			</fileset>
-		</delete>
-
-		<ant antfile="${dita-ot-dir}/build.xml"
-			dir="${dita-ot-dir}"
-			target="dita2kindle"
-			
-			>
-			<property name="args.input" location="${root.map}"/>
-      <property name="transtype" value="kindle"/>
-			<property name="args.outext" value="html"/>
-			<property name="dita.dir" location="${dita-ot-dir}"/>
-			<property name="dita.temp.dir" location="${basedir}/temp/${pub.name}/kindle"/>
-			<property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
-			<property name="output.dir" location="${output.dir}"/>
-			<property name="kindlegen.executable" location="${kindlegen.executable}"/>
-			<property name="args.copycss" value="yes"/>
-			<property name="epub.exclude.auto.rellinks" value="true"/>
-			<property name="generate.copy.outer" value="2"/>
-			<property name="html2.generate.index" value="true"/>
-	  </ant>
-		
-		<antcall target="post-transform-cleanup-d4p-user-guide">
-			<param name="pub.name" value="${pub.name}"/>
-			<param name="output.dir" location="${output.dir}"/>
-	  </antcall>
-
-	</target>
-	
 	<target name="pdf-d4p-user-guide" description="Build the PDF for the D4P user's guide">
 		<property name="pub.name" value="d4p-users-guide.ditamap"/>
-		<property name="root.map" location="${docs.dir}/user_docs/${pub.name}"/>
+		<property name="root.map" location="${docs.dir}/${pub.name}"/>
 		<property name="output.dir" location="${build}/docs"/>
 
 		<delete failonerror="false">
@@ -795,17 +866,24 @@
 				<include name="${pub.name}.pdf"/>
 			</fileset>
 		</delete>
-		<ant antfile="${dita-ot-dir}/build.xml"
-			>
-			<property name="pdf.formatter" value="ah"/>
-      <property name="args.input"  location="${root.map}"/>
-      <property name="args.draft" value="${draft}"/>
-      <property name="output.dir"  value="${output.dir}"/>
-      <property name="dita.temp.dir" value="${basedir}/temp/${pub.name}/pdf"/>
-      <property name="transtype"   value="pdf2"/>
-      <property name="clean.temp" value="yes"/>
-		</ant>
-		
+	  <!-- FIXME: PDF generation does not produce good results with OT 3.6.1 -->
+	  <exec taskname="dita-cmd" executable="${dita-ot-dir}/bin/dita" osfamily="unix" failonerror="true">
+	    <arg value="--format"/>
+	    <arg value="pdf2"/>
+	    <arg value="--input"/>
+	    <arg value="${root.map}"/>
+	    <arg value="--temp"/>
+	    <arg value="${basedir}/temp/${pub.name}/pdf"/>
+	    <arg value="-output"/>
+	    <arg value="${output.dir}"/>
+	    <arg value="--verbose"/>
+	    <arg value="--clean.temp"/>
+	    <arg value="no"/>
+	    <arg value="-Daxf.path"/>
+	    <arg value="${axf.path}"/>
+	    <arg value="-Dpdf.formatter"/>
+	    <arg value="ah"/>
+	  </exec>
 		<antcall target="post-transform-cleanup-d4p-user-guide">
 			<param name="pub.name" value="${pub.name}"/>
 			<param name="output.dir" location="${output.dir}"/>
@@ -833,10 +911,10 @@
 		
 	<target name="build-d4p-user-guide" 
 	  description="Generates all the deliverable forms of the D4P User Guide">
-		<property name="pub.name" value="d4p-users-guide.ditamap"/>
-		<property name="root.map" location="${docs.dir}/user_docs/${pub.name}"/>
+		<property name="pub.name" value="d4p-users-guide"/>
+		<property name="root.map" location="${docs.dir}/${pub.name}.ditamap"/>
 		
-    <replace file="${docs.dir}/user_docs/d4p-users-guide.ditamap"
+    <replace file="${root.map}"
       propertyfile="${basedir}/build.number"
       >
       <replacefilter
@@ -849,11 +927,12 @@
       />
     </replace>
 
-
-    <antcall target="epub-d4p-user-guide"/>
-		<antcall target="kindle-d4p-user-guide"/>
+	  <antcall target="html5-d4p-user-guide"/>
+	  <antcall target="epub-d4p-user-guide"/>
+		<antcall target="kindle-d4p-user-guide"/>	  
 		<!-- <antcall target="indesign-d4p-user-guide"/> -->
-    <antcall target="pdf-d4p-user-guide"/>
+	  <!-- NOTE: current PDF2 transform does not produce good FO from the D4P User Guide so just removing this for now -->
+<!--    <antcall target="pdf-d4p-user-guide"/>-->
 	</target>
 	
 	<target name="generate-epubs-for-samples" depends="epub-wizard-of-oz, epub-shakespear-plays"
@@ -956,21 +1035,22 @@
       <fileset dir="${epubTemp}"  includes="*/**"/>
     </delete>
 
-		<ant antfile="${dita-ot-dir}/build.xml"
-			dir="${dita-ot-dir}"
-			target="dita2epub"
-			
-			>
-			<property name="args.input" location="${sampleRootDir}/${mapname}/${mapname}.ditamap"/>
-      <property name="transtype" value="dita2epub"/>
-			<property name="args.outext" value="html"/>
-			<property name="args.xhtml.toc" value="index"/>
-			<property name="dita.dir" location="${dita-ot-dir}"/>
-			<property name="dita.temp.dir" location="${temp}/dita-temp"/>
-			<property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
-			<property name="output.dir" location="${epubBuild}"/>
-	  </ant>
-
+	  <exec taskname="dita-cmd" executable="${dita-ot-dir}/bin/dita" osfamily="unix" failonerror="true">
+	    <arg value="--format"/>
+	    <arg value="epub"/>
+	    <arg value="--input"/>
+	    <arg value="${sampleRootDir}/${mapname}/${mapname}.ditamap"/>
+	    <arg value="--temp"/>
+	    <arg value="${temp}/dita-temp"/>
+	    <arg value="-output"/>
+	    <arg value="${epubBuild}"/>
+	    <arg value="--verbose"/>
+	    <arg value="--clean.temp"/>
+	    <arg value="yes"/>
+	    <arg value="-Dargs.copycss"/>
+	    <arg value="yes"/>
+	  </exec>
+	  
 	</target>
 
 	<target name="kindle-map">
@@ -983,51 +1063,24 @@
       <fileset dir="${kindleTemp}"  includes="*/**"/>
     </delete>
 
-		<ant antfile="${dita-ot-dir}/build.xml"
-			dir="${dita-ot-dir}"
-			target="dita2kindle"
-			
-			>
-			<property name="args.input" location="${sampleRootDir}/${mapname}/${mapname}.ditamap"/>
-      <property name="transtype" value="dita2kindle"/>
-			<property name="args.outext" value="html"/>
-			<property name="args.xhtml.toc" value="index"/>
-			<property name="dita.dir" location="${dita-ot-dir}"/>
-			<property name="dita.temp.dir" location="${temp}/dita-temp"/>
-			<property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
-			<property name="output.dir" location="${kindleBuild}"/>
-	  </ant>
-
+	  <exec taskname="dita-cmd" executable="${dita-ot-dir}/bin/dita" osfamily="unix" failonerror="true">
+	    <arg value="--format"/>
+	    <arg value="kindle"/>
+	    <arg value="--input"/>
+	    <arg value="${sampleRootDir}/${mapname}/${mapname}.ditamap"/>
+	    <arg value="--temp"/>
+	    <arg value="${temp}/dita-temp"/>
+	    <arg value="-output"/>
+	    <arg value="${kindleBuild}"/>
+	    <arg value="--verbose"/>
+	    <arg value="--clean.temp"/>
+	    <arg value="yes"/>
+	    <arg value="-Dargs.copycss"/>
+	    <arg value="yes"/>
+	  </exec>
+	  
 	</target>
 
-	 <target name="init-web-site">
-	    <delete includeEmptyDirs="true" failonerror="false">
-	      <fileset dir="${website.build}"  includes="*/**"/>
-	    </delete>
-	</target>
-
-	 <target name="generate-web-site" depends="init-web-site, html-api-and-tools-docs" description="Generate Web site HTML">
- 	
-    <ant antfile="${dita-ot-dir}/build.xml"
-      dir="${dita-ot-dir}"
-      target="dita2xhtml"
-      
-      >
-      <property name="args.input" location="${docs}/website/dita4publishers.ditamap"/>
-      <property name="transtype" value="dita2xhtml"/>
-      <property name="args.outext" value="html"/>
-      <property name="args.xhtml.toc" value="toc"/>
-      <property name="dita.dir" location="${dita-ot-dir}"/>
-      <property name="dita.temp.dir" location="${temp}/dita-temp"/>
-      <property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
-      <property name="output.dir" location="${website.build}"/>
-    </ant>
- 	
- 	  <copy todir="${website.build}" >
- 	  	<fileset dir="${docs}/website/static-html" includes="index.html"/>
- 	  </copy>
-  </target>
-	
 	<target name="init-target" depends="init">
     <delete dir="${target.home}" failonerror="false"/>
     <mkdir dir="${target.home}"/>
@@ -1242,6 +1295,11 @@
     </jar>
   </target>
 	
+	<!-- NOTE: The D4P Java code is obsolete and out of date and not currently supported. The INX 
+	           libraries are not really useful any more.
+	           
+	           Not including this in the main package.
+	  -->
   <target name="package-api-and-tools" depends="init-target, jar-api, jar-tools, javadoc-api-and-tools">
   	<mkdir dir="${target.home}/d4p-api-and-tools"/>
   	<copy todir="${api-and-tools.target}/lib">

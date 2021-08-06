@@ -3,7 +3,7 @@
   PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
 <reference id="subsection">
     <title>subsection</title>
-    <shortdesc><!-- For future use --></shortdesc>
+    <shortdesc>A titled subsection within a chapter or other topic type.</shortdesc>
     <prolog>
         <metadata>
             <keywords>
@@ -16,10 +16,21 @@
     </prolog>
     <refbody>
         <refbodydiv outputclass="summary">
-          <section id="summary">A subsection represents a component within a publication. These may be nested as needed. As such, this allows enables creation of arbitrary hierarchies of titled divisions. For example, a chapter may have multiple subsections, whose titles will become wrapped in HTML &lt;h#&gt; elements in an HTML output depending on what level the subsection is. Subsections are useful for organizing content within chapters or articles. Subsections can only contain division, subsection, and sidebar topic types. </section>
+          <section
+        id="summary">
+        <p>A subsection represents a title component within a publication that contributes to the
+          main table of contents.</p>
+        <p>Subsections may be nested as needed. As such, they enable creation of arbitrary
+          hierarchies of titled divisions. For example, a chapter may have multiple subsections,
+          whose titles will become wrapped in HTML &lt;h#&gt; elements in an HTML output depending
+          on what level the subsection is. Subsections are useful for organizing content within
+          chapters or articles. Subsections can only contain division, subsection, and sidebar topic
+          types. </p>
+      </section>
       </refbodydiv>
         <refbodydiv outputclass="d4p">
-         <section id="d4p">This is a specialization of the base topic type and is recommended, in part, as a base for further specialization.</section>
+         <section
+        id="d4p"/>
       </refbodydiv>    	    
         <refbodydiv outputclass="contains">
          <section id="contains"/>

@@ -9,8 +9,7 @@
       <keywords>
         <indexterm>enumeration</indexterm>
         <indexterm>numbering</indexterm>
-        <indexterm>collected data<indexterm/></indexterm>
-        <indexterm></indexterm>
+        <indexterm>collected data</indexterm>
       </keywords>
     </metadata>
   </prolog>
@@ -21,8 +20,8 @@
       data needed to number things, generate navigation lists, resolved cross
       references, and so on. This includes all topics, figures and tables with
       titles, sections, examples, and all div-type elements
-      (<xmlelem>bodydiv</xmlelem>, <xmlelem>sectiondiv</xmlelem>,
-      <xmlelem>div</xmlelem>).</p>
+      (<xmlelement>bodydiv</xmlelement>, <xmlelement>sectiondiv</xmlelement>,
+      <xmlelement>div</xmlelement>).</p>
     <p>The XML structure of the enumeration data looks like
       this:<codeblock>&lt;mapdriven:collected-data xmlns:mapdriven="http://dita4publishers.org/mapdriven"
                           xmlns:index-terms="http://dita4publishers.org/index-terms"
@@ -50,7 +49,7 @@
     <b>&lt;/enum:enumerables></b>
     ...
 &lt;/mapdriven:collected-data></codeblock></p>
-    <p>The <xmlelem>enum:enumerables</xmlelem> reflects the hierarchical
+    <p>The <xmlelement>enum:enumerables</xmlelement> reflects the hierarchical
       structure of the publication. Each element reflects its DITA
       <xmlatt>class</xmlatt> value, the URI of the source document it came from,
       and its "source ID", which is a unique identifier for the element
@@ -85,7 +84,7 @@
       &lt;xsl:text>&amp;#xa0;&lt;/xsl:text>
     &lt;/span>
   &lt;/xsl:template></codeblock></p>
-    <p>Note that in this template, the usual <xmlelem>xsl:number</xmlelem>
+    <p>Note that in this template, the usual <xmlelement>xsl:number</xmlelement>
       facility is used to number the figure. Because the enumeration data
       reflects the entire publication you can number figures across the entire
       publication, as in this example. Because the enumeration data also

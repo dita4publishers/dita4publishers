@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pub-component-map PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:dtd:pub-component-map" "pub-component-map.dtd">
+<pub-component-map>
+  <title>Generating EPUBs Chapter</title>
+  <keydefs>
+  </keydefs>
+  <chapter
+    href="generating-epubs.xml">
+    <subsection
+      href="generating-epubs-from-oxygen.xml"/>
+    <subsection
+      href="generating-kindle-books-from-oxygen.xml"/>
+    <topicref
+      href="using-custom-css.xml"/>
+    <topicref
+      href="using_custom_javascript.dita"
+      keys="epub.using-custom-javascript"/>
+    <subsection
+      href="creating-cover-graphics.xml"
+      keys="epub.creating-cover-graphics"/>
+    <abbrevlist
+      href="creating-opf-metadata.xml"/>
+    <subsection
+      href="overriding-base-processing.xml"/>
+    <topicref href="embedding-fonts.xml"
+      keys="epub-embedding-fonts"/>
+    <subsection
+      href="epub-transtype-parameters-ref.xml"
+      keys="epub-transformation-parameters">
+      <topicref
+        href="reference/ant-parm-coverGraphicFile.xml"
+        keys="ant-param_cover.graphic.file paramref-cover-graphic-file"/>
+      <topicref
+        href="reference/ant-parm-epubtype.xml"
+        keys="parmref-d4p-epubtype ant-param-d4p-epubtype"/>
+      <topicref
+        href="reference/ant-parm-d4pMaxNavDepth.xml"
+        keys="ant-param_d4p.max.nav.depth"/>
+      <topicref
+        href="reference/ant-parm-d4pMaxTocDepth.xml"
+        keys="ant-param_d4p.max.toc-depth"/>
+      <topicref
+        href="reference/ant-parm-epubIncludeAutoRellinks.xml"/>
+      <topicref
+        href="reference/ant-parm-epub-copy-system-css.xml"
+        keys="paramref-epub-copy-system-css"/>
+      <topicref
+        href="reference/ant-parm-epub-font-manifest.xml"
+        keys="paramref-epub-font-manifest"/>
+      <topicref
+        href="reference/ant-parm-epub-font-output-dir.xml"
+        keys="paramref-epub-fonts-output-dir"/>
+      <topicref
+        href="reference/ant-parm-epub-javascript-dir.xml"
+        keys="ant-param_epub-javascript-dir paramref-epub-javascript-dir"/>
+      <topicref
+        href="reference/ant-parm-epub-javascript-file.xml"
+        keys="paramref-epub-javascript-file ant-param_epub-javascript-file"/>
+      <topicref
+        href="reference/ant-parm-epubPubidUriStub.xml"/>
+      <topicref
+        href="reference/ant-parm-d4p.obfuscate.fonts.xml"
+        keys="paramref-epub-obfuscate-fonts"/>
+      <topicref
+        href="reference/ant-parm-d4p.generate-css-font-rules.xml"
+        keys="paramref-epub-generate-css-font-rules"/>
+      <topicref
+        href="reference/ant-parm-epubTempDir.xml"/>
+      <topicref
+        href="reference/ant-parm-imagesOutputDir.xml"/>
+      <subsection
+        href="reference/ant-parm-kindleGenExecutable.xml"
+        keys="ant-param_kindleget-executable paramref-kindlegen-executable"/>
+      <topicref
+        href="reference/ant-parm-titleOnlyTopicClassSpec.xml"/>
+      <topicref
+        href="reference/ant-parm-titleOnlyTopicTitleClassSpec.xml"/>
+      <topicref
+        href="reference/ant-parm-topicsOutputDir.xml"/>
+    </subsection>
+  </chapter>
+</pub-component-map>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pub-component-map PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:dtd:pub-component-map" "pub-component-map.dtd">
+<pub-component-map>
+  <keydefs>
+  </keydefs>
+  <chapter href="tasks/plugin-installation.xml"
+    keys="installing-toolkit-plugins">
+    <subsection
+      href="epub-plugin/setting-up-kindlegen.xml"
+      keys="setting-up-kindlegen epub.setting-up-kindlegen"/>
+  </chapter>
+</pub-component-map>

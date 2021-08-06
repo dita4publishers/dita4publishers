@@ -7,25 +7,27 @@
     <metadata>
       <keywords>
         <indexterm>css<indexterm>custom</indexterm></indexterm>
+        <indexterm>built-in CSS</indexterm>
       </keywords>
     </metadata>
   </prolog>
  <conbody>
-    <note>At the moment, this mechanism only supports a single CSS file. A future enhancement will be to allow the copying of all the CSS files in a specified directory.</note>
+    <note>At the moment, this mechanism only supports a single CSS file. You can use extensions to
+      the copy graphics process to include additional resources in your EPUB, such as additional CSS
+      style sheets, Javascript scripts, branding graphics, and so on.</note>
    <p>The EPUB transformation type uses the same Ant parameters for CSS styles sheets as for the normal HTML transformation type. The difference is that you <i>must</i> copy the CSS files to the output since they need to be part of the EPUB package. Thus the <parmname>args.copycss</parmname> parameter is implicitly set to "yes" if you specify the <parmname>args.css</parmname> parameter.</p>
-    <p>Likewise, the parameter <parmname>args.csspath</parmname> is ignored because the EPUB processor controls how the CSS files are referenced in the generated HTML files.</p>
-    <p>You may specify the directory within the EPUB package to contain the CSS
-      files using the parameter <parmname
-      keyref="args.css.output.dir.refentry">args.css.output.dir</parmname>. By
-      default it is the same as the topic output directory (which by default is
-      "topics").</p>
+    <p>You may specify the directory within the EPUB package to contain the CSS files using the
+      regular XHTML parameter <parmname>args.csspath</parmname>. The value must be a path relative
+      to the root of the EPUB container, e.g. "css".</p>
     <p>The <parmname>args.css</parmname> parameter can be an absolute path to the CSS file or it can be a path relative to the value of the <parmname>args.cssroot</parmname> parameter.</p>
     <p>For example, if you have a custom CSS file <filepath>mystyle.css</filepath> in the directory <filepath>c:\projects\mydoc\css</filepath> and you want to use that CSS file in your EPUB you would specify the Ant parameter <parmname>args.css</parmname> with the value "c:\projects\mydoc\css\mystyle.css".</p>
     <p>If you have a common CSS source directory and you use different CSS files for different publications, you can specify both <parmname>args.cssroot</parmname> and <parmname>args.css</parmname> like so:<ul>
       <li><parmname>args.cssroot</parmname> as "c:\projects\mydoc\css"</li>
       <li><parmname>args.css</parmname> as "mystyle.css"</li>
       </ul></p>
-    <p>If you want your CSS somewhere other than the topics directory, specify the <parmname>css.output.dir</parmname> parameter to the desired directory name, e.g. "css".</p>
-    <p>The built-in CSS style sheets provided with the DITA Open Toolkit are always included in the EPUB in the CSS output directory and are always referenced in the HTML after any user-specified CSS style sheet.</p>
+    <p>The built-in CSS style sheets provided with the DITA Open Toolkit are always included in the
+      EPUB in the CSS output directory by default. You can omit the built-in CSS files by specifying
+      "false" for the <parmname keyref="paramref-epub-copy-system-css"
+        >epub.copy.system.css</parmname> parameter, which is true by default.</p>
  </conbody>
 </concept>

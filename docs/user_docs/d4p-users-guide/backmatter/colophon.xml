@@ -4,9 +4,7 @@
   id="topic-id">
   <title>Colophon</title>
   <body>
-    <p>This document uses the map, topic, and domain specializations of the DITA For Publishers project, <xref
-      href="http://www.dita4publishers.org"
-      scope="external"
-      format="html">www.dita4publishers.org</xref>. The various renderings are generated using the DITA Open Toolkit with extentions and customizations provided as part of the DITA For Publishers materials.</p>
+    <p>This document uses the map, topic, and domain specializations of the DITA For Publishers project, <xref keyref="website-d4p-org"
+/>. The various renderings are generated using the DITA Open Toolkit with extentions and customizations provided as part of the DITA For Publishers materials.</p>
   </body>
 </topic>

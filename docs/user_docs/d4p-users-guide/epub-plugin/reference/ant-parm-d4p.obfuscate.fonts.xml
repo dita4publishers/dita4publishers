@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference id="ref-epub.obfuscate.fonts">
+  <title>epub.obfuscate.fonts Ant parameter</title>
+  <shortdesc>Indicates whether or not to obfuscate fonts that are marked as obfuscated in the font
+    manifest used when generating the EPUB.</shortdesc>
+  <refbody>
+    <section>
+      <p>See <xref keyref="epub-embedding-fonts"/> and <xref
+          keyref="paramref-epub-font-manifest"/>.</p>
+    </section>
+    <section spectitle="Value">
+      <dl>
+        <dlentry>
+          <dt>true</dt>
+          <dd>Fonts marked for obfuscation will be obfuscated when stored in the generated EPUB
+            package.</dd>
+        </dlentry>
+        <dlentry>
+          <dt>false</dt>
+          <dd>No fonts will be obfuscated.</dd>
+        </dlentry>
+      </dl>
+    </section>
+    <section
+      spectitle="Default">
+      <p>"false".</p>
+    </section>
+  </refbody>
+</reference>

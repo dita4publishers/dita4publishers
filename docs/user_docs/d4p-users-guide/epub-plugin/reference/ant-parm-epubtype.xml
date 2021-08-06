@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:reference" "urn:pubid:dita4publishers.org:doctypes:dita:reference">
+<reference id="ref-d4p.epubtype">
+  <title>d4p.epubtype Ant parameter</title>
+  <shortdesc>Specifies the type of EPUB to generate: EPUB2, EPUB3, or dual EPUB2/3.</shortdesc>
+  <refbody>
+    <section spectitle="Value">
+      <dl>
+        <dlentry>
+          <dt>epub2</dt>
+          <dd>Generates a pure EPUB2 conforming to the EPUB 2.x specification.</dd>
+        </dlentry>
+        <dlentry>
+          <dt>epub3</dt>
+          <dd>Generates a pure EPUB3 conforming to the EPUB 3.x specification, with no EPUB2
+            components.</dd>
+        </dlentry>
+        <dlentry>
+          <dt>dual</dt>
+          <dd>Generates a dual EPUB2/3 that conforms to the EPUB 3.x specification but includes
+            EPUB2 components and properties so that EPUB2-only readers can read it.</dd>
+        </dlentry>
+      </dl>
+    </section>
+    <section
+      spectitle="Default">
+      <p>"dual".</p>
+    </section>
+  </refbody>
+</reference>

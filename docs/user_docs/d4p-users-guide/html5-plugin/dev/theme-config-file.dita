@@ -24,10 +24,7 @@
      <cmd>Add the root element <apiname>&lt;html5&gt;</apiname></cmd>
      <stepresult>
       <p>Your document should looks like:
-      <codeblock>
-       <data-about>
-        <data name="language" value="xml"/>
-       </data-about>
+      <codeblock><data name="language" value="xml"/>
         &lt;?xml version="1.0" encoding="utf-8"?&gt;
         &lt;html5&gt;
         
@@ -58,10 +55,7 @@
      </info>
      <stepxmp>
       <p>Example:</p>
-      <codeblock>
-       <data-about>
-        <data name="language" value="xml"></data>
-       </data-about>
+      <codeblock><data name="language" value="xml"></data>
   &lt;tag&gt;
     &lt;name&gt;link&lt;/name&gt;
     &lt;output&gt;yes&lt;/output&gt;
@@ -82,10 +76,7 @@
   &lt;/tag&gt;
       </codeblock>
       <p>Will result in:</p>
-      <codeblock>
-       <data-about>
-        <data name="language" value="xml"></data>
-       </data-about>
+      <codeblock><data name="language" value="xml"></data>
         &lt;link 
          rel="stylesheet" 
          type="text/css" 

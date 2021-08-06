@@ -28,10 +28,8 @@
           <p>The trick here is knowing how to access the "ant" command. If you open a command window, type "ant" and get something like<codeblock>Buildfile: build.xml does not exist! 
 Build failed </codeblock></p>
           <p>Then you are good to go.</p>
-          <p>Otherwise, you have to either find where Ant is on your system or download Ant from <xref
-            href="http://ant.apache.org"
-            format="html"
-            scope="external">ant.apache.org</xref>.</p>
+          <p>Otherwise, you have to either find where Ant is on your system or download Ant from <xref keyref="website-apache-org"
+/>.</p>
           <p>If you are using the full install of the DITA Open Toolkit then ant is in <filepath>tools/ant/bin</filepath> below the Toolkit's root directory.</p>
           <p>If you have the OxygenXML editor installed then ant is in <filepath>tools/ant/bin</filepath> below Oxygen's installation directory (e.g., <filepath>c:\Program Files\Oxygen XML\tools\ant\bin</filepath> on Windows).</p>
           <p>Assuming you have ant in your Toolkit, you can run it like so:<ol>
