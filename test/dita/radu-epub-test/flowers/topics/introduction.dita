@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="introduction">
+    <title>Introduction</title>
+  <?target altceva a="b"?>
+    <shortdesc>With just a little bit of care and preparation, any<data/> flower garden can be a
+    vibrantly colored environment.</shortdesc>
+    <body>
+        <p>With just a little bit of care and preparation, any flower garden can be a vibrantly
+            colored environment. Flowers can be selected for specific blooming seasons, colors and
+            shapes. Both annual and <xref keyref="perennial" format="dita">perennial</xref>
+            flower gardens can be planted depending on climate and specific needs.</p>
+    </body> 
+</topic>
