@@ -30,6 +30,33 @@
       <title>Optional Parameters</title>
       <parml>
         <plentry>
+          <pt>captureFormatOverrides</pt>
+          <pd>
+            <p>Default is "false" (do not capture format overrides).</p>
+            <p>When set to "true", turns on capturing of format overrides for paragraphs and runs.
+              In the SWPX the format overrides are captured as markup within the
+                <xmlelement>p</xmlelement> or <xmlelement>run</xmlelement> element to which the
+              overrides apply. Each override is captured as a name/value pair where the name is the
+              Word property name and the value is the value from the Word document (with
+              measurements converted to points) For properties where in Word a single element has
+              multiple properties, the name is the main element and the property separated by "-",
+              for example, "indent-left" from the DOCX <codeph>&lt;w:ind w:left="1440"/></codeph>
+              markup. </p>
+            <p>For example, a run with a highlight of "yellow" set in Word would have the following
+              the override property in the simple word processing XML:</p>
+            <codeblock id="codeblock_ijs_xkz_5rb">&lt;formatProperty name="highlight" value="yellow"/></codeblock>
+            <p>In the DITA generation phase, the default output for format overrides is to add
+              tokens to <xmlatt>outputclass</xmlatt> where each token is
+                "<varname>name</varname>_<varname>value</varname>". Using XSLT extensions or
+              overrides you change how format overrides are handled, for example, to capture them
+              using <xmlelement>data</xmlelement> elements or processing instructions.</p>
+            <p>For runs that have format overrides but no other style mapping, the style name
+              "FormatOverride" is applied to the run. You can map this character style in your
+              style-to-tag map. By default it becomes a <xmlelement>ph</xmlelement> element with an
+                <xmlatt>outputclass</xmlatt> that reflects any overrides.</p>
+          </pd>
+        </plentry>
+        <plentry>
           <pt>chartsAsTables</pt>
           <pd>When set to "true", treat embedded Word charts as tables. Puts the data for the chart into a DITA table. Default is "false" (charts will not be reflected in the DITA result).</pd>
         </plentry>
