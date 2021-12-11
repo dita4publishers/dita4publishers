@@ -33,11 +33,6 @@
           <pd>Specifies the absolute path of of the directory to contain the generated output.</pd>
         </plentry>
         <plentry>
-          <pt>w2d.capture.format.overrides</pt>
-          <pd>When set to "true" turns on capturing of format overrides for paragraphs and runs. See
-            the <parmname>captureFormatOverrides</parmname> XSLT parameter.</pd>
-        </plentry>
-        <plentry>
           <pt>w2d.clean.output.dir</pt>
           <pd>Set to "true" to have the output directory cleaned out before
             running the transform. The default is "false".</pd>
@@ -103,6 +98,30 @@
               <xmlelement>mapProperties</xmlelement> or <xmlelement>topicProperties</xmlelement> in a
             style-to-tag map, that value will override the <parmname>w2d.language</parmname>
             value.</pd>
+        </plentry>
+        <plentry>
+          <pt>w2d.put.format.overrides.in.base.att</pt>
+          <pd>When set to true, puts any paragraph, run, or table format overrides in
+              <xmlatt>base</xmlatt>. See <xref
+              keyref="w2d.xstl-transformation-parameters/putFormatOverridesInBaseAtt"/>.</pd>
+        </plentry>
+        <plentry>
+          <pt>w2d.put.format.overrides.in.outputclass</pt>
+          <pd>When set to true, puts the paragraph, run, or table format overrides in
+              <xmlatt>outputclass</xmlatt>. See <xref
+              keyref="w2d.xstl-transformation-parameters/putStyleNameInOutputclass"/>.</pd>
+        </plentry>
+        <plentry>
+          <pt>w2d.put.style.name.in.base.att</pt>
+          <pd>When set to true, puts the paragraph, run, or table style name in
+              <xmlatt>base</xmlatt>. See <xref
+              keyref="w2d.xstl-transformation-parameters/putStyleNameInBaseAtt"/>.</pd>
+        </plentry>
+        <plentry>
+          <pt>w2d.put.style.name.in.outputclass</pt>
+          <pd>When set to true, puts the paragraph, run, or table style name in
+              <xmlatt>outputclass</xmlatt>. See <xref
+              keyref="w2d.xstl-transformation-parameters/putStyleNameInOutputclass"/>.</pd>
         </plentry>
         <plentry>
           <pt>w2d.root.map.name</pt>
