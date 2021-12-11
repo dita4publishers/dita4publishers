@@ -62,7 +62,7 @@
 &lt;/project></codeblock></p>
     <p>The text in bold is what you would change to reflect your documents.</p>
     <p>Note the initial <xmlelement>property</xmlelement> elements that import a file named <filepath>build.properties</filepath>. This approach lets you put this script anywhere and use the build.properties file to set the location of your Toolkit, defined in the Ant property <varname>dita-ot-dir</varname>. (See <xref 
-      keyref="w2d-getting-started"
+      keyref="getting-started"
       /> for more details on this one-time setup task.)</p>
     <p>If you name this file <filepath>build.xml</filepath> in an appropriate directory (e.g., the same directory as the Word document), you can run this Ant script from the command line like so:<codeblock>c:\workspace\myworddoc\> <b>ant</b></codeblock></p>
     <p>You can also specify the Word document as a command-line parameter:<codeblock>c:\workspace\myworddoc\ > ant <b>-Dword.doc=c:/workspace/anotherworddoc/some-document.docx</b></codeblock></p>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pub-component-map PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:dtd:pub-component-map" "pub-component-map.dtd">
 <pub-component-map>
-  <part
-    href="transform-frameworks-part.xml">
-    <chapter-mapref href="../word2dita/word2dita-transform-chapter.ditamap"/>
-    <chapter-mapref href="../dita2indesign/dita-to-indesign-framework-chapter.ditamap"/>
+  <part href="transform-frameworks-part.xml">
+    <chapter-mapref href="../word2dita/word2dita-transform-chapter.ditamap" keyscope="w2d"/>
+    <chapter-mapref href="../dita2indesign/dita-to-indesign-framework-chapter.ditamap"
+      keyscope="d2indd"/>
   </part>
 </pub-component-map>
