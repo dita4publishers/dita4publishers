@@ -13,6 +13,6 @@
   </prolog>
  <conbody>
    <p>The Word-to-DITA transformation framework enables reliable generation of DITA maps and topics from styled Word documents. See <xref
-     keyref="usage-word2dita"/> for details. It can be used as a standalone XSLT transform or can be run against Word documents using the Open Toolkit.</p>
+     keyref="w2d.usage-word2dita"/> for details. It can be used as a standalone XSLT transform or can be run against Word documents using the Open Toolkit.</p>
  </conbody>
 </concept>
